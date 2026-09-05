@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Commande confirmée — Dealpick</title>
+<meta name="description" content="Code de retrait et détails du retrait.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="offres.html">
+      <img class="logo__mark" src="../assets/img/logo.svg" alt="" width="32" height="32">
+      Dealpick
+    </a>
+    <nav class="nav" aria-label="Navigation de l'application">
+      <ul>
+        <li><a href="offres.html">Offres</a></li>
+        <li><a href="compte.html">Mes commandes</a></li>
+        <li><a href="../index.html">Site</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="Changer de thème" title="Changer de thème">◐</button>
+      <a class="btn btn--ghost" href="compte.html">Mon compte</a>
+      <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Ouvrir le menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" data-mobile-nav hidden>
+  <ul>
+    <li><a href="offres.html">Offres</a></li>
+    <li><a href="compte.html">Mes commandes</a></li>
+    <li><a href="../index.html">Retour au site</a></li>
+  </ul>
+</div>
+
+<main id="main">
+  <section class="section section--tight">
+    <div class="container container--narrow">
+      <ol class="progress">
+        <li class="done">Offre</li>
+        <li class="done">Paiement</li>
+        <li aria-current="step">Confirmation</li>
+      </ol>
+
+      <h1>C'est réservé</h1>
+      <p class="lede">Ton panier t'attend. Montre ce code au commerçant pendant le créneau.</p>
+
+      <div class="pickup-code" style="margin: var(--space-6) 0">
+        <span class="pickup-code__label">Code de retrait</span>
+        <div class="pickup-code__value">7K4P</div>
+        <span class="pickup-code__label">Commande n° DP-2026-004182</span>
+      </div>
+
+      <div class="card">
+        <h3>Boulangerie Marchand</h3>
+        <p>12 rue de la République, Lyon 3e<br>
+           <strong>Aujourd'hui, 18h00 – 19h30</strong></p>
+        <div class="btn-row" style="margin-top: var(--space-4)">
+          <a class="btn btn--ghost" href="#">Itinéraire</a>
+          <a class="btn btn--ghost" href="#">Appeler le commerce</a>
+        </div>
+      </div>
+
+      <div class="hook" style="margin-top: var(--space-5)">
+        <strong>À brancher</strong>
+        Le code de retrait doit être <strong>généré côté serveur</strong> après
+        confirmation du paiement par webhook, et être à usage unique. Le commerçant le
+        valide depuis son interface, ce qui fait passer la commande au statut
+        <code>retiree</code>. Prévoir aussi l'envoi par e-mail et la notification push.
+      </div>
+
+      <p style="margin-top: var(--space-6)">
+        <a class="btn btn--primary" href="offres.html">Voir d'autres offres</a>
+        <a class="btn btn--ghost" href="compte.html">Mes commandes</a>
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="margin-top:0; border-top:0; padding-top:0">
+      <span>© 2026 Dealpick</span>
+      <span>
+        <a href="../legal/cgv.html">CGV</a> ·
+        <a href="../legal/confidentialite.html">Confidentialité</a> ·
+        <a href="../aide.html">Aide</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

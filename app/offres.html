@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Offres près de toi — Dealpick</title>
+<meta name="description" content="Les offres disponibles ce soir autour de toi.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="offres.html">
+      <img class="logo__mark" src="../assets/img/logo.svg" alt="" width="32" height="32">
+      Dealpick
+    </a>
+    <nav class="nav" aria-label="Navigation de l'application">
+      <ul>
+        <li><a href="offres.html">Offres</a></li>
+        <li><a href="compte.html">Mes commandes</a></li>
+        <li><a href="../index.html">Site</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="Changer de thème" title="Changer de thème">◐</button>
+      <a class="btn btn--ghost" href="compte.html">Mon compte</a>
+      <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Ouvrir le menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" data-mobile-nav hidden>
+  <ul>
+    <li><a href="offres.html">Offres</a></li>
+    <li><a href="compte.html">Mes commandes</a></li>
+    <li><a href="../index.html">Retour au site</a></li>
+  </ul>
+</div>
+
+<main id="main">
+  <section class="section section--tight">
+    <div class="container">
+      <span class="eyebrow">Lyon · 3e arrondissement</span>
+      <h1>Ce soir près de toi</h1>
+      <p class="lede">14 offres disponibles, à récupérer avant 21 h.</p>
+
+      <div class="hook" style="margin: var(--space-5) 0">
+        <strong>À brancher</strong>
+        Liste alimentée par <code>GET /api/offres?ville=&amp;lat=&amp;lng=&amp;categorie=</code>.
+        Trier par distance puis par fin de créneau. N'afficher que les offres au statut
+        <code>publiee</code> avec <code>quantiteRestante &gt; 0</code> et
+        <code>creneauFin &gt; now</code>.
+      </div>
+
+      <div class="filters" role="group" aria-label="Filtrer les offres">
+        <button class="filter-chip filter-chip--active" aria-pressed="true">Tout</button>
+        <button class="filter-chip" aria-pressed="false">Boulangerie</button>
+        <button class="filter-chip" aria-pressed="false">Restaurant</button>
+        <button class="filter-chip" aria-pressed="false">Épicerie</button>
+        <button class="filter-chip" aria-pressed="false">Fleurs</button>
+        <button class="filter-chip" aria-pressed="false">Moins de 5 €</button>
+      </div>
+
+      <ul class="offer-list">
+        <li><a class="offer" href="offre.html">
+          <span class="offer__thumb" aria-hidden="true">🥐</span>
+          <span class="offer__body">
+            <span class="offer__store">Boulangerie Marchand · 800 m</span>
+            <span class="offer__title">Panier surprise viennoiseries</span>
+            <span class="offer__meta">Retrait 18h00 – 19h30 · 3 restants</span>
+          </span>
+          <span class="offer__side">
+            <span class="badge badge--discount">−60 %</span>
+            <span class="offer__price">4,00 €</span>
+            <span class="offer__was">10,00 €</span>
+          </span>
+        </a></li>
+        <li><a class="offer" href="offre.html">
+          <span class="offer__thumb" aria-hidden="true">🍝</span>
+          <span class="offer__body">
+            <span class="offer__store">Trattoria Bello · 1,2 km</span>
+            <span class="offer__title">Part de lasagnes maison</span>
+            <span class="offer__meta">Retrait 21h00 – 22h00 · 5 restants</span>
+          </span>
+          <span class="offer__side">
+            <span class="badge badge--discount">−50 %</span>
+            <span class="offer__price">6,50 €</span>
+            <span class="offer__was">13,00 €</span>
+          </span>
+        </a></li>
+        <li><a class="offer" href="offre.html">
+          <span class="offer__thumb" aria-hidden="true">💐</span>
+          <span class="offer__body">
+            <span class="offer__store">Fleurs &amp; Co · 400 m</span>
+            <span class="offer__title">Bouquet de la veille</span>
+            <span class="offer__meta">Retrait 17h00 – 19h00 · 2 restants</span>
+          </span>
+          <span class="offer__side">
+            <span class="badge badge--money">Dernières</span>
+            <span class="offer__price">7,00 €</span>
+            <span class="offer__was">20,00 €</span>
+          </span>
+        </a></li>
+        <li><a class="offer" href="offre.html">
+          <span class="offer__thumb" aria-hidden="true">🧀</span>
+          <span class="offer__body">
+            <span class="offer__store">Épicerie du Cours · 950 m</span>
+            <span class="offer__title">Assortiment fromages du jour</span>
+            <span class="offer__meta">Retrait 19h00 – 20h00 · 1 restant</span>
+          </span>
+          <span class="offer__side">
+            <span class="badge badge--discount">−45 %</span>
+            <span class="offer__price">8,90 €</span>
+            <span class="offer__was">16,00 €</span>
+          </span>
+        </a></li>
+      </ul>
+
+      <div class="hook" style="margin-top: var(--space-6)">
+        <strong>État vide</strong>
+        Prévoir le cas « aucune offre » : c'est le plus fréquent en début de soirée et en
+        phase de lancement. Le composant <code>.empty</code> est prêt — proposer alors
+        d'activer une alerte plutôt que de laisser une page morte.
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="margin-top:0; border-top:0; padding-top:0">
+      <span>© 2026 Dealpick</span>
+      <span>
+        <a href="../legal/cgv.html">CGV</a> ·
+        <a href="../legal/confidentialite.html">Confidentialité</a> ·
+        <a href="../aide.html">Aide</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

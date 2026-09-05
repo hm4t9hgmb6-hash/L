@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panier surprise viennoiseries — Dealpick</title>
+<meta name="description" content="Détail de l'offre et réservation.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="offres.html">
+      <img class="logo__mark" src="../assets/img/logo.svg" alt="" width="32" height="32">
+      Dealpick
+    </a>
+    <nav class="nav" aria-label="Navigation de l'application">
+      <ul>
+        <li><a href="offres.html">Offres</a></li>
+        <li><a href="compte.html">Mes commandes</a></li>
+        <li><a href="../index.html">Site</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="Changer de thème" title="Changer de thème">◐</button>
+      <a class="btn btn--ghost" href="compte.html">Mon compte</a>
+      <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Ouvrir le menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" data-mobile-nav hidden>
+  <ul>
+    <li><a href="offres.html">Offres</a></li>
+    <li><a href="compte.html">Mes commandes</a></li>
+    <li><a href="../index.html">Retour au site</a></li>
+  </ul>
+</div>
+
+<main id="main">
+  <section class="section section--tight">
+    <div class="container container--narrow">
+      <p><a href="offres.html">← Retour aux offres</a></p>
+
+      <span class="eyebrow">Boulangerie Marchand · 800 m</span>
+      <h1>Panier surprise viennoiseries</h1>
+
+      <div class="grid grid--2" style="margin-top: var(--space-5)">
+        <div class="card">
+          <h3>Le contenu</h3>
+          <p>Un assortiment de viennoiseries et de pains du jour, selon ce qui reste en
+             fin de service. Valeur en boutique : au moins 10 €.</p>
+          <p><strong>Catégorie :</strong> Boulangerie / pâtisserie</p>
+        </div>
+        <div class="card">
+          <h3>Le retrait</h3>
+          <p><strong>Aujourd'hui, 18h00 – 19h30</strong><br>
+             12 rue de la République, Lyon 3e</p>
+          <p>Présente ton code au comptoir. Rien à payer sur place.</p>
+        </div>
+      </div>
+
+      <div class="summary" style="margin-top: var(--space-6)">
+        <div class="summary__row">
+          <span>Prix unitaire</span>
+          <span><strong>4,00 €</strong> <span class="offer__was">10,00 €</span></span>
+        </div>
+        <div class="summary__row">
+          <span>Quantité <small style="color:var(--text-muted)">(3 disponibles)</small></span>
+          <span class="stepper">
+            <button type="button" aria-label="Retirer un panier">−</button>
+            <output aria-live="polite">1</output>
+            <button type="button" aria-label="Ajouter un panier">+</button>
+          </span>
+        </div>
+        <div class="summary__total">
+          <span>Total</span>
+          <span>4,00 €</span>
+        </div>
+        <a class="btn btn--primary btn--lg btn--block" href="paiement.html" style="margin-top: var(--space-5)">
+          Réserver et payer
+        </a>
+        <p style="margin-top: var(--space-3); font-size: var(--text-sm); color: var(--text-muted)">
+          Annulation gratuite jusqu'à 1 h avant le début du créneau.
+        </p>
+      </div>
+
+      <div class="hook" style="margin-top: var(--space-6)">
+        <strong>À brancher</strong>
+        <code>GET /api/offres/:id</code> pour la fiche. Le bouton appelle
+        <code>POST /api/reservations</code> qui doit, <em>côté serveur et de façon
+        atomique</em> : vérifier le stock, le décrémenter, créer la commande au statut
+        <code>en_attente_paiement</code> avec une expiration courte (10 min), puis créer
+        l'intention de paiement. Sans ce verrou serveur, deux clients peuvent réserver
+        le même dernier panier.
+      </div>
+
+      <div class="hook">
+        <strong>Allergènes</strong>
+        Zone d'information obligatoire pour l'alimentaire. À afficher ici, alimentée par
+        la fiche du commerçant.
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="margin-top:0; border-top:0; padding-top:0">
+      <span>© 2026 Dealpick</span>
+      <span>
+        <a href="../legal/cgv.html">CGV</a> ·
+        <a href="../legal/confidentialite.html">Confidentialité</a> ·
+        <a href="../aide.html">Aide</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

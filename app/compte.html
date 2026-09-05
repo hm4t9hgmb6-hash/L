@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mes commandes — Dealpick</title>
+<meta name="description" content="Commandes en cours et historique.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="offres.html">
+      <img class="logo__mark" src="../assets/img/logo.svg" alt="" width="32" height="32">
+      Dealpick
+    </a>
+    <nav class="nav" aria-label="Navigation de l'application">
+      <ul>
+        <li><a href="offres.html">Offres</a></li>
+        <li><a href="compte.html">Mes commandes</a></li>
+        <li><a href="../index.html">Site</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="Changer de thème" title="Changer de thème">◐</button>
+      <a class="btn btn--ghost" href="compte.html">Mon compte</a>
+      <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Ouvrir le menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" data-mobile-nav hidden>
+  <ul>
+    <li><a href="offres.html">Offres</a></li>
+    <li><a href="compte.html">Mes commandes</a></li>
+    <li><a href="../index.html">Retour au site</a></li>
+  </ul>
+</div>
+
+<main id="main">
+  <section class="section section--tight">
+    <div class="container container--narrow">
+      <h1>Mes commandes</h1>
+
+      <h2 style="margin-top: var(--space-6)">À récupérer</h2>
+      <ul class="offer-list">
+        <li><a class="offer" href="confirmation.html">
+          <span class="offer__thumb" aria-hidden="true">🥐</span>
+          <span class="offer__body">
+            <span class="offer__store">Boulangerie Marchand</span>
+            <span class="offer__title">Panier surprise viennoiseries</span>
+            <span class="offer__meta">Aujourd'hui 18h00 – 19h30 · code 7K4P</span>
+          </span>
+          <span class="offer__side">
+            <span class="badge badge--money">Payée</span>
+            <span class="offer__price">4,00 €</span>
+          </span>
+        </a></li>
+      </ul>
+
+      <h2 style="margin-top: var(--space-7)">Historique</h2>
+      <ul class="offer-list">
+        <li><a class="offer" href="#">
+          <span class="offer__thumb" aria-hidden="true">🍝</span>
+          <span class="offer__body">
+            <span class="offer__store">Trattoria Bello</span>
+            <span class="offer__title">Part de lasagnes maison</span>
+            <span class="offer__meta">Retirée le 3 septembre</span>
+          </span>
+          <span class="offer__side">
+            <span class="badge">Retirée</span>
+            <span class="offer__price">6,50 €</span>
+          </span>
+        </a></li>
+        <li><a class="offer" href="#">
+          <span class="offer__thumb" aria-hidden="true">🧀</span>
+          <span class="offer__body">
+            <span class="offer__store">Épicerie du Cours</span>
+            <span class="offer__title">Assortiment fromages</span>
+            <span class="offer__meta">Remboursée le 28 août — commerce fermé</span>
+          </span>
+          <span class="offer__side">
+            <span class="badge badge--discount">Remboursée</span>
+            <span class="offer__price">8,90 €</span>
+          </span>
+        </a></li>
+      </ul>
+
+      <div class="hook" style="margin-top: var(--space-6)">
+        <strong>À brancher</strong>
+        <code>GET /api/commandes</code> pour l'utilisateur connecté. Séparer les commandes
+        actives (statut <code>payee</code>, créneau à venir) de l'historique. Chaque ligne
+        doit permettre d'annuler tant que le délai le permet, et de signaler un problème
+        pendant 24 h après le créneau.
+      </div>
+
+      <div class="hook">
+        <strong>Facture</strong>
+        Un justificatif doit être disponible pour chaque commande payée. Il mentionne le
+        commerçant comme vendeur, pas Dealpick — c'est la conséquence directe du modèle
+        d'encaissement pour compte de tiers.
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="margin-top:0; border-top:0; padding-top:0">
+      <span>© 2026 Dealpick</span>
+      <span>
+        <a href="../legal/cgv.html">CGV</a> ·
+        <a href="../legal/confidentialite.html">Confidentialité</a> ·
+        <a href="../aide.html">Aide</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

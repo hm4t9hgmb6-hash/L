@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paiement — Dealpick</title>
+<meta name="description" content="Récapitulatif et paiement de la commande.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="offres.html">
+      <img class="logo__mark" src="../assets/img/logo.svg" alt="" width="32" height="32">
+      Dealpick
+    </a>
+    <nav class="nav" aria-label="Navigation de l'application">
+      <ul>
+        <li><a href="offres.html">Offres</a></li>
+        <li><a href="compte.html">Mes commandes</a></li>
+        <li><a href="../index.html">Site</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="Changer de thème" title="Changer de thème">◐</button>
+      <a class="btn btn--ghost" href="compte.html">Mon compte</a>
+      <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Ouvrir le menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" data-mobile-nav hidden>
+  <ul>
+    <li><a href="offres.html">Offres</a></li>
+    <li><a href="compte.html">Mes commandes</a></li>
+    <li><a href="../index.html">Retour au site</a></li>
+  </ul>
+</div>
+
+<main id="main">
+  <section class="section section--tight">
+    <div class="container container--narrow">
+      <ol class="progress">
+        <li class="done">Offre</li>
+        <li aria-current="step">Paiement</li>
+        <li>Confirmation</li>
+      </ol>
+
+      <h1>Paiement</h1>
+
+      <div class="summary">
+        <div class="summary__row">
+          <span>Panier surprise viennoiseries<br>
+            <small style="color:var(--text-muted)">Boulangerie Marchand · retrait 18h00 – 19h30</small></span>
+          <span>4,00 €</span>
+        </div>
+        <div class="summary__row">
+          <span>Quantité</span>
+          <span>1</span>
+        </div>
+        <div class="summary__total">
+          <span>À payer</span>
+          <span>4,00 €</span>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: var(--space-5)">
+        <h3>Moyen de paiement</h3>
+        <div class="hook">
+          <strong>Emplacement du module de paiement</strong>
+          Monter ici le composant du prestataire (Stripe Payment Element, Mangopay,
+          Lemonway…). <em>Ne jamais</em> collecter les numéros de carte dans un champ
+          maison : le formulaire doit appartenir au prestataire, c'est ce qui maintient
+          le site hors du périmètre lourd de la conformité PCI-DSS.
+          <br><br>
+          Le paiement doit passer par une intention créée <strong>côté serveur</strong>
+          (<code>POST /api/paiements/intention</code>) — jamais avec une clé secrète
+          exposée dans la page. Prévoir l'authentification forte 3-D Secure : elle est
+          obligatoire en Europe et rejette une partie des paiements sans elle.
+        </div>
+        <button class="btn btn--primary btn--lg btn--block" style="margin-top: var(--space-5)">
+          Payer 4,00 €
+        </button>
+        <p style="margin-top: var(--space-3); font-size: var(--text-sm)">
+          En payant, tu acceptes les <a href="../legal/cgv.html">conditions générales de vente</a>.
+        </p>
+      </div>
+
+      <div class="hook" style="margin-top: var(--space-5)">
+        <strong>Confirmation de la commande</strong>
+        Ne jamais valider une commande sur le simple retour de redirection du navigateur :
+        il peut être perdu, rejoué ou falsifié. La source de vérité est le
+        <code>webhook</code> du prestataire, vérifié par signature côté serveur. La
+        redirection ne sert qu'à afficher un écran d'attente.
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="margin-top:0; border-top:0; padding-top:0">
+      <span>© 2026 Dealpick</span>
+      <span>
+        <a href="../legal/cgv.html">CGV</a> ·
+        <a href="../legal/confidentialite.html">Confidentialité</a> ·
+        <a href="../aide.html">Aide</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
