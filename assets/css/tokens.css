@@ -1,101 +1,99 @@
 /* ==========================================================================
-   Dealpick — Design tokens
-   Source unique de vérité du thème. Pour changer toute la charte,
-   il suffit de modifier les valeurs ci-dessous : rien d'autre à toucher.
+   Dealpick — Design tokens · thème NÉO-BRUTALISTE
+   Bordures noires épaisses, ombres franches sans flou, aplats saturés.
+   Source unique de vérité : pour rhabiller le site, on ne touche qu'ici.
    ========================================================================== */
 
 :root {
-  /* --- Marque ------------------------------------------------------------ */
-  --brand-50:  #EEF0FF;
-  --brand-100: #DDE1FF;
-  --brand-200: #BFC5FF;
-  --brand-300: #9AA0FF;
-  --brand-400: #7A78FB;
-  --brand-500: #5B54F3;   /* couleur principale */
-  --brand-600: #4740DE;
-  --brand-700: #3832B4;
-  --brand-800: #2B2789;
-  --brand-900: #1F1C63;
+  /* --- Palette brute ------------------------------------------------------ */
+  --ink:        #1A1A1A;   /* noir profond : texte et bordures */
+  --ink-soft:   #4A4A48;
+  --cream:      #FAF7F0;   /* blanc cassé : fond général */
+  --cream-dark: #EFE9DC;
+  --paper:      #FFFFFF;
 
-  /* --- Accent : réservé aux réductions, badges et urgences ---------------- */
-  --accent-100: #FFE7E0;
-  --accent-300: #FFA98F;
-  --accent-500: #FF5A36;
-  --accent-700: #D63B1B;
+  --blue:       #2E5EFF;   /* bleu électrique : couleur principale */
+  --blue-dark:  #1D42C9;
+  --blue-light: #7C9AFF;
 
-  /* --- Économies réalisées ----------------------------------------------- */
-  --money-100: #DCFCE9;
-  --money-500: #0EA46A;
-  --money-700: #067A4E;
+  --yellow:      #F4C531;  /* jaune vif : mise en avant, blocs */
+  --yellow-dark: #D9A800;
 
-  /* --- Neutres ------------------------------------------------------------ */
-  --gray-0:   #FFFFFF;
-  --gray-25:  #FBFBFD;
-  --gray-50:  #F5F6FA;
-  --gray-100: #ECEDF3;
-  --gray-200: #DFE1EA;
-  --gray-300: #C7CAD6;
-  --gray-400: #9BA0B0;
-  --gray-500: #6E7385;
-  --gray-600: #515669;
-  --gray-700: #3A3E4E;
-  --gray-800: #242733;
-  --gray-900: #14161F;
-  --gray-950: #0B0C12;
+  --coral:      #FF6B4A;   /* corail : réductions, urgence */
+  --coral-dark: #D64B2C;
+
+  --blue-pale:  #DDE5FF;   /* bleu pâle fixe : blocs colorés, identiques en clair et sombre */
+  --lime:       #C7F04A;   /* citron acide : économie réalisée, surlignage */
+  --lime-dark:  #8FB800;
+
+  --gray-100: #E8E4DA;
+  --gray-300: #BDB8AC;
+  --gray-500: #6E6A62;
+  --gray-800: #262523;
+  --gray-900: #171614;
 
   /* --- Rôles sémantiques (ce que le CSS utilise réellement) --------------- */
-  --bg:            var(--gray-0);
-  --bg-subtle:     var(--gray-50);
+  --bg:            var(--cream);
+  --bg-subtle:     var(--cream-dark);
   --bg-inset:      var(--gray-100);
-  --surface:       var(--gray-0);
-  --surface-raised:var(--gray-0);
-  --border:        var(--gray-200);
-  --border-strong: var(--gray-300);
+  --surface:       var(--paper);
+  --surface-raised:var(--paper);
 
-  --text:          var(--gray-900);
-  --text-muted:    var(--gray-500);
-  --text-inverse:  var(--gray-0);
+  --border:        var(--ink);
+  --border-strong: var(--ink);
+  --border-width:  3px;
 
-  --primary:       var(--brand-500);
-  --primary-hover: var(--brand-600);
-  --primary-soft:  var(--brand-50);
+  --text:          var(--ink);
+  --text-muted:    var(--ink-soft);
+  --text-inverse:  var(--cream);
+
+  --primary:       var(--blue);
+  --primary-hover: var(--blue-dark);
+  --primary-soft:  #DDE5FF;
   --on-primary:    #FFFFFF;
 
-  --accent:        var(--accent-500);
-  --accent-soft:   var(--accent-100);
-  --money:         var(--money-500);
-  --money-soft:    var(--money-100);
+  --accent:        var(--coral);
+  --accent-soft:   #FFE0D6;
+  --accent-ink:    var(--ink);      /* le corail veut du texte noir */
 
-  --focus-ring:    var(--brand-400);
+  --money:         var(--lime);
+  --money-soft:    #EEFBC8;
+
+  --highlight:     var(--yellow);
+  --highlight-soft:#FDF0C4;
+
+  --focus-ring:    var(--blue);
+  --shadow-color:  var(--ink);
 
   /* --- Typographie -------------------------------------------------------- */
-  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
-               Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+  --font-display: "Archivo Black", "Space Grotesk", Impact, sans-serif;
+  --font-sans:    "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI",
+                  Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono:    ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  --text-xs:   0.75rem;    /* 12 */
-  --text-sm:   0.875rem;   /* 14 */
-  --text-base: 1rem;       /* 16 */
-  --text-lg:   1.125rem;   /* 18 */
-  --text-xl:   1.375rem;   /* 22 */
-  --text-2xl:  1.75rem;    /* 28 */
-  --text-3xl:  2.25rem;    /* 36 */
-  --text-4xl:  3rem;       /* 48 */
-  --text-5xl:  3.75rem;    /* 60 */
+  --text-xs:   0.8125rem;
+  --text-sm:   0.9375rem;
+  --text-base: 1.0625rem;
+  --text-lg:   1.1875rem;
+  --text-xl:   1.5rem;
+  --text-2xl:  2rem;
+  --text-3xl:  2.75rem;
+  --text-4xl:  3.5rem;
+  --text-5xl:  4.5rem;
 
-  --leading-tight: 1.12;
-  --leading-snug:  1.3;
-  --leading-normal:1.6;
+  --leading-tight: 1.02;
+  --leading-snug:  1.25;
+  --leading-normal:1.55;
 
-  --tracking-tight: -0.022em;
-  --tracking-wide:   0.06em;
+  --tracking-tight: -0.02em;
+  --tracking-wide:   0.08em;
 
   --weight-regular: 400;
   --weight-medium:  500;
   --weight-bold:    700;
-  --weight-black:   800;
+  --weight-black:   400;   /* Archivo Black n'a qu'une graisse */
 
-  /* --- Espacement (échelle 4px) ------------------------------------------ */
+  /* --- Espacement --------------------------------------------------------- */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -107,80 +105,84 @@
   --space-9: 6rem;
   --space-10: 8rem;
 
-  /* --- Rayons ------------------------------------------------------------- */
-  --radius-sm:   8px;
+  /* --- Rayons : francs, jamais timides ------------------------------------ */
+  --radius-sm:   6px;
   --radius-md:   12px;
-  --radius-lg:   20px;
-  --radius-xl:   28px;
+  --radius-lg:   18px;
+  --radius-xl:   24px;
   --radius-full: 999px;
 
-  /* --- Ombres ------------------------------------------------------------- */
-  --shadow-sm: 0 1px 2px rgba(20, 22, 31, .06), 0 1px 3px rgba(20, 22, 31, .04);
-  --shadow-md: 0 4px 12px rgba(20, 22, 31, .07), 0 2px 4px rgba(20, 22, 31, .04);
-  --shadow-lg: 0 18px 40px rgba(20, 22, 31, .10), 0 4px 12px rgba(20, 22, 31, .05);
+  /* --- Ombres franches, sans flou ----------------------------------------- */
+  --shadow-sm: 3px 3px 0 var(--shadow-color);
+  --shadow-md: 5px 5px 0 var(--shadow-color);
+  --shadow-lg: 8px 8px 0 var(--shadow-color);
+  --shadow-xl: 12px 12px 0 var(--shadow-color);
 
   /* --- Divers ------------------------------------------------------------- */
-  --container: 1140px;
-  --container-narrow: 760px;
-  --header-height: 68px;
-  --transition: 160ms cubic-bezier(.2, .6, .3, 1);
+  --container: 1180px;
+  --container-narrow: 780px;
+  --header-height: 76px;
+  --transition: 120ms cubic-bezier(.2, .8, .3, 1);
 }
 
 /* ==========================================================================
-   Mode sombre — on ne redéfinit QUE les rôles, jamais la palette.
-   Deux déclencheurs : préférence système, et choix explicite [data-theme].
+   Mode sombre — seuls les rôles changent, jamais la palette.
+   En néo-brutalisme sombre : fond encre, bordures et ombres claires,
+   les aplats de couleur restent identiques (ils sont assez vifs pour tenir).
    ========================================================================== */
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg:            var(--gray-950);
-    --bg-subtle:     var(--gray-900);
-    --bg-inset:      var(--gray-800);
-    --surface:       var(--gray-900);
-    --surface-raised:var(--gray-800);
-    --border:        #2A2E3D;
-    --border-strong: #3D4255;
+    --bg:            var(--gray-900);
+    --bg-subtle:     var(--gray-800);
+    --bg-inset:      #2E2C29;
+    --surface:       var(--gray-800);
+    --surface-raised:#2E2C29;
 
-    --text:          #F2F3F7;
-    --text-muted:    var(--gray-400);
-    --text-inverse:  var(--gray-950);
+    --border:        var(--cream);
+    --border-strong: var(--cream);
 
-    --primary:       var(--brand-400);
-    --primary-hover: var(--brand-300);
-    --primary-soft:  rgba(91, 84, 243, .16);
-    --on-primary:    #0B0C12;
+    --text:          var(--cream);
+    --text-muted:    #B9B4A8;
+    --text-inverse:  var(--ink);
 
-    --accent-soft:   rgba(255, 90, 54, .16);
-    --money-soft:    rgba(14, 164, 106, .16);
+    --primary:       var(--blue-light);
+    --primary-hover: #A5B9FF;
+    --primary-soft:  #23305E;
+    --on-primary:    var(--ink);
 
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, .5);
-    --shadow-md: 0 4px 14px rgba(0, 0, 0, .55);
-    --shadow-lg: 0 20px 44px rgba(0, 0, 0, .6);
+    --accent-soft:   #4A2A20;
+    --money-soft:    #35401A;
+    --highlight-soft:#4A3D14;
+
+    --focus-ring:    var(--lime);
+    --shadow-color:  var(--cream);
   }
 }
 
 :root[data-theme="dark"] {
-  --bg:            var(--gray-950);
-  --bg-subtle:     var(--gray-900);
-  --bg-inset:      var(--gray-800);
-  --surface:       var(--gray-900);
-  --surface-raised:var(--gray-800);
-  --border:        #2A2E3D;
-  --border-strong: #3D4255;
+  --bg:            var(--gray-900);
+  --bg-subtle:     var(--gray-800);
+  --bg-inset:      #2E2C29;
+  --surface:       var(--gray-800);
+  --surface-raised:#2E2C29;
 
-  --text:          #F2F3F7;
-  --text-muted:    var(--gray-400);
-  --text-inverse:  var(--gray-950);
+  --border:        var(--cream);
+  --border-strong: var(--cream);
 
-  --primary:       var(--brand-400);
-  --primary-hover: var(--brand-300);
-  --primary-soft:  rgba(91, 84, 243, .16);
-  --on-primary:    #0B0C12;
+  --text:          var(--cream);
+  --text-muted:    #B9B4A8;
+  --text-inverse:  var(--ink);
 
-  --accent-soft:   rgba(255, 90, 54, .16);
-  --money-soft:    rgba(14, 164, 106, .16);
+  --primary:       var(--blue-light);
+  --primary-hover: #A5B9FF;
+  --primary-soft:  #23305E;
+  --on-primary:    var(--ink);
 
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .5);
-  --shadow-md: 0 4px 14px rgba(0, 0, 0, .55);
-  --shadow-lg: 0 20px 44px rgba(0, 0, 0, .6);
+  --accent-soft:   #4A2A20;
+  --money-soft:    #35401A;
+  --highlight-soft:#4A3D14;
+
+  --focus-ring:    var(--lime);
+  --shadow-color:  var(--cream);
 }

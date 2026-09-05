@@ -62,22 +62,51 @@ pas atterrir sur du contenu grand public.
 
 ---
 
-## Thème visuel
+## Thème visuel — néo-brutalisme
 
-Parti pris : **la clarté plutôt que le criard**. Indigo `#5B54F3` en couleur principale,
-corail `#FF5A36` strictement réservé aux badges de réduction, vert `#0EA46A` pour
-l'économie réalisée. Neutres légèrement bleutés, beaucoup d'air, coins arrondis, ombres
-discrètes. Typographie Plus Jakarta Sans, repli système.
+Parti pris assumé : **bordures noires épaisses, ombres portées franches sans flou,
+aplats saturés, typographie lourde.** Le contraire d'un site propre et lisse — et c'est
+volontaire : le service parle de quartier, de commerces de rue, de récup'. Un design
+policé sonnerait faux.
+
+### Palette
+
+| Rôle | Valeur | Usage |
+|---|---|---|
+| Noir profond | `#1A1A1A` | Texte et **toutes** les bordures |
+| Blanc cassé | `#FAF7F0` | Fond général |
+| Bleu électrique | `#2E5EFF` | Couleur principale, boutons, tunnel commerçant |
+| Jaune vif | `#F4C531` | Héros, blocs de mise en avant, chiffres |
+| Corail | `#FF6B4A` | Réductions et urgence, uniquement |
+| Citron acide | `#C7F04A` | Économie réalisée, surlignage |
+
+### Typographie
+
+**Archivo Black** pour les titres (une seule graisse, très lourde, capitales pour les
+`h1`), **Space Grotesk** pour le texte courant et l'interface. Les deux sur Google Fonts,
+avec repli système.
+
+### Les règles du système
+
+- Tout objet détaché ou cliquable porte une **bordure noire de 3 px** et une **ombre
+  franche sans flou** (`5px 5px 0`).
+- Les boutons **s'enfoncent** au clic : l'ombre se réduit, l'élément se décale.
+- Les blocs colorés (cartes, étapes) alternent selon leur position, pas au hasard.
+- Les couleurs d'aplat sont **fixes dans les deux thèmes** : un bloc citron reste citron
+  en mode sombre, avec du texte noir. Seuls les fonds, textes et bordures basculent.
+- Le corail reste **réservé aux réductions**. Employé partout, il ne signalerait plus rien.
+- Le tunnel commerçant a son propre héros bleu, pour qu'on sache instantanément de quel
+  côté du site on se trouve.
+
+### Architecture des tokens
 
 Tout est dans `assets/css/tokens.css`, en deux couches : la **palette brute**
-(`--brand-500`, `--gray-100`…) puis les **rôles sémantiques** (`--bg`, `--text`,
-`--primary`, `--border`…). Aucun composant n'appelle une couleur brute — d'où un
-rhabillage complet en modifiant une dizaine de variables, et un mode sombre qui ne
-redéfinit que les rôles. Le mode sombre a deux déclencheurs : préférence système et choix
-explicite via `data-theme` (bouton ◐, mémorisé).
+(`--blue`, `--yellow`, `--ink`…) puis les **rôles sémantiques** (`--bg`, `--text`,
+`--primary`, `--border`…). Aucun composant n'appelle une couleur brute, sauf les blocs
+qui doivent délibérément rester identiques dans les deux thèmes.
 
-Sont aussi tokenisés : échelle typographique, espacement (base 4 px), rayons, ombres,
-largeur de conteneur, transitions.
+Le mode sombre a deux déclencheurs : préférence système et choix explicite via
+`data-theme` (bouton ◐, mémorisé). Il ne redéfinit que les rôles.
 
 Le ton rédactionnel est le **tutoiement**, cohérent avec un service de quartier.
 
