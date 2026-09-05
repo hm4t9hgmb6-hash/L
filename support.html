@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aide et contact — Dealpick</title>
+<meta name="description" content="Une question, un problème, une offre à signaler ? Contactez l'équipe Dealpick.">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img class="logo__mark" src="assets/img/logo.svg" alt="" width="28" height="28">
+      Dealpick
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <ul>
+        <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+        <li><a href="commercants.html">Commerçants</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="support.html" aria-current="page">Aide</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="Changer de thème" title="Changer de thème">◐</button>
+      <a class="btn btn--primary" href="index.html#telecharger">Télécharger</a>
+      <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Ouvrir le menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" data-mobile-nav hidden>
+  <ul>
+    <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+    <li><a href="commercants.html">Commerçants</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="support.html">Aide</a></li>
+  </ul>
+</div>
+
+<main id="main">
+  <section class="section">
+    <div class="container container--narrow">
+      <span class="eyebrow">Aide</span>
+      <h1>Besoin d'un coup de main ?</h1>
+      <p class="lede">Consultez d'abord la <a href="faq.html">FAQ</a>, elle répond à
+         l'essentiel. Sinon, écrivez-nous : nous répondons sous 48 heures ouvrées.</p>
+
+      <div class="grid grid--2" style="margin-top: var(--space-7)">
+        <div class="card">
+          <h3>Signaler une offre</h3>
+          <p>Prix incorrect, code promo qui ne fonctionne pas, offre expirée :
+             dites-le-nous et nous corrigeons rapidement.</p>
+        </div>
+        <div class="card">
+          <h3>Question sur votre compte</h3>
+          <p>Connexion, alertes, suppression du compte, exercice de vos droits RGPD.</p>
+        </div>
+      </div>
+
+      <form class="card" style="margin-top: var(--space-6)" method="post" action="#">
+        <h3>Nous écrire</h3>
+        <div class="field">
+          <label for="s-email">Votre adresse e-mail</label>
+          <input id="s-email" name="email" type="email" required>
+        </div>
+        <div class="field">
+          <label for="s-sujet">Sujet</label>
+          <select id="s-sujet" name="sujet">
+            <option>Signaler une offre</option>
+            <option>Problème technique</option>
+            <option>Mon compte / mes données</option>
+            <option>Partenariat commerçant</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="s-message">Votre message</label>
+          <textarea id="s-message" name="message" rows="5" required></textarea>
+        </div>
+        <button class="btn btn--primary btn--block" type="submit">Envoyer</button>
+        <p style="margin-top: var(--space-3)"><small style="color: var(--text-muted)">
+          Formulaire non connecté — brancher un service d'envoi avant mise en ligne.
+        </small></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a class="logo" href="index.html">
+          <img class="logo__mark" src="assets/img/logo.svg" alt="" width="28" height="28">
+          Dealpick
+        </a>
+        <p style="color: var(--text-muted); font-size: var(--text-sm); margin-top: var(--space-3); max-width: 34ch">
+          Les vraies promotions de vos enseignes, sans les fausses réductions.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Produit</h4>
+        <ul>
+          <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+          <li><a href="index.html#telecharger">Télécharger</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Professionnels</h4>
+        <ul>
+          <li><a href="commercants.html">Espace commerçants</a></li>
+          <li><a href="support.html">Nous contacter</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Légal</h4>
+        <ul>
+          <li><a href="legal/mentions-legales.html">Mentions légales</a></li>
+          <li><a href="legal/confidentialite.html">Confidentialité</a></li>
+          <li><a href="legal/cgu.html">CGU</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Dealpick. Tous droits réservés.</span>
+      <span>Fait en France</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dealpick — Les vraies promos, triées pour vous</title>
+<meta name="description" content="Dealpick réunit les promotions de vos enseignes préférées et écarte les fausses réductions. Vous ne voyez que les offres qui valent vraiment le coup.">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<meta property="og:title" content="Dealpick — Les vraies promos, triées pour vous">
+<meta property="og:description" content="Toutes les promotions de vos enseignes, sans les fausses réductions.">
+<meta property="og:type" content="website">
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img class="logo__mark" src="assets/img/logo.svg" alt="" width="28" height="28">
+      Dealpick
+    </a>
+
+    <nav class="nav" aria-label="Navigation principale">
+      <ul>
+        <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+        <li><a href="commercants.html">Commerçants</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="support.html">Aide</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="Changer de thème" title="Changer de thème">◐</button>
+      <a class="btn btn--primary" href="#telecharger">Télécharger</a>
+      <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Ouvrir le menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" data-mobile-nav hidden>
+  <ul>
+    <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+    <li><a href="commercants.html">Commerçants</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="support.html">Aide</a></li>
+  </ul>
+</div>
+
+<main id="main">
+
+  <!-- ================= HÉROS ================= -->
+  <section class="hero">
+    <div class="container hero__grid">
+      <div>
+        <span class="eyebrow">Application gratuite · iOS et Android</span>
+        <h1 class="hero__title">Les vraies promos.<br>Pas les fausses.</h1>
+        <p class="lede">
+          Dealpick réunit les promotions de vos enseignes préférées, vérifie l'historique
+          des prix, et écarte les réductions qui n'en sont pas. Vous ne voyez que ce qui
+          vaut réellement le coup.
+        </p>
+
+        <div class="btn-row" style="margin-top: var(--space-6)" id="telecharger">
+          <a class="store-badge" href="#"><span>🍎</span><span><small>Télécharger sur</small>App Store</span></a>
+          <a class="store-badge" href="#"><span>▶</span><span><small>Disponible sur</small>Google Play</span></a>
+        </div>
+
+        <div class="hero__proof">
+          <span>✅ Sans publicité déguisée</span>
+          <span>🔒 Aucune revente de données</span>
+          <span>⚡ Alertes en temps réel</span>
+        </div>
+      </div>
+
+      <div>
+        <!-- Placeholder : remplacer par une vraie capture d'écran de l'app -->
+        <div class="phone" role="img" aria-label="Aperçu de l'application Dealpick">
+          <div class="phone__notch"></div>
+          <div style="margin-top: var(--space-5)">
+            <strong style="font-size: var(--text-sm)">Près de chez vous</strong>
+            <div class="deal-card">
+              <div class="deal-card__top">
+                <span class="deal-card__store">Carrefour</span>
+                <span class="badge badge--discount">−42 %</span>
+              </div>
+              <p class="deal-card__title">Casque audio sans fil</p>
+              <div class="deal-card__prices">
+                <span class="deal-card__price">69,90 €</span>
+                <span class="deal-card__was">119,90 €</span>
+              </div>
+            </div>
+            <div class="deal-card">
+              <div class="deal-card__top">
+                <span class="deal-card__store">Decathlon</span>
+                <span class="badge badge--money">Prix le plus bas</span>
+              </div>
+              <p class="deal-card__title">Chaussures de running</p>
+              <div class="deal-card__prices">
+                <span class="deal-card__price">44,00 €</span>
+                <span class="deal-card__was">75,00 €</span>
+              </div>
+            </div>
+            <div class="deal-card" style="opacity:.55">
+              <div class="deal-card__top">
+                <span class="deal-card__store">Fnac</span>
+                <span class="badge">Fausse promo</span>
+              </div>
+              <p class="deal-card__title">Écarté : prix gonflé la semaine dernière</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROBLÈME / PROMESSE ================= -->
+  <section class="section section--subtle">
+    <div class="container">
+      <div class="grid grid--3">
+        <div class="card">
+          <div class="card__icon">🔍</div>
+          <h3>Tout au même endroit</h3>
+          <p>Les catalogues, les codes promo et les ventes flash de vos enseignes réunis
+             dans un seul fil, trié par ce qui vous intéresse vraiment.</p>
+        </div>
+        <div class="card">
+          <div class="card__icon">📉</div>
+          <h3>L'historique des prix</h3>
+          <p>On garde la trace du prix des trente derniers jours. Une remise sur un prix
+             gonflé la veille n'est pas une remise, et on vous le dit.</p>
+        </div>
+        <div class="card">
+          <div class="card__icon">🔔</div>
+          <h3>Alerte au bon moment</h3>
+          <p>Choisissez un produit, une enseigne ou un rayon : vous recevez une
+             notification dès que le prix descend sous votre seuil.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COMMENT ÇA MARCHE ================= -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: var(--space-7)">
+        <span class="eyebrow">Comment ça marche</span>
+        <h2>Trois étapes, deux minutes</h2>
+      </div>
+
+      <div class="grid grid--3 steps">
+        <div class="step">
+          <h3>Choisissez vos enseignes</h3>
+          <p>Sélectionnez les magasins que vous fréquentez et les rayons qui vous
+             intéressent. Le fil s'adapte immédiatement.</p>
+        </div>
+        <div class="step">
+          <h3>Recevez les bonnes offres</h3>
+          <p>Dealpick surveille les prix en continu et ne vous alerte que sur les
+             baisses réelles, vérifiées sur l'historique.</p>
+        </div>
+        <div class="step">
+          <h3>Achetez au bon prix</h3>
+          <p>En ligne ou en magasin, avec le code promo ou le coupon directement
+             dans l'application.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CHIFFRES ================= -->
+  <section class="section section--subtle section--tight">
+    <div class="container">
+      <div class="grid grid--4">
+        <div class="stat"><span class="stat__value">1 200+</span><span class="stat__label">enseignes suivies</span></div>
+        <div class="stat"><span class="stat__value">30 j</span><span class="stat__label">d'historique de prix</span></div>
+        <div class="stat"><span class="stat__value">0 €</span><span class="stat__label">pour les utilisateurs</span></div>
+        <div class="stat"><span class="stat__value">4,8/5</span><span class="stat__label">note moyenne</span></div>
+      </div>
+      <p class="text-center" style="margin-top: var(--space-5); color: var(--text-muted); font-size: var(--text-xs)">
+        Chiffres à remplacer par les vôtres avant mise en ligne.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= COMMERÇANTS ================= -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid--2" style="align-items:center">
+        <div>
+          <span class="eyebrow">Vous êtes commerçant</span>
+          <h2>Vos offres, devant les bons clients</h2>
+          <p class="lede">
+            Publiez vos promotions en quelques clics et touchez des acheteurs qui cherchent
+            déjà ce que vous vendez. Suivi des vues, des clics et des passages en magasin.
+          </p>
+          <div class="btn-row" style="margin-top: var(--space-5)">
+            <a class="btn btn--primary btn--lg" href="commercants.html">Découvrir l'offre pro</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Ce que vous obtenez</h3>
+          <ul>
+            <li>Un espace pour publier et planifier vos offres</li>
+            <li>Une mise en avant auprès des utilisateurs de votre zone</li>
+            <li>Des statistiques de performance par campagne</li>
+            <li>Un accompagnement à la mise en place</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ COURTE ================= -->
+  <section class="section section--subtle">
+    <div class="container container--narrow">
+      <div class="text-center" style="margin-bottom: var(--space-6)">
+        <span class="eyebrow">Questions fréquentes</span>
+        <h2>Ce qu'on nous demande le plus</h2>
+      </div>
+
+      <details class="faq-item">
+        <summary>L'application est-elle vraiment gratuite ?</summary>
+        <p>Oui, entièrement gratuite pour les utilisateurs. Le modèle repose sur les
+           commerçants qui souhaitent mettre leurs offres en avant.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Comment savez-vous qu'une promo est fausse ?</summary>
+        <p>Nous relevons le prix de chaque produit suivi et conservons son historique.
+           Si le prix a été augmenté juste avant la « remise », l'offre est signalée.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Que faites-vous de mes données ?</summary>
+        <p>Elles servent uniquement à personnaliser votre fil d'offres. Nous ne les
+           revendons pas. Voir la <a href="legal/confidentialite.html">politique de confidentialité</a>.</p>
+      </details>
+
+      <p class="text-center" style="margin-top: var(--space-6)">
+        <a class="btn btn--ghost" href="faq.html">Voir toutes les questions</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= APPEL À L'ACTION ================= -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Arrêtez de payer le prix fort</h2>
+        <p>Installez Dealpick et laissez-nous surveiller les prix à votre place.</p>
+        <div class="btn-row" style="justify-content:center; margin-top: var(--space-5)">
+          <a class="btn btn--primary btn--lg" href="#telecharger">Télécharger l'application</a>
+          <a class="btn btn--ghost btn--lg" href="fonctionnalites.html">Voir les fonctionnalités</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a class="logo" href="index.html">
+          <img class="logo__mark" src="assets/img/logo.svg" alt="" width="28" height="28">
+          Dealpick
+        </a>
+        <p style="color: var(--text-muted); font-size: var(--text-sm); margin-top: var(--space-3); max-width: 34ch">
+          Les vraies promotions de vos enseignes, sans les fausses réductions.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Produit</h4>
+        <ul>
+          <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+          <li><a href="index.html#telecharger">Télécharger</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Professionnels</h4>
+        <ul>
+          <li><a href="commercants.html">Espace commerçants</a></li>
+          <li><a href="support.html">Nous contacter</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Légal</h4>
+        <ul>
+          <li><a href="legal/mentions-legales.html">Mentions légales</a></li>
+          <li><a href="legal/confidentialite.html">Confidentialité</a></li>
+          <li><a href="legal/cgu.html">CGU</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Dealpick. Tous droits réservés.</span>
+      <span>Fait en France</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
