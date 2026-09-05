@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aide et contact — Dealpick</title>
-<meta name="description" content="Une question, un problème, une offre à signaler ? Contactez l'équipe Dealpick.">
+<meta name="description" content="Un problème avec une commande, une question sur ton compte : contacte l'équipe Dealpick.">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +12,9 @@
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/components.css">
+<meta property="og:title" content="Aide et contact — Dealpick">
+<meta property="og:description" content="Un problème avec une commande, une question sur ton compte : contacte l'équipe Dealpick.">
+<meta property="og:type" content="website">
 </head>
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
@@ -24,15 +27,15 @@
     </a>
     <nav class="nav" aria-label="Navigation principale">
       <ul>
-        <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+        <li><a href="comment-ca-marche.html">Comment ça marche</a></li>
+        <li><a href="villes.html">Villes</a></li>
         <li><a href="commercants.html">Commerçants</a></li>
         <li><a href="faq.html">FAQ</a></li>
-        <li><a href="support.html" aria-current="page">Aide</a></li>
       </ul>
     </nav>
     <div class="header-actions">
       <button class="theme-toggle" data-theme-toggle aria-label="Changer de thème" title="Changer de thème">◐</button>
-      <a class="btn btn--primary" href="index.html#telecharger">Télécharger</a>
+      <a class="btn btn--primary" href="index.html#telecharger">Télécharger l'app</a>
       <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Ouvrir le menu">☰</button>
     </div>
   </div>
@@ -40,10 +43,12 @@
 
 <div class="mobile-nav" data-mobile-nav hidden>
   <ul>
-    <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+    <li><a href="comment-ca-marche.html">Comment ça marche</a></li>
+    <li><a href="villes.html">Villes</a></li>
     <li><a href="commercants.html">Commerçants</a></li>
     <li><a href="faq.html">FAQ</a></li>
-    <li><a href="support.html">Aide</a></li>
+    <li><a href="mission.html">Notre mission</a></li>
+    <li><a href="aide.html">Aide</a></li>
   </ul>
 </div>
 
@@ -51,41 +56,48 @@
   <section class="section">
     <div class="container container--narrow">
       <span class="eyebrow">Aide</span>
-      <h1>Besoin d'un coup de main ?</h1>
-      <p class="lede">Consultez d'abord la <a href="faq.html">FAQ</a>, elle répond à
-         l'essentiel. Sinon, écrivez-nous : nous répondons sous 48 heures ouvrées.</p>
+      <h1>Un problème, une question&nbsp;?</h1>
+      <p class="lede">La <a href="faq.html">FAQ</a> répond à l'essentiel. Pour le reste,
+         écris-nous&nbsp;: on répond sous 48 heures ouvrées, et plus vite pour un problème
+         de commande.</p>
 
       <div class="grid grid--2" style="margin-top: var(--space-7)">
         <div class="card">
-          <h3>Signaler une offre</h3>
-          <p>Prix incorrect, code promo qui ne fonctionne pas, offre expirée :
-             dites-le-nous et nous corrigeons rapidement.</p>
+          <h3>Un souci avec une commande</h3>
+          <p>Commerce fermé, commande indisponible, contenu très en dessous de ce qui
+             était annoncé&nbsp;: signale-le dans les 24 heures, remboursement à la clé.</p>
         </div>
         <div class="card">
-          <h3>Question sur votre compte</h3>
-          <p>Connexion, alertes, suppression du compte, exercice de vos droits RGPD.</p>
+          <h3>Ton compte et tes données</h3>
+          <p>Connexion, suppression du compte, accès ou effacement de tes données
+             personnelles.</p>
         </div>
       </div>
 
       <form class="card" style="margin-top: var(--space-6)" method="post" action="#">
         <h3>Nous écrire</h3>
         <div class="field">
-          <label for="s-email">Votre adresse e-mail</label>
-          <input id="s-email" name="email" type="email" required>
+          <label for="a-email">Ton adresse e-mail</label>
+          <input id="a-email" name="email" type="email" required>
         </div>
         <div class="field">
-          <label for="s-sujet">Sujet</label>
-          <select id="s-sujet" name="sujet">
-            <option>Signaler une offre</option>
-            <option>Problème technique</option>
+          <label for="a-sujet">Sujet</label>
+          <select id="a-sujet" name="sujet">
+            <option>Problème avec une commande</option>
+            <option>Remboursement</option>
             <option>Mon compte / mes données</option>
-            <option>Partenariat commerçant</option>
+            <option>Je suis commerçant</option>
+            <option>Presse</option>
             <option>Autre</option>
           </select>
         </div>
         <div class="field">
-          <label for="s-message">Votre message</label>
-          <textarea id="s-message" name="message" rows="5" required></textarea>
+          <label for="a-cmd">Numéro de commande (si applicable)</label>
+          <input id="a-cmd" name="commande" type="text">
+        </div>
+        <div class="field">
+          <label for="a-msg">Ton message</label>
+          <textarea id="a-msg" name="message" rows="5" required></textarea>
         </div>
         <button class="btn btn--primary btn--block" type="submit">Envoyer</button>
         <p style="margin-top: var(--space-3)"><small style="color: var(--text-muted)">
@@ -105,36 +117,43 @@
           Dealpick
         </a>
         <p style="color: var(--text-muted); font-size: var(--text-sm); margin-top: var(--space-3); max-width: 34ch">
-          Les vraies promotions de vos enseignes, sans les fausses réductions.
+          Les invendus et les petits prix des commerces indépendants de ton quartier.
         </p>
       </div>
       <div class="footer-col">
-        <h4>Produit</h4>
+        <h4>Découvrir</h4>
         <ul>
-          <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
-          <li><a href="index.html#telecharger">Télécharger</a></li>
+          <li><a href="comment-ca-marche.html">Comment ça marche</a></li>
+          <li><a href="villes.html">Où on est</a></li>
+          <li><a href="index.html#telecharger">Télécharger l'app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Commerçants</h4>
+        <ul>
+          <li><a href="commercants.html">Devenir partenaire</a></li>
+          <li><a href="commercants.html#tarifs">Commission</a></li>
+          <li><a href="aide.html">Nous contacter</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Dealpick</h4>
+        <ul>
+          <li><a href="mission.html">Notre mission</a></li>
           <li><a href="faq.html">FAQ</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Professionnels</h4>
-        <ul>
-          <li><a href="commercants.html">Espace commerçants</a></li>
-          <li><a href="support.html">Nous contacter</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Légal</h4>
-        <ul>
-          <li><a href="legal/mentions-legales.html">Mentions légales</a></li>
-          <li><a href="legal/confidentialite.html">Confidentialité</a></li>
-          <li><a href="legal/cgu.html">CGU</a></li>
+          <li><a href="aide.html">Aide</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Dealpick. Tous droits réservés.</span>
-      <span>Fait en France</span>
+      <span>
+        <a href="legal/mentions-legales.html">Mentions légales</a> ·
+        <a href="legal/confidentialite.html">Confidentialité</a> ·
+        <a href="legal/cgu.html">CGU</a> ·
+        <a href="legal/cgv.html">CGV</a> ·
+        <a href="legal/cookies.html">Cookies</a>
+      </span>
     </div>
   </div>
 </footer>

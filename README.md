@@ -1,108 +1,130 @@
 # Dealpick — site web
 
-Site vitrine de l'application mobile **Dealpick** : agrégateur de promotions qui écarte
-les fausses réductions, côté grand public, avec un espace commerçants.
+Site de **Dealpick**, place de marché locale des commerces indépendants : restaurants,
+boulangeries, primeurs, fleuristes et autres commerces de quartier y proposent leurs
+invendus et leurs petits prix. L'utilisateur réserve et paie dans l'application, puis
+récupère sur place. Dealpick encaisse pour le compte du commerçant et le reverse,
+commission déduite. L'application est gratuite pour l'utilisateur.
 
-HTML et CSS statiques, sans build ni dépendance. On ouvre `index.html` dans un navigateur
-et ça fonctionne. Le jour où le projet passe sous un framework (Next.js, Astro…), la
-structure et les tokens se reprennent tels quels.
+HTML et CSS statiques, sans build ni dépendance : on ouvre `index.html` et ça fonctionne.
+Le tout est repris tel quel si le projet passe plus tard sous un framework ou est recopié
+dans un éditeur visuel.
 
 ---
 
-## Structure du site
+## Architecture
+
+Le site sert **deux publics qui ne doivent jamais se gêner**. L'accueil est une page
+client qui ne parle que de trouver un bon panier près de chez soi, avec une seule porte
+vers le monde professionnel. Le parcours commerçant vit sur sa propre branche, avec son
+héros et ses propres objections : un boulanger arrivant d'un e-mail commercial ne doit
+pas atterrir sur du contenu grand public.
+
+### Parcours client
 
 | Page | Fichier | Rôle |
 |---|---|---|
-| Accueil | `index.html` | Héros, promesse, preuve, fonctionnement, commerçants, FAQ courte, téléchargement |
-| Fonctionnalités | `fonctionnalites.html` | Le détail de ce que fait l'app |
-| Commerçants | `commercants.html` | Entrée B2B : bénéfices, formules, formulaire de contact |
-| FAQ | `faq.html` | Questions classées par thème (app, offres, données, commerçants) |
-| Aide | `support.html` | Contact, signalement d'une offre, questions de compte |
-| Mentions légales | `legal/mentions-legales.html` | Obligatoire (LCEN art. 6 III) |
-| Confidentialité | `legal/confidentialite.html` | Obligatoire pour publier sur l'App Store et Google Play |
-| CGU | `legal/cgu.html` | Cadre d'utilisation, responsabilité, comptes commerçants |
+| Accueil | `index.html` | Promesse, « c'est dispo chez moi ? », 3 étapes, impact, villes, double porte, témoignages, FAQ courte, téléchargement |
+| Comment ça marche | `comment-ca-marche.html` | Le parcours en détail et les objections d'avant-achat (contenu du panier, qualité, retard, prix) |
+| Villes | `villes.html` | Villes ouvertes, villes à venir, **capture d'e-mail si absente** |
+| Page ville | `villes/exemple-ville.html` | Gabarit à dupliquer par ville |
 
-Deux entrées distinctes assumées dès la navigation : **« je cherche des bons plans »**
-(accueil, fonctionnalités) et **« je suis commerçant »** (page dédiée). Les deux publics
-n'ont ni les mêmes questions ni les mêmes objections.
+### Parcours commerçant
 
-### Fichiers
+| Page | Fichier | Rôle |
+|---|---|---|
+| Commerçants | `commercants.html` | Landing autonome : bénéfices, fonctionnement côté pro, commission, FAQ pro, inscription |
 
-```
-index.html, fonctionnalites.html, commercants.html, faq.html, support.html
-legal/          mentions-legales.html, confidentialite.html, cgu.html
-assets/css/     tokens.css, base.css, components.css
-assets/js/      main.js
-assets/img/     logo.svg
-```
+### Marque, support, légal
+
+| Page | Fichier |
+|---|---|
+| Notre mission | `mission.html` |
+| FAQ (client + commerçant) | `faq.html` |
+| Aide et contact | `aide.html` |
+| Mentions légales | `legal/mentions-legales.html` |
+| Confidentialité | `legal/confidentialite.html` |
+| CGU | `legal/cgu.html` |
+| **CGV** | `legal/cgv.html` |
+| Cookies | `legal/cookies.html` |
+
+### Pourquoi ces pages-là
+
+- **Les pages ville** sont le principal levier de référencement de ce type de service :
+  les gens cherchent « invendus Lyon », « anti-gaspi Bordeaux ». Une page par ville, avec
+  du contenu réellement local — dupliquer le même texte n'apporte rien.
+- **La page villes** sert aussi d'outil de mesure : le formulaire « ma ville n'y est pas »
+  dit où ouvrir ensuite.
+- **La mission** justifie les prix bas (c'est de l'invendu, pas de la mauvaise qualité),
+  rassure, et ouvre la presse locale.
+- **Les CGV** sont obligatoires : il y a vente, paiement et encaissement pour compte de
+  tiers. Les CGU seules ne couvrent pas ça.
 
 ---
 
 ## Thème visuel
 
-Le parti pris : **la clarté plutôt que le criard.** Le secteur de la promo abuse du rouge
-agressif et du « -70 % » clignotant, ce qui abîme la confiance. Dealpick promet l'inverse —
-trier, vérifier, écarter le faux — donc le design doit respirer le sérieux et laisser
-l'accent visuel aux vraies réductions.
+Parti pris : **la clarté plutôt que le criard**. Indigo `#5B54F3` en couleur principale,
+corail `#FF5A36` strictement réservé aux badges de réduction, vert `#0EA46A` pour
+l'économie réalisée. Neutres légèrement bleutés, beaucoup d'air, coins arrondis, ombres
+discrètes. Typographie Plus Jakarta Sans, repli système.
 
-- **Indigo `#5B54F3`** en couleur principale : moderne, fiable, non alimentaire, et
-  surtout pas la couleur du discount.
-- **Corail `#FF5A36`** en accent, **strictement réservé** aux badges de réduction et aux
-  urgences. Employé partout, il perdrait tout signal.
-- **Vert `#0EA46A`** pour l'économie réalisée et les prix planchers.
-- Neutres légèrement bleutés, beaucoup d'air, coins largement arrondis, ombres discrètes.
-- Typographie **Plus Jakarta Sans** (Google Fonts) avec repli sur la police système.
+Tout est dans `assets/css/tokens.css`, en deux couches : la **palette brute**
+(`--brand-500`, `--gray-100`…) puis les **rôles sémantiques** (`--bg`, `--text`,
+`--primary`, `--border`…). Aucun composant n'appelle une couleur brute — d'où un
+rhabillage complet en modifiant une dizaine de variables, et un mode sombre qui ne
+redéfinit que les rôles. Le mode sombre a deux déclencheurs : préférence système et choix
+explicite via `data-theme` (bouton ◐, mémorisé).
 
-### Tokens
+Sont aussi tokenisés : échelle typographique, espacement (base 4 px), rayons, ombres,
+largeur de conteneur, transitions.
 
-Tout est centralisé dans `assets/css/tokens.css`, en deux couches :
-
-1. **La palette brute** (`--brand-500`, `--gray-100`…) — les couleurs disponibles.
-2. **Les rôles sémantiques** (`--bg`, `--text`, `--primary`, `--border`…) — ce que le reste
-   du CSS utilise réellement.
-
-Aucun composant n'appelle une couleur brute. Conséquence : **pour rhabiller tout le site,
-on ne touche qu'aux rôles** — et le mode sombre n'a besoin de redéfinir que ces rôles-là,
-jamais la palette.
-
-Le mode sombre a deux déclencheurs : la préférence système, et un choix explicite via
-l'attribut `data-theme` (bouton ◐ dans l'en-tête, mémorisé en `localStorage`).
-
-Sont également tokenisés : l'échelle typographique, l'espacement (base 4 px), les rayons,
-les ombres, la largeur de conteneur et les transitions.
-
-### Changer de marque
-
-Le nom n'est pas figé. Pour en changer :
-
-1. `assets/css/tokens.css` → les variables `--brand-*` et `--accent-*`.
-2. `assets/img/logo.svg` → le symbole.
-3. Le texte « Dealpick » dans les en-têtes, pieds de page et balises `<title>`.
+Le ton rédactionnel est le **tutoiement**, cohérent avec un service de quartier.
 
 ---
 
-## Accessibilité
+## Structure des fichiers
 
-Structure sémantique, lien d'évitement, `aria-current` sur la page active, focus visible
-sur tous les éléments interactifs, contrastes conformes AA, respect de
-`prefers-reduced-motion`, cibles tactiles d'au moins 40 px.
+```
+index.html  comment-ca-marche.html  villes.html  commercants.html
+mission.html  faq.html  aide.html
+villes/     exemple-ville.html
+legal/      mentions-legales.html  confidentialite.html  cgu.html  cgv.html  cookies.html
+assets/css/ tokens.css  base.css  components.css
+assets/js/  main.js
+assets/img/ logo.svg
+```
 
 ---
 
 ## À faire avant mise en ligne
 
-- [ ] Remplacer les **chiffres de la page d'accueil** (1 200 enseignes, 4,8/5…) par les vrais
-- [ ] Remplacer la **maquette du téléphone** par de vraies captures de l'application
+### Contenu
+- [ ] Remplacer les **chiffres d'impact** (12 400 produits, 340 commerçants, 8 t de CO₂) par les vrais, ou retirer la section
+- [ ] Remplacer les **villes d'illustration** — tant qu'aucune ville n'est ouverte, ne garder que le formulaire de demande
+- [ ] Remplacer les **témoignages** par de vrais, avec accord écrit des personnes citées
+- [ ] Remplacer la **maquette du téléphone** par de vraies captures
+- [ ] Fixer et afficher le **taux de commission** et la **périodicité de reversement** (`commercants.html`)
 - [ ] Mettre les **vrais liens** App Store et Google Play
-- [ ] Compléter tous les **champs entre crochets** des pages légales (surlignés en corail)
-- [ ] Faire relire les **CGU et la politique de confidentialité** par un juriste
-- [ ] Brancher les **formulaires** (commerçants et aide) sur un service d'envoi
-- [ ] Ajouter une **image Open Graph** (1200 × 630) pour le partage sur les réseaux
-- [ ] Vérifier la disponibilité de **`dealpick.app`** et **`dealpick.io`** chez un registrar
-- [ ] Rechercher les antériorités **INPI / TMview** en classes 9 et 35 avant dépôt de marque
+- [ ] Ajouter une **image Open Graph** (1200 × 630)
+
+### Technique
+- [ ] Brancher les **quatre formulaires** (ville, commerçant, aide, recherche de ville) sur un service d'envoi
+- [ ] Installer un **bandeau cookies** conforme si des traceurs non essentiels sont ajoutés
+
+### Juridique — à ne pas sous-estimer
+- [ ] Faire **rédiger les CGV par un juriste** : vente, retrait, annulation, remboursement, allergènes, droit de rétractation
+- [ ] Compléter tous les **champs surlignés** des pages légales
+- [ ] Adhérer à un **médiateur de la consommation** (obligatoire, article L.612-1)
+- [ ] **Encaissement pour compte de tiers** : encaisser l'argent des clients puis le reverser aux commerçants est une activité réglementée. Elle passe normalement par un prestataire de paiement en configuration place de marché (Stripe Connect, Mangopay, Lemonway…), ou par un statut d'agent déclaré auprès de l'ACPR. À cadrer **avant** le lancement, pas après.
+- [ ] Vérifier les règles d'**annonce de réduction de prix** : le prix barré doit correspondre à un prix réellement pratiqué
+
+### Marque
+- [ ] Vérifier la disponibilité de `dealpick.app` et `dealpick.io` chez un registrar
+- [ ] Recherche d'antériorité **INPI / TMview** en classes 9, 35 et 42
 
 ## Note sur le nom
 
-« Dealpick » est **descriptif** : facile à comprendre, mais difficile à protéger comme
-marque et concurrentiel en référencement. Choix assumé — à garder en tête si la marque
-prend de la valeur.
+« Dealpick » est **descriptif** : facile à comprendre, difficile à protéger comme marque
+et concurrentiel en référencement. Choix assumé, à garder en tête si la marque prend de
+la valeur.

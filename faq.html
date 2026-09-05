@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FAQ — Dealpick</title>
-<meta name="description" content="Les réponses aux questions les plus fréquentes sur Dealpick.">
+<meta name="description" content="Les réponses aux questions des utilisateurs et des commerçants partenaires.">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +12,9 @@
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/components.css">
+<meta property="og:title" content="FAQ — Dealpick">
+<meta property="og:description" content="Les réponses aux questions des utilisateurs et des commerçants partenaires.">
+<meta property="og:type" content="website">
 </head>
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
@@ -24,15 +27,15 @@
     </a>
     <nav class="nav" aria-label="Navigation principale">
       <ul>
-        <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+        <li><a href="comment-ca-marche.html">Comment ça marche</a></li>
+        <li><a href="villes.html">Villes</a></li>
         <li><a href="commercants.html">Commerçants</a></li>
         <li><a href="faq.html" aria-current="page">FAQ</a></li>
-        <li><a href="support.html">Aide</a></li>
       </ul>
     </nav>
     <div class="header-actions">
       <button class="theme-toggle" data-theme-toggle aria-label="Changer de thème" title="Changer de thème">◐</button>
-      <a class="btn btn--primary" href="index.html#telecharger">Télécharger</a>
+      <a class="btn btn--primary" href="index.html#telecharger">Télécharger l'app</a>
       <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Ouvrir le menu">☰</button>
     </div>
   </div>
@@ -40,10 +43,12 @@
 
 <div class="mobile-nav" data-mobile-nav hidden>
   <ul>
-    <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+    <li><a href="comment-ca-marche.html">Comment ça marche</a></li>
+    <li><a href="villes.html">Villes</a></li>
     <li><a href="commercants.html">Commerçants</a></li>
     <li><a href="faq.html">FAQ</a></li>
-    <li><a href="support.html">Aide</a></li>
+    <li><a href="mission.html">Notre mission</a></li>
+    <li><a href="aide.html">Aide</a></li>
   </ul>
 </div>
 
@@ -52,42 +57,59 @@
     <div class="container container--narrow">
       <span class="eyebrow">FAQ</span>
       <h1>Questions fréquentes</h1>
+      <p class="lede">Deux publics, deux séries de questions. Si la tienne n'y est pas,
+         écris-nous depuis la <a href="aide.html">page d'aide</a>.</p>
 
-      <h2 style="font-size: var(--text-xl); margin-top: var(--space-7)">L'application</h2>
-      <details class="faq-item"><summary>Dealpick est-il gratuit ?</summary>
-        <p>Oui, entièrement gratuit pour les utilisateurs, sans version payante cachée.
-           Le service est financé par les commerçants qui mettent leurs offres en avant.</p></details>
-      <details class="faq-item"><summary>Dois-je créer un compte ?</summary>
-        <p>Non pour consulter les offres. Un compte devient nécessaire pour enregistrer
-           vos alertes et retrouver vos préférences sur plusieurs appareils.</p></details>
-      <details class="faq-item"><summary>Sur quels appareils fonctionne l'application ?</summary>
-        <p>iOS et Android. À préciser : versions minimales prises en charge.</p></details>
+      <h2 style="margin-top: var(--space-7)">Tu utilises l'app</h2>
 
-      <h2 style="font-size: var(--text-xl); margin-top: var(--space-7)">Les offres</h2>
-      <details class="faq-item"><summary>Comment détectez-vous une fausse promotion ?</summary>
-        <p>Nous relevons régulièrement le prix des produits suivis et conservons leur
-           historique. Si le prix de référence a été augmenté peu avant l'annonce de la
-           remise, l'offre est signalée comme trompeuse.</p></details>
-      <details class="faq-item"><summary>D'où viennent les offres ?</summary>
-        <p>De deux sources : les catalogues publics des enseignes, et les offres déposées
-           directement par les commerçants partenaires.</p></details>
-      <details class="faq-item"><summary>Une offre est erronée, que faire ?</summary>
-        <p>Signalez-la depuis la fiche produit dans l'application, ou écrivez-nous depuis
-           la <a href="support.html">page d'aide</a>. Nous la vérifions sous 24 heures.</p></details>
+      <h3 style="margin-top: var(--space-5)">Les commandes</h3>
+      <details class="faq-item"><summary>Qu'y a-t-il dans un panier&nbsp;?</summary>
+        <p>Ce que le commerçant n'a pas vendu ce jour-là. La catégorie et la valeur
+           minimale sont annoncées avant réservation ; le détail exact reste une surprise.
+           Certaines offres portent au contraire sur un produit précis.</p></details>
+      <details class="faq-item"><summary>Comment je paie&nbsp;?</summary>
+        <p>Dans l'application, au moment de la réservation. Rien à régler sur place.</p></details>
+      <details class="faq-item"><summary>Puis-je annuler&nbsp;?</summary>
+        <p>Oui, jusqu'au délai indiqué sur l'offre&nbsp;: tu es remboursé. Passé ce délai,
+           le panier a été mis de côté pour toi et reste dû. Voir les
+           <a href="legal/cgv.html">CGV</a>.</p></details>
+      <details class="faq-item"><summary>Je n'ai pas pu récupérer ma commande.</summary>
+        <p>Contacte-nous depuis l'app dans les 24 heures. Si le commerce était fermé ou
+           n'avait rien à te remettre, tu es remboursé intégralement.</p></details>
 
-      <h2 style="font-size: var(--text-xl); margin-top: var(--space-7)">Données personnelles</h2>
-      <details class="faq-item"><summary>Que faites-vous de mes données ?</summary>
-        <p>Elles servent uniquement à personnaliser votre fil d'offres et vos alertes.
-           Nous ne les revendons pas. Le détail figure dans la
+      <h3 style="margin-top: var(--space-5)">Les produits</h3>
+      <details class="faq-item"><summary>Est-ce que c'est périmé&nbsp;?</summary>
+        <p>Non. Les commerçants sont tenus aux mêmes règles d'hygiène et de dates que pour
+           leur vente habituelle. Ce sont les produits du jour, simplement non écoulés.</p></details>
+      <details class="faq-item"><summary>Et les allergènes&nbsp;?</summary>
+        <p>Demande au commerçant au moment du retrait&nbsp;: c'est lui qui prépare et
+           connaît la composition. Si tu as une allergie sévère, évite les paniers surprise.</p></details>
+
+      <h3 style="margin-top: var(--space-5)">Le service</h3>
+      <details class="faq-item"><summary>L'app est-elle payante&nbsp;?</summary>
+        <p>Non, gratuite et sans abonnement. Tu ne paies que tes commandes.</p></details>
+      <details class="faq-item"><summary>Dans quelles villes êtes-vous&nbsp;?</summary>
+        <p>La liste à jour est sur la page <a href="villes.html">Villes</a>. Si la tienne
+           n'y est pas, laisse ton adresse&nbsp;: c'est ce qui détermine nos prochaines
+           ouvertures.</p></details>
+      <details class="faq-item"><summary>Que faites-vous de mes données&nbsp;?</summary>
+        <p>Elles servent à te montrer les offres proches et à traiter tes commandes. Nous
+           ne les revendons pas. Détail dans la
            <a href="legal/confidentialite.html">politique de confidentialité</a>.</p></details>
-      <details class="faq-item"><summary>Comment supprimer mon compte ?</summary>
-        <p>Depuis Réglages → Compte → Supprimer mon compte. La suppression est définitive
-           et efface l'ensemble de vos données sous 30 jours.</p></details>
 
-      <h2 style="font-size: var(--text-xl); margin-top: var(--space-7)">Commerçants</h2>
-      <details class="faq-item"><summary>Comment référencer mon commerce ?</summary>
-        <p>Rendez-vous sur la page <a href="commercants.html">Commerçants</a> et remplissez
-           le formulaire : nous vous recontactons sous 48 heures ouvrées.</p></details>
+      <h2 style="margin-top: var(--space-8)">Tu es commerçant</h2>
+      <details class="faq-item"><summary>Combien ça coûte&nbsp;?</summary>
+        <p>Rien à l'inscription, aucun abonnement. Une commission uniquement sur les
+           ventes réalisées — voir la <a href="commercants.html#tarifs">page commerçants</a>.</p></details>
+      <details class="faq-item"><summary>Est-ce que ça remplace mes ventes normales&nbsp;?</summary>
+        <p>Tu choisis ce que tu publies, en quelle quantité et sur quel créneau — en
+           général en fin de service. Tu ne brades que ce qui allait être perdu.</p></details>
+      <details class="faq-item"><summary>Quand suis-je payé&nbsp;?</summary>
+        <p>Dealpick encaisse pour ton compte et te reverse
+           <span class="placeholder">[périodicité]</span>, commission déduite.</p></details>
+      <details class="faq-item"><summary>Comment m'inscrire&nbsp;?</summary>
+        <p>Par le formulaire de la <a href="commercants.html#inscription">page commerçants</a>.
+           On te rappelle sous 48 heures ouvrées.</p></details>
     </div>
   </section>
 </main>
@@ -101,36 +123,43 @@
           Dealpick
         </a>
         <p style="color: var(--text-muted); font-size: var(--text-sm); margin-top: var(--space-3); max-width: 34ch">
-          Les vraies promotions de vos enseignes, sans les fausses réductions.
+          Les invendus et les petits prix des commerces indépendants de ton quartier.
         </p>
       </div>
       <div class="footer-col">
-        <h4>Produit</h4>
+        <h4>Découvrir</h4>
         <ul>
-          <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
-          <li><a href="index.html#telecharger">Télécharger</a></li>
+          <li><a href="comment-ca-marche.html">Comment ça marche</a></li>
+          <li><a href="villes.html">Où on est</a></li>
+          <li><a href="index.html#telecharger">Télécharger l'app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Commerçants</h4>
+        <ul>
+          <li><a href="commercants.html">Devenir partenaire</a></li>
+          <li><a href="commercants.html#tarifs">Commission</a></li>
+          <li><a href="aide.html">Nous contacter</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Dealpick</h4>
+        <ul>
+          <li><a href="mission.html">Notre mission</a></li>
           <li><a href="faq.html">FAQ</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Professionnels</h4>
-        <ul>
-          <li><a href="commercants.html">Espace commerçants</a></li>
-          <li><a href="support.html">Nous contacter</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Légal</h4>
-        <ul>
-          <li><a href="legal/mentions-legales.html">Mentions légales</a></li>
-          <li><a href="legal/confidentialite.html">Confidentialité</a></li>
-          <li><a href="legal/cgu.html">CGU</a></li>
+          <li><a href="aide.html">Aide</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Dealpick. Tous droits réservés.</span>
-      <span>Fait en France</span>
+      <span>
+        <a href="legal/mentions-legales.html">Mentions légales</a> ·
+        <a href="legal/confidentialite.html">Confidentialité</a> ·
+        <a href="legal/cgu.html">CGU</a> ·
+        <a href="legal/cgv.html">CGV</a> ·
+        <a href="legal/cookies.html">Cookies</a>
+      </span>
     </div>
   </div>
 </footer>

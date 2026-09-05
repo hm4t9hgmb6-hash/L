@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Commerçants — Dealpick</title>
-<meta name="description" content="Publiez vos promotions sur Dealpick et touchez des clients de votre zone.">
+<title>Commerçants — Valorise tes invendus avec Dealpick</title>
+<meta name="description" content="Zéro abonnement, une commission sur les ventes uniquement. Transforme tes invendus en chiffre d'affaires et fais découvrir ta boutique.">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +12,9 @@
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/components.css">
+<meta property="og:title" content="Commerçants — Valorise tes invendus avec Dealpick">
+<meta property="og:description" content="Zéro abonnement, une commission sur les ventes uniquement. Transforme tes invendus en chiffre d'affaires et fais découvrir ta boutique.">
+<meta property="og:type" content="website">
 </head>
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
@@ -24,15 +27,15 @@
     </a>
     <nav class="nav" aria-label="Navigation principale">
       <ul>
-        <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+        <li><a href="comment-ca-marche.html">Comment ça marche</a></li>
+        <li><a href="villes.html">Villes</a></li>
         <li><a href="commercants.html" aria-current="page">Commerçants</a></li>
         <li><a href="faq.html">FAQ</a></li>
-        <li><a href="support.html">Aide</a></li>
       </ul>
     </nav>
     <div class="header-actions">
       <button class="theme-toggle" data-theme-toggle aria-label="Changer de thème" title="Changer de thème">◐</button>
-      <a class="btn btn--primary" href="index.html#telecharger">Télécharger</a>
+      <a class="btn btn--primary" href="index.html#telecharger">Télécharger l'app</a>
       <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Ouvrir le menu">☰</button>
     </div>
   </div>
@@ -40,23 +43,31 @@
 
 <div class="mobile-nav" data-mobile-nav hidden>
   <ul>
-    <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+    <li><a href="comment-ca-marche.html">Comment ça marche</a></li>
+    <li><a href="villes.html">Villes</a></li>
     <li><a href="commercants.html">Commerçants</a></li>
     <li><a href="faq.html">FAQ</a></li>
-    <li><a href="support.html">Aide</a></li>
+    <li><a href="mission.html">Notre mission</a></li>
+    <li><a href="aide.html">Aide</a></li>
   </ul>
 </div>
 
 <main id="main">
-  <section class="section">
-    <div class="container container--narrow text-center">
+  <section class="hero">
+    <div class="container container--narrow">
       <span class="eyebrow">Espace commerçants</span>
-      <h1>Vos offres, devant les bons clients</h1>
-      <p class="lede mx-auto">Dealpick met vos promotions sous les yeux de personnes qui
-         cherchent déjà ce que vous vendez, près de chez vous.</p>
-      <div class="btn-row" style="justify-content:center; margin-top: var(--space-6)">
-        <a class="btn btn--primary btn--lg" href="#contact-pro">Demander une démo</a>
-        <a class="btn btn--ghost btn--lg" href="#tarifs-pro">Voir les formules</a>
+      <h1>Ce que tu jettes ce soir peut te rapporter</h1>
+      <p class="lede">Publie tes invendus sur Dealpick&nbsp;: tu récupères du chiffre
+         d'affaires sur des produits perdus, et tu fais découvrir ta boutique à des
+         habitants du quartier. Sans abonnement, sans engagement, sans matériel.</p>
+      <div class="btn-row" style="margin-top: var(--space-6)">
+        <a class="btn btn--primary btn--lg" href="#inscription">Inscrire mon commerce</a>
+        <a class="btn btn--ghost btn--lg" href="#tarifs">Voir la commission</a>
+      </div>
+      <div class="hero__proof">
+        <span>💶 Zéro frais fixe</span>
+        <span>📱 Rien à installer</span>
+        <span>⏱️ 5 minutes pour démarrer</span>
       </div>
     </div>
   </section>
@@ -65,88 +76,167 @@
     <div class="container">
       <div class="grid grid--3">
         <div class="card">
-          <div class="card__icon">📤</div>
-          <h3>Publiez en quelques clics</h3>
-          <p>Créez une offre, définissez sa durée et sa zone. Elle est en ligne
-             immédiatement, sans intermédiaire.</p>
+          <div class="card__icon">💶</div>
+          <h3>Du chiffre sur du perdu</h3>
+          <p>Un invendu vaut zéro à la fermeture — et te coûte même sa mise au rebut.
+             Vendu à prix réduit, il redevient de la marge.</p>
         </div>
         <div class="card">
-          <div class="card__icon">🎯</div>
-          <h3>Ciblez votre zone</h3>
-          <p>Diffusez auprès des utilisateurs qui fréquentent votre quartier ou
-             votre catégorie de produits.</p>
+          <div class="card__icon">👋</div>
+          <h3>De nouveaux clients</h3>
+          <p>La majorité des gens qui viennent chercher un panier ne connaissaient pas la
+             boutique. Une partie revient ensuite en journée, au prix normal.</p>
         </div>
         <div class="card">
-          <div class="card__icon">📊</div>
-          <h3>Mesurez l'impact</h3>
-          <p>Vues, clics, coupons utilisés, passages en magasin : chaque campagne
-             est suivie dans votre tableau de bord.</p>
+          <div class="card__icon">🌱</div>
+          <h3>Une image qui compte</h3>
+          <p>Afficher que tu ne jettes pas, c'est un argument auprès de ta clientèle de
+             quartier — et un sujet dont la presse locale parle volontiers.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="tarifs-pro">
+  <section class="section">
     <div class="container">
       <div class="text-center" style="margin-bottom: var(--space-7)">
-        <span class="eyebrow">Formules</span>
-        <h2>Des tarifs simples</h2>
-        <p class="lede mx-auto">Grille à définir — structure prête, il ne reste qu'à
-           remplir les montants et les limites de chaque formule.</p>
+        <span class="eyebrow">Côté commerçant</span>
+        <h2>Comment ça se passe pour toi</h2>
       </div>
-      <div class="grid grid--3">
-        <div class="card">
-          <span class="badge">Découverte</span>
-          <h3 style="margin-top: var(--space-3)">Gratuit</h3>
-          <ul>
-            <li>1 offre active</li>
-            <li>Fiche commerce</li>
-            <li>Statistiques de base</li>
-          </ul>
-          <a class="btn btn--ghost btn--block" href="#contact-pro">Commencer</a>
+      <div class="grid grid--4 steps">
+        <div class="step">
+          <h3>Tu t'inscris</h3>
+          <p>Formulaire, vérification de ton établissement, coordonnées bancaires pour
+             les reversements.</p>
         </div>
-        <div class="card" style="border-color: var(--primary)">
-          <span class="badge badge--brand">Le plus choisi</span>
-          <h3 style="margin-top: var(--space-3)">Standard</h3>
-          <ul>
-            <li>Offres illimitées</li>
-            <li>Mise en avant locale</li>
-            <li>Statistiques détaillées</li>
-          </ul>
-          <a class="btn btn--primary btn--block" href="#contact-pro">Demander une démo</a>
+        <div class="step">
+          <h3>Tu publies</h3>
+          <p>En fin de journée, tu indiques ce qu'il te reste, le prix et le créneau de
+             retrait. Une trentaine de secondes.</p>
         </div>
-        <div class="card">
-          <span class="badge">Enseigne</span>
-          <h3 style="margin-top: var(--space-3)">Sur mesure</h3>
-          <ul>
-            <li>Multi-magasins</li>
-            <li>Import automatique du catalogue</li>
-            <li>Accompagnement dédié</li>
-          </ul>
-          <a class="btn btn--ghost btn--block" href="#contact-pro">Nous contacter</a>
+        <div class="step">
+          <h3>Le client paie</h3>
+          <p>Le paiement se fait dans l'application. Rien à encaisser sur place, aucun
+             impayé possible.</p>
+        </div>
+        <div class="step">
+          <h3>Tu es reversé</h3>
+          <p>Dealpick te reverse le montant des ventes, déduction faite de la commission,
+             selon la périodicité convenue.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section section--subtle" id="contact-pro">
+  <section class="section section--subtle" id="tarifs">
     <div class="container container--narrow">
-      <h2>Parlons de votre commerce</h2>
-      <p class="lede">Laissez vos coordonnées, nous revenons vers vous sous 48 heures ouvrées.</p>
+      <span class="eyebrow">Tarifs</span>
+      <h2>Une commission, et rien d'autre</h2>
+      <p class="lede">Pas d'abonnement, pas de frais d'inscription, pas de matériel à
+         acheter. On ne gagne de l'argent que quand tu en gagnes.</p>
+
+      <dl class="card" style="margin-top: var(--space-5)">
+        <div class="price-line">
+          <dt>Inscription et compte</dt>
+          <dd>Gratuits</dd>
+        </div>
+        <div class="price-line">
+          <dt>Abonnement mensuel</dt>
+          <dd>Aucun</dd>
+        </div>
+        <div class="price-line">
+          <dt>Commission par vente</dt>
+          <dd><span class="placeholder">[X] %</span> du montant TTC, frais de paiement inclus</dd>
+        </div>
+        <div class="price-line">
+          <dt>Reversement</dt>
+          <dd><span class="placeholder">[périodicité : hebdomadaire / mensuelle]</span>, par virement</dd>
+        </div>
+        <div class="price-line">
+          <dt>Engagement de durée</dt>
+          <dd>Aucun — tu arrêtes quand tu veux</dd>
+        </div>
+      </dl>
+
+      <div class="note" style="margin-top: var(--space-5)">
+        Taux et périodicité à fixer avant mise en ligne. Un chiffre affiché rassure
+        beaucoup plus qu'un « tarif sur demande », qui fait fuir les petits commerces.
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow">
+      <h2>Questions des commerçants</h2>
+      <details class="faq-item">
+        <summary>Est-ce que ça cannibalise mes ventes normales&nbsp;?</summary>
+        <p>C'est la première inquiétude, et elle est légitime. Deux garde-fous : tu
+           décides toi-même quoi publier et en quelle quantité, et le retrait se fait en
+           fin de service, sur un créneau que tu choisis. Tu ne brades que ce qui allait
+           être perdu.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Combien de temps ça me prend par jour&nbsp;?</summary>
+        <p>Publier une offre prend une trentaine de secondes. La remise au client prend
+           le temps d'un passage en caisse, sans encaissement.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Et si personne ne réserve&nbsp;?</summary>
+        <p>Tu n'as rien perdu&nbsp;: aucun frais fixe, et le produit était de toute façon
+           invendu. L'offre disparaît à la fin du créneau.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Quand suis-je payé&nbsp;?</summary>
+        <p>Dealpick encaisse pour ton compte au moment de la commande, puis te reverse
+           <span class="placeholder">[périodicité]</span>, commission déduite. Le détail
+           figure dans les conditions partenaires.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Un client ne vient pas chercher sa commande&nbsp;?</summary>
+        <p>La vente reste acquise selon les conditions d'annulation. Tu n'es pas pénalisé
+           par un client absent.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Je ne suis pas dans l'alimentaire, ça me concerne&nbsp;?</summary>
+        <p>Oui. Fleuristes, primeurs, épiceries, mais aussi tout commerce indépendant
+           ayant du stock à écouler ou des petits prix à proposer à son quartier.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section section--subtle" id="inscription">
+    <div class="container container--narrow">
+      <h2>Inscrire mon commerce</h2>
+      <p class="lede">Laisse-nous tes coordonnées&nbsp;: on te rappelle sous 48 heures
+         ouvrées pour valider ton inscription et te montrer l'outil.</p>
       <form class="card" style="margin-top: var(--space-5)" method="post" action="#">
         <div class="field">
-          <label for="pro-nom">Nom du commerce</label>
-          <input id="pro-nom" name="commerce" type="text" required>
+          <label for="c-nom">Nom du commerce</label>
+          <input id="c-nom" name="commerce" type="text" required>
         </div>
         <div class="field">
-          <label for="pro-email">Adresse e-mail</label>
-          <input id="pro-email" name="email" type="email" required>
+          <label for="c-type">Type de commerce</label>
+          <select id="c-type" name="type">
+            <option>Boulangerie / pâtisserie</option>
+            <option>Restaurant / traiteur</option>
+            <option>Primeur / épicerie</option>
+            <option>Fleuriste</option>
+            <option>Autre commerce indépendant</option>
+          </select>
         </div>
         <div class="field">
-          <label for="pro-message">Votre besoin</label>
-          <textarea id="pro-message" name="message" rows="4"></textarea>
+          <label for="c-ville">Ville</label>
+          <input id="c-ville" name="ville" type="text" required>
         </div>
-        <button class="btn btn--primary btn--block" type="submit">Envoyer la demande</button>
+        <div class="field">
+          <label for="c-email">Adresse e-mail</label>
+          <input id="c-email" name="email" type="email" required>
+        </div>
+        <div class="field">
+          <label for="c-tel">Téléphone</label>
+          <input id="c-tel" name="telephone" type="tel">
+        </div>
+        <button class="btn btn--primary btn--block" type="submit">Envoyer ma demande</button>
         <p style="margin-top: var(--space-3)"><small style="color: var(--text-muted)">
           Formulaire non connecté — brancher un service d'envoi avant mise en ligne.
         </small></p>
@@ -164,36 +254,43 @@
           Dealpick
         </a>
         <p style="color: var(--text-muted); font-size: var(--text-sm); margin-top: var(--space-3); max-width: 34ch">
-          Les vraies promotions de vos enseignes, sans les fausses réductions.
+          Les invendus et les petits prix des commerces indépendants de ton quartier.
         </p>
       </div>
       <div class="footer-col">
-        <h4>Produit</h4>
+        <h4>Découvrir</h4>
         <ul>
-          <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
-          <li><a href="index.html#telecharger">Télécharger</a></li>
+          <li><a href="comment-ca-marche.html">Comment ça marche</a></li>
+          <li><a href="villes.html">Où on est</a></li>
+          <li><a href="index.html#telecharger">Télécharger l'app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Commerçants</h4>
+        <ul>
+          <li><a href="commercants.html">Devenir partenaire</a></li>
+          <li><a href="commercants.html#tarifs">Commission</a></li>
+          <li><a href="aide.html">Nous contacter</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Dealpick</h4>
+        <ul>
+          <li><a href="mission.html">Notre mission</a></li>
           <li><a href="faq.html">FAQ</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Professionnels</h4>
-        <ul>
-          <li><a href="commercants.html">Espace commerçants</a></li>
-          <li><a href="support.html">Nous contacter</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Légal</h4>
-        <ul>
-          <li><a href="legal/mentions-legales.html">Mentions légales</a></li>
-          <li><a href="legal/confidentialite.html">Confidentialité</a></li>
-          <li><a href="legal/cgu.html">CGU</a></li>
+          <li><a href="aide.html">Aide</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Dealpick. Tous droits réservés.</span>
-      <span>Fait en France</span>
+      <span>
+        <a href="legal/mentions-legales.html">Mentions légales</a> ·
+        <a href="legal/confidentialite.html">Confidentialité</a> ·
+        <a href="legal/cgu.html">CGU</a> ·
+        <a href="legal/cgv.html">CGV</a> ·
+        <a href="legal/cookies.html">Cookies</a>
+      </span>
     </div>
   </div>
 </footer>

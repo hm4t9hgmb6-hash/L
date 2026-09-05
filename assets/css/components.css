@@ -408,3 +408,117 @@
   color: var(--text-muted);
   font-size: var(--text-sm);
 }
+
+/* --- Sélecteur de ville (héros) ------------------------------------------- */
+
+.city-search {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+  max-width: 30rem;
+}
+.city-search input {
+  flex: 1 1 12rem;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  padding: var(--space-2) var(--space-4);
+}
+.city-search input:focus { outline: none; }
+.city-search:focus-within { border-color: var(--primary); box-shadow: 0 0 0 4px var(--primary-soft); }
+
+/* --- Villes --------------------------------------------------------------- */
+
+.city-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  gap: var(--space-3);
+  list-style: none;
+  margin: 0; padding: 0;
+}
+.city-grid li { margin: 0; }
+.city-chip {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  text-decoration: none;
+  color: var(--text);
+  font-weight: var(--weight-bold);
+  transition: border-color var(--transition), transform var(--transition);
+}
+.city-chip:hover { border-color: var(--primary); color: var(--text); transform: translateY(-1px); }
+.city-chip span { font-size: var(--text-xs); font-weight: var(--weight-regular); color: var(--text-muted); }
+.city-chip--soon { opacity: .6; pointer-events: none; }
+
+/* --- Bloc scindé : deux publics ------------------------------------------- */
+
+.split { display: grid; gap: var(--space-4); }
+@media (min-width: 800px) { .split { grid-template-columns: 1fr 1fr; } }
+.split__half {
+  padding: clamp(var(--space-6), 4vw, var(--space-8));
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+.split__half--client { background: var(--primary-soft); }
+.split__half--pro { background: var(--gray-900); color: #fff; }
+.split__half--pro h3 { color: #fff; }
+.split__half--pro p { color: rgba(255,255,255,.78); }
+.split__half--pro .btn--primary { background: #fff; color: var(--gray-900); }
+.split__half--pro .btn--primary:hover { background: var(--gray-100); color: var(--gray-900); }
+.split__half h3 { font-size: var(--text-2xl); margin: 0; }
+.split__half p { margin: 0; }
+
+/* --- Citation / témoignage ------------------------------------------------ */
+
+.quote {
+  margin: 0;
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.quote p { font-size: var(--text-lg); }
+.quote footer {
+  margin-top: var(--space-4);
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  font-style: normal;
+}
+
+/* --- Ligne de comparaison / tarif ----------------------------------------- */
+
+.price-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--border);
+}
+.price-line:last-child { border-bottom: 0; }
+.price-line dt { font-weight: var(--weight-bold); flex: 1 1 14rem; }
+.price-line dd { margin: 0; color: var(--text-muted); flex: 1 1 12rem; }
+
+.note {
+  padding: var(--space-4) var(--space-5);
+  border-left: 3px solid var(--primary);
+  background: var(--bg-subtle);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}

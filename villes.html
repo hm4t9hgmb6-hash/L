@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Où trouver Dealpick — Villes couvertes</title>
+<meta name="description" content="Les villes où Dealpick est disponible, celles qui arrivent, et comment nous signaler la tienne.">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<meta property="og:title" content="Où trouver Dealpick — Villes couvertes">
+<meta property="og:description" content="Les villes où Dealpick est disponible, celles qui arrivent, et comment nous signaler la tienne.">
+<meta property="og:type" content="website">
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img class="logo__mark" src="assets/img/logo.svg" alt="" width="28" height="28">
+      Dealpick
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <ul>
+        <li><a href="comment-ca-marche.html">Comment ça marche</a></li>
+        <li><a href="villes.html" aria-current="page">Villes</a></li>
+        <li><a href="commercants.html">Commerçants</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="Changer de thème" title="Changer de thème">◐</button>
+      <a class="btn btn--primary" href="index.html#telecharger">Télécharger l'app</a>
+      <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Ouvrir le menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" data-mobile-nav hidden>
+  <ul>
+    <li><a href="comment-ca-marche.html">Comment ça marche</a></li>
+    <li><a href="villes.html">Villes</a></li>
+    <li><a href="commercants.html">Commerçants</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="mission.html">Notre mission</a></li>
+    <li><a href="aide.html">Aide</a></li>
+  </ul>
+</div>
+
+<main id="main">
+  <section class="section">
+    <div class="container container--narrow">
+      <span class="eyebrow">Où on est</span>
+      <h1>Dealpick, ville par ville</h1>
+      <p class="lede">On n'ouvre une ville que lorsqu'assez de commerçants y sont
+         partenaires. Sans offre à proximité, l'app ne sert à rien — autant être honnête
+         sur là où on est vraiment.</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container">
+      <h2>Villes ouvertes</h2>
+      <ul class="city-grid" style="margin-bottom: var(--space-7)">
+        <li><a class="city-chip" href="villes/exemple-ville.html">Lyon <span>84 commerces</span></a></li>
+        <li><a class="city-chip" href="villes/exemple-ville.html">Villeurbanne <span>31 commerces</span></a></li>
+        <li><a class="city-chip" href="villes/exemple-ville.html">Bordeaux <span>52 commerces</span></a></li>
+      </ul>
+
+      <h2>Bientôt</h2>
+      <ul class="city-grid">
+        <li><span class="city-chip city-chip--soon">Nantes <span>ouverture prévue</span></span></li>
+        <li><span class="city-chip city-chip--soon">Lille <span>ouverture prévue</span></span></li>
+        <li><span class="city-chip city-chip--soon">Toulouse <span>ouverture prévue</span></span></li>
+      </ul>
+
+      <p class="note" style="margin-top: var(--space-6)">
+        Villes d'illustration, à remplacer. Tant qu'aucune ville n'est réellement ouverte,
+        garde uniquement le formulaire ci-dessous : il transforme une page vide en outil
+        de mesure de la demande.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--subtle">
+    <div class="container container--narrow">
+      <h2>Ta ville n'est pas dans la liste&nbsp;?</h2>
+      <p class="lede">Dis-nous où tu es. C'est ce qui nous sert à décider quelle ville
+         ouvrir ensuite — et on te prévient dès qu'on y arrive.</p>
+      <form class="card" style="margin-top: var(--space-5)" method="post" action="#">
+        <div class="field">
+          <label for="v-ville">Ta ville</label>
+          <input id="v-ville" name="ville" type="text" required>
+        </div>
+        <div class="field">
+          <label for="v-email">Ton adresse e-mail</label>
+          <input id="v-email" name="email" type="email" required>
+          <small>Uniquement pour te prévenir de l'ouverture. Pas de newsletter.</small>
+        </div>
+        <div class="field">
+          <label for="v-role">Tu es…</label>
+          <select id="v-role" name="role">
+            <option>Un habitant intéressé</option>
+            <option>Un commerçant qui veut s'inscrire</option>
+          </select>
+        </div>
+        <button class="btn btn--primary btn--block" type="submit">Préviens-moi</button>
+        <p style="margin-top: var(--space-3)"><small style="color: var(--text-muted)">
+          Formulaire non connecté — brancher un service d'envoi avant mise en ligne.
+        </small></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a class="logo" href="index.html">
+          <img class="logo__mark" src="assets/img/logo.svg" alt="" width="28" height="28">
+          Dealpick
+        </a>
+        <p style="color: var(--text-muted); font-size: var(--text-sm); margin-top: var(--space-3); max-width: 34ch">
+          Les invendus et les petits prix des commerces indépendants de ton quartier.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Découvrir</h4>
+        <ul>
+          <li><a href="comment-ca-marche.html">Comment ça marche</a></li>
+          <li><a href="villes.html">Où on est</a></li>
+          <li><a href="index.html#telecharger">Télécharger l'app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Commerçants</h4>
+        <ul>
+          <li><a href="commercants.html">Devenir partenaire</a></li>
+          <li><a href="commercants.html#tarifs">Commission</a></li>
+          <li><a href="aide.html">Nous contacter</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Dealpick</h4>
+        <ul>
+          <li><a href="mission.html">Notre mission</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="aide.html">Aide</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Dealpick. Tous droits réservés.</span>
+      <span>
+        <a href="legal/mentions-legales.html">Mentions légales</a> ·
+        <a href="legal/confidentialite.html">Confidentialité</a> ·
+        <a href="legal/cgu.html">CGU</a> ·
+        <a href="legal/cgv.html">CGV</a> ·
+        <a href="legal/cookies.html">Cookies</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CGU — Dealpick</title>
-<meta name="description" content="Conditions générales d'utilisation de l'application Dealpick.">
+<title>Invendus et bons plans à [Ville] — Dealpick</title>
+<meta name="description" content="Gabarit de page ville : commerces partenaires, quartiers couverts et offres du jour.">
 <link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,8 +12,8 @@
 <link rel="stylesheet" href="../assets/css/tokens.css">
 <link rel="stylesheet" href="../assets/css/base.css">
 <link rel="stylesheet" href="../assets/css/components.css">
-<meta property="og:title" content="CGU — Dealpick">
-<meta property="og:description" content="Conditions générales d'utilisation de l'application Dealpick.">
+<meta property="og:title" content="Invendus et bons plans à [Ville] — Dealpick">
+<meta property="og:description" content="Gabarit de page ville : commerces partenaires, quartiers couverts et offres du jour.">
 <meta property="og:type" content="website">
 </head>
 <body>
@@ -28,7 +28,7 @@
     <nav class="nav" aria-label="Navigation principale">
       <ul>
         <li><a href="../comment-ca-marche.html">Comment ça marche</a></li>
-        <li><a href="../villes.html">Villes</a></li>
+        <li><a href="../villes.html" aria-current="page">Villes</a></li>
         <li><a href="../commercants.html">Commerçants</a></li>
         <li><a href="../faq.html">FAQ</a></li>
       </ul>
@@ -54,41 +54,57 @@
 
 <main id="main">
   <section class="section">
-    <div class="container container--narrow prose">
-      <h1>Conditions générales d'utilisation</h1>
-      <p><strong>Squelette à compléter et à faire relire.</strong> Les CGU encadrent
-         l'usage du service ; la vente elle-même relève des <a href="cgv.html">CGV</a>.</p>
+    <div class="container container--narrow">
+      <span class="eyebrow">Modèle de page ville</span>
+      <h1>Invendus et bons plans à <span class="placeholder">[Ville]</span></h1>
+      <p class="lede">Cette page est un gabarit : elle se duplique pour chaque ville
+         ouverte. C'est le principal levier de référencement du site — les gens cherchent
+         « invendus [ville] », « anti-gaspi [ville] », « bons plans [ville] ».</p>
+      <div class="note">
+        À personnaliser pour chaque ville : le nombre de commerces, les quartiers couverts,
+        deux ou trois commerçants emblématiques, un chiffre local. Une page ville qui
+        répète le texte des autres n'apporte rien au référencement.
+      </div>
+    </div>
+  </section>
 
-      <h2>1. Objet</h2>
-      <p>Les présentes conditions régissent l'utilisation de l'application et du site
-         Dealpick, édités par <span class="placeholder">[Raison sociale]</span>.</p>
+  <section class="section section--tight">
+    <div class="container">
+      <div class="grid grid--3">
+        <div class="stat"><span class="stat__value">84</span><span class="stat__label">commerces partenaires</span></div>
+        <div class="stat"><span class="stat__value">12</span><span class="stat__label">quartiers couverts</span></div>
+        <div class="stat"><span class="stat__value">−55 %</span><span class="stat__label">de réduction moyenne</span></div>
+      </div>
+    </div>
+  </section>
 
-      <h2>2. Rôle de la plateforme</h2>
-      <p>Dealpick met en relation des commerçants indépendants et des utilisateurs. Elle
-         n'est ni producteur, ni vendeur des produits proposés.</p>
+  <section class="section">
+    <div class="container">
+      <h2>Les quartiers couverts</h2>
+      <ul class="city-grid">
+        <li><span class="city-chip"><span class="placeholder">[Quartier 1]</span></span></li>
+        <li><span class="city-chip"><span class="placeholder">[Quartier 2]</span></span></li>
+        <li><span class="city-chip"><span class="placeholder">[Quartier 3]</span></span></li>
+      </ul>
 
-      <h2>3. Compte utilisateur</h2>
-      <p>Conditions d'inscription, âge minimum, exactitude des informations, sécurité des
-         identifiants, suppression du compte.</p>
+      <h2 style="margin-top: var(--space-7)">Quelques commerces partenaires</h2>
+      <div class="grid grid--3">
+        <div class="card"><h3><span class="placeholder">[Commerce]</span></h3><p>Type de commerce, quartier, ce qu'on y trouve habituellement.</p></div>
+        <div class="card"><h3><span class="placeholder">[Commerce]</span></h3><p>Type de commerce, quartier, ce qu'on y trouve habituellement.</p></div>
+        <div class="card"><h3><span class="placeholder">[Commerce]</span></h3><p>Type de commerce, quartier, ce qu'on y trouve habituellement.</p></div>
+      </div>
+    </div>
+  </section>
 
-      <h2>4. Règles d'usage</h2>
-      <p>Interdiction de détourner le service, de revendre les commandes, d'extraire
-         massivement les contenus ou de perturber le fonctionnement de la plateforme.</p>
-
-      <h2>5. Comportement au retrait</h2>
-      <p>Respect des créneaux et des commerçants. Conséquences des absences répétées.</p>
-
-      <h2>6. Comptes commerçants</h2>
-      <p>Renvoi aux conditions partenaires : exactitude des offres, respect des règles
-         d'hygiène, de l'information sur les allergènes et des règles d'annonce de
-         réduction de prix.</p>
-
-      <h2>7. Suspension et résiliation</h2>
-      <p>Cas de suspension d'un compte, préavis, voies de recours.</p>
-
-      <h2>8. Droit applicable</h2>
-      <p>Droit français, après recherche d'une solution amiable ; recours possible à la
-         médiation de la consommation.</p>
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Découvre ce qui se libère ce soir à <span class="placeholder">[Ville]</span></h2>
+        <div class="btn-row" style="justify-content:center; margin-top: var(--space-5)">
+          <a class="btn btn--primary btn--lg" href="../index.html#telecharger">Télécharger l'app</a>
+          <a class="btn btn--ghost btn--lg" href="../commercants.html">Inscrire mon commerce</a>
+        </div>
+      </div>
     </div>
   </section>
 </main>
