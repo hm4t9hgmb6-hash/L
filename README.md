@@ -1,24 +1,26 @@
 # Dealpick — site web
 
-Site de **Dealpick**, place de marché locale des commerces indépendants **avec pignon sur
-rue**. Deux natures d'offre, et c'est la distinction structurante de tout le produit :
+Site de **Dealpick**, service de **réductions en temps réel** proposées par les commerces
+indépendants **avec pignon sur rue**.
 
-- **des produits** — ce qu'un commerce n'a pas vendu et ne gardera pas : boulangerie,
-  restauration, primeur, fleuriste, mode, décoration. L'utilisateur récupère pendant un
-  créneau ;
-- **des prestations** — un créneau de travail creux ouvert à prix réduit : coiffure,
-  cordonnerie, pressing, retouches, réparation. L'utilisateur réserve un rendez-vous.
+Le mécanisme : un commerçant publie une réduction au moment où il le décide — boutique
+vide un mardi après-midi, stock à écouler, créneau annulé. L'offre est immédiatement
+visible par les clients qui sont dans son rayon, avec sa durée de validité et son nombre
+de places. Elle disparaît dès qu'elle est épuisée ou expirée.
 
-Un coiffeur n'a pas d'invendus, il a des fauteuils vides. Dans les deux cas, la ressource
-perd toute valeur à la fermeture — c'est la même promesse économique.
+Deux natures d'offre :
 
-L'utilisateur réserve et paie dans l'application, puis passe sur place. Dealpick encaisse
-pour le compte du commerçant et le reverse, commission déduite. L'application est gratuite
-pour l'utilisateur.
+- **des produits** — un article à récupérer pendant une fenêtre de validité ;
+- **des prestations** — un rendez-vous à heure fixe, bloqué au nom du client.
 
-HTML et CSS statiques, sans build ni dépendance : on ouvre `index.html` et ça fonctionne.
-Le tout est repris tel quel si le projet passe plus tard sous un framework ou est recopié
-dans un éditeur visuel.
+Le client réserve et paie dans l'application, puis se présente sur place. Dealpick
+encaisse pour le compte du commerçant et le reverse, commission déduite. L'application est
+gratuite pour le client.
+
+**Ce que le service n'est pas** : ni un catalogue de bons plans permanents, ni une
+plateforme anti-gaspillage. Le temps et la distance sont les deux paramètres qui font
+exister une offre — c'est ce qui doit transparaître partout dans l'interface et les
+textes.
 
 ---
 

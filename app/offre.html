@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Panier surprise viennoiseries — Dealpick</title>
+<title>Lot de viennoiseries — Dealpick</title>
 <meta name="description" content="Détail de l'offre et réservation.">
 <meta name="robots" content="noindex">
 <link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml">
@@ -49,23 +49,24 @@
 <main id="main">
   <section class="section section--tight">
     <div class="container container--narrow">
-      <p><a href="offres.html">← Retour aux offres</a></p>
+      <p><a href="offres.html">← Retour au fil</a></p>
 
-      <span class="eyebrow">📦 Produit · Boulangerie Marchand · 800 m</span>
-      <h1>Panier surprise viennoiseries</h1>
+      <span class="eyebrow">Produit · Boulangerie Marchand · 350 m</span>
+      <h1>Lot de viennoiseries</h1>
+      <p class="live" style="margin-bottom: var(--space-5)">Valable encore 42 minutes</p>
 
-      <div class="grid grid--2" style="margin-top: var(--space-5)">
+      <div class="grid grid--2">
         <div class="card">
-          <h3>Le contenu</h3>
-          <p>Un assortiment de viennoiseries et de pains du jour, selon ce qui reste en
-             fin de service. Valeur en boutique : au moins 10 €.</p>
-          <p><strong>Catégorie :</strong> Boulangerie / pâtisserie</p>
+          <h3>Ce que tu obtiens</h3>
+          <p>Un assortiment de viennoiseries et de pains, composé par le commerçant.
+             Valeur en boutique : au moins 10 €.</p>
+          <p><strong>Catégorie</strong> : boulangerie / pâtisserie</p>
         </div>
         <div class="card">
-          <h3>Le retrait</h3>
-          <p><strong>Aujourd'hui, 18h00 – 19h30</strong><br>
-             12 rue de la République, Lyon 3e</p>
-          <p>Présente ton code au comptoir. Rien à payer sur place.</p>
+          <h3>Où et quand</h3>
+          <p>12 rue de la République, Lyon 3e — 350 m, environ 5 minutes à pied.</p>
+          <p><strong>À récupérer avant 19h30.</strong> Tu présentes ton code au comptoir,
+             rien à régler sur place.</p>
         </div>
       </div>
 
@@ -75,11 +76,11 @@
           <span><strong>4,00 €</strong> <span class="offer__was">10,00 €</span></span>
         </div>
         <div class="summary__row">
-          <span>Quantité <small style="color:var(--text-muted)">(3 disponibles)</small></span>
+          <span>Quantité <small style="color:var(--text-muted)">(3 places restantes)</small></span>
           <span class="stepper">
-            <button type="button" aria-label="Retirer un panier">−</button>
+            <button type="button" aria-label="Retirer">−</button>
             <output aria-live="polite">1</output>
-            <button type="button" aria-label="Ajouter un panier">+</button>
+            <button type="button" aria-label="Ajouter">+</button>
           </span>
         </div>
         <div class="summary__total">
@@ -90,42 +91,39 @@
           Réserver et payer
         </a>
         <p style="margin-top: var(--space-3); font-size: var(--text-sm); color: var(--text-muted)">
-          Annulation gratuite jusqu'à 1 h avant le début du créneau.
+          Annulation gratuite jusqu'à 30 minutes avant la fin de validité.
         </p>
       </div>
 
       <div class="hook" style="margin-top: var(--space-6)">
         <strong>À brancher</strong>
-        <code>GET /api/offres/:id</code> pour la fiche. Le bouton appelle
-        <code>POST /api/reservations</code> qui doit, <em>côté serveur et de façon
-        atomique</em> : vérifier le stock, le décrémenter, créer la commande au statut
-        <code>en_attente_paiement</code> avec une expiration courte (10 min), puis créer
-        l'intention de paiement. Sans ce verrou serveur, deux clients peuvent réserver
-        le même dernier panier.
+        <code>GET /api/offres/:id</code> pour la fiche, avec le décompte de validité
+        rafraîchi côté client. Le bouton appelle <code>POST /api/reservations</code>, qui
+        doit <em>côté serveur et de façon atomique</em> : vérifier les places, les
+        décrémenter, créer la commande en <code>en_attente_paiement</code> avec expiration
+        courte, puis créer l'intention de paiement. Sans ce verrou, deux clients réservent
+        la même dernière place.
       </div>
 
       <div class="hook">
-        <strong>Allergènes</strong>
-        Zone d'information obligatoire pour l'alimentaire. À afficher ici, alimentée par
-        la fiche du commerçant. Sans objet pour une prestation.
+        <strong>Offre expirée pendant la consultation</strong>
+        Cas fréquent sur ce modèle : l'utilisateur ouvre la fiche, hésite, l'offre expire.
+        Prévoir un écran explicite et une proposition d'alternatives proches — pas une
+        erreur technique.
       </div>
 
       <div class="hook">
         <strong>Variante « prestation »</strong>
-        Cette page sert les deux natures d'offre. Quand <code>type = prestation</code>
-        (coiffeur, cordonnier, pressing, réparation), quatre choses changent :
-        <br><br>
-        · <strong>l'horaire</strong> devient un rendez-vous à heure fixe avec une durée
-        annoncée, pas un créneau de retrait ;<br>
-        · <strong>la quantité</strong> devient un nombre de places sur ce créneau, et le
-        sélecteur de quantité disparaît le plus souvent ;<br>
-        · <strong>le bloc « contenu »</strong> décrit précisément la prestation — jamais
-        de surprise sur un service ;<br>
-        · <strong>le rendez-vous est nominatif</strong> : prévoir le champ de nom, et
-        éventuellement une remarque libre pour le professionnel.
-        <br><br>
-        Le délai d'annulation est en général plus long que pour un produit : un créneau
-        libéré tard ne se revend pas.
+        Quand <code>type = prestation</code> : l'horaire devient un rendez-vous à heure
+        fixe avec durée, les places sont les créneaux ouverts, le sélecteur de quantité
+        disparaît, la description est toujours précise, et le rendez-vous est nominatif —
+        prévoir le champ de nom. Le délai d'annulation y est plus long.
+      </div>
+
+      <div class="hook">
+        <strong>Allergènes</strong>
+        Information obligatoire pour l'alimentaire, alimentée par la fiche du commerçant.
+        Sans objet pour une prestation.
       </div>
     </div>
   </section>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Où trouver Dealpick — Villes couvertes</title>
-<meta name="description" content="Les villes où Dealpick est disponible, celles qui arrivent, et comment nous signaler la tienne.">
+<title>Villes couvertes — Dealpick</title>
+<meta name="description" content="Les villes où Dealpick fonctionne, celles qui arrivent, et comment nous signaler la tienne.">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,8 +12,8 @@
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/components.css">
-<meta property="og:title" content="Où trouver Dealpick — Villes couvertes">
-<meta property="og:description" content="Les villes où Dealpick est disponible, celles qui arrivent, et comment nous signaler la tienne.">
+<meta property="og:title" content="Villes couvertes — Dealpick">
+<meta property="og:description" content="Les villes où Dealpick fonctionne, celles qui arrivent, et comment nous signaler la tienne.">
 <meta property="og:type" content="website">
 </head>
 <body>
@@ -47,7 +47,7 @@
     <li><a href="villes.html">Villes</a></li>
     <li><a href="commercants.html">Commerçants</a></li>
     <li><a href="faq.html">FAQ</a></li>
-    <li><a href="mission.html">Notre mission</a></li>
+    <li><a href="mission.html">Pourquoi Dealpick</a></li>
     <li><a href="aide.html">Aide</a></li>
   </ul>
 </div>
@@ -55,11 +55,11 @@
 <main id="main">
   <section class="section">
     <div class="container container--narrow">
-      <span class="eyebrow">Où on est</span>
-      <h1>Dealpick, ville par ville</h1>
-      <p class="lede">On n'ouvre une ville que lorsqu'assez de commerçants y sont
-         partenaires. Sans offre à proximité, l'app ne sert à rien — autant être honnête
-         sur là où on est vraiment.</p>
+      <span class="eyebrow">Couverture</span>
+      <h1>Où Dealpick fonctionne</h1>
+      <p class="lede">Le service n'a d'intérêt que s'il y a des commerces actifs dans ton
+         rayon immédiat. On n'ouvre donc une ville qu'à partir d'une densité suffisante —
+         mieux vaut être honnête sur là où on est vraiment.</p>
     </div>
   </section>
 
@@ -72,27 +72,29 @@
         <li><a class="city-chip" href="villes/exemple-ville.html">Bordeaux <span>52 commerces</span></a></li>
       </ul>
 
-      <h2>Bientôt</h2>
+      <h2>Ouvertures prévues</h2>
       <ul class="city-grid">
-        <li><span class="city-chip city-chip--soon">Nantes <span>ouverture prévue</span></span></li>
-        <li><span class="city-chip city-chip--soon">Lille <span>ouverture prévue</span></span></li>
-        <li><span class="city-chip city-chip--soon">Toulouse <span>ouverture prévue</span></span></li>
+        <li><span class="city-chip city-chip--soon">Nantes</span></li>
+        <li><span class="city-chip city-chip--soon">Lille</span></li>
+        <li><span class="city-chip city-chip--soon">Toulouse</span></li>
       </ul>
 
       <p class="note" style="margin-top: var(--space-6)">
-        Villes d'illustration, à remplacer. Tant qu'aucune ville n'est réellement ouverte,
-        garde uniquement le formulaire ci-dessous : il transforme une page vide en outil
-        de mesure de la demande.
+        Villes d'illustration. Tant qu'aucune ville n'est réellement ouverte, ne garder
+        que le formulaire ci-dessous : il transforme une page vide en outil de mesure de
+        la demande.
       </p>
     </div>
   </section>
 
   <section class="section section--subtle">
     <div class="container container--narrow">
-      <h2>Ta ville n'est pas dans la liste&nbsp;?</h2>
-      <p class="lede">Dis-nous où tu es. C'est ce qui nous sert à décider quelle ville
-         ouvrir ensuite — et on te prévient dès qu'on y arrive.</p>
-      <form class="card" style="margin-top: var(--space-5)" method="post" action="#">
+      <div class="section-head">
+        <h2>Ta ville n'est pas dans la liste</h2>
+        <p class="lede">Dis-nous où tu es. C'est ce qui détermine la prochaine ouverture,
+           et on te prévient dès qu'on y arrive.</p>
+      </div>
+      <form class="card" method="post" action="#">
         <div class="field">
           <label for="v-ville">Ta ville</label>
           <input id="v-ville" name="ville" type="text" required>
@@ -103,7 +105,7 @@
           <small>Uniquement pour te prévenir de l'ouverture. Pas de newsletter.</small>
         </div>
         <div class="field">
-          <label for="v-role">Tu es…</label>
+          <label for="v-role">Tu es</label>
           <select id="v-role" name="role">
             <option>Un habitant intéressé</option>
             <option>Un commerçant qui veut s'inscrire</option>
@@ -127,7 +129,7 @@
           Dealpick
         </a>
         <p style="color: var(--text-muted); font-size: var(--text-sm); margin-top: var(--space-3); max-width: 34ch">
-          Les invendus et les petits prix des commerces indépendants de ton quartier.
+          Les réductions des commerces indépendants de ton quartier, en temps réel.
         </p>
       </div>
       <div class="footer-col">
@@ -149,7 +151,7 @@
       <div class="footer-col">
         <h4>Dealpick</h4>
         <ul>
-          <li><a href="mission.html">Notre mission</a></li>
+          <li><a href="mission.html">Pourquoi Dealpick</a></li>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="aide.html">Aide</a></li>
         </ul>

@@ -50,8 +50,8 @@ Commerce      id, nom, categorie, siret, adresse, lat, lng, ville, horaires,
               pignon_sur_rue, independant, compte_psp_id, statut
 
 Offre         id, commerce_id, type, categorie, titre, description, allergenes,
-              prix_reference_cents, prix_cents, quantite_totale,
-              quantite_restante, debut, fin, duree_min, statut
+              prix_reference_cents, prix_cents, places_totales, places_restantes,
+              publiee_le, valide_de, valide_jusqua, duree_min, rayon_m, statut
 
 Commande      id, offre_id, user_id, quantite, montant_cents,
               commission_cents, montant_commercant_cents,
@@ -70,10 +70,10 @@ tout le produit :
 | | `produit` | `prestation` |
 |---|---|---|
 | Exemples | boulangerie, restauration, primeur, fleuriste, mode | coiffure, cordonnerie, pressing, retouches, réparation |
-| Ce qui est vendu | de la marchandise invendue | un créneau de travail creux |
-| `debut` / `fin` | un **créneau de retrait**, souvent court | un **rendez-vous** à heure fixe |
+| Ce qui est vendu | un article à prix réduit | un créneau à prix réduit |
+| `valide_de` / `valide_jusqua` | une **fenêtre de validité** fixée par le commerçant | un **rendez-vous** à heure fixe |
 | `duree_min` | non renseigné | durée annoncée de la prestation |
-| `quantite_restante` | nombre d'exemplaires | nombre de places sur le créneau |
+| `places_restantes` | nombre d'exemplaires | nombre de places sur le créneau |
 | Description | peut être une surprise (panier du jour) | toujours précise |
 | Transmissible | oui, le porteur du code récupère | non, le rendez-vous est nominatif |
 | Délai d'annulation | court | plus long : un créneau libéré tard ne se revend pas |
@@ -104,7 +104,7 @@ Les montants sont **en centimes, en entiers**. Jamais de flottant sur de la monn
 
 | Écran | Appel | Remarque |
 |---|---|---|
-| `app/offres.html` | `GET /api/offres?ville&lat&lng&categorie&type` | Uniquement `publiee`, `quantite_restante > 0`, `fin > now` |
+| `app/offres.html` | `GET /api/offres?lat&lng&rayon&categorie&type` | Uniquement `publiee`, `places_restantes > 0`, `valide_jusqua > now` |
 | `app/offre.html` | `GET /api/offres/:id` | |
 | `app/offre.html` | `POST /api/reservations` | Réserve le stock **et** crée l'intention de paiement |
 | `app/paiement.html` | `POST /api/paiements/intention` | Côté serveur uniquement |
@@ -116,7 +116,48 @@ Les montants sont **en centimes, en entiers**. Jamais de flottant sur de la monn
 
 ---
 
-## 5. Le paiement
+## 5. Le temps réel
+
+C'est le cœur du modèle, et ce qui le distingue d'un catalogue de bons plans. Une offre
+n'existe que dans une **fenêtre** et un **rayon**. Trois conséquences techniques.
+
+### Le fil doit vivre sans rechargement
+
+Une offre épuisée ou expirée disparaît, une nouvelle apparaît en tête. Trois options par
+ordre de complexité croissante :
+
+1. **Interrogation périodique** (toutes les 20-30 s) — suffisant pour démarrer, trivial à
+   opérer, et honnête tant que le volume est faible.
+2. **SSE** (`text/event-stream`) — flux serveur → client, simple, unidirectionnel : c'est
+   exactement le besoin.
+3. **WebSocket** — seulement si le client doit aussi pousser en continu, ce qui n'est pas
+   le cas ici.
+
+Ne pas surdimensionner : l'interrogation périodique tient très loin, et coûte infiniment
+moins cher en exploitation qu'un flux permanent mal maîtrisé.
+
+### L'expiration est un état, pas une erreur
+
+Trois moments où une offre peut expirer sous les doigts de l'utilisateur : dans le fil,
+sur la fiche, et pendant le paiement. Les trois doivent avoir un écran explicite. Le
+troisième est le plus sensible : la place est bloquée à l'entrée du tunnel, avec un compte
+à rebours visible, et libérée automatiquement à l'expiration.
+
+**L'horloge de référence est celle du serveur.** Un décompte calculé sur l'horloge du
+téléphone dérive et finit par afficher une offre encore valable alors qu'elle est close.
+Renvoyer une date d'expiration absolue et un décalage serveur, jamais une durée restante
+calculée côté client au premier chargement.
+
+### Le rayon se calcule en temps de trajet
+
+Filtrer d'abord grossièrement en base par boîte englobante géographique (rapide,
+indexable), puis affiner sur le temps de marche. Une offre qui expire dans dix minutes ne
+doit pas apparaître à vingt minutes de marche : c'est la règle qui fait la différence
+entre un fil utile et une liste frustrante.
+
+---
+
+## 6. Le paiement
 
 ### Encaissement pour compte de tiers
 
@@ -158,7 +199,7 @@ payée — 10 minutes — et une tâche qui remet le stock en circulation à l'e
 
 ---
 
-## 6. La carte des villes
+## 7. La carte des villes
 
 `villes/exemple-ville.html` contient une carte **schématique en SVG**, qui n'est qu'un
 substitut : elle permet de valider la mise en page et l'interaction sans dépendre d'un
@@ -202,10 +243,11 @@ page ne bouge pas.
   "type": "produit",
   "categorie": "boulangerie",
   "remise_pct": 60,
-  "debut": "2026-09-06T18:00:00+02:00",
-  "fin": "2026-09-06T19:30:00+02:00",
+  "publiee_le": "2026-09-06T17:12:00+02:00",
+  "valide_de": "2026-09-06T17:12:00+02:00",
+  "valide_jusqua": "2026-09-06T19:30:00+02:00",
   "duree_min": null,
-  "quantite_restante": 3
+  "places_restantes": 3
 }
 ```
 
@@ -223,7 +265,7 @@ de fois.
 
 ---
 
-## 7. Le site et l'application
+## 8. Le site et l'application
 
 Le parcours d'achat est en HTML : le même code peut servir sur le web et être embarqué
 dans l'application. Trois remarques.
@@ -244,7 +286,7 @@ autre moyen de paiement. Pas de commission de 30 % à craindre.
 
 ---
 
-## 8. Checklist avant mise en production
+## 9. Checklist avant mise en production
 
 - [ ] HTTPS partout, en-têtes de sécurité (CSP, HSTS)
 - [ ] Aucune clé secrète dans le front — vérifier le bundle final
@@ -259,3 +301,6 @@ autre moyen de paiement. Pas de commission de 30 % à craindre.
 - [ ] Carte réelle en place, attribution des tuiles affichée, marqueurs regroupés
 - [ ] Validation manuelle « indépendant + pignon sur rue » à l'inscription d'un commerce
 - [ ] Rappel la veille pour les prestations (un rendez-vous oublié coûte un créneau)
+- [ ] Décompte de validité calé sur l'horloge serveur, pas celle du client
+- [ ] Écran d'expiration explicite dans le fil, sur la fiche et pendant le paiement
+- [ ] Blocage de place à durée limitée, visible, et libération automatique
