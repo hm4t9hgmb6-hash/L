@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dealpick — Des réductions, à proximité, en temps réel</title>
-<meta name="description" content="Les commerces indépendants près de chez toi publient leurs réductions en direct. Tu vois ce qui est actif maintenant, tu réserves, tu y vas.">
+<meta name="description" content="Entre ton adresse et vois les réductions actives autour de toi, publiées en direct par les commerces indépendants.">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/components.css">
 <meta property="og:title" content="Dealpick — Des réductions, à proximité, en temps réel">
-<meta property="og:description" content="Les commerces indépendants près de chez toi publient leurs réductions en direct. Tu vois ce qui est actif maintenant, tu réserves, tu y vas.">
+<meta property="og:description" content="Entre ton adresse et vois les réductions actives autour de toi, publiées en direct par les commerces indépendants.">
 <meta property="og:type" content="website">
 </head>
 <body>
@@ -59,14 +59,28 @@
       <div class="hero__inner">
         <span class="eyebrow">En direct, autour de toi</span>
         <h1 class="hero__title">Des réductions, à proximité,<br><span class="hero__accent">en temps réel</span></h1>
-        <p class="lede">
-          Les commerces indépendants près de chez toi baissent leurs prix quand ils le
-          décident. Tu vois ce qui est actif maintenant, tu réserves, tu y vas.
-        </p>
-        <div class="btn-row" style="margin-top: var(--space-6)">
-          <a class="btn btn--primary btn--xl" href="#telecharger">Télécharger l'app</a>
-        </div>
-        <p class="hero__note">Gratuit · Sans abonnement · Aucun compte requis pour regarder</p>
+        <form class="search-card" action="villes.html" method="get">
+          <label class="search-card__label" for="lieu">
+            Entre une adresse, un arrondissement ou une ville pour voir ce qui est actif
+          </label>
+          <div class="search-field">
+            <svg class="search-field__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M21.5 2.5 2.8 10.2c-.8.3-.8 1.5.1 1.7l7.6 2 2 7.6c.2.9 1.4.9 1.7.1L21.5 2.5Z"
+                    stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+            <label class="visually-hidden" for="lieu">Adresse, arrondissement ou ville</label>
+            <input id="lieu" name="lieu" type="text" placeholder="Adresse ou ville" autocomplete="street-address">
+            <button class="btn btn--primary" type="submit">Chercher</button>
+          </div>
+          <button class="search-card__alt" type="button">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true">
+              <circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M12 2v3M12 19v3M22 12h-3M5 12H2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/>
+            </svg>
+            Utiliser ma position actuelle
+          </button>
+        </form>
       </div>
     </div>
 
@@ -284,49 +298,6 @@
           <h3>Récupérer</h3>
           <p>Tu présentes ton code au comptoir, ou tu te présentes à l'heure du
              rendez-vous. Rien à régler sur place, rien à imprimer.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ RÉASSURANCE ============================================== -->
-  <section class="section section--tight">
-    <div class="container">
-      <ul class="assurances">
-        <li><strong>Paiement sécurisé</strong><span>Traité par un prestataire agréé</span></li>
-        <li><strong>Sans abonnement</strong><span>Gratuit pour les utilisateurs</span></li>
-        <li><strong>Données non revendues</strong><span>Ni tes achats, ni ta position</span></li>
-        <li><strong>Que des indépendants</strong><span>Vérifié à l'inscription</span></li>
-      </ul>
-      <p class="text-center" style="margin-top: var(--space-5); font-size: var(--text-xs); color: var(--text-muted)">
-        À la place des badges de certification de la référence : ceux-ci se gagnent, ils
-        ne s'affichent pas. Ces quatre engagements-là sont tenables dès le premier jour.
-      </p>
-    </div>
-  </section>
-
-  <!-- ============ PROXIMITÉ ================================================ -->
-  <section class="section section--subtle">
-    <div class="container">
-      <div class="grid grid--2" style="align-items:center">
-        <div>
-          <span class="eyebrow">Proximité</span>
-          <h2>Rien au-delà de ton rayon</h2>
-          <p class="lede">Le fil et la carte ne montrent que ce que tu peux atteindre
-             maintenant. Une réduction à l'autre bout de la ville sera épuisée avant que
-             tu arrives.</p>
-          <div class="btn-row" style="margin-top: var(--space-5)">
-            <a class="btn btn--outline" href="villes/exemple-ville.html">Voir la carte d'une ville</a>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Comment le rayon est défini</h3>
-          <ul>
-            <li>Ta position, si tu l'autorises — sinon la ville que tu as choisie</li>
-            <li>Le temps de trajet à pied, pas la distance à vol d'oiseau</li>
-            <li>La validité restante : ce qui expire dans dix minutes ne s'affiche pas à
-                vingt minutes de marche</li>
-          </ul>
         </div>
       </div>
     </div>

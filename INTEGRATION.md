@@ -148,6 +148,22 @@ téléphone dérive et finit par afficher une offre encore valable alors qu'elle
 Renvoyer une date d'expiration absolue et un décalage serveur, jamais une durée restante
 calculée côté client au premier chargement.
 
+### La recherche d'adresse du héros
+
+Le module de l'accueil est le point d'entrée principal du site : il accepte une adresse,
+un arrondissement ou une ville. Trois choses à brancher.
+
+1. **Autocomplétion d'adresse.** En France, l'[API Adresse](https://adresse.data.gouv.fr)
+   (Base Adresse Nationale) est gratuite, sans clé, et couvre adresses, communes et codes
+   postaux — c'est le choix par défaut ; les alternatives commerciales (Google Places,
+   Mapbox) sont facturées à l'usage.
+2. **Le bouton « Utiliser ma position ».** `navigator.geolocation`, avec une chaîne de
+   repli complète : permission refusée, position indisponible, délai dépassé. Ne jamais
+   demander la position au chargement de la page — uniquement sur ce clic.
+3. **Le résultat.** Si la zone est couverte, rediriger vers le fil ; sinon vers la page
+   ville avec le formulaire de demande pré-rempli. Une recherche qui ne renvoie rien sans
+   rien proposer est la principale cause d'abandon sur ce type de service.
+
 ### Le rayon se calcule en temps de trajet
 
 Filtrer d'abord grossièrement en base par boîte englobante géographique (rapide,
