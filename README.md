@@ -76,48 +76,55 @@ pas atterrir sur du contenu grand public.
 
 ---
 
-## Thème visuel — néo-brutalisme
+## Thème visuel — minimal
 
-Parti pris assumé : **bordures noires épaisses, ombres portées franches sans flou,
-aplats saturés, typographie lourde.** Le contraire d'un site propre et lisse — et c'est
-volontaire : le service parle de quartier, de commerces de rue, de récup'. Un design
-policé sonnerait faux.
+Parti pris : **une seule surface, un filet de 1 px, une ombre très diffuse.** La
+hiérarchie vient de la typographie et de l'espace, pas de la décoration. La couleur ne
+sert qu'à signaler — jamais à remplir.
 
 ### Palette
 
 | Rôle | Valeur | Usage |
 |---|---|---|
-| Noir profond | `#1A1A1A` | Texte et **toutes** les bordures |
-| Blanc cassé | `#FAF7F0` | Fond général |
-| Bleu électrique | `#2E5EFF` | Couleur principale, boutons, tunnel commerçant |
-| Jaune vif | `#F4C531` | Héros, blocs de mise en avant, chiffres |
-| Corail | `#FF6B4A` | Réductions et urgence, uniquement |
-| Citron acide | `#C7F04A` | Économie réalisée, surlignage |
+| Encre | `#14161E` | Texte, bandeaux d'appel à l'action |
+| Fonds | `#FBFBFD` / `#F5F6F9` | Page et sections alternées |
+| Bleu | `#2E5EFF` | Couleur de marque : liens, boutons, accents |
+| Corail | `#FF6B4A` | Réductions et urgence — **uniquement** |
+| Menthe | `#10B981` | Économie réalisée, disponibilité |
+| Violet | `#7C5CFF` | Prestations, second registre de l'offre |
+| Ambre | `#F5A524` | Information, zones à compléter |
+
+Les neutres sont **légèrement bleutés**, accordés à la couleur de marque : des gris purs
+donnent toujours un rendu par défaut.
 
 ### Typographie
 
-**Archivo Black** pour les titres (une seule graisse, très lourde, capitales pour les
-`h1`), **Space Grotesk** pour le texte courant et l'interface. Les deux sur Google Fonts,
-avec repli système.
+**Bricolage Grotesque** en titrage (une seule graisse, 700) et **Manrope** pour le texte
+courant. Titres en casse normale, interlettrage resserré ; corps de texte aéré.
 
 ### Les règles du système
 
-- Tout objet détaché ou cliquable porte une **bordure noire de 3 px** et une **ombre
-  franche sans flou** (`5px 5px 0`).
-- Les boutons **s'enfoncent** au clic : l'ombre se réduit, l'élément se décale.
-- Les blocs colorés (cartes, étapes) alternent selon leur position, pas au hasard.
-- Les couleurs d'aplat sont **fixes dans les deux thèmes** : un bloc citron reste citron
-  en mode sombre, avec du texte noir. Seuls les fonds, textes et bordures basculent.
+- Une carte, c'est **une surface blanche, un filet et une ombre légère**. Pas de fond
+  coloré, pas de bordure épaisse.
+- La couleur apparaît par **petites touches** : pastille de réduction, pastille
+  d'économie, icône sur fond teinté, épingle de carte.
 - Le corail reste **réservé aux réductions**. Employé partout, il ne signalerait plus rien.
-- Le tunnel commerçant a son propre héros bleu, pour qu'on sache instantanément de quel
-  côté du site on se trouve.
+- Le violet distingue les **prestations** des produits, sur la carte comme dans les listes.
+- Les couleurs d'aplat du parcours d'achat (téléphone, carte) restent **fixes dans les
+  deux thèmes** : ce sont des objets, pas des ambiances.
+
+### Rythme des sections
+
+Toutes les pages emploient le même en-tête de section, `.section-head` — surtitre, titre,
+chapô — suivi du contenu. C'est ce composant unique qui donne au site sa régularité :
+aucune page n'invente son propre espacement.
 
 ### Architecture des tokens
 
 Tout est dans `assets/css/tokens.css`, en deux couches : la **palette brute**
-(`--blue`, `--yellow`, `--ink`…) puis les **rôles sémantiques** (`--bg`, `--text`,
-`--primary`, `--border`…). Aucun composant n'appelle une couleur brute, sauf les blocs
-qui doivent délibérément rester identiques dans les deux thèmes.
+(`--blue-500`, `--n-100`…) puis les **rôles sémantiques** (`--bg`, `--text`, `--primary`,
+`--border`…). Aucun composant n'appelle une couleur brute, sauf les blocs qui doivent
+délibérément rester identiques dans les deux thèmes.
 
 Le mode sombre a deux déclencheurs : préférence système et choix explicite via
 `data-theme` (bouton ◐, mémorisé). Il ne redéfinit que les rôles.

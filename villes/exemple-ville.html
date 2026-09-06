@@ -8,7 +8,7 @@
 <link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/tokens.css">
 <link rel="stylesheet" href="../assets/css/base.css">
 <link rel="stylesheet" href="../assets/css/components.css">
@@ -72,42 +72,39 @@
             <!-- Fond schématique : substitut à remplacer par la vraie carte -->
             <svg class="map__canvas" viewBox="0 0 800 520" role="img"
                  aria-label="Carte schématique de la ville avec les commerces partenaires">
-              <rect width="800" height="520" fill="var(--paper)"/>
+              <rect width="800" height="520" fill="var(--n-0)"/>
 
               <!-- Îlots urbains -->
-              <g fill="var(--cream-dark)" stroke="var(--ink)" stroke-width="2">
-                <rect x="40"  y="40"  width="180" height="120" rx="6"/>
-                <rect x="250" y="40"  width="150" height="120" rx="6"/>
-                <rect x="430" y="40"  width="200" height="90"  rx="6"/>
-                <rect x="660" y="40"  width="100" height="90"  rx="6"/>
-                <rect x="40"  y="200" width="180" height="130" rx="6"/>
-                <rect x="250" y="200" width="150" height="90"  rx="6"/>
-                <rect x="560" y="170" width="200" height="120" rx="6"/>
-                <rect x="40"  y="370" width="150" height="110" rx="6"/>
-                <rect x="220" y="370" width="190" height="110" rx="6"/>
-                <rect x="600" y="330" width="160" height="150" rx="6"/>
+              <g fill="var(--n-50)" stroke="var(--n-200)" stroke-width="1">
+                <rect x="40"  y="40"  width="180" height="120" rx="8"/>
+                <rect x="250" y="40"  width="150" height="120" rx="8"/>
+                <rect x="430" y="40"  width="200" height="90"  rx="8"/>
+                <rect x="660" y="40"  width="100" height="90"  rx="8"/>
+                <rect x="40"  y="200" width="180" height="130" rx="8"/>
+                <rect x="250" y="200" width="150" height="90"  rx="8"/>
+                <rect x="560" y="170" width="200" height="120" rx="8"/>
+                <rect x="40"  y="370" width="150" height="110" rx="8"/>
+                <rect x="220" y="370" width="190" height="110" rx="8"/>
+                <rect x="600" y="330" width="160" height="150" rx="8"/>
               </g>
 
               <!-- Rivière -->
               <path d="M430 0 C 470 120, 380 200, 430 300 C 470 390, 400 460, 440 520"
-                    fill="none" stroke="var(--ink)" stroke-width="34" stroke-linecap="round"/>
-              <path d="M430 0 C 470 120, 380 200, 430 300 C 470 390, 400 460, 440 520"
-                    fill="none" stroke="var(--blue-pale)" stroke-width="28" stroke-linecap="round"/>
+                    fill="none" stroke="var(--blue-50)" stroke-width="30" stroke-linecap="round"/>
 
               <!-- Parc -->
-              <path d="M250 320 h150 v40 h-40 v20 h-110 z"
-                    fill="var(--lime)" stroke="var(--ink)" stroke-width="2"/>
+              <path d="M250 320 h150 v40 h-40 v20 h-110 z" fill="var(--mint-50)"/>
 
-              <!-- Axes principaux -->
-              <g stroke="var(--ink)" stroke-width="3" stroke-dasharray="14 10" opacity=".45">
+              <!-- Axes -->
+              <g stroke="var(--n-200)" stroke-width="1">
                 <line x1="0" y1="180" x2="800" y2="180"/>
                 <line x1="0" y1="350" x2="800" y2="350"/>
                 <line x1="230" y1="0" x2="230" y2="520"/>
                 <line x1="580" y1="0" x2="580" y2="520"/>
               </g>
 
-              <g font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700"
-                 fill="var(--ink)" opacity=".55">
+              <g font-family="Manrope, sans-serif" font-size="12" font-weight="600"
+                 letter-spacing="1" fill="var(--n-400)">
                 <text x="262" y="345">PARC</text>
                 <text x="666" y="200">GARE</text>
                 <text x="52" y="222">CENTRE</text>
@@ -167,10 +164,10 @@
           </div>
 
           <div class="map-legend">
-            <span><i style="background: var(--coral)"></i> Produit à récupérer</span>
-            <span><i style="background: var(--blue-pale)"></i> Rendez-vous à réserver</span>
-            <span><i style="background: var(--gray-100)"></i> Créneau terminé</span>
-            <span><i style="background: var(--lime)"></i> Espace vert</span>
+            <span><i style="background: var(--coral-500)"></i> Produit à récupérer</span>
+            <span><i style="background: var(--violet-500)"></i> Rendez-vous à réserver</span>
+            <span><i style="background: var(--n-300)"></i> Créneau terminé</span>
+            <span><i style="background: var(--mint-50)"></i> Espace vert</span>
           </div>
         </div>
 

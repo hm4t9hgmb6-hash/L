@@ -1,97 +1,112 @@
 /* ==========================================================================
-   Dealpick — Design tokens · thème NÉO-BRUTALISTE
-   Bordures noires épaisses, ombres franches sans flou, aplats saturés.
-   Source unique de vérité : pour rhabiller le site, on ne touche qu'ici.
+   Dealpick — Design tokens · thème MINIMAL
+   Fond calme, hiérarchie par la typographie et l'espace, couleur employée
+   par petites touches. Source unique de vérité du thème.
    ========================================================================== */
 
 :root {
   /* --- Palette brute ------------------------------------------------------ */
-  --ink:        #1A1A1A;   /* noir profond : texte et bordures */
-  --ink-soft:   #4A4A48;
-  --cream:      #FAF7F0;   /* blanc cassé : fond général */
-  --cream-dark: #EFE9DC;
-  --paper:      #FFFFFF;
 
-  --blue:       #2E5EFF;   /* bleu électrique : couleur principale */
-  --blue-dark:  #1D42C9;
-  --blue-light: #7C9AFF;
+  /* Neutres légèrement bleutés : accordés à la couleur de marque plutôt que
+     gris purs, qui donnent toujours un rendu « par défaut ». */
+  --n-0:   #FFFFFF;
+  --n-25:  #FBFBFD;
+  --n-50:  #F5F6F9;
+  --n-100: #EDEFF4;
+  --n-200: #E1E4EC;
+  --n-300: #C9CDDA;
+  --n-400: #9AA0B4;
+  --n-500: #6F7689;
+  --n-600: #545B6D;
+  --n-700: #3B4152;
+  --n-800: #232733;
+  --n-900: #14161E;
+  --n-950: #0D0F15;
 
-  --yellow:      #F4C531;  /* jaune vif : mise en avant, blocs */
-  --yellow-dark: #D9A800;
+  --blue-50:  #EEF2FF;
+  --blue-100: #DDE4FF;
+  --blue-300: #93A8FF;
+  --blue-500: #2E5EFF;   /* couleur de marque */
+  --blue-600: #1F49E0;
+  --blue-700: #1739B0;
 
-  --coral:      #FF6B4A;   /* corail : réductions, urgence */
-  --coral-dark: #D64B2C;
+  --coral-50:  #FFF1ED;
+  --coral-500: #FF6B4A;  /* réductions et urgence */
+  --coral-700: #D2431F;
 
-  --blue-pale:  #DDE5FF;   /* bleu pâle fixe : blocs colorés, identiques en clair et sombre */
-  --lime:       #C7F04A;   /* citron acide : économie réalisée, surlignage */
-  --lime-dark:  #8FB800;
+  --mint-50:  #E7FAF1;
+  --mint-500: #10B981;   /* économie réalisée */
+  --mint-700: #04795A;
 
-  --gray-100: #E8E4DA;
-  --gray-300: #BDB8AC;
-  --gray-500: #6E6A62;
-  --gray-800: #262523;
-  --gray-900: #171614;
+  --amber-50:  #FFF6E3;
+  --amber-500: #F5A524;  /* attention, information */
 
-  /* --- Rôles sémantiques (ce que le CSS utilise réellement) --------------- */
-  --bg:            var(--cream);
-  --bg-subtle:     var(--cream-dark);
-  --bg-inset:      var(--gray-100);
-  --surface:       var(--paper);
-  --surface-raised:var(--paper);
+  --violet-50:  #F2EDFF;
+  --violet-500: #7C5CFF; /* prestations, second registre */
 
-  --border:        var(--ink);
-  --border-strong: var(--ink);
-  --border-width:  3px;
+  /* --- Rôles sémantiques -------------------------------------------------- */
+  --bg:             var(--n-25);
+  --bg-subtle:      var(--n-50);
+  --bg-inset:       var(--n-100);
+  --surface:        var(--n-0);
+  --surface-raised: var(--n-0);
 
-  --text:          var(--ink);
-  --text-muted:    var(--ink-soft);
-  --text-inverse:  var(--cream);
+  --border:         var(--n-200);
+  --border-strong:  var(--n-300);
+  --border-width:   1px;
 
-  --primary:       var(--blue);
-  --primary-hover: var(--blue-dark);
-  --primary-soft:  #DDE5FF;
-  --on-primary:    #FFFFFF;
+  --text:           var(--n-900);
+  --text-muted:     var(--n-500);
+  --text-inverse:   var(--n-0);
 
-  --accent:        var(--coral);
-  --accent-soft:   #FFE0D6;
-  --accent-ink:    var(--ink);      /* le corail veut du texte noir */
+  --primary:        var(--blue-500);
+  --primary-hover:  var(--blue-600);
+  --primary-soft:   var(--blue-50);
+  --primary-line:   var(--blue-100);
+  --on-primary:     #FFFFFF;
 
-  --money:         var(--lime);
-  --money-soft:    #EEFBC8;
+  --accent:         var(--coral-500);
+  --accent-soft:    var(--coral-50);
+  --accent-ink:     var(--coral-700);
 
-  --highlight:     var(--yellow);
-  --highlight-soft:#FDF0C4;
+  --money:          var(--mint-500);
+  --money-soft:     var(--mint-50);
+  --money-ink:      var(--mint-700);
 
-  --focus-ring:    var(--blue);
-  --shadow-color:  var(--ink);
+  --service:        var(--violet-500);
+  --service-soft:   var(--violet-50);
+
+  --highlight:      var(--amber-500);
+  --highlight-soft: var(--amber-50);
+
+  --focus-ring:     var(--blue-500);
 
   /* --- Typographie -------------------------------------------------------- */
-  --font-display: "Archivo Black", "Space Grotesk", Impact, sans-serif;
-  --font-sans:    "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI",
-                  Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Bricolage Grotesque", "Manrope", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans:    "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono:    ui-monospace, SFMono-Regular, Menlo, monospace;
 
   --text-xs:   0.8125rem;
   --text-sm:   0.9375rem;
   --text-base: 1.0625rem;
   --text-lg:   1.1875rem;
-  --text-xl:   1.5rem;
-  --text-2xl:  2rem;
-  --text-3xl:  2.75rem;
-  --text-4xl:  3.5rem;
-  --text-5xl:  4.5rem;
+  --text-xl:   1.4375rem;
+  --text-2xl:  1.875rem;
+  --text-3xl:  2.5rem;
+  --text-4xl:  3.25rem;
 
-  --leading-tight: 1.02;
-  --leading-snug:  1.25;
-  --leading-normal:1.55;
+  --leading-tight: 1.08;
+  --leading-snug:  1.3;
+  --leading-normal:1.65;
 
-  --tracking-tight: -0.02em;
-  --tracking-wide:   0.08em;
+  --tracking-tight: -0.03em;
+  --tracking-snug:  -0.015em;
+  --tracking-wide:   0.1em;
 
   --weight-regular: 400;
   --weight-medium:  500;
-  --weight-bold:    700;
-  --weight-black:   400;   /* Archivo Black n'a qu'une graisse */
+  --weight-bold:    600;
+  --weight-black:   700;
 
   /* --- Espacement --------------------------------------------------------- */
   --space-1: 0.25rem;
@@ -101,88 +116,98 @@
   --space-5: 1.5rem;
   --space-6: 2rem;
   --space-7: 3rem;
-  --space-8: 4rem;
-  --space-9: 6rem;
-  --space-10: 8rem;
+  --space-8: 4.5rem;
+  --space-9: 6.5rem;
+  --space-10: 9rem;
 
-  /* --- Rayons : francs, jamais timides ------------------------------------ */
-  --radius-sm:   6px;
+  /* --- Rayons : doux, jamais tape-à-l'œil --------------------------------- */
+  --radius-sm:   8px;
   --radius-md:   12px;
   --radius-lg:   18px;
-  --radius-xl:   24px;
+  --radius-xl:   26px;
   --radius-full: 999px;
 
-  /* --- Ombres franches, sans flou ----------------------------------------- */
-  --shadow-sm: 3px 3px 0 var(--shadow-color);
-  --shadow-md: 5px 5px 0 var(--shadow-color);
-  --shadow-lg: 8px 8px 0 var(--shadow-color);
-  --shadow-xl: 12px 12px 0 var(--shadow-color);
+  /* --- Ombres : diffuses, très légères ------------------------------------ */
+  --shadow-sm: 0 1px 2px rgba(20, 22, 30, .04);
+  --shadow-md: 0 1px 2px rgba(20, 22, 30, .04), 0 8px 20px rgba(20, 22, 30, .05);
+  --shadow-lg: 0 2px 4px rgba(20, 22, 30, .04), 0 18px 44px rgba(20, 22, 30, .08);
+  --shadow-xl: 0 2px 6px rgba(20, 22, 30, .05), 0 32px 70px rgba(20, 22, 30, .10);
 
   /* --- Divers ------------------------------------------------------------- */
-  --container: 1180px;
-  --container-narrow: 780px;
-  --header-height: 76px;
-  --transition: 120ms cubic-bezier(.2, .8, .3, 1);
+  --container: 1120px;
+  --container-narrow: 720px;
+  --header-height: 72px;
+  --transition: 180ms cubic-bezier(.2, .7, .3, 1);
 }
 
 /* ==========================================================================
-   Mode sombre — seuls les rôles changent, jamais la palette.
-   En néo-brutalisme sombre : fond encre, bordures et ombres claires,
-   les aplats de couleur restent identiques (ils sont assez vifs pour tenir).
+   Mode sombre — seuls les rôles changent.
    ========================================================================== */
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg:            var(--gray-900);
-    --bg-subtle:     var(--gray-800);
-    --bg-inset:      #2E2C29;
-    --surface:       var(--gray-800);
-    --surface-raised:#2E2C29;
+    --bg:             var(--n-950);
+    --bg-subtle:      #12141B;
+    --bg-inset:       #1B1E27;
+    --surface:        #16181F;
+    --surface-raised: #1B1E27;
 
-    --border:        var(--cream);
-    --border-strong: var(--cream);
+    --border:         #262A36;
+    --border-strong:  #363B4A;
 
-    --text:          var(--cream);
-    --text-muted:    #B9B4A8;
-    --text-inverse:  var(--ink);
+    --text:           #EDEFF5;
+    --text-muted:     var(--n-400);
+    --text-inverse:   var(--n-950);
 
-    --primary:       var(--blue-light);
-    --primary-hover: #A5B9FF;
-    --primary-soft:  #23305E;
-    --on-primary:    var(--ink);
+    --primary:        var(--blue-300);
+    --primary-hover:  #B6C4FF;
+    --primary-soft:   #1A2242;
+    --primary-line:   #263061;
+    --on-primary:     var(--n-950);
 
-    --accent-soft:   #4A2A20;
-    --money-soft:    #35401A;
-    --highlight-soft:#4A3D14;
+    --accent-soft:    #351C14;
+    --accent-ink:     #FF9878;
+    --money-soft:     #0C2C22;
+    --money-ink:      #4BD6A8;
+    --service-soft:   #241C42;
+    --highlight-soft: #33260D;
 
-    --focus-ring:    var(--lime);
-    --shadow-color:  var(--cream);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, .4);
+    --shadow-md: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 20px rgba(0, 0, 0, .35);
+    --shadow-lg: 0 2px 4px rgba(0, 0, 0, .4), 0 18px 44px rgba(0, 0, 0, .45);
+    --shadow-xl: 0 2px 6px rgba(0, 0, 0, .45), 0 32px 70px rgba(0, 0, 0, .5);
   }
 }
 
 :root[data-theme="dark"] {
-  --bg:            var(--gray-900);
-  --bg-subtle:     var(--gray-800);
-  --bg-inset:      #2E2C29;
-  --surface:       var(--gray-800);
-  --surface-raised:#2E2C29;
+  --bg:             var(--n-950);
+  --bg-subtle:      #12141B;
+  --bg-inset:       #1B1E27;
+  --surface:        #16181F;
+  --surface-raised: #1B1E27;
 
-  --border:        var(--cream);
-  --border-strong: var(--cream);
+  --border:         #262A36;
+  --border-strong:  #363B4A;
 
-  --text:          var(--cream);
-  --text-muted:    #B9B4A8;
-  --text-inverse:  var(--ink);
+  --text:           #EDEFF5;
+  --text-muted:     var(--n-400);
+  --text-inverse:   var(--n-950);
 
-  --primary:       var(--blue-light);
-  --primary-hover: #A5B9FF;
-  --primary-soft:  #23305E;
-  --on-primary:    var(--ink);
+  --primary:        var(--blue-300);
+  --primary-hover:  #B6C4FF;
+  --primary-soft:   #1A2242;
+  --primary-line:   #263061;
+  --on-primary:     var(--n-950);
 
-  --accent-soft:   #4A2A20;
-  --money-soft:    #35401A;
-  --highlight-soft:#4A3D14;
+  --accent-soft:    #351C14;
+  --accent-ink:     #FF9878;
+  --money-soft:     #0C2C22;
+  --money-ink:      #4BD6A8;
+  --service-soft:   #241C42;
+  --highlight-soft: #33260D;
 
-  --focus-ring:    var(--lime);
-  --shadow-color:  var(--cream);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .4);
+  --shadow-md: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 20px rgba(0, 0, 0, .35);
+  --shadow-lg: 0 2px 4px rgba(0, 0, 0, .4), 0 18px 44px rgba(0, 0, 0, .45);
+  --shadow-xl: 0 2px 6px rgba(0, 0, 0, .45), 0 32px 70px rgba(0, 0, 0, .5);
 }
