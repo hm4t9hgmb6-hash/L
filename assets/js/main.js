@@ -86,3 +86,36 @@
 
   document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') clear(); });
 })();
+
+/* Diaporama des étapes : les points suivent le défilement et permettent d'y aller. */
+(function () {
+  'use strict';
+  var slider = document.querySelector('[data-slider]');
+  var dots = document.querySelector('[data-slider-dots]');
+  if (!slider || !dots) return;
+
+  var slides = slider.children;
+  var buttons = dots.querySelectorAll('button');
+
+  function sync() {
+    var i = Math.round(slider.scrollLeft / (slider.scrollWidth / slides.length));
+    for (var j = 0; j < buttons.length; j++) {
+      buttons[j].setAttribute('aria-current', String(j === i));
+    }
+  }
+
+  for (var k = 0; k < buttons.length; k++) {
+    (function (index) {
+      buttons[index].addEventListener('click', function () {
+        slides[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      });
+    })(k);
+  }
+
+  var pending;
+  slider.addEventListener('scroll', function () {
+    window.clearTimeout(pending);
+    pending = window.setTimeout(sync, 90);
+  });
+  sync();
+})();

@@ -127,12 +127,20 @@ Deux panneaux peuvent être placés côte à côte sur grand écran (`.panel-duo
 Les photos vivent dans `assets/img/photos/`, en deux formats et deux tailles :
 
 ```
-coiffeur.jpg / .webp        1200 px   panneau pleine largeur
-coiffeur-640.jpg / .webp     640 px   petits écrans
-commercante.jpg / .webp      900 px
-commercante-600.jpg / .webp  600 px
-restaurant.jpg / .webp       300 px   carte du diaporama
+coiffeur      1200 / 640 px   panneau « côté client »
+commercante    900 / 600 px   panneau « côté commerçant »
+restaurant           300 px   carte du diaporama des catégories
+reperer       1200 / 640 px   étape 1 — visuel fabriqué, pas une photo
+reserver       652 / 480 px   étape 2
+profiter             400 px   étape 3 — ⚠️ trop basse définition, à remplacer
 ```
+
+Chaque nom existe en `.jpg` et `.webp`.
+
+Le visuel de l'étape 1 (`reperer`) n'est pas une photographie : c'est une composition
+HTML rendue en image, qui reprend la carte et une offre du produit. Sa source est dans
+`assets/img/photos/reperer.source.html` — pour la refaire, on l'ouvre, on modifie, on
+capture en 1200 × 800.
 
 Le balisage utilise `<picture>` : le WebP est servi aux navigateurs qui le gèrent, le
 JPEG progressif aux autres, et `srcset` choisit la taille selon l'écran. Chaque image
