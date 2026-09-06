@@ -5,6 +5,8 @@
    ========================================================================== */
 
 :root {
+  color-scheme: light;
+
   /* --- Palette brute ------------------------------------------------------ */
 
   /* Neutres légèrement bleutés : accordés à la couleur de marque plutôt que
@@ -45,8 +47,8 @@
   --violet-500: #7C5CFF; /* prestations, second registre */
 
   /* --- Rôles sémantiques -------------------------------------------------- */
-  --bg:             var(--n-25);
-  --bg-subtle:      var(--n-50);
+  --bg:             var(--n-0);
+  --bg-subtle:      #F5F5F7;
   --bg-inset:       var(--n-100);
   --surface:        var(--n-0);
   --surface-raised: var(--n-0);
@@ -138,76 +140,4 @@
   --container-narrow: 720px;
   --header-height: 72px;
   --transition: 180ms cubic-bezier(.2, .7, .3, 1);
-}
-
-/* ==========================================================================
-   Mode sombre — seuls les rôles changent.
-   ========================================================================== */
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg:             var(--n-950);
-    --bg-subtle:      #12141B;
-    --bg-inset:       #1B1E27;
-    --surface:        #16181F;
-    --surface-raised: #1B1E27;
-
-    --border:         #262A36;
-    --border-strong:  #363B4A;
-
-    --text:           #EDEFF5;
-    --text-muted:     var(--n-400);
-    --text-inverse:   var(--n-950);
-
-    --primary:        var(--blue-300);
-    --primary-hover:  #B6C4FF;
-    --primary-soft:   #1A2242;
-    --primary-line:   #263061;
-    --on-primary:     var(--n-950);
-
-    --accent-soft:    #351C14;
-    --accent-ink:     #FF9878;
-    --money-soft:     #0C2C22;
-    --money-ink:      #4BD6A8;
-    --service-soft:   #241C42;
-    --highlight-soft: #33260D;
-
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, .4);
-    --shadow-md: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 20px rgba(0, 0, 0, .35);
-    --shadow-lg: 0 2px 4px rgba(0, 0, 0, .4), 0 18px 44px rgba(0, 0, 0, .45);
-    --shadow-xl: 0 2px 6px rgba(0, 0, 0, .45), 0 32px 70px rgba(0, 0, 0, .5);
-  }
-}
-
-:root[data-theme="dark"] {
-  --bg:             var(--n-950);
-  --bg-subtle:      #12141B;
-  --bg-inset:       #1B1E27;
-  --surface:        #16181F;
-  --surface-raised: #1B1E27;
-
-  --border:         #262A36;
-  --border-strong:  #363B4A;
-
-  --text:           #EDEFF5;
-  --text-muted:     var(--n-400);
-  --text-inverse:   var(--n-950);
-
-  --primary:        var(--blue-300);
-  --primary-hover:  #B6C4FF;
-  --primary-soft:   #1A2242;
-  --primary-line:   #263061;
-  --on-primary:     var(--n-950);
-
-  --accent-soft:    #351C14;
-  --accent-ink:     #FF9878;
-  --money-soft:     #0C2C22;
-  --money-ink:      #4BD6A8;
-  --service-soft:   #241C42;
-  --highlight-soft: #33260D;
-
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .4);
-  --shadow-md: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 20px rgba(0, 0, 0, .35);
-  --shadow-lg: 0 2px 4px rgba(0, 0, 0, .4), 0 18px 44px rgba(0, 0, 0, .45);
-  --shadow-xl: 0 2px 6px rgba(0, 0, 0, .45), 0 32px 70px rgba(0, 0, 0, .5);
 }

@@ -30,12 +30,14 @@
 .btn:hover { transform: translateY(-1px); }
 .btn:active { transform: translateY(0); }
 
-.btn--primary { background: var(--text); color: var(--bg); box-shadow: var(--shadow-sm); }
-.btn--primary:hover { background: var(--n-700); color: var(--bg); box-shadow: var(--shadow-md); }
-:root[data-theme="dark"] .btn--primary:hover { background: var(--n-200); }
+.btn--primary { background: var(--primary); color: #fff; }
+.btn--primary:hover { background: var(--primary-hover); color: #fff; }
 
-.btn--outline { background: transparent; color: var(--text); border-color: var(--border-strong); }
-.btn--outline:hover { background: var(--bg-inset); color: var(--text); }
+.btn--outline { background: transparent; color: var(--primary); border-color: var(--primary); }
+.btn--outline:hover { background: var(--primary-soft); color: var(--primary-hover); border-color: var(--primary-hover); }
+
+.btn--dark { background: var(--text); color: #fff; }
+.btn--dark:hover { background: var(--n-700); color: #fff; }
 .btn--xl { padding: var(--space-4) var(--space-7); font-size: var(--text-lg); }
 
 .btn--ghost { background: var(--surface); color: var(--text); border-color: var(--border-strong); }
@@ -115,7 +117,7 @@
   .nav { display: block; }
 }
 
-.nav-toggle, .theme-toggle {
+.nav-toggle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -128,9 +130,8 @@
   cursor: pointer;
   transition: color var(--transition), border-color var(--transition);
 }
-.nav-toggle:hover, .theme-toggle:hover { color: var(--text); border-color: var(--border-strong); }
+.nav-toggle:hover { color: var(--text); border-color: var(--border-strong); }
 @media (max-width: 640px) {
-  .theme-toggle { display: none; }
   .site-header .btn { padding-inline: var(--space-4); font-size: var(--text-xs); }
   .logo { font-size: var(--text-base); }
 }
@@ -1252,3 +1253,74 @@
   transition: background var(--transition), border-color var(--transition);
 }
 .search-card__alt:hover { background: var(--primary-soft); border-color: var(--primary-line); color: var(--primary); }
+
+/* ==========================================================================
+   Panneaux — pile pleine largeur alternant blanc et gris très clair.
+   Texte centré, actions en pilules, puis une image qui descend jusqu'au bord
+   bas du panneau : ni cadre, ni ombre, ni coin arrondi autour de l'image.
+   ========================================================================== */
+
+.panel {
+  position: relative;
+  overflow: hidden;
+  padding-top: clamp(var(--space-8), 8vw, var(--space-9));
+  text-align: center;
+  background: var(--n-0);
+}
+.panel--grey { background: var(--bg-subtle); }
+.panel--pad { padding-bottom: clamp(var(--space-8), 8vw, var(--space-9)); }
+
+.panel__inner { max-width: 46rem; margin-inline: auto; padding-inline: var(--space-5); }
+.panel__title {
+  font-size: clamp(2rem, 1.2rem + 3.6vw, 3.25rem);
+  letter-spacing: -0.035em;
+  line-height: 1.06;
+  margin-bottom: var(--space-4);
+}
+.panel__sub {
+  font-size: clamp(1.0625rem, 1rem + .45vw, 1.3125rem);
+  line-height: 1.4;
+  color: var(--text);
+  max-width: 34ch;
+  margin-inline: auto;
+}
+.panel__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+/* Zone d'image : elle descend jusqu'au bord et n'est jamais encadrée */
+.panel__media {
+  margin-top: clamp(var(--space-7), 6vw, var(--space-8));
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.panel__media > * { margin-bottom: 0; }
+.panel__media--bleed { margin-bottom: calc(var(--space-8) * -1); }
+
+/* Deux panneaux côte à côte sur grand écran */
+.panel-duo { display: grid; gap: var(--space-4); background: var(--n-0); }
+@media (min-width: 860px) { .panel-duo { grid-template-columns: 1fr 1fr; } }
+.panel-duo > .panel { padding-inline: 0; }
+
+/* Substitut d'image : forme douce, sans cadre, comme un visuel détouré */
+.visual {
+  width: min(30rem, 82vw);
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  background:
+    radial-gradient(22rem 14rem at 30% 20%, rgba(46,94,255,.22), transparent 62%),
+    radial-gradient(20rem 13rem at 78% 42%, rgba(124,92,255,.24), transparent 60%),
+    linear-gradient(180deg, var(--n-50), var(--n-100));
+  display: grid;
+  place-items: center;
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  text-align: center;
+  padding: var(--space-6);
+}
+.visual--tall { aspect-ratio: 3 / 4; width: min(22rem, 70vw); }

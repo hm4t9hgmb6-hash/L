@@ -78,68 +78,49 @@ pas atterrir sur du contenu grand public.
 
 ---
 
-## Thème visuel — minimal
+## Thème visuel — clair, une seule version
 
-Parti pris : **une seule surface, un filet de 1 px, une ombre très diffuse.** La
-hiérarchie vient de la typographie et de l'espace, pas de la décoration. La couleur ne
-sert qu'à signaler — jamais à remplir.
+Le site **n'a pas de mode sombre**. C'est un choix, pas un oubli : il impose son fond
+clair quel que soit le réglage du système, comme le font les sites de référence de ce
+registre. Le sélecteur de thème a donc été retiré, et `color-scheme: light` est déclaré
+pour que les contrôles de formulaire restent clairs eux aussi.
 
 ### Palette
 
 | Rôle | Valeur | Usage |
 |---|---|---|
-| Encre | `#14161E` | Texte, bandeaux d'appel à l'action |
-| Fonds | `#FBFBFD` / `#F5F6F9` | Page et sections alternées |
-| Bleu | `#2E5EFF` | Couleur de marque : liens, boutons, accents |
-| Corail | `#FF6B4A` | Réductions et urgence — **uniquement** |
-| Menthe | `#10B981` | Économie réalisée, disponibilité |
-| Violet | `#7C5CFF` | Prestations, second registre de l'offre |
-| Ambre | `#F5A524` | Information, zones à compléter |
+| Encre | `#14161E` | Texte |
+| Blanc | `#FFFFFF` | Fond des panneaux clairs |
+| Gris panneau | `#F5F5F7` | Fond des panneaux alternés |
+| Bleu | `#2E5EFF` | Marque, boutons, liens |
+| Corail | `#FF6B4A` | Réductions — **uniquement** |
+| Menthe | `#10B981` | Disponibilité, indicateur « en direct » |
+| Violet | `#7C5CFF` | Prestations, bandes colorées |
 
-Les neutres sont **légèrement bleutés**, accordés à la couleur de marque : des gris purs
-donnent toujours un rendu par défaut.
+Les neutres sont légèrement bleutés, accordés à la couleur de marque.
 
 ### Typographie
 
-**Bricolage Grotesque** en titrage (une seule graisse, 700) et **Manrope** pour le texte
-courant. Titres en casse normale, interlettrage resserré ; corps de texte aéré.
+**Gabarito** en titrage (600–900), **Manrope** pour le texte courant. Titres très larges,
+interlettrage resserré à −0,035 em, casse normale.
 
-### Les règles du système
+### Les panneaux
 
-- Une carte, c'est **une surface blanche, un filet et une ombre légère**. Pas de fond
-  coloré, pas de bordure épaisse.
-- La couleur apparaît par **petites touches** : pastille de réduction, pastille
-  d'économie, icône sur fond teinté, épingle de carte.
-- Le corail reste **réservé aux réductions**. Employé partout, il ne signalerait plus rien.
-- Le violet distingue les **prestations** des produits, sur la carte comme dans les listes.
-- Les couleurs d'aplat du parcours d'achat (téléphone, carte) restent **fixes dans les
-  deux thèmes** : ce sont des objets, pas des ambiances.
+L'accueil est une **pile de panneaux pleine largeur**, alternant blanc et gris très clair.
+Chaque panneau suit la même partition :
 
-### Patrons des pages d'acquisition
+1. un titre court, centré, en très grande taille, ponctué d'un point ;
+2. un sous-titre d'une à deux lignes ;
+3. zéro à deux boutons pilules — bleu plein pour l'action principale, contour bleu pour
+   la secondaire ;
+4. une image qui **descend jusqu'au bord bas du panneau**, sans cadre, sans ombre, sans
+   coin arrondi autour d'elle.
 
-L'accueil et la page commerçants emploient quatre patrons repris d'une référence du
-secteur, adaptés à notre palette :
+Ce dernier point est la règle la plus importante : l'image n'est pas posée *dans* une
+boîte, elle *est* le bas du panneau. Les visuels de substitution (`.visual`) doivent être
+remplacés par des photos détourées ou cadrées serré.
 
-1. **Héros centré** — titre très large, chapô court, deux boutons pilules : un plein
-   sombre, un à contour. La réassurance est juste sous les boutons, pas plus bas.
-2. **Bande colorée** — dégradé bleu → violet portant les notes de plateformes et quatre
-   chiffres en très grand. La capture produit du héros la chevauche par-dessus.
-3. **Tuiles par métier** — grille de cartes en 4/5, voile sombre, libellé blanc en bas à
-   gauche, deux colonnes dès le mobile. **Les fonds dégradés sont des substituts : chaque
-   tuile doit recevoir une photo du métier.** C'est ce qui fait la force de ce patron —
-   un commerçant se reconnaît sur une image, pas sur un mot.
-4. **Bloc pastel structuré par des verbes** — Repérer / Réserver / Récupérer côté client,
-   Publier / Remplir / Encaisser côté commerçant.
-
-Le bouton principal est passé en **pilule sombre** plutôt que bleue : la couleur vit dans
-les bandes et les tuiles, l'action reste neutre et lisible partout.
-
-Sur mobile, l'en-tête se réduit à trois éléments — logo, action, menu — le sélecteur de
-thème disparaissant sous 640 px.
-
-**Ce qui n'a pas été repris** : les badges de certification (Capterra, ISO, HIPAA…) de la
-référence. Ils se gagnent, ils ne se dessinent pas. À leur place, quatre engagements
-factuels tenables dès le premier jour.
+Deux panneaux peuvent être placés côte à côte sur grand écran (`.panel-duo`).
 
 ### Rythme des sections
 

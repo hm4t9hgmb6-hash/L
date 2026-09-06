@@ -34,7 +34,6 @@
       </ul>
     </nav>
     <div class="header-actions">
-      <button class="theme-toggle" data-theme-toggle aria-label="Changer de thème" title="Changer de thème">◐</button>
       <a class="btn btn--primary" href="index.html#telecharger">Télécharger l'app</a>
       <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Ouvrir le menu">☰</button>
     </div>
@@ -53,38 +52,39 @@
 </div>
 
 <main id="main">
-  <!-- ============ HÉROS CENTRÉ ============================================= -->
-  <section class="hero hero--center">
-    <div class="container">
-      <div class="hero__inner">
-        <span class="eyebrow">En direct, autour de toi</span>
-        <h1 class="hero__title">Des réductions, à proximité,<br><span class="hero__accent">en temps réel</span></h1>
-        <form class="search-card" action="villes.html" method="get">
-          <label class="search-card__label" for="lieu">
-            Entre une adresse, un arrondissement ou une ville pour voir ce qui est actif
-          </label>
-          <div class="search-field">
-            <svg class="search-field__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M21.5 2.5 2.8 10.2c-.8.3-.8 1.5.1 1.7l7.6 2 2 7.6c.2.9 1.4.9 1.7.1L21.5 2.5Z"
-                    stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-            </svg>
-            <label class="visually-hidden" for="lieu">Adresse, arrondissement ou ville</label>
-            <input id="lieu" name="lieu" type="text" placeholder="Adresse ou ville" autocomplete="street-address">
-            <button class="btn btn--primary" type="submit">Chercher</button>
-          </div>
-          <button class="search-card__alt" type="button">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true">
-              <circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.8"/>
-              <path d="M12 2v3M12 19v3M22 12h-3M5 12H2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-              <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/>
-            </svg>
-            Utiliser ma position actuelle
-          </button>
-        </form>
-      </div>
-    </div>
+  <!-- ============ HÉROS ==================================================== -->
+  <section class="panel panel--grey panel--pad">
+    <div class="panel__inner">
+      <span class="eyebrow">En direct, autour de toi</span>
+      <h1 class="panel__title">Des réductions, à proximité,<br><span class="hero__accent">en temps réel</span></h1>
 
-    <!-- Diaporama continu : une catégorie de commerce par carte -->
+      <form class="search-card" action="villes.html" method="get">
+        <label class="search-card__label" for="lieu">
+          Entre une adresse, un arrondissement ou une ville pour voir ce qui est actif
+        </label>
+        <div class="search-field">
+          <svg class="search-field__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M21.5 2.5 2.8 10.2c-.8.3-.8 1.5.1 1.7l7.6 2 2 7.6c.2.9 1.4.9 1.7.1L21.5 2.5Z"
+                  stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          </svg>
+          <label class="visually-hidden" for="lieu">Adresse, arrondissement ou ville</label>
+          <input id="lieu" name="lieu" type="text" placeholder="Adresse ou ville" autocomplete="street-address">
+          <button class="btn btn--primary" type="submit">Chercher</button>
+        </div>
+        <button class="search-card__alt" type="button">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M12 2v3M12 19v3M22 12h-3M5 12H2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/>
+          </svg>
+          Utiliser ma position actuelle
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ DIAPORAMA DES CATÉGORIES ================================= -->
+  <section class="panel panel--pad" style="padding-top: var(--space-7)">
     <div class="marquee" aria-label="Catégories de commerces partenaires">
       <div class="marquee__row marquee__row--left">
           <a class="cat-card" href="app/offres.html" aria-label="Restaurant, jusqu'à −50 %">
@@ -191,28 +191,63 @@
     </div>
   </section>
 
-  <!-- ============ BANDE COLORÉE : NOTES ET CHIFFRES ======================== -->
-  <section class="showcase">
-    <div class="container">
-      <div class="ratings">
-        <div class="ratings__item">
-          <span class="ratings__source">App Store</span>
-          <span class="ratings__score"><span class="ratings__stars" aria-hidden="true">★★★★★</span> 4,8</span>
-        </div>
-        <div class="ratings__item">
-          <span class="ratings__source">Google Play</span>
-          <span class="ratings__score"><span class="ratings__stars" aria-hidden="true">★★★★★</span> 4,7</span>
-        </div>
-        <div class="ratings__item">
-          <span class="ratings__source">Avis commerçants</span>
-          <span class="ratings__score"><span class="ratings__stars" aria-hidden="true">★★★★★</span> 4,8</span>
-        </div>
-        <div class="ratings__item">
-          <span class="ratings__source">Recommandation</span>
-          <span class="ratings__score">92 % des utilisateurs</span>
+  <!-- ============ PANNEAU : LE FIL ========================================= -->
+  <section class="panel panel--grey">
+    <div class="panel__inner">
+      <h2 class="panel__title">Tout ce qui est actif, autour de toi.</h2>
+      <p class="panel__sub">Les réductions en cours dans ton rayon, classées par distance,
+         avec le temps qu'il reste et le nombre de places.</p>
+      <div class="panel__actions">
+        <a class="btn btn--primary btn--lg" href="#telecharger">Télécharger l'app</a>
+        <a class="btn btn--outline btn--lg" href="comment-ca-marche.html">En savoir plus</a>
+      </div>
+    </div>
+    <div class="panel__media panel__media--bleed">
+      <div class="phone" role="img" aria-label="Aperçu du fil des réductions en direct">
+        <div class="phone__notch"></div>
+        <div style="margin-top: var(--space-5); text-align:left">
+          <span class="live">En direct · 3e arrondissement</span>
+          <div class="deal-card">
+            <div class="deal-card__top">
+              <span class="deal-card__store">Boulangerie Marchand</span>
+              <span class="badge badge--discount">−60 %</span>
+            </div>
+            <p class="deal-card__title">350 m · valable encore 42 min · 3 places</p>
+            <div class="deal-card__prices">
+              <span class="deal-card__price">4,00 €</span>
+              <span class="deal-card__was">10,00 €</span>
+            </div>
+          </div>
+          <div class="deal-card">
+            <div class="deal-card__top">
+              <span class="deal-card__store">Salon Camille</span>
+              <span class="badge badge--discount">−40 %</span>
+            </div>
+            <p class="deal-card__title">800 m · rendez-vous 14h30 · 2 places</p>
+            <div class="deal-card__prices">
+              <span class="deal-card__price">21,00 €</span>
+              <span class="deal-card__was">35,00 €</span>
+            </div>
+          </div>
+          <div class="deal-card">
+            <div class="deal-card__top">
+              <span class="deal-card__store">Cordonnerie Vidal</span>
+              <span class="badge badge--discount">−40 %</span>
+            </div>
+            <p class="deal-card__title">1,1 km · valable encore 2 h · 3 places</p>
+            <div class="deal-card__prices">
+              <span class="deal-card__price">18,00 €</span>
+              <span class="deal-card__was">30,00 €</span>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+  </section>
 
+  <!-- ============ BANDE COLORÉE : CHIFFRES ================================= -->
+  <section class="showcase">
+    <div class="container">
       <div class="figures">
         <div>
           <span class="figures__value">142</span>
@@ -231,24 +266,21 @@
           <span class="figures__label">de réduction moyenne</span>
         </div>
       </div>
-
       <p style="margin-top: var(--space-7); text-align:center; font-size: var(--text-xs); opacity:.75">
-        Chiffres et notes d'illustration. Une note affichée doit correspondre à celle
-        réellement publiée sur la plateforme citée.
+        Chiffres d'illustration. Les trois premiers doivent être calculés en direct une fois
+        le service lancé.
       </p>
     </div>
   </section>
 
-  <!-- ============ TUILES PAR MÉTIER ======================================== -->
-  <section class="section">
-    <div class="container">
-      <div class="section-head section-head--center">
-        <span class="eyebrow">Tous les commerces</span>
-        <h2>Bien plus que de l'alimentaire</h2>
-        <p class="lede">Tout commerce indépendant avec pignon sur rue peut publier, quel
-           que soit son métier.</p>
-      </div>
-
+  <!-- ============ PANNEAU : LES MÉTIERS ==================================== -->
+  <section class="panel panel--pad">
+    <div class="panel__inner">
+      <h2 class="panel__title">Bien plus que de l'alimentaire.</h2>
+      <p class="panel__sub">Tout commerce indépendant avec pignon sur rue peut publier,
+         quel que soit son métier.</p>
+    </div>
+    <div class="container" style="margin-top: clamp(var(--space-7), 6vw, var(--space-8))">
       <ul class="tiles">
         <li><a class="tile" href="app/offres.html"><span class="tile__label">Boulangerie<br>pâtisserie</span></a></li>
         <li><a class="tile" href="app/offres.html"><span class="tile__label">Restauration<br>traiteur</span></a></li>
@@ -261,74 +293,76 @@
         <li><a class="tile" href="app/offres.html"><span class="tile__label">Mode<br>maison</span></a></li>
         <li><a class="tile" href="app/offres.html"><span class="tile__label">Réparation</span></a></li>
       </ul>
-
-      <p class="note" style="margin-top: var(--space-6)">
-        Les fonds colorés sont des substituts : chaque tuile doit recevoir une
-        <strong>photo du métier</strong>, avec un voile sombre pour garder le libellé
-        lisible. C'est ce qui fait la force de ce type de grille — un commerçant se
-        reconnaît sur une image, pas sur un mot.
+      <p class="note" style="margin-top: var(--space-6); text-align:left">
+        Fonds colorés de substitution : chaque tuile doit recevoir une photo du métier,
+        détourée ou cadrée serré, avec un voile sombre pour garder le libellé lisible.
       </p>
     </div>
   </section>
 
-  <!-- ============ BLOC PASTEL : LES TROIS TEMPS ============================ -->
-  <section class="pastel">
-    <div class="container">
-      <div style="max-width: 40rem">
-        <h2>Tout ce qu'il faut pour profiter de ton quartier</h2>
-        <p class="lede" style="color: var(--text); opacity:.74">
-          Trois gestes, aucune attente, aucun engagement.
-        </p>
-      </div>
-
+  <!-- ============ PANNEAU : LES TROIS TEMPS ================================ -->
+  <section class="panel panel--grey panel--pad">
+    <div class="panel__inner">
+      <h2 class="panel__title">Trois gestes, aucune attente.</h2>
+    </div>
+    <div class="container" style="margin-top: var(--space-7)">
       <div class="verbs">
         <div class="verb">
           <h3>Repérer</h3>
           <p>Le fil montre les réductions actives autour de toi, classées par distance,
-             avec le temps de validité restant et le nombre de places. Tu peux filtrer par
-             métier, par type d'offre ou par rayon.</p>
+             avec le temps de validité restant et le nombre de places.</p>
         </div>
         <div class="verb">
           <h3>Réserver</h3>
-          <p>Paiement sécurisé dans l'application. La place est bloquée à ton nom
-             immédiatement : personne d'autre ne peut la prendre pendant que tu te
-             déplaces.</p>
+          <p>Paiement dans l'application. La place est bloquée à ton nom immédiatement :
+             personne d'autre ne peut la prendre pendant que tu te déplaces.</p>
         </div>
         <div class="verb">
           <h3>Récupérer</h3>
           <p>Tu présentes ton code au comptoir, ou tu te présentes à l'heure du
-             rendez-vous. Rien à régler sur place, rien à imprimer.</p>
+             rendez-vous. Rien à régler sur place.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ DEUX PUBLICS ============================================= -->
-  <section class="section">
-    <div class="container">
-      <div class="split">
-        <div class="split__half split__half--client">
-          <h3>Tu cherches une réduction</h3>
-          <p>Vois ce qui est actif autour de toi, réserve en deux gestes, présente-toi.</p>
-          <a class="btn btn--primary btn--lg" href="#telecharger">Télécharger l'app</a>
-        </div>
-        <div class="split__half split__half--pro">
-          <h3>Tu tiens un commerce</h3>
-          <p>Publie une réduction en trente secondes, visible immédiatement par les
-             clients de ton quartier.</p>
-          <a class="btn btn--primary btn--lg" href="commercants.html">Inscrire mon commerce</a>
+  <!-- ============ DEUX PANNEAUX CÔTE À CÔTE ================================ -->
+  <div class="panel-duo">
+    <section class="panel panel--grey">
+      <div class="panel__inner">
+        <h2 class="panel__title">Côté client.</h2>
+        <p class="panel__sub">Vois ce qui est actif autour de toi, réserve en deux gestes,
+           présente-toi. Gratuit, sans abonnement.</p>
+        <div class="panel__actions">
+          <a class="btn btn--primary" href="#telecharger">Télécharger l'app</a>
         </div>
       </div>
-    </div>
-  </section>
+      <div class="panel__media panel__media--bleed">
+        <div class="visual">Visuel à venir — un client qui récupère sa commande</div>
+      </div>
+    </section>
 
-  <!-- ============ FAQ COURTE =============================================== -->
-  <section class="section section--subtle">
-    <div class="container container--narrow">
-      <div class="section-head section-head--center">
-        <span class="eyebrow">Questions fréquentes</span>
-        <h2>L'essentiel</h2>
+    <section class="panel panel--grey">
+      <div class="panel__inner">
+        <h2 class="panel__title">Côté commerçant.</h2>
+        <p class="panel__sub">Publie une réduction en trente secondes, visible
+           immédiatement par les clients de ton quartier.</p>
+        <div class="panel__actions">
+          <a class="btn btn--outline" href="commercants.html">Inscrire mon commerce</a>
+        </div>
       </div>
+      <div class="panel__media panel__media--bleed">
+        <div class="visual">Visuel à venir — un commerçant qui publie depuis son téléphone</div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ FAQ ====================================================== -->
+  <section class="panel panel--pad">
+    <div class="panel__inner">
+      <h2 class="panel__title">Questions fréquentes.</h2>
+    </div>
+    <div class="container container--narrow" style="text-align:left; margin-top: var(--space-7)">
       <details class="faq-item">
         <summary>Pourquoi les prix sont-ils plus bas&nbsp;?</summary>
         <p>Parce que le commerçant décide lui-même, à un moment donné, de baisser son prix
@@ -355,7 +389,7 @@
   <!-- ============ TÉLÉCHARGEMENT =========================================== -->
   <section class="cta-band" id="telecharger">
     <div class="container">
-      <h2>Regarde ce qui est actif maintenant</h2>
+      <h2>Regarde ce qui est actif maintenant.</h2>
       <p>L'application est gratuite et ne demande pas de compte pour consulter le fil.</p>
       <div class="store-badges" style="justify-content:center; margin-top: var(--space-5)">
         <a class="store-badge" href="#"><span><small>Télécharger sur</small>App Store</span></a>
