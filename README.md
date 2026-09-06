@@ -122,6 +122,37 @@ remplacés par des photos détourées ou cadrées serré.
 
 Deux panneaux peuvent être placés côte à côte sur grand écran (`.panel-duo`).
 
+### Photographies
+
+Les photos vivent dans `assets/img/photos/`, en deux formats et deux tailles :
+
+```
+coiffeur.jpg / .webp        1200 px   panneau pleine largeur
+coiffeur-640.jpg / .webp     640 px   petits écrans
+commercante.jpg / .webp      900 px
+commercante-600.jpg / .webp  600 px
+restaurant.jpg / .webp       300 px   carte du diaporama
+```
+
+Le balisage utilise `<picture>` : le WebP est servi aux navigateurs qui le gèrent, le
+JPEG progressif aux autres, et `srcset` choisit la taille selon l'écran. Chaque image
+porte ses dimensions et `loading="lazy"` — sans les dimensions, la page saute pendant le
+chargement.
+
+**Règle de traitement** : une photo n'est jamais encadrée. Pas de bordure, pas d'ombre,
+pas de coin arrondi. Elle occupe toute la largeur de son panneau et descend jusqu'au bord
+bas. Le cadrage est régularisé par `.photo-frame`, en 3/2, quelle que soit la photo
+fournie.
+
+**Pour ajouter une photo** : fournir l'original le plus grand possible (au moins 1600 px
+de large), en paysage. La compression et les déclinaisons se refont avec le même
+traitement — qualité 82 en JPEG, 80 en WebP.
+
+⚠️ **Droits** : chaque photo publiée doit être libre de droits pour un usage commercial,
+ou couverte par une licence achetée. Une photo de commerçant identifiable exige en outre
+son autorisation écrite (droit à l'image). C'est le premier reproche qu'on adresse aux
+sites de jeunes entreprises, et il coûte cher.
+
 ### Rythme des sections
 
 Toutes les pages emploient le même en-tête de section, `.section-head` — surtitre, titre,

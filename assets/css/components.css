@@ -1324,3 +1324,33 @@
   padding: var(--space-6);
 }
 .visual--tall { aspect-ratio: 3 / 4; width: min(22rem, 70vw); }
+
+/* ==========================================================================
+   Photographies
+   Une photo n'est jamais encadrée : elle occupe la largeur du panneau et
+   descend jusqu'à son bord bas. Aucune bordure, aucune ombre, aucun arrondi.
+   ========================================================================== */
+
+.panel__photo {
+  display: block;
+  width: 100%;
+  max-width: 46rem;
+  height: auto;
+  margin-inline: auto;
+}
+.panel-duo .panel__photo { max-width: none; }
+
+/* Cadrage constant quelle que soit la photo fournie */
+.photo-frame {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+}
+.photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Carte de catégorie portant une photo plutôt qu'un dégradé */
+.cat-card--photo::before { background: none; }
+.cat-card--photo img {
+  position: absolute; inset: 0; z-index: -2;
+  width: 100%; height: 100%; object-fit: cover;
+}
