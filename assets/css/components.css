@@ -773,3 +773,168 @@
 .map-list .offer { grid-template-columns: 48px 1fr auto; padding: var(--space-3); }
 .map-list .offer__thumb { width: 48px; height: 48px; font-size: 1.25rem; }
 .map-list .offer[aria-current="true"] { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-soft); }
+
+/* ==========================================================================
+   Page commerçants v2 — patrons de page d'acquisition B2B
+   ========================================================================== */
+
+/* --- Preuve sociale sous le héros ----------------------------------------- */
+
+.proof-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  align-items: center;
+  padding: var(--space-5) 0;
+  border-block: 1px solid var(--border);
+}
+.proof-bar__item { display: flex; flex-direction: column; gap: 2px; }
+.proof-bar__value {
+  font-family: var(--font-display);
+  font-weight: var(--weight-black);
+  font-size: var(--text-xl);
+  letter-spacing: var(--tracking-tight);
+}
+.proof-bar__label { font-size: var(--text-sm); color: var(--text-muted); }
+
+.rating { display: inline-flex; align-items: center; gap: var(--space-2); }
+.rating__stars { color: var(--highlight); letter-spacing: 2px; }
+
+/* --- Blocs fonctionnalité alternés ---------------------------------------- */
+
+.feature-row {
+  display: grid;
+  gap: var(--space-7);
+  align-items: center;
+  padding-block: clamp(var(--space-7), 6vw, var(--space-8));
+  border-bottom: 1px solid var(--border);
+}
+.feature-row:last-of-type { border-bottom: 0; }
+@media (min-width: 900px) {
+  .feature-row { grid-template-columns: 1fr 1fr; gap: var(--space-9); }
+  .feature-row--flip .feature-row__media { order: -1; }
+}
+.feature-row__body h3 { font-size: var(--text-2xl); margin-bottom: var(--space-4); }
+.feature-row__body p { color: var(--text-muted); }
+.feature-row__list { list-style: none; padding: 0; margin: var(--space-5) 0 0; }
+.feature-row__list li {
+  position: relative;
+  padding-left: var(--space-6);
+  margin-bottom: var(--space-3);
+  color: var(--text-muted);
+}
+.feature-row__list li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: .55em;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+/* Maquette d'interface : cadre neutre pour une capture à venir */
+.mock {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+.mock__bar {
+  display: flex; align-items: center; gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-subtle);
+}
+.mock__dot { width: 9px; height: 9px; border-radius: 50%; background: var(--border-strong); }
+.mock__body { padding: var(--space-5); display: grid; gap: var(--space-3); }
+.mock__line { height: 10px; border-radius: 5px; background: var(--bg-inset); }
+.mock__line--short { width: 45%; }
+.mock__line--accent { background: var(--primary-soft); width: 65%; }
+
+/* --- Grille de métiers ---------------------------------------------------- */
+
+.trades {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: var(--space-4);
+  list-style: none;
+  margin: 0; padding: 0;
+}
+.trades li { margin: 0; }
+.trade {
+  display: block;
+  padding: var(--space-5);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  color: var(--text);
+  height: 100%;
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+.trade:hover { color: var(--text); border-color: var(--border-strong); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.trade strong { display: block; margin-bottom: var(--space-2); }
+.trade span { color: var(--text-muted); font-size: var(--text-sm); }
+
+/* --- Tableau comparatif --------------------------------------------------- */
+
+.compare-wrap { overflow-x: auto; }
+.compare {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+  min-width: 36rem;
+}
+.compare th, .compare td {
+  padding: var(--space-4);
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.compare thead th {
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--text-muted);
+  font-weight: var(--weight-bold);
+}
+.compare tbody th { font-weight: var(--weight-bold); width: 34%; }
+.compare td { color: var(--text-muted); }
+.compare .yes { color: var(--money-ink); font-weight: var(--weight-bold); }
+.compare .no { color: var(--text-muted); }
+.compare col.highlight, .compare .col-highlight { background: var(--primary-soft); }
+
+/* --- Témoignage identifié ------------------------------------------------- */
+
+.testimonial { display: flex; flex-direction: column; gap: var(--space-4); height: 100%; }
+.testimonial blockquote { margin: 0; font-size: var(--text-lg); line-height: 1.5; letter-spacing: var(--tracking-snug); }
+.testimonial figcaption { display: flex; align-items: center; gap: var(--space-3); margin-top: auto; }
+.testimonial__avatar {
+  width: 40px; height: 40px; flex: none;
+  border-radius: 50%;
+  background: var(--bg-inset);
+  color: var(--text-muted);
+  display: grid; place-items: center;
+  font-family: var(--font-display);
+  font-weight: var(--weight-black);
+  font-size: var(--text-sm);
+}
+.testimonial__who { font-size: var(--text-sm); line-height: 1.3; }
+.testimonial__who strong { display: block; }
+.testimonial__who span { color: var(--text-muted); }
+
+/* --- Bandeau final pleine largeur ----------------------------------------- */
+
+.cta-band {
+  background: var(--primary);
+  color: #fff;
+  padding-block: clamp(var(--space-7), 7vw, var(--space-9));
+  text-align: center;
+}
+.cta-band h2 { color: #fff; }
+.cta-band p { color: rgba(255,255,255,.88); max-width: 48ch; margin-inline: auto; }
+.cta-band .btn--primary { background: #fff; color: var(--blue-600); }
+.cta-band .btn--primary:hover { background: var(--n-100); color: var(--blue-700); }
+.cta-band .btn--ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,.4); }
+.cta-band .btn--ghost:hover { background: rgba(255,255,255,.12); color: #fff; }
+.cta-band .btn-row { justify-content: center; }

@@ -53,98 +53,219 @@
 </div>
 
 <main id="main">
+  <!-- ============ 1. HÉROS : promesse + double CTA + preuve immédiate ======= -->
   <section class="hero hero--pro">
-    <div class="container container--narrow">
-      <span class="eyebrow">Espace commerçants</span>
-      <h1>Remplis ta boutique quand tu en as besoin</h1>
-      <p class="lede">Publie une réduction en trente secondes, à l'instant où tu le
-         décides. Elle part immédiatement vers les clients qui sont à quelques minutes de
-         chez toi. Sans abonnement, sans engagement, sans matériel.</p>
-      <div class="btn-row" style="margin-top: var(--space-6)">
-        <a class="btn btn--primary btn--lg" href="#inscription">Inscrire mon commerce</a>
-        <a class="btn btn--ghost btn--lg" href="#tarifs">Voir la commission</a>
+    <div class="container hero__grid">
+      <div>
+        <span class="eyebrow">Pour les commerces indépendants</span>
+        <h1 class="hero__title">Remplis ta boutique quand elle est vide.</h1>
+        <p class="lede">
+          Publie une réduction en trente secondes. Elle part immédiatement vers les
+          clients qui sont à quelques minutes de chez toi. Sans abonnement, sans
+          engagement, sans matériel à installer.
+        </p>
+        <div class="btn-row" style="margin-top: var(--space-6)">
+          <a class="btn btn--primary btn--lg" href="#inscription">Inscrire mon commerce</a>
+          <a class="btn btn--ghost btn--lg" href="#tarifs">Voir la commission</a>
+        </div>
+        <p style="margin-top: var(--space-4); font-size: var(--text-sm); color: var(--text-muted)">
+          Inscription gratuite · Aucune carte bancaire demandée · Résiliable à tout moment
+        </p>
       </div>
-      <div class="hero__proof">
-        <span>Aucun frais fixe</span>
-        <span>Rien à installer</span>
-        <span>Tu gardes la main sur tes prix</span>
+      <div class="feature-row__media">
+        <div class="mock">
+          <div class="mock__bar">
+            <span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span>
+            <span style="margin-left: var(--space-3); font-size: var(--text-xs); color: var(--text-muted)">Publier une réduction</span>
+          </div>
+          <div class="mock__body">
+            <span class="mock__line mock__line--short"></span>
+            <span class="mock__line"></span>
+            <span class="mock__line mock__line--accent"></span>
+            <span class="mock__line"></span>
+            <span class="mock__line mock__line--short"></span>
+          </div>
+        </div>
+        <p style="margin-top: var(--space-3); font-size: var(--text-xs); color: var(--text-muted); text-align:center">
+          Emplacement pour une capture réelle de l'interface commerçant.
+        </p>
       </div>
     </div>
   </section>
 
+  <!-- ============ 2. BANDEAU DE PREUVE ===================================== -->
+  <section class="container">
+    <div class="proof-bar">
+      <div class="proof-bar__item">
+        <span class="proof-bar__value">1 240</span>
+        <span class="proof-bar__label">commerces connectés</span>
+      </div>
+      <div class="proof-bar__item">
+        <span class="proof-bar__value">30 s</span>
+        <span class="proof-bar__label">pour publier une offre</span>
+      </div>
+      <div class="proof-bar__item">
+        <span class="proof-bar__value">0 €</span>
+        <span class="proof-bar__label">de frais fixes</span>
+      </div>
+      <div class="proof-bar__item">
+        <span class="proof-bar__value rating">
+          <span class="rating__stars" aria-hidden="true">★★★★★</span> 4,8
+        </span>
+        <span class="proof-bar__label">note moyenne des commerçants</span>
+      </div>
+    </div>
+    <p style="padding-top: var(--space-3); font-size: var(--text-xs); color: var(--text-muted)">
+      Chiffres d'illustration, à remplacer avant mise en ligne. Une note affichée doit
+      reposer sur des avis réellement collectés et vérifiables.
+    </p>
+  </section>
+
+  <!-- ============ 3. BLOCS FONCTIONNALITÉ ALTERNÉS ========================= -->
   <section class="section">
     <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Le principe</span>
-        <h2>Tu décides du moment</h2>
-        <p class="lede">Une boutique vide un mardi à 15 h, un stock à écouler avant
-           fermeture, un créneau annulé la veille : ce sont des situations ponctuelles.
-           Dealpick te permet d'y répondre au moment où elles se produisent.</p>
+      <div class="section-head section-head--center">
+        <span class="eyebrow">Ce que tu peux faire</span>
+        <h2>Un outil, quatre usages</h2>
+        <p class="lede">Pensé pour être utilisé entre deux clients, sur le téléphone qui
+           est déjà dans ta poche.</p>
       </div>
 
-      <div class="grid grid--3">
-        <div class="card">
-          <h3>Publication immédiate</h3>
-          <p>L'offre est visible dans la seconde par les clients de ton rayon. Pas de
-             validation, pas de délai, pas de campagne à programmer.</p>
+      <div class="feature-row">
+        <div class="feature-row__body">
+          <h3>Publier au moment où tu en as besoin</h3>
+          <p>Une boutique vide un mardi à 15 h, un stock à écouler avant fermeture, un
+             rendez-vous annulé la veille. Tu ouvres l'application, tu fixes le prix et la
+             durée, c'est en ligne.</p>
+          <ul class="feature-row__list">
+            <li>Aucune validation préalable, aucun délai de diffusion</li>
+            <li>Tu choisis le prix, le nombre de places et la fenêtre de validité</li>
+            <li>Tu retires l'offre quand tu veux, elle disparaît aussitôt du fil</li>
+          </ul>
         </div>
-        <div class="card">
-          <h3>Tu gardes le contrôle</h3>
-          <p>Tu fixes le prix, le nombre de places et la durée. Tu retires l'offre quand
-             tu veux, elle disparaît du fil aussitôt.</p>
+        <div class="feature-row__media">
+          <div class="mock">
+            <div class="mock__bar"><span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span></div>
+            <div class="mock__body">
+              <span class="mock__line mock__line--short"></span>
+              <span class="mock__line mock__line--accent"></span>
+              <span class="mock__line"></span>
+            </div>
+          </div>
         </div>
-        <div class="card">
-          <h3>Zéro risque</h3>
-          <p>Aucun frais fixe. Si personne ne réserve, tu n'as rien dépensé. Tu ne paies
-             qu'une commission sur les ventes réalisées.</p>
+      </div>
+
+      <div class="feature-row feature-row--flip">
+        <div class="feature-row__body">
+          <h3>Toucher les clients qui sont déjà à côté</h3>
+          <p>Ton offre n'est montrée qu'aux personnes situées dans ton rayon, pendant sa
+             durée de validité. Pas de diffusion à toute la ville, pas de budget
+             publicitaire à arbitrer.</p>
+          <ul class="feature-row__list">
+            <li>Diffusion par temps de trajet à pied, pas par distance théorique</li>
+            <li>Notification aux clients qui suivent ta catégorie ou ton commerce</li>
+            <li>Visibilité sur la carte de ton quartier</li>
+          </ul>
+        </div>
+        <div class="feature-row__media">
+          <div class="mock">
+            <div class="mock__bar"><span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span></div>
+            <div class="mock__body">
+              <span class="mock__line"></span>
+              <span class="mock__line mock__line--accent"></span>
+              <span class="mock__line mock__line--short"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-row__body">
+          <h3>Être payé sans encaisser</h3>
+          <p>Le client règle dans l'application au moment de la réservation. Tu n'as rien
+             à encaisser au comptoir, et aucun impayé n'est possible.</p>
+          <ul class="feature-row__list">
+            <li>Paiement sécurisé, place bloquée au nom du client</li>
+            <li>Reversement automatique, commission déduite</li>
+            <li>Justificatifs disponibles pour ta comptabilité</li>
+          </ul>
+        </div>
+        <div class="feature-row__media">
+          <div class="mock">
+            <div class="mock__bar"><span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span></div>
+            <div class="mock__body">
+              <span class="mock__line mock__line--short"></span>
+              <span class="mock__line"></span>
+              <span class="mock__line mock__line--accent"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row feature-row--flip">
+        <div class="feature-row__body">
+          <h3>Savoir ce qui marche</h3>
+          <p>Combien de personnes ont vu l'offre, combien ont réservé, combien sont
+             venues. De quoi décider quel jour et à quelle heure publier la prochaine.</p>
+          <ul class="feature-row__list">
+            <li>Vues, réservations et présentations par offre</li>
+            <li>Comparaison entre créneaux et jours de la semaine</li>
+            <li>Part de nouveaux clients dans les réservations</li>
+          </ul>
+        </div>
+        <div class="feature-row__media">
+          <div class="mock">
+            <div class="mock__bar"><span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span></div>
+            <div class="mock__body">
+              <span class="mock__line"></span>
+              <span class="mock__line mock__line--short"></span>
+              <span class="mock__line mock__line--accent"></span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ============ 4. PAR MÉTIER ============================================ -->
   <section class="section section--subtle">
     <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Côté commerçant</span>
-        <h2>Comment ça se passe</h2>
+      <div class="section-head section-head--center">
+        <span class="eyebrow">Pour qui</span>
+        <h2>Tous les commerces avec pignon sur rue</h2>
+        <p class="lede">Que tu vendes des produits ou du temps, le mécanisme est le même :
+           tu décides d'un prix, à un moment, pour un nombre de places.</p>
       </div>
-      <div class="grid grid--4 steps">
-        <div class="step">
-          <h3>Inscription</h3>
-          <p>Vérification de ton établissement et coordonnées bancaires pour les
-             reversements.</p>
-        </div>
-        <div class="step">
-          <h3>Publication</h3>
-          <p>Ce que tu proposes, le prix, le nombre de places, la durée. Une trentaine de
-             secondes.</p>
-        </div>
-        <div class="step">
-          <h3>Réservation</h3>
-          <p>Le client paie dans l'application. Rien à encaisser sur place, aucun impayé
-             possible.</p>
-        </div>
-        <div class="step">
-          <h3>Reversement</h3>
-          <p>Dealpick te reverse le montant des ventes, commission déduite, selon la
-             périodicité convenue.</p>
-        </div>
-      </div>
+
+      <ul class="trades">
+        <li><a class="trade" href="#inscription"><strong>Boulangerie, pâtisserie</strong><span>Lots et préparations à écouler avant fermeture</span></a></li>
+        <li><a class="trade" href="#inscription"><strong>Restauration, traiteur</strong><span>Plats du jour, services creux, fins de service</span></a></li>
+        <li><a class="trade" href="#inscription"><strong>Primeur, épicerie</strong><span>Cagettes, assortiments, lots du jour</span></a></li>
+        <li><a class="trade" href="#inscription"><strong>Coiffure, barbier</strong><span>Créneaux vides en journée et en début de semaine</span></a></li>
+        <li><a class="trade" href="#inscription"><strong>Esthétique, bien-être</strong><span>Rendez-vous annulés, heures creuses</span></a></li>
+        <li><a class="trade" href="#inscription"><strong>Cordonnerie, retouches</strong><span>Dépôts à prix réduit quand l'atelier tourne au ralenti</span></a></li>
+        <li><a class="trade" href="#inscription"><strong>Pressing, blanchisserie</strong><span>Créneaux de dépôt en journée</span></a></li>
+        <li><a class="trade" href="#inscription"><strong>Fleuriste</strong><span>Compositions et bouquets à écouler</span></a></li>
+        <li><a class="trade" href="#inscription"><strong>Mode, maison, déco</strong><span>Fins de série, pièces uniques, déstockage ponctuel</span></a></li>
+        <li><a class="trade" href="#inscription"><strong>Réparation</strong><span>Vélo, électroménager, informatique, petites interventions</span></a></li>
+      </ul>
     </div>
   </section>
 
+  <!-- ============ 5. TARIFS ================================================ -->
   <section class="section" id="tarifs">
     <div class="container container--narrow">
-      <div class="section-head">
+      <div class="section-head section-head--center">
         <span class="eyebrow">Tarifs</span>
-        <h2>Une commission, et rien d'autre</h2>
-        <p class="lede">Pas d'abonnement, pas de frais d'inscription, pas de matériel.
-           On ne gagne de l'argent que quand tu en gagnes.</p>
+        <h2>Sans abonnement. Une commission, c'est tout.</h2>
+        <p class="lede">On ne gagne de l'argent que quand tu en gagnes. Si personne ne
+           réserve, tu n'as rien dépensé.</p>
       </div>
 
       <dl class="card">
         <div class="price-line"><dt>Inscription et compte</dt><dd>Gratuits</dd></div>
         <div class="price-line"><dt>Abonnement mensuel</dt><dd>Aucun</dd></div>
+        <div class="price-line"><dt>Matériel à acheter</dt><dd>Aucun</dd></div>
         <div class="price-line">
           <dt>Commission par vente</dt>
           <dd><span class="placeholder">[X] %</span> du montant TTC, frais de paiement inclus</dd>
@@ -153,66 +274,170 @@
           <dt>Reversement</dt>
           <dd><span class="placeholder">[périodicité]</span>, par virement</dd>
         </div>
-        <div class="price-line"><dt>Engagement de durée</dt><dd>Aucun</dd></div>
+        <div class="price-line"><dt>Engagement de durée</dt><dd>Aucun, résiliable à tout moment</dd></div>
       </dl>
 
       <div class="note" style="margin-top: var(--space-5)">
-        Taux et périodicité à fixer avant mise en ligne. Une commission unique quel que
-        soit le métier est plus simple à défendre qu'une grille par secteur — mais c'est
-        une décision à prendre, le panier moyen d'une prestation étant très supérieur à
-        celui d'un produit.
+        Taux et périodicité à fixer avant mise en ligne. Afficher un chiffre en clair est
+        le principal argument de cette page : un « tarif sur demande » fait fuir les petits
+        commerces, qui n'ont ni le temps ni l'envie de négocier.
       </div>
     </div>
   </section>
 
+  <!-- ============ 6. COMPARATIF =========================================== -->
   <section class="section section--subtle">
     <div class="container container--narrow">
-      <div class="section-head">
-        <h2>Questions des commerçants</h2>
+      <div class="section-head section-head--center">
+        <span class="eyebrow">Comparaison</span>
+        <h2>Face aux autres façons de remplir</h2>
+      </div>
+
+      <div class="compare-wrap">
+        <table class="compare">
+          <thead>
+            <tr>
+              <th scope="col">&nbsp;</th>
+              <th scope="col">Dealpick</th>
+              <th scope="col">Réseaux sociaux</th>
+              <th scope="col">Prospectus, affichage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Délai avant le premier client</th>
+              <td class="yes">Quelques minutes</td>
+              <td class="no">Quelques heures à quelques jours</td>
+              <td class="no">Plusieurs jours</td>
+            </tr>
+            <tr>
+              <th scope="row">Ciblage géographique</th>
+              <td class="yes">Rayon de marche autour du commerce</td>
+              <td class="no">Approximatif, payant pour être précis</td>
+              <td class="no">Zone de distribution</td>
+            </tr>
+            <tr>
+              <th scope="row">Coût si personne ne vient</th>
+              <td class="yes">Zéro</td>
+              <td class="no">Le budget est dépensé</td>
+              <td class="no">L'impression est payée</td>
+            </tr>
+            <tr>
+              <th scope="row">Paiement garanti</th>
+              <td class="yes">Oui, réglé d'avance dans l'app</td>
+              <td class="no">Non</td>
+              <td class="no">Non</td>
+            </tr>
+            <tr>
+              <th scope="row">Mesure des résultats</th>
+              <td class="yes">Vues, réservations, présences</td>
+              <td class="no">Vues et clics seulement</td>
+              <td class="no">Aucune</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top: var(--space-4); font-size: var(--text-xs); color: var(--text-muted)">
+        Comparaison à relire avant publication : elle doit rester factuelle et vérifiable.
+        Le dénigrement d'un concurrent nommément désigné est un acte de concurrence déloyale.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 7. TÉMOIGNAGES =========================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <span class="eyebrow">Ils l'utilisent</span>
+        <h2>Ce qu'en disent les commerçants</h2>
+      </div>
+      <div class="grid grid--3">
+        <figure class="card testimonial">
+          <blockquote>« Le lundi après-midi, l'atelier tournait au ralenti. Je publie deux
+             créneaux, ils partent en général dans l'heure. »</blockquote>
+          <figcaption>
+            <span class="testimonial__avatar">CV</span>
+            <span class="testimonial__who"><strong>À recueillir</strong><span>Cordonnerie, Lyon 3e</span></span>
+          </figcaption>
+        </figure>
+        <figure class="card testimonial">
+          <blockquote>« Ce qui m'a convaincue, c'est de ne rien payer si personne ne
+             réserve. Je n'aurais jamais pris un abonnement pour essayer. »</blockquote>
+          <figcaption>
+            <span class="testimonial__avatar">SC</span>
+            <span class="testimonial__who"><strong>À recueillir</strong><span>Salon de coiffure, Villeurbanne</span></span>
+          </figcaption>
+        </figure>
+        <figure class="card testimonial">
+          <blockquote>« Un client sur quatre revient ensuite au prix normal. C'est ça que
+             je regarde, pas la marge sur l'offre elle-même. »</blockquote>
+          <figcaption>
+            <span class="testimonial__avatar">BM</span>
+            <span class="testimonial__who"><strong>À recueillir</strong><span>Boulangerie, Lyon 7e</span></span>
+          </figcaption>
+        </figure>
+      </div>
+      <p class="text-center" style="margin-top: var(--space-5); font-size: var(--text-xs); color: var(--text-muted)">
+        Témoignages d'illustration. À remplacer par de vrais, avec l'accord écrit des
+        personnes citées : un faux avis est une pratique commerciale trompeuse.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 8. FAQ =================================================== -->
+  <section class="section section--subtle">
+    <div class="container container--narrow">
+      <div class="section-head section-head--center">
+        <span class="eyebrow">Questions fréquentes</span>
+        <h2>Avant de te lancer</h2>
       </div>
       <details class="faq-item">
         <summary>Est-ce que ça dévalorise mes prix&nbsp;?</summary>
-        <p>C'est la première inquiétude, et elle est légitime. Trois garde-fous : tu
-           choisis le moment, tu choisis le nombre de places, et l'offre est limitée dans
-           le temps. Elle ne s'adresse qu'aux clients présents dans ton rayon à cet
-           instant, pas à toute la ville en permanence.</p>
+        <p>Trois garde-fous : tu choisis le moment, tu choisis le nombre de places, et
+           l'offre est limitée dans le temps. Elle ne s'adresse qu'aux clients présents
+           dans ton rayon à cet instant, pas à toute la ville en permanence.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Combien de temps ça me prend&nbsp;?</summary>
+        <p>Une trentaine de secondes pour publier. La remise au client prend le temps d'un
+           passage en caisse, sans encaissement.</p>
       </details>
       <details class="faq-item">
         <summary>Je fais de la prestation, comment ça marche&nbsp;?</summary>
         <p>Tu ouvres un créneau précis à prix réduit, avec sa durée. Le client réserve et
-           paie, le rendez-vous est bloqué à son nom. Tu décides combien de créneaux tu
-           ouvres et quand.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Combien de temps ça me prend&nbsp;?</summary>
-        <p>Publier une offre prend une trentaine de secondes. La remise au client prend le
-           temps d'un passage en caisse, sans encaissement.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Et si personne ne réserve&nbsp;?</summary>
-        <p>Tu n'as rien perdu : aucun frais fixe. L'offre expire et disparaît du fil.</p>
+           paie, le rendez-vous est bloqué à son nom. Tu décides combien tu en ouvres.</p>
       </details>
       <details class="faq-item">
         <summary>Un client ne vient pas&nbsp;?</summary>
         <p>La vente reste acquise selon les conditions d'annulation. Tu n'es pas pénalisé
-           par un client absent — c'est déterminant pour une prestation, où le créneau a
-           été bloqué pour lui.</p>
+           par un client absent — déterminant pour une prestation, où le créneau a été
+           bloqué pour lui.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Puis-je retirer une offre en cours&nbsp;?</summary>
+        <p>Oui, tant qu'aucune place n'a été réservée. Les réservations déjà payées doivent
+           être honorées ou remboursées.</p>
       </details>
       <details class="faq-item">
         <summary>Quels commerces sont acceptés&nbsp;?</summary>
         <p>Tout commerce indépendant avec pignon sur rue. Sont exclus les enseignes de
-           chaîne, la grande distribution et les vendeurs exclusivement en ligne — c'est
-           la promesse faite aux utilisateurs.</p>
+           chaîne, la grande distribution et les vendeurs exclusivement en ligne.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Quand suis-je payé&nbsp;?</summary>
+        <p>Dealpick encaisse pour ton compte et te reverse
+           <span class="placeholder">[périodicité]</span>, commission déduite.</p>
       </details>
     </div>
   </section>
 
+  <!-- ============ 9. INSCRIPTION =========================================== -->
   <section class="section" id="inscription">
     <div class="container container--narrow">
-      <div class="section-head">
+      <div class="section-head section-head--center">
         <h2>Inscrire mon commerce</h2>
         <p class="lede">On te rappelle sous 48 heures ouvrées pour valider ton inscription
-           et te montrer l'outil.</p>
+           et te montrer l'outil. Aucun engagement à ce stade.</p>
       </div>
       <form class="card" method="post" action="#">
         <div class="field">
@@ -231,7 +456,7 @@
               <option>Maison / décoration</option>
             </optgroup>
             <optgroup label="Prestations">
-              <option>Coiffure</option>
+              <option>Coiffure / barbier</option>
               <option>Esthétique / bien-être</option>
               <option>Cordonnerie / retouches</option>
               <option>Pressing / blanchisserie</option>
@@ -252,11 +477,23 @@
           <label for="c-tel">Téléphone</label>
           <input id="c-tel" name="telephone" type="tel">
         </div>
-        <button class="btn btn--primary btn--block" type="submit">Envoyer ma demande</button>
+        <button class="btn btn--primary btn--block btn--lg" type="submit">Envoyer ma demande</button>
         <p style="margin-top: var(--space-3)"><small style="color: var(--text-muted)">
           Formulaire non connecté — brancher un service d'envoi avant mise en ligne.
         </small></p>
       </form>
+    </div>
+  </section>
+
+  <!-- ============ 10. BANDEAU FINAL ======================================== -->
+  <section class="cta-band">
+    <div class="container">
+      <h2>Ta première offre peut être en ligne aujourd'hui</h2>
+      <p>Inscription gratuite, sans carte bancaire, résiliable à tout moment.</p>
+      <div class="btn-row" style="margin-top: var(--space-5)">
+        <a class="btn btn--primary btn--lg" href="#inscription">Inscrire mon commerce</a>
+        <a class="btn btn--ghost btn--lg" href="aide.html">Poser une question</a>
+      </div>
     </div>
   </section>
 </main>
