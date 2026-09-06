@@ -30,8 +30,13 @@
 .btn:hover { transform: translateY(-1px); }
 .btn:active { transform: translateY(0); }
 
-.btn--primary { background: var(--primary); color: var(--on-primary); box-shadow: var(--shadow-sm); }
-.btn--primary:hover { background: var(--primary-hover); color: var(--on-primary); box-shadow: var(--shadow-md); }
+.btn--primary { background: var(--text); color: var(--bg); box-shadow: var(--shadow-sm); }
+.btn--primary:hover { background: var(--n-700); color: var(--bg); box-shadow: var(--shadow-md); }
+:root[data-theme="dark"] .btn--primary:hover { background: var(--n-200); }
+
+.btn--outline { background: transparent; color: var(--text); border-color: var(--border-strong); }
+.btn--outline:hover { background: var(--bg-inset); color: var(--text); }
+.btn--xl { padding: var(--space-4) var(--space-7); font-size: var(--text-lg); }
 
 .btn--ghost { background: var(--surface); color: var(--text); border-color: var(--border-strong); }
 .btn--ghost:hover { background: var(--bg-inset); color: var(--text); border-color: var(--border-strong); }
@@ -124,6 +129,11 @@
   transition: color var(--transition), border-color var(--transition);
 }
 .nav-toggle:hover, .theme-toggle:hover { color: var(--text); border-color: var(--border-strong); }
+@media (max-width: 640px) {
+  .theme-toggle { display: none; }
+  .site-header .btn { padding-inline: var(--space-4); font-size: var(--text-xs); }
+  .logo { font-size: var(--text-base); }
+}
 @media (min-width: 940px) { .nav-toggle { display: none; } }
 
 .mobile-nav { background: var(--surface); border-bottom: 1px solid var(--border); }
@@ -938,3 +948,154 @@
 .cta-band .btn--ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,.4); }
 .cta-band .btn--ghost:hover { background: rgba(255,255,255,.12); color: #fff; }
 .cta-band .btn-row { justify-content: center; }
+
+/* ==========================================================================
+   Patrons v2 — héros centré, bande colorée, tuiles par métier, bloc pastel
+   ========================================================================== */
+
+/* --- Héros centré --------------------------------------------------------- */
+
+.hero--center { text-align: center; }
+.hero--center .hero__inner { max-width: 52rem; margin-inline: auto; }
+.hero--center h1 {
+  font-size: clamp(2.5rem, 1.2rem + 5.4vw, 4.5rem);
+  letter-spacing: -0.035em;
+  line-height: 1.03;
+}
+.hero--center .lede {
+  margin-inline: auto;
+  font-size: clamp(1.0625rem, 1rem + .5vw, 1.375rem);
+  color: var(--text);
+  opacity: .72;
+  max-width: 34ch;
+}
+.hero--center .btn-row { justify-content: center; }
+.hero__note { margin-top: var(--space-4); font-size: var(--text-sm); color: var(--text-muted); }
+
+/* Capture produit qui chevauche la section suivante, en passant par-dessus */
+.hero__shot {
+  position: relative;
+  z-index: 2;
+  margin-top: var(--space-8);
+  margin-bottom: calc(var(--space-7) * -1);
+}
+
+/* --- Bande colorée : notes et chiffres ------------------------------------ */
+
+.showcase {
+  position: relative;
+  z-index: 1;
+  padding-block: clamp(var(--space-9), 11vw, var(--space-10)) clamp(var(--space-8), 9vw, var(--space-10));
+  background:
+    radial-gradient(50rem 30rem at 18% 12%, #7C5CFF 0%, transparent 60%),
+    radial-gradient(46rem 28rem at 82% 30%, #2E5EFF 0%, transparent 58%),
+    radial-gradient(38rem 26rem at 50% 100%, #C05CFF 0%, transparent 60%),
+    linear-gradient(160deg, #4B39E8, #7C5CFF 55%, #2E5EFF);
+  color: #fff;
+}
+.showcase h2, .showcase p { color: #fff; }
+
+.ratings {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: var(--space-5);
+  margin-bottom: var(--space-8);
+  text-align: center;
+}
+.ratings__item { display: flex; flex-direction: column; gap: 2px; }
+.ratings__source { font-weight: var(--weight-bold); font-size: var(--text-sm); }
+.ratings__score { font-size: var(--text-sm); opacity: .9; }
+.ratings__stars { color: #FFD166; letter-spacing: 1px; }
+
+.figures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: var(--space-7) var(--space-5);
+  text-align: center;
+}
+.figures__value {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: var(--weight-black);
+  font-size: clamp(2.25rem, 1.4rem + 3.6vw, 3.5rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.figures__label { display: block; margin-top: var(--space-2); opacity: .9; }
+
+/* --- Tuiles par métier ---------------------------------------------------- */
+
+.tiles {
+  display: grid;
+  /* Deux colonnes dès le mobile, comme la référence : une seule tuile pleine
+     largeur en 4/5 occupe tout l'écran et casse le balayage. */
+  grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+  gap: var(--space-4);
+  list-style: none;
+  margin: 0; padding: 0;
+}
+.tiles li { margin: 0; }
+.tile {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 0;
+  color: #fff;
+  isolation: isolate;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.tile:hover { color: #fff; transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+/* Fonds de substitution : à remplacer par une photo du métier */
+.tile::before {
+  content: "";
+  position: absolute; inset: 0; z-index: -2;
+  background: linear-gradient(150deg, var(--tile-a, #4B39E8), var(--tile-b, #2E5EFF));
+}
+.tile::after {
+  content: "";
+  position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(to top, rgba(10,11,16,.72) 0%, rgba(10,11,16,.15) 55%, transparent 100%);
+}
+.tile__label {
+  position: absolute;
+  left: var(--space-4); right: var(--space-4); bottom: var(--space-4);
+  font-family: var(--font-display);
+  font-weight: var(--weight-black);
+  font-size: var(--text-lg);
+  line-height: 1.15;
+  letter-spacing: var(--tracking-snug);
+}
+.tiles li:nth-child(6n+1) .tile { --tile-a: #4B39E8; --tile-b: #2E5EFF; }
+.tiles li:nth-child(6n+2) .tile { --tile-a: #7C5CFF; --tile-b: #C05CFF; }
+.tiles li:nth-child(6n+3) .tile { --tile-a: #1F49E0; --tile-b: #10B981; }
+.tiles li:nth-child(6n+4) .tile { --tile-a: #FF6B4A; --tile-b: #C05CFF; }
+.tiles li:nth-child(6n+5) .tile { --tile-a: #0E7C6B; --tile-b: #2E5EFF; }
+.tiles li:nth-child(6n+6) .tile { --tile-a: #F5A524; --tile-b: #FF6B4A; }
+
+/* --- Bloc pastel structuré par verbes ------------------------------------- */
+
+.pastel {
+  background: var(--service-soft);
+  padding-block: clamp(var(--space-8), 8vw, var(--space-9));
+}
+.pastel h2 { font-size: clamp(1.875rem, 1.2rem + 2.6vw, 3rem); }
+.verbs { display: grid; gap: var(--space-6); margin-top: var(--space-7); }
+@media (min-width: 900px) { .verbs { grid-template-columns: repeat(3, 1fr); gap: var(--space-7); } }
+.verb h3 { font-size: var(--text-2xl); margin-bottom: var(--space-3); }
+.verb p { color: var(--text); opacity: .74; }
+
+/* --- Réassurance factuelle (remplace les badges de certification) --------- */
+
+.assurances {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: var(--space-5);
+  list-style: none;
+  margin: 0; padding: 0;
+  text-align: center;
+}
+.assurances li { margin: 0; }
+.assurances strong { display: block; font-size: var(--text-sm); }
+.assurances span { color: var(--text-muted); font-size: var(--text-sm); }

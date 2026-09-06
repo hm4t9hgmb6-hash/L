@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Commerçants — Publie une réduction en trente secondes</title>
-<meta name="description" content="Sans abonnement, commission sur les ventes uniquement. Pour tout commerce indépendant avec pignon sur rue.">
+<title>Commerçants — Remplis ta boutique quand elle est vide</title>
+<meta name="description" content="Publie une réduction en trente secondes. Sans abonnement, commission sur les ventes uniquement.">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,8 +12,8 @@
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/components.css">
-<meta property="og:title" content="Commerçants — Publie une réduction en trente secondes">
-<meta property="og:description" content="Sans abonnement, commission sur les ventes uniquement. Pour tout commerce indépendant avec pignon sur rue.">
+<meta property="og:title" content="Commerçants — Remplis ta boutique quand elle est vide">
+<meta property="og:description" content="Publie une réduction en trente secondes. Sans abonnement, commission sur les ventes uniquement.">
 <meta property="og:type" content="website">
 </head>
 <body>
@@ -53,26 +53,24 @@
 </div>
 
 <main id="main">
-  <!-- ============ 1. HÉROS : promesse + double CTA + preuve immédiate ======= -->
-  <section class="hero hero--pro">
-    <div class="container hero__grid">
-      <div>
+  <!-- ============ 1. HÉROS CENTRÉ ========================================== -->
+  <section class="hero hero--pro hero--center">
+    <div class="container">
+      <div class="hero__inner">
         <span class="eyebrow">Pour les commerces indépendants</span>
-        <h1 class="hero__title">Remplis ta boutique quand elle est vide.</h1>
+        <h1 class="hero__title">Remplis ta boutique quand elle est vide</h1>
         <p class="lede">
           Publie une réduction en trente secondes. Elle part immédiatement vers les
-          clients qui sont à quelques minutes de chez toi. Sans abonnement, sans
-          engagement, sans matériel à installer.
+          clients qui sont à quelques minutes de chez toi.
         </p>
         <div class="btn-row" style="margin-top: var(--space-6)">
-          <a class="btn btn--primary btn--lg" href="#inscription">Inscrire mon commerce</a>
-          <a class="btn btn--ghost btn--lg" href="#tarifs">Voir la commission</a>
+          <a class="btn btn--primary btn--xl" href="#inscription">Inscrire mon commerce</a>
+          <a class="btn btn--outline btn--xl" href="#tarifs">▷ Voir la commission</a>
         </div>
-        <p style="margin-top: var(--space-4); font-size: var(--text-sm); color: var(--text-muted)">
-          Inscription gratuite · Aucune carte bancaire demandée · Résiliable à tout moment
-        </p>
+        <p class="hero__note">Inscription gratuite · Aucune carte bancaire · Résiliable à tout moment</p>
       </div>
-      <div class="feature-row__media">
+
+      <div class="hero__shot" style="max-width: 46rem; margin-inline: auto">
         <div class="mock">
           <div class="mock__bar">
             <span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span>
@@ -93,32 +91,52 @@
     </div>
   </section>
 
-  <!-- ============ 2. BANDEAU DE PREUVE ===================================== -->
-  <section class="container">
-    <div class="proof-bar">
-      <div class="proof-bar__item">
-        <span class="proof-bar__value">1 240</span>
-        <span class="proof-bar__label">commerces connectés</span>
+  <!-- ============ 2. BANDE COLORÉE : NOTES ET CHIFFRES ==================== -->
+  <section class="showcase">
+    <div class="container">
+      <div class="ratings">
+        <div class="ratings__item">
+          <span class="ratings__source">Avis commerçants</span>
+          <span class="ratings__score"><span class="ratings__stars" aria-hidden="true">★★★★★</span> 4,8</span>
+        </div>
+        <div class="ratings__item">
+          <span class="ratings__source">Recommandation</span>
+          <span class="ratings__score">9 sur 10 recommandent</span>
+        </div>
+        <div class="ratings__item">
+          <span class="ratings__source">Mise en route</span>
+          <span class="ratings__score">Moins de 24 h</span>
+        </div>
+        <div class="ratings__item">
+          <span class="ratings__source">Support</span>
+          <span class="ratings__score">Réponse sous 48 h ouvrées</span>
+        </div>
       </div>
-      <div class="proof-bar__item">
-        <span class="proof-bar__value">30 s</span>
-        <span class="proof-bar__label">pour publier une offre</span>
+
+      <div class="figures">
+        <div>
+          <span class="figures__value">1 240</span>
+          <span class="figures__label">commerces connectés</span>
+        </div>
+        <div>
+          <span class="figures__value">30 s</span>
+          <span class="figures__label">pour publier une offre</span>
+        </div>
+        <div>
+          <span class="figures__value">0 €</span>
+          <span class="figures__label">de frais fixes</span>
+        </div>
+        <div>
+          <span class="figures__value">6 min</span>
+          <span class="figures__label">avant la première réservation</span>
+        </div>
       </div>
-      <div class="proof-bar__item">
-        <span class="proof-bar__value">0 €</span>
-        <span class="proof-bar__label">de frais fixes</span>
-      </div>
-      <div class="proof-bar__item">
-        <span class="proof-bar__value rating">
-          <span class="rating__stars" aria-hidden="true">★★★★★</span> 4,8
-        </span>
-        <span class="proof-bar__label">note moyenne des commerçants</span>
-      </div>
+
+      <p style="margin-top: var(--space-7); text-align:center; font-size: var(--text-xs); opacity:.75">
+        Chiffres d'illustration, à remplacer avant mise en ligne. Une note affichée doit
+        reposer sur des avis réellement collectés et vérifiables.
+      </p>
     </div>
-    <p style="padding-top: var(--space-3); font-size: var(--text-xs); color: var(--text-muted)">
-      Chiffres d'illustration, à remplacer avant mise en ligne. Une note affichée doit
-      reposer sur des avis réellement collectés et vérifiables.
-    </p>
   </section>
 
   <!-- ============ 3. BLOCS FONCTIONNALITÉ ALTERNÉS ========================= -->
@@ -237,18 +255,53 @@
            tu décides d'un prix, à un moment, pour un nombre de places.</p>
       </div>
 
-      <ul class="trades">
-        <li><a class="trade" href="#inscription"><strong>Boulangerie, pâtisserie</strong><span>Lots et préparations à écouler avant fermeture</span></a></li>
-        <li><a class="trade" href="#inscription"><strong>Restauration, traiteur</strong><span>Plats du jour, services creux, fins de service</span></a></li>
-        <li><a class="trade" href="#inscription"><strong>Primeur, épicerie</strong><span>Cagettes, assortiments, lots du jour</span></a></li>
-        <li><a class="trade" href="#inscription"><strong>Coiffure, barbier</strong><span>Créneaux vides en journée et en début de semaine</span></a></li>
-        <li><a class="trade" href="#inscription"><strong>Esthétique, bien-être</strong><span>Rendez-vous annulés, heures creuses</span></a></li>
-        <li><a class="trade" href="#inscription"><strong>Cordonnerie, retouches</strong><span>Dépôts à prix réduit quand l'atelier tourne au ralenti</span></a></li>
-        <li><a class="trade" href="#inscription"><strong>Pressing, blanchisserie</strong><span>Créneaux de dépôt en journée</span></a></li>
-        <li><a class="trade" href="#inscription"><strong>Fleuriste</strong><span>Compositions et bouquets à écouler</span></a></li>
-        <li><a class="trade" href="#inscription"><strong>Mode, maison, déco</strong><span>Fins de série, pièces uniques, déstockage ponctuel</span></a></li>
-        <li><a class="trade" href="#inscription"><strong>Réparation</strong><span>Vélo, électroménager, informatique, petites interventions</span></a></li>
+      <ul class="tiles">
+        <li><a class="tile" href="#inscription"><span class="tile__label">Boulangerie<br>pâtisserie</span></a></li>
+        <li><a class="tile" href="#inscription"><span class="tile__label">Restauration<br>traiteur</span></a></li>
+        <li><a class="tile" href="#inscription"><span class="tile__label">Coiffure<br>barbier</span></a></li>
+        <li><a class="tile" href="#inscription"><span class="tile__label">Esthétique<br>bien-être</span></a></li>
+        <li><a class="tile" href="#inscription"><span class="tile__label">Primeur<br>épicerie</span></a></li>
+        <li><a class="tile" href="#inscription"><span class="tile__label">Cordonnerie<br>retouches</span></a></li>
+        <li><a class="tile" href="#inscription"><span class="tile__label">Pressing<br>blanchisserie</span></a></li>
+        <li><a class="tile" href="#inscription"><span class="tile__label">Fleuriste</span></a></li>
+        <li><a class="tile" href="#inscription"><span class="tile__label">Mode<br>maison, déco</span></a></li>
+        <li><a class="tile" href="#inscription"><span class="tile__label">Réparation</span></a></li>
       </ul>
+
+      <p class="note" style="margin-top: var(--space-6)">
+        Fonds colorés de substitution : chaque tuile doit recevoir une photo du métier,
+        avec un voile sombre pour garder le libellé lisible.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 4 bis. BLOC PASTEL : TROIS TEMPS ========================= -->
+  <section class="pastel">
+    <div class="container">
+      <div style="max-width: 40rem">
+        <h2>Tout ce qu'il faut pour remplir, sans rien changer à ton métier</h2>
+        <p class="lede" style="color: var(--text); opacity:.74">
+          Trois temps, sur le téléphone que tu as déjà dans la poche.
+        </p>
+      </div>
+      <div class="verbs">
+        <div class="verb">
+          <h3>Publier</h3>
+          <p>Ce que tu proposes, le prix, le nombre de places, la durée. Aucune validation
+             préalable, aucun délai de diffusion. Tu retires l'offre quand tu veux.</p>
+        </div>
+        <div class="verb">
+          <h3>Remplir</h3>
+          <p>L'offre n'est montrée qu'aux clients de ton rayon, pendant sa durée de
+             validité. Pas de diffusion à toute la ville, pas de budget publicitaire à
+             arbitrer.</p>
+        </div>
+        <div class="verb">
+          <h3>Encaisser</h3>
+          <p>Le client règle dans l'application au moment de réserver. Rien à encaisser au
+             comptoir, aucun impayé possible, reversement automatique commission déduite.</p>
+        </div>
+      </div>
     </div>
   </section>
 

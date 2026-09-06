@@ -115,6 +115,32 @@ courant. Titres en casse normale, interlettrage resserré ; corps de texte aér�
 - Les couleurs d'aplat du parcours d'achat (téléphone, carte) restent **fixes dans les
   deux thèmes** : ce sont des objets, pas des ambiances.
 
+### Patrons des pages d'acquisition
+
+L'accueil et la page commerçants emploient quatre patrons repris d'une référence du
+secteur, adaptés à notre palette :
+
+1. **Héros centré** — titre très large, chapô court, deux boutons pilules : un plein
+   sombre, un à contour. La réassurance est juste sous les boutons, pas plus bas.
+2. **Bande colorée** — dégradé bleu → violet portant les notes de plateformes et quatre
+   chiffres en très grand. La capture produit du héros la chevauche par-dessus.
+3. **Tuiles par métier** — grille de cartes en 4/5, voile sombre, libellé blanc en bas à
+   gauche, deux colonnes dès le mobile. **Les fonds dégradés sont des substituts : chaque
+   tuile doit recevoir une photo du métier.** C'est ce qui fait la force de ce patron —
+   un commerçant se reconnaît sur une image, pas sur un mot.
+4. **Bloc pastel structuré par des verbes** — Repérer / Réserver / Récupérer côté client,
+   Publier / Remplir / Encaisser côté commerçant.
+
+Le bouton principal est passé en **pilule sombre** plutôt que bleue : la couleur vit dans
+les bandes et les tuiles, l'action reste neutre et lisible partout.
+
+Sur mobile, l'en-tête se réduit à trois éléments — logo, action, menu — le sélecteur de
+thème disparaissant sous 640 px.
+
+**Ce qui n'a pas été repris** : les badges de certification (Capterra, ISO, HIPAA…) de la
+référence. Ils se gagnent, ils ne se dessinent pas. À leur place, quatre engagements
+factuels tenables dès le premier jour.
+
 ### Rythme des sections
 
 Toutes les pages emploient le même en-tête de section, `.section-head` — surtitre, titre,
