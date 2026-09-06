@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Commande confirmée — Dealpick</title>
-<meta name="description" content="Code de retrait et détails du retrait.">
+<meta name="description" content="Ton code et les détails du retrait.">
 <meta name="robots" content="noindex">
 <link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,10 +56,10 @@
       </ol>
 
       <h1>C'est réservé</h1>
-      <p class="lede">Ton panier t'attend. Montre ce code au commerçant pendant le créneau.</p>
+      <p class="lede">Montre ce code au commerçant : au comptoir pour un produit, à ton arrivée pour un rendez-vous.</p>
 
       <div class="pickup-code" style="margin: var(--space-6) 0">
-        <span class="pickup-code__label">Code de retrait</span>
+        <span class="pickup-code__label">Ton code</span>
         <div class="pickup-code__value">7K4P</div>
         <span class="pickup-code__label">Commande n° DP-2026-004182</span>
       </div>
@@ -76,10 +76,13 @@
 
       <div class="hook" style="margin-top: var(--space-5)">
         <strong>À brancher</strong>
-        Le code de retrait doit être <strong>généré côté serveur</strong> après
-        confirmation du paiement par webhook, et être à usage unique. Le commerçant le
-        valide depuis son interface, ce qui fait passer la commande au statut
-        <code>retiree</code>. Prévoir aussi l'envoi par e-mail et la notification push.
+        Le code doit être <strong>généré côté serveur</strong> après confirmation du
+        paiement par webhook, et être à usage unique. Le commerçant le valide depuis son
+        interface, ce qui fait passer la commande au statut <code>honoree</code>. Prévoir
+        aussi l'envoi par e-mail et la notification push.
+        <br><br>
+        Pour une prestation, ajouter l'ajout au calendrier et un rappel la veille : un
+        rendez-vous oublié coûte au professionnel un créneau qu'il ne récupérera pas.
       </div>
 
       <p style="margin-top: var(--space-6)">

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Offres près de toi — Dealpick</title>
-<meta name="description" content="Les offres disponibles ce soir autour de toi.">
+<meta name="description" content="Produits à récupérer et rendez-vous à réserver autour de toi.">
 <meta name="robots" content="noindex">
 <link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,24 +50,27 @@
   <section class="section section--tight">
     <div class="container">
       <span class="eyebrow">Lyon · 3e arrondissement</span>
-      <h1>Ce soir près de toi</h1>
-      <p class="lede">14 offres disponibles, à récupérer avant 21 h.</p>
+      <h1>Aujourd'hui près de toi</h1>
+      <p class="lede">14 offres disponibles — produits à récupérer et rendez-vous à réserver.</p>
 
       <div class="hook" style="margin: var(--space-5) 0">
         <strong>À brancher</strong>
-        Liste alimentée par <code>GET /api/offres?ville=&amp;lat=&amp;lng=&amp;categorie=</code>.
-        Trier par distance puis par fin de créneau. N'afficher que les offres au statut
-        <code>publiee</code> avec <code>quantiteRestante &gt; 0</code> et
-        <code>creneauFin &gt; now</code>.
+        Liste alimentée par <code>GET /api/offres?ville=&amp;lat=&amp;lng=&amp;categorie=&amp;type=</code>.
+        Trier par distance puis par horaire. N'afficher que les offres au statut
+        <code>publiee</code> avec <code>quantite_restante &gt; 0</code> et un horaire à venir.
+        Le champ <code>type</code> vaut <code>produit</code> ou <code>prestation</code> :
+        il change le libellé d'horaire (créneau de retrait ou heure de rendez-vous).
       </div>
 
       <div class="filters" role="group" aria-label="Filtrer les offres">
         <button class="filter-chip filter-chip--active" aria-pressed="true">Tout</button>
-        <button class="filter-chip" aria-pressed="false">Boulangerie</button>
-        <button class="filter-chip" aria-pressed="false">Restaurant</button>
-        <button class="filter-chip" aria-pressed="false">Épicerie</button>
-        <button class="filter-chip" aria-pressed="false">Fleurs</button>
-        <button class="filter-chip" aria-pressed="false">Moins de 5 €</button>
+        <button class="filter-chip" aria-pressed="false">📦 Produits</button>
+        <button class="filter-chip" aria-pressed="false">🗓️ Rendez-vous</button>
+        <button class="filter-chip" aria-pressed="false">🥐 Alimentation</button>
+        <button class="filter-chip" aria-pressed="false">🍽️ Restauration</button>
+        <button class="filter-chip" aria-pressed="false">💇 Beauté</button>
+        <button class="filter-chip" aria-pressed="false">🔧 Services</button>
+        <button class="filter-chip" aria-pressed="false">👕 Mode · maison</button>
       </div>
 
       <ul class="offer-list">
@@ -76,7 +79,7 @@
           <span class="offer__body">
             <span class="offer__store">Boulangerie Marchand · 800 m</span>
             <span class="offer__title">Panier surprise viennoiseries</span>
-            <span class="offer__meta">Retrait 18h00 – 19h30 · 3 restants</span>
+            <span class="offer__meta">📦 À récupérer 18h00 – 19h30 · 3 restants</span>
           </span>
           <span class="offer__side">
             <span class="badge badge--discount">−60 %</span>
@@ -85,11 +88,37 @@
           </span>
         </a></li>
         <li><a class="offer" href="offre.html">
+          <span class="offer__thumb" aria-hidden="true">💇</span>
+          <span class="offer__body">
+            <span class="offer__store">Salon Camille · 1,2 km</span>
+            <span class="offer__title">Coupe + brushing</span>
+            <span class="offer__meta">🗓️ Rendez-vous 14h30 · 45 min · 2 places</span>
+          </span>
+          <span class="offer__side">
+            <span class="badge badge--discount">−40 %</span>
+            <span class="offer__price">21,00 €</span>
+            <span class="offer__was">35,00 €</span>
+          </span>
+        </a></li>
+        <li><a class="offer" href="offre.html">
+          <span class="offer__thumb" aria-hidden="true">👞</span>
+          <span class="offer__body">
+            <span class="offer__store">Cordonnerie Vidal · 400 m</span>
+            <span class="offer__title">Ressemelage cuir</span>
+            <span class="offer__meta">🗓️ Dépôt avant 12h00 · 3 places</span>
+          </span>
+          <span class="offer__side">
+            <span class="badge badge--discount">−40 %</span>
+            <span class="offer__price">18,00 €</span>
+            <span class="offer__was">30,00 €</span>
+          </span>
+        </a></li>
+        <li><a class="offer" href="offre.html">
           <span class="offer__thumb" aria-hidden="true">🍝</span>
           <span class="offer__body">
-            <span class="offer__store">Trattoria Bello · 1,2 km</span>
+            <span class="offer__store">Trattoria Bello · 2,1 km</span>
             <span class="offer__title">Part de lasagnes maison</span>
-            <span class="offer__meta">Retrait 21h00 – 22h00 · 5 restants</span>
+            <span class="offer__meta">📦 À récupérer 21h00 – 22h00 · 5 restants</span>
           </span>
           <span class="offer__side">
             <span class="badge badge--discount">−50 %</span>
@@ -98,11 +127,24 @@
           </span>
         </a></li>
         <li><a class="offer" href="offre.html">
+          <span class="offer__thumb" aria-hidden="true">🧺</span>
+          <span class="offer__body">
+            <span class="offer__store">Pressing Bellecour · 1,5 km</span>
+            <span class="offer__title">Nettoyage manteau</span>
+            <span class="offer__meta">🗓️ Dépôt 9h00 – 11h00 · 4 places</span>
+          </span>
+          <span class="offer__side">
+            <span class="badge badge--discount">−45 %</span>
+            <span class="offer__price">12,00 €</span>
+            <span class="offer__was">22,00 €</span>
+          </span>
+        </a></li>
+        <li><a class="offer" href="offre.html">
           <span class="offer__thumb" aria-hidden="true">💐</span>
           <span class="offer__body">
-            <span class="offer__store">Fleurs &amp; Co · 400 m</span>
+            <span class="offer__store">Fleurs &amp; Co · 950 m</span>
             <span class="offer__title">Bouquet de la veille</span>
-            <span class="offer__meta">Retrait 17h00 – 19h00 · 2 restants</span>
+            <span class="offer__meta">📦 À récupérer 17h00 – 19h00 · 2 restants</span>
           </span>
           <span class="offer__side">
             <span class="badge badge--money">Dernières</span>
@@ -110,24 +152,11 @@
             <span class="offer__was">20,00 €</span>
           </span>
         </a></li>
-        <li><a class="offer" href="offre.html">
-          <span class="offer__thumb" aria-hidden="true">🧀</span>
-          <span class="offer__body">
-            <span class="offer__store">Épicerie du Cours · 950 m</span>
-            <span class="offer__title">Assortiment fromages du jour</span>
-            <span class="offer__meta">Retrait 19h00 – 20h00 · 1 restant</span>
-          </span>
-          <span class="offer__side">
-            <span class="badge badge--discount">−45 %</span>
-            <span class="offer__price">8,90 €</span>
-            <span class="offer__was">16,00 €</span>
-          </span>
-        </a></li>
       </ul>
 
       <div class="hook" style="margin-top: var(--space-6)">
         <strong>État vide</strong>
-        Prévoir le cas « aucune offre » : c'est le plus fréquent en début de soirée et en
+        Prévoir le cas « aucune offre » : c'est le plus fréquent en début de journée et en
         phase de lancement. Le composant <code>.empty</code> est prêt — proposer alors
         d'activer une alerte plutôt que de laisser une page morte.
       </div>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dealpick — Les invendus de ton quartier, à moitié prix</title>
-<meta name="description" content="Restaurants, boulangeries, primeurs… Les commerces indépendants près de chez toi bradent leurs invendus. Tu réserves dans l'app, tu récupères sur place.">
+<title>Dealpick — Tout ce qui reste dans ton quartier, à moitié prix</title>
+<meta name="description" content="Invendus et créneaux libres des commerces indépendants : boulangeries, restaurants, coiffeurs, cordonniers. Tu réserves dans l'app, tu passes sur place.">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,8 +12,8 @@
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/components.css">
-<meta property="og:title" content="Dealpick — Les invendus de ton quartier, à moitié prix">
-<meta property="og:description" content="Restaurants, boulangeries, primeurs… Les commerces indépendants près de chez toi bradent leurs invendus. Tu réserves dans l'app, tu récupères sur place.">
+<meta property="og:title" content="Dealpick — Tout ce qui reste dans ton quartier, à moitié prix">
+<meta property="og:description" content="Invendus et créneaux libres des commerces indépendants : boulangeries, restaurants, coiffeurs, cordonniers. Tu réserves dans l'app, tu passes sur place.">
 <meta property="og:type" content="website">
 </head>
 <body>
@@ -58,11 +58,12 @@
     <div class="container hero__grid">
       <div>
         <span class="eyebrow">Application gratuite · iOS et Android</span>
-        <h1 class="hero__title">Les invendus de ton quartier, à moitié prix.</h1>
+        <h1 class="hero__title">Tout ce qui reste dans ton quartier, à moitié prix.</h1>
         <p class="lede">
-          Restaurants, boulangeries, primeurs, fleuristes, épiceries… Les commerces
-          indépendants près de chez toi bradent ce qu'ils n'ont pas vendu aujourd'hui.
-          Tu réserves dans l'app, tu passes le récupérer.
+          Un invendu chez le boulanger, un créneau libre chez le coiffeur, une paire de
+          chaussures à ressemeler ce midi chez le cordonnier. Les commerces indépendants
+          de ta rue bradent ce qu'ils n'écouleront pas aujourd'hui. Tu réserves dans
+          l'app, tu passes sur place.
         </p>
 
         <form class="city-search" style="margin-top: var(--space-6)" action="villes.html" method="get">
@@ -74,7 +75,7 @@
         <div class="hero__proof">
           <span>✅ Gratuit, sans abonnement</span>
           <span>🔒 Paiement sécurisé dans l'app</span>
-          <span>🏪 Uniquement des indépendants</span>
+          <span>🏪 Que des indépendants avec pignon sur rue</span>
         </div>
       </div>
 
@@ -83,13 +84,13 @@
         <div class="phone" role="img" aria-label="Aperçu de l'application Dealpick">
           <div class="phone__notch"></div>
           <div style="margin-top: var(--space-5)">
-            <strong style="font-size: var(--text-sm)">À récupérer ce soir · 800 m</strong>
+            <strong style="font-size: var(--text-sm)">Aujourd'hui · autour de toi</strong>
             <div class="deal-card">
               <div class="deal-card__top">
                 <span class="deal-card__store">Boulangerie Marchand</span>
                 <span class="badge badge--discount">−60 %</span>
               </div>
-              <p class="deal-card__title">Panier surprise viennoiseries · 18h–19h30</p>
+              <p class="deal-card__title">Panier viennoiseries · à récupérer 18h–19h30</p>
               <div class="deal-card__prices">
                 <span class="deal-card__price">4,00 €</span>
                 <span class="deal-card__was">10,00 €</span>
@@ -97,24 +98,24 @@
             </div>
             <div class="deal-card">
               <div class="deal-card__top">
-                <span class="deal-card__store">Trattoria Bello</span>
-                <span class="badge badge--discount">−50 %</span>
+                <span class="deal-card__store">Salon Camille</span>
+                <span class="badge badge--discount">−40 %</span>
               </div>
-              <p class="deal-card__title">Part de lasagnes maison · 21h–22h</p>
+              <p class="deal-card__title">Coupe + brushing · rendez-vous à 14h30</p>
               <div class="deal-card__prices">
-                <span class="deal-card__price">6,50 €</span>
-                <span class="deal-card__was">13,00 €</span>
+                <span class="deal-card__price">21,00 €</span>
+                <span class="deal-card__was">35,00 €</span>
               </div>
             </div>
             <div class="deal-card">
               <div class="deal-card__top">
-                <span class="deal-card__store">Fleurs & Co</span>
-                <span class="badge badge--money">2 restants</span>
+                <span class="deal-card__store">Cordonnerie Vidal</span>
+                <span class="badge badge--money">2 places</span>
               </div>
-              <p class="deal-card__title">Bouquet de la veille · 17h–19h</p>
+              <p class="deal-card__title">Ressemelage · dépôt avant 12h</p>
               <div class="deal-card__prices">
-                <span class="deal-card__price">7,00 €</span>
-                <span class="deal-card__was">20,00 €</span>
+                <span class="deal-card__price">18,00 €</span>
+                <span class="deal-card__was">30,00 €</span>
               </div>
             </div>
           </div>
@@ -123,29 +124,77 @@
     </div>
   </section>
 
-  <!-- ================= POURQUOI ================= -->
+  <!-- ================= DEUX NATURES D'OFFRE ================= -->
   <section class="section section--subtle">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: var(--space-7)">
+        <span class="eyebrow">Deux façons d'en profiter</span>
+        <h2>Ce qui reste, ou ce qui est libre</h2>
+        <p class="lede mx-auto">Un commerce perd de l'argent de deux manières : la
+           marchandise qu'il jette, et les heures où personne ne pousse la porte.</p>
+      </div>
+
+      <div class="split">
+        <div class="split__half split__half--client">
+          <h3>Des produits</h3>
+          <p>Ce qui n'a pas été vendu aujourd'hui et qui ne se gardera pas : viennoiseries,
+             plats du jour, fruits et légumes, bouquets, fins de série. Tu passes le
+             récupérer pendant un créneau.</p>
+          <p><strong>Boulangerie · restauration · primeur · fleuriste · épicerie · mode</strong></p>
+        </div>
+        <div class="split__half split__half--pro">
+          <h3>Des prestations</h3>
+          <p>Un rendez-vous à une heure creuse, à prix réduit. Le fauteuil vide de 14 h ne
+             se rattrape pas : autant qu'il serve, et à toi d'en profiter.</p>
+          <p><strong>Coiffeur · cordonnier · esthétique · retouches · pressing · réparation</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= POURQUOI ================= -->
+  <section class="section">
     <div class="container">
       <div class="grid grid--3">
         <div class="card">
           <div class="card__icon">🏷️</div>
           <h3>Des prix impossibles ailleurs</h3>
-          <p>Un invendu perd toute sa valeur à la fermeture. Plutôt que de le jeter,
-             le commerçant préfère le vendre à moitié prix. Tout le monde y gagne.</p>
+          <p>Un invendu ou une heure creuse ne valent plus rien à la fermeture. Le
+             commerçant préfère largement les vendre à moitié prix que de les perdre.</p>
         </div>
         <div class="card">
-          <div class="card__icon">🏪</div>
-          <h3>Que des indépendants</h3>
-          <p>Pas de grande surface, pas de chaîne. Le boulanger du coin, le resto de
-             la rue d'à côté, l'épicerie de quartier — ceux qui font vivre ton quartier.</p>
+          <div class="card__icon">🚪</div>
+          <h3>Uniquement du pignon sur rue</h3>
+          <p>Que des indépendants avec une vraie boutique et une vraie porte : pas de
+             chaîne, pas d'entrepôt, pas de vendeur en ligne. Ceux qui font vivre ta rue.</p>
         </div>
         <div class="card">
           <div class="card__icon">♻️</div>
-          <h3>Rien ne part à la poubelle</h3>
-          <p>Chaque commande, c'est un produit sauvé. Sans effort, sans militantisme :
-             juste en achetant ce que tu aurais acheté de toute façon.</p>
+          <h3>Rien ne se perd</h3>
+          <p>Des produits qui ne finissent pas à la poubelle, des heures de travail qui
+             ne partent pas en fumée. Sans militantisme : juste en achetant mieux.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ================= CATÉGORIES ================= -->
+  <section class="section section--subtle">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: var(--space-6)">
+        <span class="eyebrow">Tous les commerces</span>
+        <h2>Bien plus que de la nourriture</h2>
+      </div>
+      <ul class="city-grid">
+        <li><a class="city-chip" href="app/offres.html">🥐 Boulangerie <span>produits</span></a></li>
+        <li><a class="city-chip" href="app/offres.html">🍽️ Restauration <span>produits</span></a></li>
+        <li><a class="city-chip" href="app/offres.html">🥕 Primeur · épicerie <span>produits</span></a></li>
+        <li><a class="city-chip" href="app/offres.html">💐 Fleurs · plantes <span>produits</span></a></li>
+        <li><a class="city-chip" href="app/offres.html">💇 Coiffure · beauté <span>rendez-vous</span></a></li>
+        <li><a class="city-chip" href="app/offres.html">👞 Cordonnerie · retouches <span>rendez-vous</span></a></li>
+        <li><a class="city-chip" href="app/offres.html">🧺 Pressing · réparation <span>rendez-vous</span></a></li>
+        <li><a class="city-chip" href="app/offres.html">👕 Mode · maison <span>produits</span></a></li>
+      </ul>
     </div>
   </section>
 
@@ -161,17 +210,17 @@
         <div class="step">
           <h3>Repère</h3>
           <p>Ouvre l'app : tu vois ce qui est disponible autour de toi, avec la distance,
-             le prix et l'heure de retrait. Les offres arrivent au fil de la journée.</p>
+             le prix et l'horaire. Les offres arrivent au fil de la journée.</p>
         </div>
         <div class="step">
           <h3>Réserve et paie</h3>
-          <p>Deux clics, paiement sécurisé dans l'app. Ton panier est mis de côté :
-             personne d'autre ne peut le prendre.</p>
+          <p>Deux clics, paiement sécurisé dans l'app. Ton produit est mis de côté, ou ton
+             rendez-vous est bloqué à ton nom.</p>
         </div>
         <div class="step">
-          <h3>Récupère</h3>
-          <p>Tu passes pendant le créneau indiqué, tu montres ton code, c'est tout.
-             Pas de file d'attente, rien à payer sur place.</p>
+          <h3>Passe sur place</h3>
+          <p>Tu montres ton code au comptoir, ou tu te présentes à l'heure du
+             rendez-vous. Rien à payer sur place.</p>
         </div>
       </div>
 
@@ -185,8 +234,8 @@
   <section class="section section--subtle section--tight">
     <div class="container">
       <div class="grid grid--3">
-        <div class="stat"><span class="stat__value">12 400</span><span class="stat__label">produits sauvés</span></div>
-        <div class="stat"><span class="stat__value">340</span><span class="stat__label">commerçants partenaires</span></div>
+        <div class="stat"><span class="stat__value">12 400</span><span class="stat__label">offres sauvées</span></div>
+        <div class="stat"><span class="stat__value">340</span><span class="stat__label">commerces partenaires</span></div>
         <div class="stat"><span class="stat__value">8 t</span><span class="stat__label">de CO₂ évitées</span></div>
       </div>
       <p class="text-center" style="margin-top: var(--space-5); color: var(--text-muted); font-size: var(--text-xs)">
@@ -201,7 +250,7 @@
       <div class="text-center" style="margin-bottom: var(--space-6)">
         <span class="eyebrow">Où on est</span>
         <h2>On arrive ville par ville</h2>
-        <p class="lede mx-auto">On ouvre une ville quand assez de commerçants y sont
+        <p class="lede mx-auto">On ouvre une ville quand assez de commerces y sont
            partenaires — pour que tu trouves toujours quelque chose près de chez toi.</p>
       </div>
 
@@ -227,14 +276,14 @@
       <div class="split">
         <div class="split__half split__half--client">
           <h3>Tu veux consommer mieux&nbsp;?</h3>
-          <p>Trouve chaque jour les invendus et les petits prix des commerces de ton
-             quartier. Gratuit, sans engagement.</p>
+          <p>Trouve chaque jour les produits et les rendez-vous à prix réduit des
+             commerces de ton quartier. Gratuit, sans engagement.</p>
           <a class="btn btn--primary btn--lg" href="#telecharger">Télécharger l'app</a>
         </div>
         <div class="split__half split__half--pro">
-          <h3>Tu es commerçant&nbsp;?</h3>
-          <p>Transforme tes invendus en chiffre d'affaires et fais découvrir ta boutique
-             à des clients de ton quartier. Sans abonnement, commission uniquement.</p>
+          <h3>Tu tiens un commerce&nbsp;?</h3>
+          <p>Vends ce que tu allais jeter, remplis tes heures creuses, et fais découvrir
+             ta boutique aux gens du quartier. Sans abonnement, commission uniquement.</p>
           <a class="btn btn--primary btn--lg" href="commercants.html">Inscrire mon commerce</a>
         </div>
       </div>
@@ -249,14 +298,14 @@
       </div>
       <div class="grid grid--2">
         <blockquote class="quote">
-          <p>« Je récupère mon pain et mes viennoiseries pour le lendemain trois fois par
-             semaine. J'ai découvert deux boulangeries que je ne connaissais pas. »</p>
-          <footer>Témoignage à recueillir — client</footer>
+          <p>« J'ai pris un rendez-vous coiffure à 14 h un mardi pour 21 €. Le salon était
+             vide, j'ai été prise tout de suite. J'y retourne au prix normal depuis. »</p>
+          <footer>Témoignage à recueillir — cliente</footer>
         </blockquote>
         <blockquote class="quote">
-          <p>« Avant, ce qui restait le soir partait à la poubelle. Aujourd'hui ça part
-             en trente minutes, et un client sur cinq revient en journée. »</p>
-          <footer>Témoignage à recueillir — commerçant</footer>
+          <p>« Le lundi après-midi, l'atelier tourne au ralenti. Maintenant je remplis ces
+             heures-là avec des ressemelages à prix réduit. C'est autant de pris. »</p>
+          <footer>Témoignage à recueillir — cordonnier</footer>
         </blockquote>
       </div>
       <p class="text-center" style="margin-top: var(--space-5); color: var(--text-muted); font-size: var(--text-xs)">
@@ -275,21 +324,22 @@
       </div>
 
       <details class="faq-item">
-        <summary>Qu'est-ce qu'il y a exactement dans un panier&nbsp;?</summary>
-        <p>Ça dépend de ce que le commerçant n'a pas vendu ce jour-là. Le contenu exact
-           est donc une surprise, mais la catégorie et la valeur minimale sont toujours
-           annoncées avant que tu réserves.</p>
+        <summary>C'est réservé à l'alimentaire&nbsp;?</summary>
+        <p>Non. Tout commerce indépendant avec pignon sur rue peut proposer des offres :
+           coiffeur, cordonnier, pressing, fleuriste, retoucheur, boutique de mode,
+           réparateur, autant que boulanger ou restaurateur.</p>
       </details>
       <details class="faq-item">
-        <summary>C'est payant&nbsp;?</summary>
-        <p>L'application est gratuite et sans abonnement. Tu paies uniquement ce que tu
-           commandes.</p>
+        <summary>Pourquoi c'est moins cher&nbsp;?</summary>
+        <p>Parce que c'est ce qui allait être perdu : un produit invendu en fin de
+           journée, ou un créneau que personne n'aurait réservé. Ce n'est ni de la
+           mauvaise qualité, ni du déstockage douteux.</p>
       </details>
       <details class="faq-item">
-        <summary>Et si je ne peux pas passer récupérer&nbsp;?</summary>
-        <p>Tu peux annuler jusqu'à un certain délai avant le créneau et être remboursé.
-           Passé ce délai, le panier t'est facturé : il a été mis de côté pour toi.
-           Les conditions exactes sont dans les <a href="legal/cgv.html">CGV</a>.</p>
+        <summary>Et si je ne peux pas venir&nbsp;?</summary>
+        <p>Tu peux annuler jusqu'à un certain délai avant l'horaire et être remboursé.
+           Passé ce délai, l'offre t'est facturée : le produit a été mis de côté, ou le
+           créneau bloqué pour toi. Détail dans les <a href="legal/cgv.html">CGV</a>.</p>
       </details>
 
       <p class="text-center" style="margin-top: var(--space-6)">
@@ -303,7 +353,7 @@
     <div class="container">
       <div class="cta-banner">
         <h2>Ton quartier t'attend</h2>
-        <p>Installe l'app, choisis ta ville, et regarde ce qui se libère près de chez toi ce soir.</p>
+        <p>Installe l'app, choisis ta ville, et regarde ce qui se libère près de chez toi aujourd'hui.</p>
         <div class="store-badges" style="justify-content:center; margin-top: var(--space-5)">
           <a class="store-badge" href="#"><span>🍎</span><span><small>Télécharger sur</small>App Store</span></a>
           <a class="store-badge" href="#"><span>▶</span><span><small>Disponible sur</small>Google Play</span></a>

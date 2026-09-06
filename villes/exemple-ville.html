@@ -57,8 +57,9 @@
     <div class="container">
       <span class="eyebrow">Modèle de page ville</span>
       <h1>Invendus et bons plans à <span class="placeholder">[Ville]</span></h1>
-      <p class="lede">84 commerces indépendants, 12 quartiers couverts. Regarde ce qui se
-         libère ce soir près de chez toi.</p>
+      <p class="lede">84 commerces indépendants — boulangeries, restaurants, coiffeurs,
+         cordonniers, pressings — sur 12 quartiers. Regarde ce qui se libère aujourd'hui
+         près de chez toi.</p>
     </div>
   </section>
 
@@ -115,10 +116,10 @@
 
             <!-- Épingles : de vrais boutons, comme le seront les marqueurs -->
             <button class="map-pin" style="left:19%; top:34%" data-pin="1" aria-pressed="false">−60 %</button>
-            <button class="map-pin" style="left:60%; top:26%" data-pin="2" aria-pressed="false">−50 %</button>
-            <button class="map-pin" style="left:38%; top:62%" data-pin="3" aria-pressed="false">−65 %</button>
+            <button class="map-pin map-pin--rdv" style="left:60%; top:26%" data-pin="2" aria-pressed="false">−40 %</button>
+            <button class="map-pin map-pin--rdv" style="left:38%; top:62%" data-pin="3" aria-pressed="false">−40 %</button>
             <button class="map-pin" style="left:76%; top:66%" data-pin="4" aria-pressed="false">−45 %</button>
-            <button class="map-pin" style="left:27%; top:82%" data-pin="5" aria-pressed="false">−40 %</button>
+            <button class="map-pin map-pin--rdv" style="left:27%; top:82%" data-pin="5" aria-pressed="false">−45 %</button>
             <button class="map-pin" style="left:67%; top:45%" data-pin="6" aria-pressed="false">−55 %</button>
 
             <div class="map-popup" style="left:19%; top:34%" data-popup="1" hidden>
@@ -130,17 +131,17 @@
             </div>
             <div class="map-popup" style="left:60%; top:26%" data-popup="2" hidden>
               <button class="map-popup__close" type="button" aria-label="Fermer">×</button>
-              <strong>Trattoria Bello</strong>
-              Part de lasagnes maison<br>
-              Retrait 21h00 – 22h00 · 5 restants<br>
-              <span class="offer__price">6,50 €</span> <span class="offer__was">13,00 €</span>
+              <strong>Salon Camille</strong>
+              Coupe + brushing · rendez-vous<br>
+              Créneau 14h30 · 45 min · 2 places<br>
+              <span class="offer__price">21,00 €</span> <span class="offer__was">35,00 €</span>
             </div>
             <div class="map-popup" style="left:38%; top:62%" data-popup="3" hidden>
               <button class="map-popup__close" type="button" aria-label="Fermer">×</button>
-              <strong>Fleurs &amp; Co</strong>
-              Bouquet de la veille<br>
-              Retrait 17h00 – 19h00 · 2 restants<br>
-              <span class="offer__price">7,00 €</span> <span class="offer__was">20,00 €</span>
+              <strong>Cordonnerie Vidal</strong>
+              Ressemelage · dépôt<br>
+              Dépôt avant 12h00 · 3 places<br>
+              <span class="offer__price">18,00 €</span> <span class="offer__was">30,00 €</span>
             </div>
             <div class="map-popup" style="left:76%; top:66%" data-popup="4" hidden>
               <button class="map-popup__close" type="button" aria-label="Fermer">×</button>
@@ -151,29 +152,30 @@
             </div>
             <div class="map-popup" style="left:27%; top:82%" data-popup="5" hidden>
               <button class="map-popup__close" type="button" aria-label="Fermer">×</button>
-              <strong>Café Lumière</strong>
-              Sandwichs et salades du midi<br>
-              Retrait 14h30 – 15h30 · 4 restants<br>
-              <span class="offer__price">3,50 €</span> <span class="offer__was">6,00 €</span>
+              <strong>Pressing Bellecour</strong>
+              Nettoyage manteau · dépôt<br>
+              Dépôt 9h00 – 11h00 · 4 places<br>
+              <span class="offer__price">12,00 €</span> <span class="offer__was">22,00 €</span>
             </div>
             <div class="map-popup" style="left:67%; top:45%" data-popup="6" hidden>
               <button class="map-popup__close" type="button" aria-label="Fermer">×</button>
-              <strong>Primeur Saint-Jean</strong>
-              Cagette de fruits et légumes<br>
-              Retrait 19h30 – 20h30 · 6 restants<br>
-              <span class="offer__price">4,50 €</span> <span class="offer__was">10,00 €</span>
+              <strong>Trattoria Bello</strong>
+              Part de lasagnes maison<br>
+              Retrait 21h00 – 22h00 · 5 restants<br>
+              <span class="offer__price">6,50 €</span> <span class="offer__was">13,00 €</span>
             </div>
           </div>
 
           <div class="map-legend">
-            <span><i style="background: var(--coral)"></i> Offre disponible</span>
+            <span><i style="background: var(--coral)"></i> Produit à récupérer</span>
+            <span><i style="background: var(--blue-pale)"></i> Rendez-vous à réserver</span>
             <span><i style="background: var(--gray-100)"></i> Créneau terminé</span>
             <span><i style="background: var(--lime)"></i> Espace vert</span>
           </div>
         </div>
 
         <div>
-          <h2 style="font-size: var(--text-xl)">6 offres ce soir</h2>
+          <h2 style="font-size: var(--text-xl)">6 offres aujourd'hui</h2>
           <p style="color: var(--text-muted); font-size: var(--text-sm)">
             Survole une ligne pour la situer sur la carte, ou clique sur une épingle.
           </p>
@@ -188,22 +190,22 @@
               <span class="offer__side"><span class="offer__price">4,00 €</span></span>
             </a></li>
             <li><a class="offer" href="../app/offre.html" data-row="2">
-              <span class="offer__thumb" aria-hidden="true">🍝</span>
+              <span class="offer__thumb" aria-hidden="true">💇</span>
               <span class="offer__body">
-                <span class="offer__store">Trattoria Bello · 1,2 km</span>
-                <span class="offer__title">Lasagnes maison</span>
-                <span class="offer__meta">21h00 – 22h00</span>
+                <span class="offer__store">Salon Camille · 1,2 km</span>
+                <span class="offer__title">Coupe + brushing</span>
+                <span class="offer__meta">Rendez-vous 14h30 · 45 min</span>
               </span>
-              <span class="offer__side"><span class="offer__price">6,50 €</span></span>
+              <span class="offer__side"><span class="offer__price">21,00 €</span></span>
             </a></li>
             <li><a class="offer" href="../app/offre.html" data-row="3">
-              <span class="offer__thumb" aria-hidden="true">💐</span>
+              <span class="offer__thumb" aria-hidden="true">👞</span>
               <span class="offer__body">
-                <span class="offer__store">Fleurs &amp; Co · 400 m</span>
-                <span class="offer__title">Bouquet de la veille</span>
-                <span class="offer__meta">17h00 – 19h00</span>
+                <span class="offer__store">Cordonnerie Vidal · 400 m</span>
+                <span class="offer__title">Ressemelage</span>
+                <span class="offer__meta">Dépôt avant 12h00</span>
               </span>
-              <span class="offer__side"><span class="offer__price">7,00 €</span></span>
+              <span class="offer__side"><span class="offer__price">18,00 €</span></span>
             </a></li>
             <li><a class="offer" href="../app/offre.html" data-row="4">
               <span class="offer__thumb" aria-hidden="true">🧀</span>
@@ -215,22 +217,22 @@
               <span class="offer__side"><span class="offer__price">8,90 €</span></span>
             </a></li>
             <li><a class="offer" href="../app/offre.html" data-row="5">
-              <span class="offer__thumb" aria-hidden="true">🥪</span>
+              <span class="offer__thumb" aria-hidden="true">🧺</span>
               <span class="offer__body">
-                <span class="offer__store">Café Lumière · 1,5 km</span>
-                <span class="offer__title">Sandwichs du midi</span>
-                <span class="offer__meta">14h30 – 15h30</span>
+                <span class="offer__store">Pressing Bellecour · 1,5 km</span>
+                <span class="offer__title">Nettoyage manteau</span>
+                <span class="offer__meta">Dépôt 9h00 – 11h00</span>
               </span>
-              <span class="offer__side"><span class="offer__price">3,50 €</span></span>
+              <span class="offer__side"><span class="offer__price">12,00 €</span></span>
             </a></li>
             <li><a class="offer" href="../app/offre.html" data-row="6">
-              <span class="offer__thumb" aria-hidden="true">🥕</span>
+              <span class="offer__thumb" aria-hidden="true">🍝</span>
               <span class="offer__body">
-                <span class="offer__store">Primeur Saint-Jean · 2,1 km</span>
-                <span class="offer__title">Cagette fruits et légumes</span>
-                <span class="offer__meta">19h30 – 20h30</span>
+                <span class="offer__store">Trattoria Bello · 2,1 km</span>
+                <span class="offer__title">Lasagnes maison</span>
+                <span class="offer__meta">21h00 – 22h00</span>
               </span>
-              <span class="offer__side"><span class="offer__price">4,50 €</span></span>
+              <span class="offer__side"><span class="offer__price">6,50 €</span></span>
             </a></li>
           </ul>
           <a class="btn btn--primary btn--block" href="../app/offres.html" style="margin-top: var(--space-4)">

@@ -1,10 +1,20 @@
 # Dealpick — site web
 
-Site de **Dealpick**, place de marché locale des commerces indépendants : restaurants,
-boulangeries, primeurs, fleuristes et autres commerces de quartier y proposent leurs
-invendus et leurs petits prix. L'utilisateur réserve et paie dans l'application, puis
-récupère sur place. Dealpick encaisse pour le compte du commerçant et le reverse,
-commission déduite. L'application est gratuite pour l'utilisateur.
+Site de **Dealpick**, place de marché locale des commerces indépendants **avec pignon sur
+rue**. Deux natures d'offre, et c'est la distinction structurante de tout le produit :
+
+- **des produits** — ce qu'un commerce n'a pas vendu et ne gardera pas : boulangerie,
+  restauration, primeur, fleuriste, mode, décoration. L'utilisateur récupère pendant un
+  créneau ;
+- **des prestations** — un créneau de travail creux ouvert à prix réduit : coiffure,
+  cordonnerie, pressing, retouches, réparation. L'utilisateur réserve un rendez-vous.
+
+Un coiffeur n'a pas d'invendus, il a des fauteuils vides. Dans les deux cas, la ressource
+perd toute valeur à la fermeture — c'est la même promesse économique.
+
+L'utilisateur réserve et paie dans l'application, puis passe sur place. Dealpick encaisse
+pour le compte du commerçant et le reverse, commission déduite. L'application est gratuite
+pour l'utilisateur.
 
 HTML et CSS statiques, sans build ni dépendance : on ouvre `index.html` et ça fonctionne.
 Le tout est repris tel quel si le projet passe plus tard sous un framework ou est recopié

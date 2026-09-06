@@ -46,12 +46,12 @@ minimal (serveur classique ou fonctions serverless), pour :
 ## 3. Modèle de données minimal
 
 ```
-Commerce      id, nom, type, siret, adresse, lat, lng, ville, horaires,
-              compte_psp_id, statut
+Commerce      id, nom, categorie, siret, adresse, lat, lng, ville, horaires,
+              pignon_sur_rue, independant, compte_psp_id, statut
 
-Offre         id, commerce_id, titre, categorie, description, allergenes,
+Offre         id, commerce_id, type, categorie, titre, description, allergenes,
               prix_reference_cents, prix_cents, quantite_totale,
-              quantite_restante, creneau_debut, creneau_fin, statut
+              quantite_restante, debut, fin, duree_min, statut
 
 Commande      id, offre_id, user_id, quantite, montant_cents,
               commission_cents, montant_commercant_cents,
@@ -62,12 +62,39 @@ Paiement      id, commande_id, psp, intent_id, statut, montant_cents
 Reversement   id, commerce_id, periode, montant_cents, statut, vire_le
 ```
 
+### Deux natures d'offre
+
+Le champ `type` vaut `produit` ou `prestation`, et c'est la distinction structurante de
+tout le produit :
+
+| | `produit` | `prestation` |
+|---|---|---|
+| Exemples | boulangerie, restauration, primeur, fleuriste, mode | coiffure, cordonnerie, pressing, retouches, réparation |
+| Ce qui est vendu | de la marchandise invendue | un créneau de travail creux |
+| `debut` / `fin` | un **créneau de retrait**, souvent court | un **rendez-vous** à heure fixe |
+| `duree_min` | non renseigné | durée annoncée de la prestation |
+| `quantite_restante` | nombre d'exemplaires | nombre de places sur le créneau |
+| Description | peut être une surprise (panier du jour) | toujours précise |
+| Transmissible | oui, le porteur du code récupère | non, le rendez-vous est nominatif |
+| Délai d'annulation | court | plus long : un créneau libéré tard ne se revend pas |
+
+**Catégories** (à figer en énumération côté base, pas en texte libre) : `boulangerie`,
+`restauration`, `primeur_epicerie`, `fleuriste`, `mode`, `maison_deco`, `coiffure`,
+`esthetique`, `cordonnerie_retouches`, `pressing`, `reparation`, `autre`.
+
+**Éligibilité d'un commerce** : indépendant **et** avec pignon sur rue. Ce n'est pas
+qu'une promesse marketing, c'est une règle de validation à l'inscription — les champs
+`independant` et `pignon_sur_rue` doivent être vérifiés à la main avant activation du
+compte.
+
 **Statuts d'une offre** : `brouillon → publiee → epuisee | expiree | retiree`
 
 **Statuts d'une commande** :
-`en_attente_paiement → payee → retiree`
+`en_attente_paiement → payee → honoree`
 avec les branches `expiree` (paiement non abouti), `annulee` (client, dans les délais),
-`non_retiree` (créneau passé), `remboursee`.
+`non_honoree` (horaire passé sans venue), `remboursee`.
+
+`honoree` couvre les deux natures : produit remis au comptoir, ou rendez-vous effectué.
 
 Les montants sont **en centimes, en entiers**. Jamais de flottant sur de la monnaie.
 
@@ -77,7 +104,7 @@ Les montants sont **en centimes, en entiers**. Jamais de flottant sur de la monn
 
 | Écran | Appel | Remarque |
 |---|---|---|
-| `app/offres.html` | `GET /api/offres?ville&lat&lng&categorie` | Uniquement `publiee`, `quantite_restante > 0`, `creneau_fin > now` |
+| `app/offres.html` | `GET /api/offres?ville&lat&lng&categorie&type` | Uniquement `publiee`, `quantite_restante > 0`, `fin > now` |
 | `app/offre.html` | `GET /api/offres/:id` | |
 | `app/offre.html` | `POST /api/reservations` | Réserve le stock **et** crée l'intention de paiement |
 | `app/paiement.html` | `POST /api/paiements/intention` | Côté serveur uniquement |
@@ -112,8 +139,14 @@ modèle de données des comptes commerçants.
    falsifiée : la commande ne passe à `payee` que sur webhook vérifié par signature.
 5. **Clés d'idempotence** sur la création de commande et de paiement, sinon un double clic
    ou un rejeu de webhook crée une double commande.
-6. **Remboursements** : prévoir le cas « commerce fermé / rien à remettre », qui doit être
-   traitable en un geste depuis le back-office.
+6. **Remboursements** : prévoir le cas « commerce fermé / rien à remettre / rendez-vous
+   annulé par le professionnel », traitable en un geste depuis le back-office.
+7. **Le droit de rétractation ne se traite pas pareil selon la nature de l'offre.** Les
+   denrées périssables et la restauration à date déterminée relèvent d'exceptions ; une
+   prestation de service commandée en ligne, elle, ne bénéficie pas automatiquement des
+   mêmes exclusions, et l'exécution avant la fin du délai suppose une demande expresse du
+   client. À faire trancher par un juriste, offre par offre — c'est le point le plus
+   susceptible de poser problème en cas de litige.
 
 ### Concurrence sur le stock
 
@@ -166,15 +199,20 @@ page ne bouge pas.
   "titre": "Panier surprise viennoiseries",
   "prix_cents": 400,
   "prix_reference_cents": 1000,
+  "type": "produit",
+  "categorie": "boulangerie",
   "remise_pct": 60,
-  "creneau_debut": "2026-09-06T18:00:00+02:00",
-  "creneau_fin": "2026-09-06T19:30:00+02:00",
+  "debut": "2026-09-06T18:00:00+02:00",
+  "fin": "2026-09-06T19:30:00+02:00",
+  "duree_min": null,
   "quantite_restante": 3
 }
 ```
 
 La remise affichée sur le marqueur se calcule côté serveur à partir des deux prix, pour
-que la carte et la fiche ne puissent jamais diverger.
+que la carte et la fiche ne puissent jamais diverger. Distinguer visuellement les
+marqueurs `produit` des marqueurs `prestation` : ce ne sont pas les mêmes intentions
+d'achat, et l'utilisateur qui cherche un rendez-vous ne veut pas trier des viennoiseries.
 
 ### Un point de vigilance
 
@@ -219,3 +257,5 @@ autre moyen de paiement. Pas de commission de 30 % à craindre.
 - [ ] Journalisation des paiements suffisante pour un rapprochement comptable
 - [ ] Les blocs `.hook` retirés du HTML livré
 - [ ] Carte réelle en place, attribution des tuiles affichée, marqueurs regroupés
+- [ ] Validation manuelle « indépendant + pignon sur rue » à l'inscription d'un commerce
+- [ ] Rappel la veille pour les prestations (un rendez-vous oublié coûte un créneau)
