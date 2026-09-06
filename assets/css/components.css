@@ -1099,3 +1099,89 @@
 .assurances li { margin: 0; }
 .assurances strong { display: block; font-size: var(--text-sm); }
 .assurances span { color: var(--text-muted); font-size: var(--text-sm); }
+
+/* ==========================================================================
+   Diaporama continu du héros — deux rangées en sens inverse
+   Chaque carte regroupe une catégorie de commerce.
+   ========================================================================== */
+
+.marquee {
+  margin-top: var(--space-8);
+  overflow: hidden;
+  /* Les bords s'estompent : le défilement paraît continuer hors de l'écran */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee + .marquee { margin-top: var(--space-4); }
+
+.marquee__row {
+  display: flex;
+  gap: var(--space-4);
+  width: max-content;
+  padding-block: var(--space-2);
+}
+.marquee__row--left  { animation: marquee-left  46s linear infinite; }
+.marquee__row--right { animation: marquee-right 52s linear infinite; }
+.marquee:hover .marquee__row { animation-play-state: paused; }
+
+@keyframes marquee-left  { from { transform: translateX(0); }      to { transform: translateX(-50%); } }
+@keyframes marquee-right { from { transform: translateX(-50%); }   to { transform: translateX(0); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__row { animation: none; }
+  .marquee { -webkit-mask-image: none; mask-image: none; overflow-x: auto; }
+}
+
+.cat-card {
+  position: relative;
+  flex: none;
+  width: clamp(9.5rem, 30vw, 14rem);
+  aspect-ratio: 5 / 4;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 0;
+  color: #fff;
+  isolation: isolate;
+  text-align: left;
+}
+.cat-card:hover { color: #fff; }
+/* Fond de substitution : à remplacer par une photo du métier */
+.cat-card::before {
+  content: "";
+  position: absolute; inset: 0; z-index: -2;
+  background: linear-gradient(150deg, var(--cat-a, #4B39E8), var(--cat-b, #2E5EFF));
+}
+.cat-card::after {
+  content: "";
+  position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(to top, rgba(10,11,16,.74) 0%, rgba(10,11,16,.16) 58%, transparent 100%);
+}
+.cat-card__label {
+  position: absolute;
+  left: var(--space-4); right: var(--space-3); bottom: var(--space-3);
+  font-family: var(--font-display);
+  font-weight: var(--weight-black);
+  font-size: var(--text-base);
+  line-height: 1.15;
+  letter-spacing: var(--tracking-snug);
+}
+.cat-card__meta {
+  position: absolute;
+  left: var(--space-4); top: var(--space-3);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  background: rgba(255,255,255,.92);
+  color: var(--n-900);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-full);
+}
+
+.cat-card:nth-child(6n+1) { --cat-a: #4B39E8; --cat-b: #2E5EFF; }
+.cat-card:nth-child(6n+2) { --cat-a: #7C5CFF; --cat-b: #C05CFF; }
+.cat-card:nth-child(6n+3) { --cat-a: #0E7C6B; --cat-b: #10B981; }
+.cat-card:nth-child(6n+4) { --cat-a: #FF6B4A; --cat-b: #C05CFF; }
+.cat-card:nth-child(6n+5) { --cat-a: #1F49E0; --cat-b: #10B981; }
+.cat-card:nth-child(6n+6) { --cat-a: #F5A524; --cat-b: #FF6B4A; }
+
+/* Accent typographique du titre principal */
+.hero__accent { color: var(--primary); }

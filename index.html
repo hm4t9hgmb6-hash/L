@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dealpick — Les réductions de ton quartier, en temps réel</title>
+<title>Dealpick — Des réductions, à proximité, en temps réel</title>
 <meta name="description" content="Les commerces indépendants près de chez toi publient leurs réductions en direct. Tu vois ce qui est actif maintenant, tu réserves, tu y vas.">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@600..900&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/components.css">
-<meta property="og:title" content="Dealpick — Les réductions de ton quartier, en temps réel">
+<meta property="og:title" content="Dealpick — Des réductions, à proximité, en temps réel">
 <meta property="og:description" content="Les commerces indépendants près de chez toi publient leurs réductions en direct. Tu vois ce qui est actif maintenant, tu réserves, tu y vas.">
 <meta property="og:type" content="website">
 </head>
@@ -58,59 +58,121 @@
     <div class="container">
       <div class="hero__inner">
         <span class="eyebrow">En direct, autour de toi</span>
-        <h1 class="hero__title">Les réductions de ton quartier, en temps réel</h1>
+        <h1 class="hero__title">Des réductions, à proximité,<br><span class="hero__accent">en temps réel</span></h1>
         <p class="lede">
           Les commerces indépendants près de chez toi baissent leurs prix quand ils le
           décident. Tu vois ce qui est actif maintenant, tu réserves, tu y vas.
         </p>
         <div class="btn-row" style="margin-top: var(--space-6)">
           <a class="btn btn--primary btn--xl" href="#telecharger">Télécharger l'app</a>
-          <a class="btn btn--outline btn--xl" href="comment-ca-marche.html">▷ Voir comment ça marche</a>
         </div>
         <p class="hero__note">Gratuit · Sans abonnement · Aucun compte requis pour regarder</p>
       </div>
+    </div>
 
-      <div class="hero__shot">
-        <!-- Placeholder : remplacer par une vraie capture de l'application -->
-        <div class="phone" role="img" aria-label="Aperçu du fil des réductions en direct">
-          <div class="phone__notch"></div>
-          <div style="margin-top: var(--space-5)">
-            <span class="live">En direct · 3e arrondissement</span>
-            <div class="deal-card">
-              <div class="deal-card__top">
-                <span class="deal-card__store">Boulangerie Marchand</span>
-                <span class="badge badge--discount">−60 %</span>
-              </div>
-              <p class="deal-card__title">350 m · valable encore 42 min · 3 places</p>
-              <div class="deal-card__prices">
-                <span class="deal-card__price">4,00 €</span>
-                <span class="deal-card__was">10,00 €</span>
-              </div>
-            </div>
-            <div class="deal-card">
-              <div class="deal-card__top">
-                <span class="deal-card__store">Salon Camille</span>
-                <span class="badge badge--discount">−40 %</span>
-              </div>
-              <p class="deal-card__title">800 m · rendez-vous 14h30 · 2 places</p>
-              <div class="deal-card__prices">
-                <span class="deal-card__price">21,00 €</span>
-                <span class="deal-card__was">35,00 €</span>
-              </div>
-            </div>
-            <div class="deal-card">
-              <div class="deal-card__top">
-                <span class="deal-card__store">Cordonnerie Vidal</span>
-                <span class="badge badge--discount">−40 %</span>
-              </div>
-              <p class="deal-card__title">1,1 km · valable encore 2 h · 3 places</p>
-              <div class="deal-card__prices">
-                <span class="deal-card__price">18,00 €</span>
-                <span class="deal-card__was">30,00 €</span>
-              </div>
-            </div>
-          </div>
-        </div>
+    <!-- Diaporama continu : une catégorie de commerce par carte -->
+    <div class="marquee" aria-label="Catégories de commerces partenaires">
+      <div class="marquee__row marquee__row--left">
+          <a class="cat-card" href="app/offres.html" aria-label="Restaurant, jusqu'à −50 %">
+            <span class="cat-card__meta">−50 %</span>
+            <span class="cat-card__label">Restaurant</span>
+          </a>
+          <a class="cat-card" href="app/offres.html" aria-label="Coiffeur, jusqu'à −40 %">
+            <span class="cat-card__meta">−40 %</span>
+            <span class="cat-card__label">Coiffeur</span>
+          </a>
+          <a class="cat-card" href="app/offres.html" aria-label="Cordonnier, jusqu'à −40 %">
+            <span class="cat-card__meta">−40 %</span>
+            <span class="cat-card__label">Cordonnier</span>
+          </a>
+          <a class="cat-card" href="app/offres.html" aria-label="Boulangerie, jusqu'à −60 %">
+            <span class="cat-card__meta">−60 %</span>
+            <span class="cat-card__label">Boulangerie</span>
+          </a>
+          <a class="cat-card" href="app/offres.html" aria-label="Fleuriste, jusqu'à −65 %">
+            <span class="cat-card__meta">−65 %</span>
+            <span class="cat-card__label">Fleuriste</span>
+          </a>
+          <a class="cat-card" href="app/offres.html" aria-label="Primeur, jusqu'à −45 %">
+            <span class="cat-card__meta">−45 %</span>
+            <span class="cat-card__label">Primeur</span>
+          </a>
+          <a class="cat-card" href="app/offres.html" aria-label="Restaurant, jusqu'à −50 %">
+            <span class="cat-card__meta">−50 %</span>
+            <span class="cat-card__label">Restaurant</span>
+          </a>
+          <a class="cat-card" href="app/offres.html" aria-label="Coiffeur, jusqu'à −40 %">
+            <span class="cat-card__meta">−40 %</span>
+            <span class="cat-card__label">Coiffeur</span>
+          </a>
+          <a class="cat-card" href="app/offres.html" aria-label="Cordonnier, jusqu'à −40 %">
+            <span class="cat-card__meta">−40 %</span>
+            <span class="cat-card__label">Cordonnier</span>
+          </a>
+          <a class="cat-card" href="app/offres.html" aria-label="Boulangerie, jusqu'à −60 %">
+            <span class="cat-card__meta">−60 %</span>
+            <span class="cat-card__label">Boulangerie</span>
+          </a>
+          <a class="cat-card" href="app/offres.html" aria-label="Fleuriste, jusqu'à −65 %">
+            <span class="cat-card__meta">−65 %</span>
+            <span class="cat-card__label">Fleuriste</span>
+          </a>
+          <a class="cat-card" href="app/offres.html" aria-label="Primeur, jusqu'à −45 %">
+            <span class="cat-card__meta">−45 %</span>
+            <span class="cat-card__label">Primeur</span>
+          </a>
+      </div>
+    </div>
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__row marquee__row--right">
+          <a class="cat-card" href="app/offres.html" aria-label="Pressing, jusqu'à −45 %">
+            <span class="cat-card__meta">−45 %</span>
+            <span class="cat-card__label">Pressing</span>
+          </a>
+          <a class="cat-card" href="app/offres.html" aria-label="Esthétique, jusqu'à −35 %">
+            <span class="cat-card__meta">−35 %</span>
+            <span class="cat-card__label">Esthétique</span>
+          </a>
+          <a class="cat-card" href="app/offres.html" aria-label="Épicerie, jusqu'à −50 %">
+            <span class="cat-card__meta">−50 %</span>
+            <span class="cat-card__label">Épicerie</span>
+          </a>
+          <a class="cat-card" href="app/offres.html" aria-label="Réparation, jusqu'à −30 %">
+            <span class="cat-card__meta">−30 %</span>
+            <span class="cat-card__label">Réparation</span>
+          </a>
+          <a class="cat-card" href="app/offres.html" aria-label="Traiteur, jusqu'à −55 %">
+            <span class="cat-card__meta">−55 %</span>
+            <span class="cat-card__label">Traiteur</span>
+          </a>
+          <a class="cat-card" href="app/offres.html" aria-label="Mode, jusqu'à −40 %">
+            <span class="cat-card__meta">−40 %</span>
+            <span class="cat-card__label">Mode</span>
+          </a>
+          <a class="cat-card" href="app/offres.html" aria-label="Pressing, jusqu'à −45 %">
+            <span class="cat-card__meta">−45 %</span>
+            <span class="cat-card__label">Pressing</span>
+          </a>
+          <a class="cat-card" href="app/offres.html" aria-label="Esthétique, jusqu'à −35 %">
+            <span class="cat-card__meta">−35 %</span>
+            <span class="cat-card__label">Esthétique</span>
+          </a>
+          <a class="cat-card" href="app/offres.html" aria-label="Épicerie, jusqu'à −50 %">
+            <span class="cat-card__meta">−50 %</span>
+            <span class="cat-card__label">Épicerie</span>
+          </a>
+          <a class="cat-card" href="app/offres.html" aria-label="Réparation, jusqu'à −30 %">
+            <span class="cat-card__meta">−30 %</span>
+            <span class="cat-card__label">Réparation</span>
+          </a>
+          <a class="cat-card" href="app/offres.html" aria-label="Traiteur, jusqu'à −55 %">
+            <span class="cat-card__meta">−55 %</span>
+            <span class="cat-card__label">Traiteur</span>
+          </a>
+          <a class="cat-card" href="app/offres.html" aria-label="Mode, jusqu'à −40 %">
+            <span class="cat-card__meta">−40 %</span>
+            <span class="cat-card__label">Mode</span>
+          </a>
       </div>
     </div>
   </section>
