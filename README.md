@@ -27,7 +27,7 @@ pas atterrir sur du contenu grand public.
 | Accueil | `index.html` | Promesse, « c'est dispo chez moi ? », 3 étapes, impact, villes, double porte, témoignages, FAQ courte, téléchargement |
 | Comment ça marche | `comment-ca-marche.html` | Le parcours en détail et les objections d'avant-achat (contenu du panier, qualité, retard, prix) |
 | Villes | `villes.html` | Villes ouvertes, villes à venir, **capture d'e-mail si absente** |
-| Page ville | `villes/exemple-ville.html` | Gabarit à dupliquer par ville |
+| Page ville | `villes/exemple-ville.html` | Gabarit à dupliquer par ville : **carte des commerces**, liste synchronisée, quartiers, chiffres locaux |
 
 ### Parcours commerçant
 
@@ -53,6 +53,10 @@ pas atterrir sur du contenu grand public.
 - **Les pages ville** sont le principal levier de référencement de ce type de service :
   les gens cherchent « invendus Lyon », « anti-gaspi Bordeaux ». Une page par ville, avec
   du contenu réellement local — dupliquer le même texte n'apporte rien.
+- **La carte de la page ville** répond à la seule question qui compte à ce stade du
+  parcours : « qu'est-ce qu'il y a autour de moi ? ». Le fond est un SVG de substitution,
+  remplaçable par MapLibre ou Leaflet sans toucher au reste de la page — voir
+  `INTEGRATION.md`.
 - **La page villes** sert aussi d'outil de mesure : le formulaire « ma ville n'y est pas »
   dit où ouvrir ensuite.
 - **La mission** justifie les prix bas (c'est de l'invendu, pas de la mauvaise qualité),

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Invendus et bons plans à [Ville] — Dealpick</title>
-<meta name="description" content="Gabarit de page ville : commerces partenaires, quartiers couverts et offres du jour.">
+<meta name="description" content="Carte des commerces partenaires, offres du jour et quartiers couverts.">
 <link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="../assets/css/base.css">
 <link rel="stylesheet" href="../assets/css/components.css">
 <meta property="og:title" content="Invendus et bons plans à [Ville] — Dealpick">
-<meta property="og:description" content="Gabarit de page ville : commerces partenaires, quartiers couverts et offres du jour.">
+<meta property="og:description" content="Carte des commerces partenaires, offres du jour et quartiers couverts.">
 <meta property="og:type" content="website">
 </head>
 <body>
@@ -53,22 +53,211 @@
 </div>
 
 <main id="main">
-  <section class="section">
-    <div class="container container--narrow">
+  <section class="section section--tight">
+    <div class="container">
       <span class="eyebrow">Modèle de page ville</span>
       <h1>Invendus et bons plans à <span class="placeholder">[Ville]</span></h1>
-      <p class="lede">Cette page est un gabarit : elle se duplique pour chaque ville
-         ouverte. C'est le principal levier de référencement du site — les gens cherchent
-         « invendus [ville] », « anti-gaspi [ville] », « bons plans [ville] ».</p>
-      <div class="note">
-        À personnaliser pour chaque ville : le nombre de commerces, les quartiers couverts,
-        deux ou trois commerçants emblématiques, un chiffre local. Une page ville qui
-        répète le texte des autres n'apporte rien au référencement.
+      <p class="lede">84 commerces indépendants, 12 quartiers couverts. Regarde ce qui se
+         libère ce soir près de chez toi.</p>
+    </div>
+  </section>
+
+  <!-- ================= CARTE ================= -->
+  <section class="section section--tight">
+    <div class="container">
+      <div class="map-layout">
+        <div>
+          <div class="map">
+            <!-- Fond schématique : substitut à remplacer par la vraie carte -->
+            <svg class="map__canvas" viewBox="0 0 800 520" role="img"
+                 aria-label="Carte schématique de la ville avec les commerces partenaires">
+              <rect width="800" height="520" fill="var(--paper)"/>
+
+              <!-- Îlots urbains -->
+              <g fill="var(--cream-dark)" stroke="var(--ink)" stroke-width="2">
+                <rect x="40"  y="40"  width="180" height="120" rx="6"/>
+                <rect x="250" y="40"  width="150" height="120" rx="6"/>
+                <rect x="430" y="40"  width="200" height="90"  rx="6"/>
+                <rect x="660" y="40"  width="100" height="90"  rx="6"/>
+                <rect x="40"  y="200" width="180" height="130" rx="6"/>
+                <rect x="250" y="200" width="150" height="90"  rx="6"/>
+                <rect x="560" y="170" width="200" height="120" rx="6"/>
+                <rect x="40"  y="370" width="150" height="110" rx="6"/>
+                <rect x="220" y="370" width="190" height="110" rx="6"/>
+                <rect x="600" y="330" width="160" height="150" rx="6"/>
+              </g>
+
+              <!-- Rivière -->
+              <path d="M430 0 C 470 120, 380 200, 430 300 C 470 390, 400 460, 440 520"
+                    fill="none" stroke="var(--ink)" stroke-width="34" stroke-linecap="round"/>
+              <path d="M430 0 C 470 120, 380 200, 430 300 C 470 390, 400 460, 440 520"
+                    fill="none" stroke="var(--blue-pale)" stroke-width="28" stroke-linecap="round"/>
+
+              <!-- Parc -->
+              <path d="M250 320 h150 v40 h-40 v20 h-110 z"
+                    fill="var(--lime)" stroke="var(--ink)" stroke-width="2"/>
+
+              <!-- Axes principaux -->
+              <g stroke="var(--ink)" stroke-width="3" stroke-dasharray="14 10" opacity=".45">
+                <line x1="0" y1="180" x2="800" y2="180"/>
+                <line x1="0" y1="350" x2="800" y2="350"/>
+                <line x1="230" y1="0" x2="230" y2="520"/>
+                <line x1="580" y1="0" x2="580" y2="520"/>
+              </g>
+
+              <g font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700"
+                 fill="var(--ink)" opacity=".55">
+                <text x="262" y="345">PARC</text>
+                <text x="666" y="200">GARE</text>
+                <text x="52" y="222">CENTRE</text>
+              </g>
+            </svg>
+
+            <!-- Épingles : de vrais boutons, comme le seront les marqueurs -->
+            <button class="map-pin" style="left:19%; top:34%" data-pin="1" aria-pressed="false">−60 %</button>
+            <button class="map-pin" style="left:60%; top:26%" data-pin="2" aria-pressed="false">−50 %</button>
+            <button class="map-pin" style="left:38%; top:62%" data-pin="3" aria-pressed="false">−65 %</button>
+            <button class="map-pin" style="left:76%; top:66%" data-pin="4" aria-pressed="false">−45 %</button>
+            <button class="map-pin" style="left:27%; top:82%" data-pin="5" aria-pressed="false">−40 %</button>
+            <button class="map-pin" style="left:67%; top:45%" data-pin="6" aria-pressed="false">−55 %</button>
+
+            <div class="map-popup" style="left:19%; top:34%" data-popup="1" hidden>
+              <button class="map-popup__close" type="button" aria-label="Fermer">×</button>
+              <strong>Boulangerie Marchand</strong>
+              Panier surprise viennoiseries<br>
+              Retrait 18h00 – 19h30 · 3 restants<br>
+              <span class="offer__price">4,00 €</span> <span class="offer__was">10,00 €</span>
+            </div>
+            <div class="map-popup" style="left:60%; top:26%" data-popup="2" hidden>
+              <button class="map-popup__close" type="button" aria-label="Fermer">×</button>
+              <strong>Trattoria Bello</strong>
+              Part de lasagnes maison<br>
+              Retrait 21h00 – 22h00 · 5 restants<br>
+              <span class="offer__price">6,50 €</span> <span class="offer__was">13,00 €</span>
+            </div>
+            <div class="map-popup" style="left:38%; top:62%" data-popup="3" hidden>
+              <button class="map-popup__close" type="button" aria-label="Fermer">×</button>
+              <strong>Fleurs &amp; Co</strong>
+              Bouquet de la veille<br>
+              Retrait 17h00 – 19h00 · 2 restants<br>
+              <span class="offer__price">7,00 €</span> <span class="offer__was">20,00 €</span>
+            </div>
+            <div class="map-popup" style="left:76%; top:66%" data-popup="4" hidden>
+              <button class="map-popup__close" type="button" aria-label="Fermer">×</button>
+              <strong>Épicerie du Cours</strong>
+              Assortiment fromages du jour<br>
+              Retrait 19h00 – 20h00 · 1 restant<br>
+              <span class="offer__price">8,90 €</span> <span class="offer__was">16,00 €</span>
+            </div>
+            <div class="map-popup" style="left:27%; top:82%" data-popup="5" hidden>
+              <button class="map-popup__close" type="button" aria-label="Fermer">×</button>
+              <strong>Café Lumière</strong>
+              Sandwichs et salades du midi<br>
+              Retrait 14h30 – 15h30 · 4 restants<br>
+              <span class="offer__price">3,50 €</span> <span class="offer__was">6,00 €</span>
+            </div>
+            <div class="map-popup" style="left:67%; top:45%" data-popup="6" hidden>
+              <button class="map-popup__close" type="button" aria-label="Fermer">×</button>
+              <strong>Primeur Saint-Jean</strong>
+              Cagette de fruits et légumes<br>
+              Retrait 19h30 – 20h30 · 6 restants<br>
+              <span class="offer__price">4,50 €</span> <span class="offer__was">10,00 €</span>
+            </div>
+          </div>
+
+          <div class="map-legend">
+            <span><i style="background: var(--coral)"></i> Offre disponible</span>
+            <span><i style="background: var(--gray-100)"></i> Créneau terminé</span>
+            <span><i style="background: var(--lime)"></i> Espace vert</span>
+          </div>
+        </div>
+
+        <div>
+          <h2 style="font-size: var(--text-xl)">6 offres ce soir</h2>
+          <p style="color: var(--text-muted); font-size: var(--text-sm)">
+            Survole une ligne pour la situer sur la carte, ou clique sur une épingle.
+          </p>
+          <ul class="map-list" data-map-list>
+            <li><a class="offer" href="../app/offre.html" data-row="1">
+              <span class="offer__thumb" aria-hidden="true">🥐</span>
+              <span class="offer__body">
+                <span class="offer__store">Boulangerie Marchand · 800 m</span>
+                <span class="offer__title">Panier viennoiseries</span>
+                <span class="offer__meta">18h00 – 19h30</span>
+              </span>
+              <span class="offer__side"><span class="offer__price">4,00 €</span></span>
+            </a></li>
+            <li><a class="offer" href="../app/offre.html" data-row="2">
+              <span class="offer__thumb" aria-hidden="true">🍝</span>
+              <span class="offer__body">
+                <span class="offer__store">Trattoria Bello · 1,2 km</span>
+                <span class="offer__title">Lasagnes maison</span>
+                <span class="offer__meta">21h00 – 22h00</span>
+              </span>
+              <span class="offer__side"><span class="offer__price">6,50 €</span></span>
+            </a></li>
+            <li><a class="offer" href="../app/offre.html" data-row="3">
+              <span class="offer__thumb" aria-hidden="true">💐</span>
+              <span class="offer__body">
+                <span class="offer__store">Fleurs &amp; Co · 400 m</span>
+                <span class="offer__title">Bouquet de la veille</span>
+                <span class="offer__meta">17h00 – 19h00</span>
+              </span>
+              <span class="offer__side"><span class="offer__price">7,00 €</span></span>
+            </a></li>
+            <li><a class="offer" href="../app/offre.html" data-row="4">
+              <span class="offer__thumb" aria-hidden="true">🧀</span>
+              <span class="offer__body">
+                <span class="offer__store">Épicerie du Cours · 950 m</span>
+                <span class="offer__title">Assortiment fromages</span>
+                <span class="offer__meta">19h00 – 20h00</span>
+              </span>
+              <span class="offer__side"><span class="offer__price">8,90 €</span></span>
+            </a></li>
+            <li><a class="offer" href="../app/offre.html" data-row="5">
+              <span class="offer__thumb" aria-hidden="true">🥪</span>
+              <span class="offer__body">
+                <span class="offer__store">Café Lumière · 1,5 km</span>
+                <span class="offer__title">Sandwichs du midi</span>
+                <span class="offer__meta">14h30 – 15h30</span>
+              </span>
+              <span class="offer__side"><span class="offer__price">3,50 €</span></span>
+            </a></li>
+            <li><a class="offer" href="../app/offre.html" data-row="6">
+              <span class="offer__thumb" aria-hidden="true">🥕</span>
+              <span class="offer__body">
+                <span class="offer__store">Primeur Saint-Jean · 2,1 km</span>
+                <span class="offer__title">Cagette fruits et légumes</span>
+                <span class="offer__meta">19h30 – 20h30</span>
+              </span>
+              <span class="offer__side"><span class="offer__price">4,50 €</span></span>
+            </a></li>
+          </ul>
+          <a class="btn btn--primary btn--block" href="../app/offres.html" style="margin-top: var(--space-4)">
+            Voir toutes les offres
+          </a>
+        </div>
+      </div>
+
+      <div class="hook" style="margin-top: var(--space-6)">
+        <strong>À remplacer par la vraie carte</strong>
+        Le fond est un SVG de substitution : il se remplace par <code>MapLibre GL</code>
+        (recommandé, libre) ou <code>Leaflet</code>, dans le conteneur <code>.map</code>
+        sans toucher au reste de la page. Les épingles sont déjà de vrais boutons avec
+        <code>data-pin</code>, et la liste porte les <code>data-row</code>
+        correspondants : la synchronisation carte ↔ liste est fonctionnelle, il suffit de
+        remplacer le positionnement en pourcentage par des coordonnées géographiques.
+        <br><br>
+        Alimentation : <code>GET /api/offres?ville=&amp;bbox=</code> renvoyant, pour chaque
+        offre, <code>lat</code>, <code>lng</code>, la remise et le créneau. Prévoir le
+        regroupement des marqueurs (<em>clustering</em>) dès qu'il y a plus d'une trentaine
+        de points, sinon le centre-ville devient illisible. Et si les tuiles viennent
+        d'OpenStreetMap, l'attribution est obligatoire.
       </div>
     </div>
   </section>
 
-  <section class="section section--tight">
+  <section class="section section--subtle section--tight">
     <div class="container">
       <div class="grid grid--3">
         <div class="stat"><span class="stat__value">84</span><span class="stat__label">commerces partenaires</span></div>
@@ -85,13 +274,14 @@
         <li><span class="city-chip"><span class="placeholder">[Quartier 1]</span></span></li>
         <li><span class="city-chip"><span class="placeholder">[Quartier 2]</span></span></li>
         <li><span class="city-chip"><span class="placeholder">[Quartier 3]</span></span></li>
+        <li><span class="city-chip"><span class="placeholder">[Quartier 4]</span></span></li>
       </ul>
 
-      <h2 style="margin-top: var(--space-7)">Quelques commerces partenaires</h2>
-      <div class="grid grid--3">
-        <div class="card"><h3><span class="placeholder">[Commerce]</span></h3><p>Type de commerce, quartier, ce qu'on y trouve habituellement.</p></div>
-        <div class="card"><h3><span class="placeholder">[Commerce]</span></h3><p>Type de commerce, quartier, ce qu'on y trouve habituellement.</p></div>
-        <div class="card"><h3><span class="placeholder">[Commerce]</span></h3><p>Type de commerce, quartier, ce qu'on y trouve habituellement.</p></div>
+      <div class="note" style="margin-top: var(--space-6)">
+        Gabarit à dupliquer pour chaque ville ouverte. À personnaliser à chaque fois :
+        le nom, les chiffres, les quartiers, deux ou trois commerces emblématiques et le
+        cadrage de la carte. Une page ville qui répète le texte des autres n'apporte rien
+        au référencement.
       </div>
     </div>
   </section>
@@ -99,7 +289,7 @@
   <section class="section">
     <div class="container">
       <div class="cta-banner">
-        <h2>Découvre ce qui se libère ce soir à <span class="placeholder">[Ville]</span></h2>
+        <h2>Découvre ce qui se libère ce soir</h2>
         <div class="btn-row" style="justify-content:center; margin-top: var(--space-5)">
           <a class="btn btn--primary btn--lg" href="../index.html#telecharger">Télécharger l'app</a>
           <a class="btn btn--ghost btn--lg" href="../commercants.html">Inscrire mon commerce</a>

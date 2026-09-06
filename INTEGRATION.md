@@ -125,7 +125,67 @@ payée — 10 minutes — et une tâche qui remet le stock en circulation à l'e
 
 ---
 
-## 6. Le site et l'application
+## 6. La carte des villes
+
+`villes/exemple-ville.html` contient une carte **schématique en SVG**, qui n'est qu'un
+substitut : elle permet de valider la mise en page et l'interaction sans dépendre d'un
+serveur de tuiles.
+
+### Ce qui est déjà en place
+
+- Un conteneur `.map` au bon format, avec le cadre et l'ombre du thème.
+- Les épingles sont de **vrais boutons HTML** portant `data-pin="1"`, positionnés en
+  pourcentage — exactement le rôle qu'auront les marqueurs.
+- La liste latérale porte les `data-row` correspondants, et la **synchronisation
+  carte ↔ liste fonctionne déjà** : clic sur une épingle, survol d'une ligne, fermeture
+  à la touche Échap, bascule de la bulle quand elle sortirait du cadre.
+
+### Le remplacement
+
+Monter la carte dans `.map` et supprimer le `<svg class="map__canvas">`. Le reste de la
+page ne bouge pas.
+
+- **MapLibre GL JS** est le choix recommandé : libre, sans clé propriétaire, rendu
+  vectoriel, gestion native du regroupement de marqueurs. **Leaflet** convient aussi et
+  est plus simple, avec un rendu raster.
+- **Attribution obligatoire** si les tuiles viennent d'OpenStreetMap. Google Maps impose
+  ses propres conditions et une facturation à l'usage : à trancher avant de coder.
+- **Regrouper les marqueurs** au-delà d'une trentaine de points, sinon le centre-ville
+  devient une bouillie de pastilles superposées.
+- **Ne pas charger la carte au premier rendu** de la page publique : elle pèse lourd et
+  cette page est aussi une page de référencement. La charger à l'entrée dans le viewport.
+
+### Données attendues
+
+`GET /api/offres?ville=lyon&bbox=minLng,minLat,maxLng,maxLat` renvoyant par offre :
+
+```json
+{
+  "id": "off_8412",
+  "commerce": { "nom": "Boulangerie Marchand", "lat": 45.7640, "lng": 4.8357 },
+  "titre": "Panier surprise viennoiseries",
+  "prix_cents": 400,
+  "prix_reference_cents": 1000,
+  "remise_pct": 60,
+  "creneau_debut": "2026-09-06T18:00:00+02:00",
+  "creneau_fin": "2026-09-06T19:30:00+02:00",
+  "quantite_restante": 3
+}
+```
+
+La remise affichée sur le marqueur se calcule côté serveur à partir des deux prix, pour
+que la carte et la fiche ne puissent jamais diverger.
+
+### Un point de vigilance
+
+Le prix de référence qui sert à calculer la remise doit correspondre à un **prix
+réellement pratiqué en boutique**. Une pastille « −60 % » calculée sur un prix théorique
+est une pratique commerciale trompeuse — et sur une carte, elle est affichée des milliers
+de fois.
+
+---
+
+## 7. Le site et l'application
 
 Le parcours d'achat est en HTML : le même code peut servir sur le web et être embarqué
 dans l'application. Trois remarques.
@@ -146,7 +206,7 @@ autre moyen de paiement. Pas de commission de 30 % à craindre.
 
 ---
 
-## 7. Checklist avant mise en production
+## 8. Checklist avant mise en production
 
 - [ ] HTTPS partout, en-têtes de sécurité (CSP, HSTS)
 - [ ] Aucune clé secrète dans le front — vérifier le bundle final
@@ -158,3 +218,4 @@ autre moyen de paiement. Pas de commission de 30 % à craindre.
 - [ ] Suppression de compte réellement fonctionnelle (RGPD)
 - [ ] Journalisation des paiements suffisante pour un rapprochement comptable
 - [ ] Les blocs `.hook` retirés du HTML livré
+- [ ] Carte réelle en place, attribution des tuiles affichée, marqueurs regroupés
