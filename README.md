@@ -190,8 +190,8 @@ Le ton rédactionnel est le **tutoiement**, cohérent avec un service de quartie
 ## Bandeau des enseignes
 
 Le bandeau défilant de la page d'accueil présente **douze enseignes fictives**
-(`Trattoria Bruno`, `Cordonnerie Vidal`, `Salon Elsa`…), chacune réduite à un
-monogramme de deux lettres, un nom, un métier et une remise. Deux de ces noms
+(`Trattoria Bruno`, `Cordonnerie Vidal`, `Salon Elsa`…), chacune portant une
+marque au trait, un nom, un métier et une remise. Deux de ces noms
 — Boulangerie Marchand et Cordonnerie Vidal — se retrouvent dans les maquettes
 d'application, pour que le site raconte une seule et même ville.
 
@@ -207,7 +207,7 @@ obtenues : déposer les fichiers dans `assets/img/logos/`, puis remplacer dans
 la tuile
 
 ```html
-<span class="cat-card__sign" aria-hidden="true">TB</span>
+<svg class="cat-card__sign" aria-hidden="true"><use href="#ic-couvert"/></svg>
 ```
 
 par
@@ -218,7 +218,13 @@ par
 ```
 
 Le sélecteur `.cat-card__sign` fixe déjà la taille, le rayon et le centrage :
-rien d'autre ne bouge. Le nom, le métier et la remise restent du texte, jamais
+rien d'autre ne bouge.
+
+Les douze marques au trait sont définies une fois par page, dans un bloc
+`<svg>` de `<symbol>` posé juste avant le bandeau, et appelées par `<use>`.
+Douze symboles pour trois kilo-octets, sans requête ni police d'icônes. Elles
+sont dessinées pour ce site : aucune ne reprend le logo d'une marque
+existante. Le nom, le métier et la remise restent du texte, jamais
 de l'image — c'est ce qui les rend lisibles aux lecteurs d'écran et
 remplaçables par les données réelles le jour où le fil est branché.
 

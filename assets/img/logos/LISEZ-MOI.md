@@ -27,7 +27,7 @@ salon-elsa.png
 Dans `index.html`, à l'intérieur de la tuile du commerce, remplacer
 
 ```html
-<span class="cat-card__sign" aria-hidden="true">TB</span>
+<svg class="cat-card__sign" aria-hidden="true"><use href="#ic-couvert"/></svg>
 ```
 
 par

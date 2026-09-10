@@ -1251,23 +1251,21 @@
   background: linear-gradient(168deg, rgba(255,255,255,.85), transparent 52%);
 }
 
-/* Enseigne : un monogramme, placé en haut de la tuile. Il tient la place
-   d'un vrai logo — le jour où un commerce en fournit un, on remplace ce
-   bloc par une image aux mêmes dimensions, rien d'autre ne bouge. */
+/* Enseigne : une marque au trait, en haut de la tuile. Elle tient la place
+   d'un vrai logo — le jour où un commerce en fournit un, on remplace la
+   balise par une image aux mêmes dimensions, rien d'autre ne bouge. */
 .cat-card__sign {
   position: absolute;
   top: var(--space-5);
   left: var(--space-5);
-  display: grid;
-  place-items: center;
+  display: block;
   width: 40px; height: 40px;
+  padding: 9px;
   border-radius: var(--radius-md);
   background: var(--n-900);
   color: #fff;
-  font-family: var(--font-sans);
-  font-size: var(--text-sm);
-  font-weight: 800;
-  letter-spacing: 0.02em;
+  /* Le trait ne doit pas s'épaissir avec la mise à l'échelle du symbole. */
+  overflow: visible;
 }
 
 .cat-card__meta {
