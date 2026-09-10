@@ -986,12 +986,11 @@
 .showcase {
   position: relative;
   z-index: 1;
-  padding-block: clamp(var(--space-7), 6vw, var(--space-8));
-  background: var(--bg);
-  color: #fff;
-}
-.showcase > .container > .brand-block {
+  /* Bandeau pleine largeur : la couleur va d'un bord à l'autre de l'écran,
+     seul le contenu reste contraint par .container. */
   padding-block: clamp(var(--space-8), 7vw, var(--space-9));
+  background: var(--primary);
+  color: #fff;
 }
 .showcase h2, .showcase p { color: #fff; }
 
