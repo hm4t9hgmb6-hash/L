@@ -145,6 +145,68 @@
 .header-actions { display: flex; align-items: center; gap: var(--space-3); margin-left: auto; }
 .nav + .header-actions { margin-left: 0; }
 
+/* --- Menus déroulants du bandeau (À propos, Découvrir) --------------------
+   Ouverture au clic, pas seulement au survol : ça marche pareil au clavier,
+   à la souris et au doigt sur tablette. Un seul menu ouvert à la fois — géré
+   par le JS, qui ferme les autres avant d'ouvrir celui-ci. */
+.nav-drop { position: relative; }
+.nav-drop__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+}
+.nav-drop__trigger:hover { color: var(--text); }
+.nav-drop__trigger.is-active { color: var(--text); font-weight: var(--weight-bold); }
+.nav-drop__chevron {
+  width: 14px; height: 14px;
+  flex: none;
+  transition: transform var(--transition);
+}
+.nav-drop__trigger[aria-expanded="true"] .nav-drop__chevron { transform: rotate(180deg); }
+
+.nav .nav-drop__panel {
+  /* .nav ul impose display:flex à tout <ul> du bandeau (une classe + un
+     type, plus spécifique qu'une seule classe) : sans ce sélecteur renforcé,
+     la règle plus bas perdait quand même et les liens s'alignaient en
+     rangée au lieu de s'empiler, quel que soit l'ordre dans la feuille. */
+  display: block;
+  position: absolute;
+  top: calc(100% + 16px);
+  left: 0;
+  z-index: 60;
+  width: max-content;
+  min-width: 14rem;
+  max-width: calc(100vw - 2 * var(--space-5));
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+.nav-drop__panel li { margin: 0; }
+.nav-drop__panel a {
+  display: block;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  color: var(--text);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  border: 0;
+  white-space: nowrap;
+}
+.nav-drop__panel a:hover { background: var(--bg-subtle); color: var(--text); }
+.nav-drop__panel a[aria-current="page"] { color: var(--primary); font-weight: var(--weight-bold); background: var(--primary-soft); }
+
 @media (min-width: 940px) {
   .nav { display: block; }
 }
@@ -170,17 +232,57 @@
 @media (min-width: 940px) { .nav-toggle { display: none; } }
 
 .mobile-nav { background: var(--surface); border-bottom: 1px solid var(--border); }
-.mobile-nav ul { list-style: none; margin: 0; padding: var(--space-3) var(--space-5); }
-.mobile-nav li { margin: 0; }
-.mobile-nav a {
+.mobile-nav > ul { list-style: none; margin: 0; padding: var(--space-3) var(--space-5); }
+.mobile-nav > ul > li { margin: 0; border-bottom: 1px solid var(--border); }
+.mobile-nav > ul > li:last-child { border-bottom: 0; }
+.mobile-nav > ul > li > a {
   display: block;
   padding: var(--space-3) 0;
   color: var(--text);
   font-weight: var(--weight-medium);
   border: 0;
-  border-bottom: 1px solid var(--border);
 }
-.mobile-nav li:last-child a { border-bottom: 0; }
+
+/* Groupes dépliables : À propos et Découvrir prennent la même place qu'un
+   lien direct, avec un chevron qui indique qu'il y a des pages dessous —
+   même logique que l'accordéon de la FAQ, réduite à la taille du bandeau. */
+.mobile-nav details summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) 0;
+  color: var(--text);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+  list-style: none;
+}
+.mobile-nav details summary::-webkit-details-marker { display: none; }
+.mobile-nav details summary::after {
+  content: "";
+  width: 8px; height: 8px;
+  flex: none;
+  border-right: 2px solid var(--text-muted);
+  border-bottom: 2px solid var(--text-muted);
+  transform: rotate(45deg);
+  transition: transform var(--transition);
+}
+.mobile-nav details[open] summary::after { transform: rotate(-135deg); }
+.mobile-nav details ul {
+  list-style: none;
+  margin: 0 0 var(--space-2);
+  padding: 0 0 0 var(--space-4);
+}
+.mobile-nav details ul li { margin: 0; }
+.mobile-nav details ul a {
+  display: block;
+  padding: var(--space-2) 0;
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  border: 0;
+}
+.mobile-nav details ul a:hover { color: var(--text); }
+.mobile-nav details ul a[aria-current="page"] { color: var(--primary); font-weight: var(--weight-bold); }
+
 @media (min-width: 940px) { .mobile-nav { display: none !important; } }
 
 /* --- Héros ---------------------------------------------------------------- */

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Villes couvertes — Dealpick</title>
-<meta name="description" content="Les villes où Dealpick fonctionne, celles qui arrivent, et comment nous signaler la tienne.">
+<title>Notre histoire — Dealpick</title>
+<meta name="description" content="Comment l'idée de Dealpick est née — page en attente de son récit.">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,8 +12,8 @@
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/components.css">
-<meta property="og:title" content="Villes couvertes — Dealpick">
-<meta property="og:description" content="Les villes où Dealpick fonctionne, celles qui arrivent, et comment nous signaler la tienne.">
+<meta property="og:title" content="Notre histoire — Dealpick">
+<meta property="og:description" content="Comment l'idée de Dealpick est née — page en attente de son récit.">
 <meta property="og:type" content="website">
 </head>
 <body>
@@ -28,7 +28,7 @@
     <nav class="nav" aria-label="Navigation principale">
       <ul>
         <li class="nav-drop" data-nav-drop>
-          <button class="nav-drop__trigger" type="button" data-nav-drop-trigger
+          <button class="nav-drop__trigger is-active" type="button" data-nav-drop-trigger
                   aria-expanded="false" aria-controls="menu-apropos">
             À propos
             <svg class="nav-drop__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -36,11 +36,11 @@
           </button>
           <ul class="nav-drop__panel" id="menu-apropos" data-nav-drop-panel hidden>
             <li><a href="mission.html">Notre mission</a></li>
-            <li><a href="histoire.html">Notre histoire</a></li>
+            <li><a href="histoire.html" aria-current="page">Notre histoire</a></li>
           </ul>
         </li>
         <li class="nav-drop" data-nav-drop>
-          <button class="nav-drop__trigger is-active" type="button" data-nav-drop-trigger
+          <button class="nav-drop__trigger" type="button" data-nav-drop-trigger
                   aria-expanded="false" aria-controls="menu-decouvrir">
             Découvrir
             <svg class="nav-drop__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -48,7 +48,7 @@
           </button>
           <ul class="nav-drop__panel" id="menu-decouvrir" data-nav-drop-panel hidden>
             <li><a href="villes/exemple-ville.html">Carte des commerces</a></li>
-            <li><a href="villes.html" aria-current="page">Villes couvertes</a></li>
+            <li><a href="villes.html">Villes couvertes</a></li>
             <li><a href="comment-ca-marche.html">Comment ça marche</a></li>
             <li><a href="commercants.html">Devenir partenaire</a></li>
           </ul>
@@ -70,7 +70,7 @@
         <summary>À propos</summary>
         <ul>
           <li><a href="mission.html">Notre mission</a></li>
-          <li><a href="histoire.html">Notre histoire</a></li>
+          <li><a href="histoire.html" aria-current="page">Notre histoire</a></li>
         </ul>
       </details>
     </li>
@@ -79,7 +79,7 @@
         <summary>Découvrir</summary>
         <ul>
           <li><a href="villes/exemple-ville.html">Carte des commerces</a></li>
-          <li><a href="villes.html" aria-current="page">Villes couvertes</a></li>
+          <li><a href="villes.html">Villes couvertes</a></li>
           <li><a href="comment-ca-marche.html">Comment ça marche</a></li>
           <li><a href="commercants.html">Devenir partenaire</a></li>
         </ul>
@@ -93,81 +93,26 @@
 <main id="main">
   <section class="section">
     <div class="container page-head" data-reveal>
-      <span class="eyebrow">Couverture</span>
-      <h1>Où Dealpick fonctionne</h1>
-      <p class="lede">Le service n'a d'intérêt que s'il y a des commerces actifs dans ton
-         rayon immédiat. On n'ouvre donc une ville qu'à partir d'une densité suffisante —
-         mieux vaut être honnête sur là où on est vraiment.</p>
+      <span class="eyebrow">À propos</span>
+      <h1>Comment l'idée est née</h1>
+      <p class="lede">Cette page attend encore son histoire — le déclic, le premier
+         commerçant convaincu, ou la frustration précise qui a tout déclenché. Elle sera
+         écrite ici dès qu'elle existera, plutôt que remplacée par un récit inventé pour
+         faire joli.</p>
     </div>
   </section>
 
   <section class="section section--tight">
-    <div class="container">
-      <div data-reveal>
-        <h2>Ville de lancement</h2>
-        <ul class="city-grid" style="margin-bottom: var(--space-7); max-width: 26rem">
-          <li>
-            <a class="city-chip" href="villes/exemple-ville.html">
-              <span class="placeholder">[Ville et arrondissement]</span>
-              <span>en préparation</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div data-reveal data-reveal-delay="1">
-        <h2>Prochaines villes envisagées</h2>
-        <p class="lede" style="margin-bottom: var(--space-5)">Un ordre d'intention, pas un
-           calendrier : la ville suivante sera celle où la demande — mesurée par le
-           formulaire ci-dessous — sera la plus nette.</p>
-        <ul class="city-grid">
-          <li><span class="city-chip city-chip--soon">Nantes</span></li>
-          <li><span class="city-chip city-chip--soon">Lille</span></li>
-          <li><span class="city-chip city-chip--soon">Toulouse</span></li>
-        </ul>
-      </div>
-
-      <p class="note" style="margin-top: var(--space-6)">
-        <span class="placeholder">[Ville]</span> est un champ à remplir avec la ville
-        réelle de lancement avant mise en ligne. Aucun chiffre de commerces inscrits ne
-        doit apparaître ici tant qu'il ne provient pas d'un compte réel — voir la page
-        <a href="mission.html">Où en est Dealpick</a>.
-      </p>
-    </div>
-  </section>
-
-  <!-- ============ FORMULAIRE DE DEMANDE : LE CONTENU PRINCIPAL DE LA PAGE = -->
-  <section class="section section--subtle">
     <div class="container container--narrow">
-      <div class="section-head" data-reveal>
-        <span class="eyebrow">Avant l'ouverture</span>
-        <h2>Ta ville n'est pas encore couverte</h2>
-        <p class="lede">Dis-nous où tu es. C'est ce qui détermine la prochaine ouverture,
-           et on te prévient dès qu'on y arrive — rien d'autre ne sera fait de ton
-           adresse.</p>
+      <div class="note">
+        Page en attente de contenu. À rédiger : le contexte de départ, le moment où le
+        projet a pris forme, et ce qui a convaincu de le lancer maintenant plutôt qu'avant
+        ou après.
       </div>
-      <form class="card" method="post" action="#" data-reveal data-reveal-delay="1">
-        <div class="field">
-          <label for="v-ville">Ta ville</label>
-          <input id="v-ville" name="ville" type="text" required>
-        </div>
-        <div class="field">
-          <label for="v-email">Ton adresse e-mail</label>
-          <input id="v-email" name="email" type="email" required>
-          <small>Uniquement pour te prévenir de l'ouverture. Pas de newsletter.</small>
-        </div>
-        <div class="field">
-          <label for="v-role">Tu es</label>
-          <select id="v-role" name="role">
-            <option>Un habitant intéressé</option>
-            <option>Un commerçant qui veut s'inscrire</option>
-          </select>
-        </div>
-        <button class="btn btn--primary btn--block" type="submit">Préviens-moi</button>
-        <p style="margin-top: var(--space-3)"><small style="color: var(--text-muted)">
-          Formulaire non connecté — brancher un service d'envoi avant mise en ligne.
-        </small></p>
-      </form>
+      <p style="margin-top: var(--space-6)">
+        <a class="btn btn--ghost" href="mission.html">Voir notre mission
+          <span class="btn__arrow" aria-hidden="true">→</span></a>
+      </p>
     </div>
   </section>
 </main>

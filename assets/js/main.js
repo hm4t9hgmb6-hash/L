@@ -14,6 +14,53 @@
   }
 })();
 
+/* Menus déroulants du bandeau : « À propos » et « Découvrir ».
+   Ouverture au clic plutôt qu'au survol — ça marche pareil au clavier, à la
+   souris et au doigt sur tablette, et ça évite le menu qui s'ouvre tout seul
+   quand on ne fait que passer la souris en allant ailleurs. Un seul menu
+   ouvert à la fois ; un clic ailleurs ou Échap referme. */
+(function () {
+  'use strict';
+
+  var groupes = document.querySelectorAll('[data-nav-drop]');
+  if (!groupes.length) return;
+
+  function fermerTous(saufDeclencheur) {
+    groupes.forEach(function (g) {
+      var declencheur = g.querySelector('[data-nav-drop-trigger]');
+      var panneau = g.querySelector('[data-nav-drop-panel]');
+      if (!declencheur || !panneau || declencheur === saufDeclencheur) return;
+      declencheur.setAttribute('aria-expanded', 'false');
+      panneau.hidden = true;
+    });
+  }
+
+  groupes.forEach(function (g) {
+    var declencheur = g.querySelector('[data-nav-drop-trigger]');
+    var panneau = g.querySelector('[data-nav-drop-panel]');
+    if (!declencheur || !panneau) return;
+
+    declencheur.addEventListener('click', function (ev) {
+      ev.stopPropagation();
+      var etaitOuvert = declencheur.getAttribute('aria-expanded') === 'true';
+      fermerTous(null);
+      declencheur.setAttribute('aria-expanded', String(!etaitOuvert));
+      panneau.hidden = etaitOuvert;
+    });
+  });
+
+  document.addEventListener('click', function () { fermerTous(null); });
+
+  document.addEventListener('keydown', function (ev) {
+    if (ev.key !== 'Escape') return;
+    var declencheurActif = document.activeElement &&
+      document.activeElement.closest('[data-nav-drop]') &&
+      document.activeElement.closest('[data-nav-drop]').querySelector('[data-nav-drop-trigger]');
+    fermerTous(null);
+    if (declencheurActif) declencheurActif.focus();
+  });
+})();
+
 /* Carte de ville : synchronisation épingles ↔ liste.
    Le comportement est volontairement le même que celui attendu d'une vraie
    carte, pour que le remplacement par MapLibre ou Leaflet ne change que le

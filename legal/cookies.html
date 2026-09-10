@@ -27,9 +27,32 @@
     </a>
     <nav class="nav" aria-label="Navigation principale">
       <ul>
-        <li><a href="../comment-ca-marche.html">Comment ça marche</a></li>
-        <li><a href="../villes.html">Villes</a></li>
-        <li><a href="../commercants.html">Commerçants</a></li>
+        <li class="nav-drop" data-nav-drop>
+          <button class="nav-drop__trigger" type="button" data-nav-drop-trigger
+                  aria-expanded="false" aria-controls="menu-apropos">
+            À propos
+            <svg class="nav-drop__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <ul class="nav-drop__panel" id="menu-apropos" data-nav-drop-panel hidden>
+            <li><a href="../mission.html">Notre mission</a></li>
+            <li><a href="../histoire.html">Notre histoire</a></li>
+          </ul>
+        </li>
+        <li class="nav-drop" data-nav-drop>
+          <button class="nav-drop__trigger" type="button" data-nav-drop-trigger
+                  aria-expanded="false" aria-controls="menu-decouvrir">
+            Découvrir
+            <svg class="nav-drop__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <ul class="nav-drop__panel" id="menu-decouvrir" data-nav-drop-panel hidden>
+            <li><a href="../villes/exemple-ville.html">Carte des commerces</a></li>
+            <li><a href="../villes.html">Villes couvertes</a></li>
+            <li><a href="../comment-ca-marche.html">Comment ça marche</a></li>
+            <li><a href="../commercants.html">Devenir partenaire</a></li>
+          </ul>
+        </li>
         <li><a href="../faq.html">FAQ</a></li>
       </ul>
     </nav>
@@ -42,11 +65,27 @@
 
 <div class="mobile-nav" data-mobile-nav hidden>
   <ul>
-    <li><a href="../comment-ca-marche.html">Comment ça marche</a></li>
-    <li><a href="../villes.html">Villes</a></li>
-    <li><a href="../commercants.html">Commerçants</a></li>
+    <li class="mobile-nav__group">
+      <details>
+        <summary>À propos</summary>
+        <ul>
+          <li><a href="../mission.html">Notre mission</a></li>
+          <li><a href="../histoire.html">Notre histoire</a></li>
+        </ul>
+      </details>
+    </li>
+    <li class="mobile-nav__group">
+      <details>
+        <summary>Découvrir</summary>
+        <ul>
+          <li><a href="../villes/exemple-ville.html">Carte des commerces</a></li>
+          <li><a href="../villes.html">Villes couvertes</a></li>
+          <li><a href="../comment-ca-marche.html">Comment ça marche</a></li>
+          <li><a href="../commercants.html">Devenir partenaire</a></li>
+        </ul>
+      </details>
+    </li>
     <li><a href="../faq.html">FAQ</a></li>
-    <li><a href="../mission.html">Notre mission</a></li>
     <li><a href="../aide.html">Aide</a></li>
   </ul>
 </div>
@@ -96,8 +135,9 @@
       <div class="footer-col">
         <h4>Découvrir</h4>
         <ul>
-          <li><a href="../comment-ca-marche.html">Comment ça marche</a></li>
+          <li><a href="../villes/exemple-ville.html">Carte des commerces</a></li>
           <li><a href="../villes.html">Où on est</a></li>
+          <li><a href="../comment-ca-marche.html">Comment ça marche</a></li>
           <li><a href="../index.html#telecharger">Télécharger l'app</a></li>
         </ul>
       </div>
@@ -110,9 +150,10 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Dealpick</h4>
+        <h4>À propos</h4>
         <ul>
           <li><a href="../mission.html">Notre mission</a></li>
+          <li><a href="../histoire.html">Notre histoire</a></li>
           <li><a href="../faq.html">FAQ</a></li>
           <li><a href="../aide.html">Aide</a></li>
         </ul>
