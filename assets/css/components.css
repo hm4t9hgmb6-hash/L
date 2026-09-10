@@ -986,13 +986,12 @@
 .showcase {
   position: relative;
   z-index: 1;
-  padding-block: clamp(var(--space-9), 11vw, var(--space-10)) clamp(var(--space-8), 9vw, var(--space-10));
-  background:
-    radial-gradient(50rem 30rem at 18% 12%, #7C5CFF 0%, transparent 60%),
-    radial-gradient(46rem 28rem at 82% 30%, #2E5EFF 0%, transparent 58%),
-    radial-gradient(38rem 26rem at 50% 100%, #C05CFF 0%, transparent 60%),
-    linear-gradient(160deg, #4B39E8, #7C5CFF 55%, #2E5EFF);
+  padding-block: clamp(var(--space-7), 6vw, var(--space-8));
+  background: var(--bg);
   color: #fff;
+}
+.showcase > .container > .blue-block {
+  padding-block: clamp(var(--space-8), 7vw, var(--space-9));
 }
 .showcase h2, .showcase p { color: #fff; }
 
@@ -1136,8 +1135,8 @@
 .cat-card {
   position: relative;
   flex: none;
-  width: clamp(9.5rem, 30vw, 14rem);
-  aspect-ratio: 5 / 4;
+  width: clamp(14rem, 42vw, 22rem);
+  aspect-ratio: 4 / 3;
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 0;
@@ -1427,3 +1426,63 @@
 }
 .slider-dots button[aria-current="true"] { background: var(--text); width: 22px; border-radius: 999px; }
 @media (min-width: 900px) { .slider-dots { display: none; } }
+
+/* ==========================================================================
+   Héros en deux colonnes : titre à gauche, recherche à droite
+   ========================================================================== */
+
+.hero-split { text-align: left; }
+.hero-split__grid { display: grid; gap: var(--space-7); align-items: center; }
+@media (min-width: 900px) {
+  .hero-split__grid { grid-template-columns: 1.05fr .95fr; gap: var(--space-8); }
+}
+.hero-split__title {
+  font-size: clamp(2.75rem, 1.4rem + 6.4vw, 5rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+.hero-split .search-card { margin: 0; max-width: 32rem; }
+@media (max-width: 899px) { .hero-split .search-card { margin-inline: auto; } }
+
+/* ==========================================================================
+   Registre bleu — titres de section et blocs pleins
+   ========================================================================== */
+
+.panel__title { color: var(--primary); }
+.panel--ink .panel__title, .cta-band h2, .showcase h2 { color: #fff; }
+
+/* Bloc bleu plein à coins arrondis, encadré par la marge de la page */
+.blue-block {
+  background: var(--primary);
+  color: #fff;
+  border-radius: var(--radius-xl);
+  padding: clamp(var(--space-6), 5vw, var(--space-8));
+}
+.blue-block h2, .blue-block h3 { color: #fff; }
+.blue-block p { color: rgba(255,255,255,.9); }
+
+/* ==========================================================================
+   « Développez votre activité » — vignette à gauche, texte à droite
+   ========================================================================== */
+
+.grow { display: grid; gap: clamp(var(--space-6), 5vw, var(--space-7)); }
+.grow__row { display: grid; gap: var(--space-5); align-items: start; }
+@media (min-width: 760px) {
+  .grow__row { grid-template-columns: 18rem 1fr; gap: var(--space-7); }
+}
+.grow__media {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--bg-inset);
+}
+.grow__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.grow__row h3 {
+  color: var(--primary);
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-3);
+}
+.grow__row p { color: var(--text-muted); max-width: 62ch; }

@@ -52,38 +52,41 @@
 </div>
 
 <main id="main">
-  <!-- ============ HÉROS ==================================================== -->
-  <section class="panel panel--grey panel--pad">
-    <div class="panel__inner">
-      <span class="eyebrow">En direct, autour de toi</span>
-      <h1 class="panel__title">Des réductions, à proximité,<br><span class="hero__accent">en temps réel</span></h1>
+  <!-- ============ S1 · HÉROS ============================================== -->
+  <section class="panel panel--grey panel--pad hero-split">
+    <div class="container hero-split__grid">
+      <div>
+        <h1 class="hero-split__title">Des réductions,<br>à proximité,<br><span class="hero__accent">en temps réel</span></h1>
+      </div>
 
-      <form class="search-card" action="villes.html" method="get">
-        <label class="search-card__label" for="lieu">
-          Entre une adresse, un arrondissement ou une ville pour voir ce qui est actif
-        </label>
-        <div class="search-field">
-          <svg class="search-field__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M21.5 2.5 2.8 10.2c-.8.3-.8 1.5.1 1.7l7.6 2 2 7.6c.2.9 1.4.9 1.7.1L21.5 2.5Z"
-                  stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-          </svg>
-          <label class="visually-hidden" for="lieu">Adresse, arrondissement ou ville</label>
-          <input id="lieu" name="lieu" type="text" placeholder="Adresse ou ville" autocomplete="street-address">
-          <button class="btn btn--primary" type="submit">Chercher</button>
-        </div>
-        <button class="search-card__alt" type="button">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true">
-            <circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.8"/>
-            <path d="M12 2v3M12 19v3M22 12h-3M5 12H2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-            <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/>
-          </svg>
-          Utiliser ma position actuelle
-        </button>
-      </form>
+      <div>
+        <form class="search-card" action="villes.html" method="get">
+          <label class="search-card__label" for="lieu">
+            Entre une adresse, un arrondissement ou une ville pour voir ce qui est actif
+          </label>
+          <div class="search-field">
+            <svg class="search-field__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M21.5 2.5 2.8 10.2c-.8.3-.8 1.5.1 1.7l7.6 2 2 7.6c.2.9 1.4.9 1.7.1L21.5 2.5Z"
+                    stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+            <label class="visually-hidden" for="lieu">Adresse, arrondissement ou ville</label>
+            <input id="lieu" name="lieu" type="text" placeholder="Adresse ou ville" autocomplete="street-address">
+            <button class="btn btn--primary" type="submit">Chercher</button>
+          </div>
+          <button class="search-card__alt" type="button">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true">
+              <circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M12 2v3M12 19v3M22 12h-3M5 12H2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/>
+            </svg>
+            Utiliser ma position actuelle
+          </button>
+        </form>
+      </div>
     </div>
   </section>
 
-  <!-- ============ DIAPORAMA DES CATÉGORIES ================================= -->
+  <!-- ============ S2 · DIAPORAMA DES CATÉGORIES =========================== -->
   <section class="panel panel--pad" style="padding-top: var(--space-7)">
     <div class="marquee" aria-label="Catégories de commerces partenaires">
       <div class="marquee__row marquee__row--left">
@@ -115,6 +118,30 @@
             <span class="cat-card__meta">−45 %</span>
             <span class="cat-card__label">Primeur</span>
           </a>
+          <a class="cat-card" href="app/offres.html" aria-label="Pressing, jusqu'à −45 %">
+            <span class="cat-card__meta">−45 %</span>
+            <span class="cat-card__label">Pressing</span>
+          </a>
+          <a class="cat-card" href="app/offres.html" aria-label="Esthétique, jusqu'à −35 %">
+            <span class="cat-card__meta">−35 %</span>
+            <span class="cat-card__label">Esthétique</span>
+          </a>
+          <a class="cat-card" href="app/offres.html" aria-label="Épicerie, jusqu'à −50 %">
+            <span class="cat-card__meta">−50 %</span>
+            <span class="cat-card__label">Épicerie</span>
+          </a>
+          <a class="cat-card" href="app/offres.html" aria-label="Réparation, jusqu'à −30 %">
+            <span class="cat-card__meta">−30 %</span>
+            <span class="cat-card__label">Réparation</span>
+          </a>
+          <a class="cat-card" href="app/offres.html" aria-label="Traiteur, jusqu'à −55 %">
+            <span class="cat-card__meta">−55 %</span>
+            <span class="cat-card__label">Traiteur</span>
+          </a>
+          <a class="cat-card" href="app/offres.html" aria-label="Mode, jusqu'à −40 %">
+            <span class="cat-card__meta">−40 %</span>
+            <span class="cat-card__label">Mode</span>
+          </a>
           <a class="cat-card cat-card--photo" href="app/offres.html" aria-label="Restaurant, jusqu'à −50 %">
             <picture>
               <source type="image/webp" srcset="assets/img/photos/restaurant.webp">
@@ -143,34 +170,6 @@
             <span class="cat-card__meta">−45 %</span>
             <span class="cat-card__label">Primeur</span>
           </a>
-      </div>
-    </div>
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee__row marquee__row--right">
-          <a class="cat-card" href="app/offres.html" aria-label="Pressing, jusqu'à −45 %">
-            <span class="cat-card__meta">−45 %</span>
-            <span class="cat-card__label">Pressing</span>
-          </a>
-          <a class="cat-card" href="app/offres.html" aria-label="Esthétique, jusqu'à −35 %">
-            <span class="cat-card__meta">−35 %</span>
-            <span class="cat-card__label">Esthétique</span>
-          </a>
-          <a class="cat-card" href="app/offres.html" aria-label="Épicerie, jusqu'à −50 %">
-            <span class="cat-card__meta">−50 %</span>
-            <span class="cat-card__label">Épicerie</span>
-          </a>
-          <a class="cat-card" href="app/offres.html" aria-label="Réparation, jusqu'à −30 %">
-            <span class="cat-card__meta">−30 %</span>
-            <span class="cat-card__label">Réparation</span>
-          </a>
-          <a class="cat-card" href="app/offres.html" aria-label="Traiteur, jusqu'à −55 %">
-            <span class="cat-card__meta">−55 %</span>
-            <span class="cat-card__label">Traiteur</span>
-          </a>
-          <a class="cat-card" href="app/offres.html" aria-label="Mode, jusqu'à −40 %">
-            <span class="cat-card__meta">−40 %</span>
-            <span class="cat-card__label">Mode</span>
-          </a>
           <a class="cat-card" href="app/offres.html" aria-label="Pressing, jusqu'à −45 %">
             <span class="cat-card__meta">−45 %</span>
             <span class="cat-card__label">Pressing</span>
@@ -199,89 +198,7 @@
     </div>
   </section>
 
-  <!-- ============ PANNEAU : LE FIL ========================================= -->
-  <section class="panel panel--grey">
-    <div class="panel__inner">
-      <h2 class="panel__title">Tout ce qui est actif, autour de toi.</h2>
-      <p class="panel__sub">Les réductions en cours dans ton rayon, classées par distance,
-         avec le temps qu'il reste et le nombre de places.</p>
-      <div class="panel__actions">
-        <a class="btn btn--primary btn--lg" href="#telecharger">Télécharger l'app</a>
-        <a class="btn btn--outline btn--lg" href="comment-ca-marche.html">En savoir plus</a>
-      </div>
-    </div>
-    <div class="panel__media panel__media--bleed">
-      <div class="phone" role="img" aria-label="Aperçu du fil des réductions en direct">
-        <div class="phone__notch"></div>
-        <div style="margin-top: var(--space-5); text-align:left">
-          <span class="live">En direct · 3e arrondissement</span>
-          <div class="deal-card">
-            <div class="deal-card__top">
-              <span class="deal-card__store">Boulangerie Marchand</span>
-              <span class="badge badge--discount">−60 %</span>
-            </div>
-            <p class="deal-card__title">350 m · valable encore 42 min · 3 places</p>
-            <div class="deal-card__prices">
-              <span class="deal-card__price">4,00 €</span>
-              <span class="deal-card__was">10,00 €</span>
-            </div>
-          </div>
-          <div class="deal-card">
-            <div class="deal-card__top">
-              <span class="deal-card__store">Salon Camille</span>
-              <span class="badge badge--discount">−40 %</span>
-            </div>
-            <p class="deal-card__title">800 m · rendez-vous 14h30 · 2 places</p>
-            <div class="deal-card__prices">
-              <span class="deal-card__price">21,00 €</span>
-              <span class="deal-card__was">35,00 €</span>
-            </div>
-          </div>
-          <div class="deal-card">
-            <div class="deal-card__top">
-              <span class="deal-card__store">Cordonnerie Vidal</span>
-              <span class="badge badge--discount">−40 %</span>
-            </div>
-            <p class="deal-card__title">1,1 km · valable encore 2 h · 3 places</p>
-            <div class="deal-card__prices">
-              <span class="deal-card__price">18,00 €</span>
-              <span class="deal-card__was">30,00 €</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ BANDE COLORÉE : CHIFFRES ================================= -->
-  <section class="showcase">
-    <div class="container">
-      <div class="figures">
-        <div>
-          <span class="figures__value">142</span>
-          <span class="figures__label">réductions actives en ce moment</span>
-        </div>
-        <div>
-          <span class="figures__value">1 240</span>
-          <span class="figures__label">commerces indépendants connectés</span>
-        </div>
-        <div>
-          <span class="figures__value">6 min</span>
-          <span class="figures__label">entre publication et première réservation</span>
-        </div>
-        <div>
-          <span class="figures__value">−48 %</span>
-          <span class="figures__label">de réduction moyenne</span>
-        </div>
-      </div>
-      <p style="margin-top: var(--space-7); text-align:center; font-size: var(--text-xs); opacity:.75">
-        Chiffres d'illustration. Les trois premiers doivent être calculés en direct une fois
-        le service lancé.
-      </p>
-    </div>
-  </section>
-
-  <!-- ============ PANNEAU : LES TROIS ÉTAPES =============================== -->
+  <!-- ============ S3 · LES TROIS ÉTAPES =================================== -->
   <section class="panel panel--grey panel--pad">
     <div class="panel__inner">
       <h2 class="panel__title">Trois gestes, aucune attente.</h2>
@@ -338,53 +255,83 @@
     </div>
   </section>
 
-  <!-- ============ DEUX PANNEAUX CÔTE À CÔTE ================================ -->
-  <div class="panel-duo">
-    <section class="panel panel--grey">
-      <div class="panel__inner">
-        <h2 class="panel__title">Côté client.</h2>
-        <p class="panel__sub">Vois ce qui est actif autour de toi, réserve en deux gestes,
-           présente-toi. Gratuit, sans abonnement.</p>
-        <div class="panel__actions">
-          <a class="btn btn--primary" href="#telecharger">Télécharger l'app</a>
+  <!-- ============ S4 · CHIFFRES =========================================== -->
+  <section class="showcase">
+    <div class="container">
+      <div class="blue-block">
+        <div class="figures">
+          <div>
+            <span class="figures__value">1</span>
+            <span class="figures__label">ville active</span>
+          </div>
+          <div>
+            <span class="figures__value">87</span>
+            <span class="figures__label">commerces inscrits</span>
+          </div>
+          <div>
+            <span class="figures__value">64 044</span>
+            <span class="figures__label">clients</span>
+          </div>
         </div>
       </div>
-      <div class="panel__media panel__media--bleed">
-        <picture class="photo-frame">
-          <source type="image/webp" srcset="assets/img/photos/coiffeur-640.webp 640w, assets/img/photos/coiffeur.webp 1200w" sizes="(min-width: 860px) 50vw, 100vw">
-          <img src="assets/img/photos/coiffeur.jpg"
-               srcset="assets/img/photos/coiffeur-640.jpg 640w, assets/img/photos/coiffeur.jpg 1200w"
-               sizes="(min-width: 860px) 50vw, 100vw"
-               width="1200" height="801" loading="lazy" decoding="async"
-               alt="Un coiffeur en train de couper les cheveux d'un client dans son salon">
-        </picture>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="panel panel--grey">
-      <div class="panel__inner">
-        <h2 class="panel__title">Côté commerçant.</h2>
-        <p class="panel__sub">Publie une réduction en trente secondes, visible
-           immédiatement par les clients de ton quartier.</p>
-        <div class="panel__actions">
-          <a class="btn btn--outline" href="commercants.html">Inscrire mon commerce</a>
-        </div>
-      </div>
-      <div class="panel__media panel__media--bleed">
-        <picture class="photo-frame">
-          <source type="image/webp" srcset="assets/img/photos/commercante-600.webp 600w, assets/img/photos/commercante.webp 900w" sizes="(min-width: 860px) 50vw, 100vw">
-          <img src="assets/img/photos/commercante.jpg"
-               srcset="assets/img/photos/commercante-600.jpg 600w, assets/img/photos/commercante.jpg 900w"
-               sizes="(min-width: 860px) 50vw, 100vw"
-               width="930" height="633" loading="lazy" decoding="async"
-               alt="Une commerçante devant la vitrine de son épicerie">
-        </picture>
-      </div>
-    </section>
-  </div>
-
-  <!-- ============ FAQ ====================================================== -->
+  <!-- ============ S5 · DÉVELOPPEZ VOTRE ACTIVITÉ ========================== -->
   <section class="panel panel--pad">
+    <div class="container" style="text-align:left">
+      <h2 class="panel__title" style="max-width: 20ch; margin-bottom: clamp(var(--space-7), 6vw, var(--space-8))">
+        Développez votre activité avec Dealpick
+      </h2>
+
+      <div class="grow">
+        <div class="grow__row">
+          <picture class="grow__media">
+            <source type="image/webp" srcset="assets/img/photos/commercante-600.webp 600w, assets/img/photos/commercante.webp 900w" sizes="(min-width: 760px) 18rem, 100vw">
+            <img src="assets/img/photos/commercante.jpg" width="930" height="633"
+                 loading="lazy" decoding="async" alt="Une commerçante devant la vitrine de son épicerie"
+                 srcset="assets/img/photos/commercante-600.jpg 600w, assets/img/photos/commercante.jpg 900w"
+                 sizes="(min-width: 760px) 18rem, 100vw">
+          </picture>
+          <div>
+            <h3>Attirez de nouveaux clients</h3>
+            <p>Profitez de notre communauté grandissante d'utilisateurs. Chaque nouvelle offre publiée est notifiée aux utilisateurs Dealpick à proximité, ce qui amène de nouveaux clients directement vers votre commerce.</p>
+          </div>
+        </div>
+        <div class="grow__row">
+          <picture class="grow__media">
+            <source type="image/webp" srcset="assets/img/photos/coiffeur-640.webp 640w, assets/img/photos/coiffeur.webp 1200w" sizes="(min-width: 760px) 18rem, 100vw">
+            <img src="assets/img/photos/coiffeur.jpg" width="1200" height="801"
+                 loading="lazy" decoding="async" alt="Un coiffeur au travail dans son salon"
+                 srcset="assets/img/photos/coiffeur-640.jpg 640w, assets/img/photos/coiffeur.jpg 1200w"
+                 sizes="(min-width: 760px) 18rem, 100vw">
+          </picture>
+          <div>
+            <h3>Augmentez le profit</h3>
+            <p>En moyenne, les utilisateurs Dealpick dépensent 15 € d'achats supplémentaires par visite. Vos clients repartent souvent avec des achats à prix plein en plus de leur réservation, ce qui fait grimper votre panier moyen.</p>
+          </div>
+        </div>
+        <div class="grow__row">
+          <picture class="grow__media">
+            <source type="image/webp" srcset="assets/img/photos/restaurant.webp">
+            <img src="assets/img/photos/restaurant.jpg" width="300" height="200"
+                 loading="lazy" decoding="async" alt="Un restaurateur présentant une pizza">
+          </picture>
+          <div>
+            <h3>Réduisez les pertes et valorisez vos invendus</h3>
+            <p>Pourquoi laisser un créneau vide ou un produit invendu partir à perte quand vous pouvez le vendre ? Les commerces partenaires de Dealpick réduisent leurs pertes de 21 % en moyenne et gagnent la fidélité de leur communauté locale.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-row" style="margin-top: clamp(var(--space-7), 6vw, var(--space-8))">
+        <a class="btn btn--primary btn--lg" href="commercants.html">Inscrire mon commerce</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ===================================================== -->
+  <section class="panel panel--grey panel--pad">
     <div class="panel__inner">
       <h2 class="panel__title">Questions fréquentes.</h2>
     </div>
@@ -412,7 +359,7 @@
     </div>
   </section>
 
-  <!-- ============ TÉLÉCHARGEMENT =========================================== -->
+  <!-- ============ TÉLÉCHARGEMENT ========================================== -->
   <section class="cta-band" id="telecharger">
     <div class="container">
       <h2>Regarde ce qui est actif maintenant.</h2>
