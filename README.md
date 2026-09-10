@@ -242,6 +242,34 @@ assets/img/ logo.svg
 
 ---
 
+## Crédibilité : ce que le site n'affirme pas
+
+Un site neuf peut facilement se donner l'air d'un service installé. Celui-ci ne
+le fait pas, et c'est délibéré — en France, un chiffre d'activité ou une note
+inventés relèvent de la pratique commerciale trompeuse (article L.121-2 du code
+de la consommation), et un faux avis est sanctionné pénalement.
+
+Ont donc été retirés :
+
+- la note « 4,8 ★ » et le « 9 sur 10 recommandent » de la page Commerçants ;
+- les compteurs « 87 commerces inscrits », « 2 132 clients » et « 1 240
+  commerces connectés » ;
+- la moyenne « 15 € d'achats supplémentaires par visite » et la baisse « de
+  21 % des pertes », deux résultats qu'aucune donnée ne soutient.
+
+Ce qui les remplace tient tout seul : des **engagements** que l'éditeur décide
+et peut honorer dès le premier jour (pas d'abonnement, uniquement des
+indépendants, résiliable à tout moment), et un **raisonnement vérifiable** à la
+place des moyennes — un créneau vide rapporte zéro, le même vendu à moins
+quarante pour cent en rapporte soixante.
+
+La page Mission porte une section « Où en est Dealpick, exactement » : stade,
+ville, nombre réel de commerces, identité de l'éditeur, prestataire de paiement,
+contact. Tous les champs entre crochets sont à remplir avant mise en ligne.
+
+Le jour où les chiffres d'activité existent, ils remplacent les engagements de
+la bande d'accueil — la mise en forme `.figures` est déjà prévue pour.
+
 ## À faire avant mise en ligne
 
 ### Contenu

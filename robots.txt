@@ -1,0 +1,8 @@
+# Dealpick
+# Les écrans d'application sont des maquettes : ils ne doivent pas être indexés.
+User-agent: *
+Allow: /
+Disallow: /app/
+
+# Décommenter et compléter le jour de la mise en ligne :
+# Sitemap: https://LE-DOMAINE/sitemap.xml

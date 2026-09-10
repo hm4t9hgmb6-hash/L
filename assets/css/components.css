@@ -1907,3 +1907,14 @@
 .page-head > * { max-width: 46rem; }
 .page-head h1 { margin-bottom: var(--space-5); }
 .page-head .lede { max-width: 54ch; }
+
+/* Note d'honnêteté sous une bande de chiffres : plus discrète que les
+   chiffres, mais jamais cachée — c'est elle qui les rend crédibles. */
+.showcase__note {
+  max-width: 52ch;
+  margin: var(--space-7) auto 0;
+  text-align: center;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, .78);
+}
