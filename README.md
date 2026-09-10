@@ -187,6 +187,41 @@ Le ton rédactionnel est le **tutoiement**, cohérent avec un service de quartie
 
 ---
 
+## Bandeau des enseignes
+
+Le bandeau défilant de la page d'accueil présente **douze enseignes fictives**
+(`Trattoria Bruno`, `Cordonnerie Vidal`, `Salon Elsa`…), chacune réduite à un
+monogramme de deux lettres, un nom, un métier et une remise. Deux de ces noms
+— Boulangerie Marchand et Cordonnerie Vidal — se retrouvent dans les maquettes
+d'application, pour que le site raconte une seule et même ville.
+
+Elles sont fictives à dessein. Afficher le logo d'une enseigne réelle sur une
+page qui parle de commerces partenaires laisse entendre un partenariat qui
+n'existe pas : c'est un usage de marque sans autorisation, et le premier motif
+de mise en demeure sur ce type de page. Cela vaut aussi pour les logos achetés
+en banque d'images, dont la licence couvre rarement la représentation d'une
+relation commerciale.
+
+**Pour passer à de vrais commerces**, une fois les autorisations écrites
+obtenues : déposer les fichiers dans `assets/img/logos/`, puis remplacer dans
+la tuile
+
+```html
+<span class="cat-card__sign" aria-hidden="true">TB</span>
+```
+
+par
+
+```html
+<img class="cat-card__sign" src="assets/img/logos/trattoria-bruno.svg"
+     width="40" height="40" alt="">
+```
+
+Le sélecteur `.cat-card__sign` fixe déjà la taille, le rayon et le centrage :
+rien d'autre ne bouge. Le nom, le métier et la remise restent du texte, jamais
+de l'image — c'est ce qui les rend lisibles aux lecteurs d'écran et
+remplaçables par les données réelles le jour où le fil est branché.
+
 ## Structure des fichiers
 
 ```
