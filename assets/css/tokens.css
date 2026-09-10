@@ -46,7 +46,9 @@
   --amber-500: #F5A524;  /* attention, information */
 
   --violet-50:  #F2EDFF;
-  --violet-500: #7C5CFF; /* prestations, second registre */
+  --violet-500: #7C5CFF; /* prestations, second registre : texte/icône sur fond clair */
+  --violet-700: #6A46F2; /* même teinte, assombrie pour tenir 4,5:1 en texte blanc dessus —
+                             #7C5CFF n'atteint que 4,35:1, sous le seuil visé sur ce projet */
 
   /* --- Rôles sémantiques -------------------------------------------------- */
   --bg:             var(--n-0);
@@ -79,6 +81,7 @@
 
   --service:        var(--violet-500);
   --service-soft:   var(--violet-50);
+  --service-ink:    var(--violet-700);
 
   --highlight:      var(--amber-500);
   --highlight-soft: var(--amber-50);

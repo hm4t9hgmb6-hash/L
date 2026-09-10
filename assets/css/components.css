@@ -1452,6 +1452,37 @@
 .cat-card:nth-child(7n+7) .cat-card__label { color: rgba(255,255,255,.78); }
 .cat-card:nth-child(7n+7) .cat-card__sign  { background: rgba(255,255,255,.20); color: #fff; }
 
+/* Deux rappels de couleur, posés sur des métiers précis plutôt qu'au hasard
+   d'une rotation : le violet marque un rendez-vous (coiffeur, barbier), le
+   vert menthe marque le registre frais/économie (primeur). Même traitement
+   en aplat que la tuile orange ci-dessus — c'est le même vocabulaire visuel,
+   avec un sens différent selon la couleur plutôt qu'une couleur de plus. */
+/* .cat-card--rdv seul (une classe) perdrait contre .cat-card:nth-child(),
+   qui compte pour deux (une classe + une pseudo-classe) — même bug de
+   spécificité que .nav-drop__panel plus haut dans ce fichier. Doublé en
+   .cat-card.cat-card--rdv pour être à égalité, l'ordre dans la feuille
+   (ces règles arrivent après la rotation nth-child) tranche alors en leur
+   faveur. */
+.cat-card.cat-card--rdv {
+  --cat-bg: var(--service-ink);
+  border-color: transparent;
+}
+.cat-card--rdv::before { background: linear-gradient(168deg, rgba(255,255,255,.18), transparent 52%); }
+.cat-card--rdv .cat-card__meta,
+.cat-card--rdv .cat-card__name  { color: #fff; }
+.cat-card--rdv .cat-card__label { color: rgba(255,255,255,.80); }
+.cat-card--rdv .cat-card__sign  { background: rgba(255,255,255,.20); color: #fff; }
+
+.cat-card.cat-card--fresh {
+  --cat-bg: var(--money-ink);
+  border-color: transparent;
+}
+.cat-card--fresh::before { background: linear-gradient(168deg, rgba(255,255,255,.16), transparent 52%); }
+.cat-card--fresh .cat-card__meta,
+.cat-card--fresh .cat-card__name  { color: #fff; }
+.cat-card--fresh .cat-card__label { color: rgba(255,255,255,.80); }
+.cat-card--fresh .cat-card__sign  { background: rgba(255,255,255,.20); color: #fff; }
+
 /* Accent typographique du titre principal */
 .hero__accent { color: var(--primary); }
 
