@@ -231,7 +231,24 @@
 }
 @media (min-width: 940px) { .nav-toggle { display: none; } }
 
-.mobile-nav { background: var(--surface); border-bottom: 1px solid var(--border); }
+/* Ancré sous le bandeau plutôt que posé dans le flux normal du document.
+   Avant ce correctif, le panneau était un bloc ordinaire juste après <header>
+   dans le HTML : à l'ouverture, il apparaissait à l'endroit où il se trouve
+   dans le document, c'est-à-dire tout en haut de la page — invisible dès
+   qu'on avait défilé, puisque le bandeau, lui, reste fixé en haut de l'écran
+   grâce à position: sticky. Le panneau suit maintenant le même repère. */
+.mobile-nav {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  z-index: 50;
+  max-height: calc(100vh - var(--header-height));
+  overflow-y: auto;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+}
 .mobile-nav > ul { list-style: none; margin: 0; padding: var(--space-3) var(--space-5); }
 .mobile-nav > ul > li { margin: 0; border-bottom: 1px solid var(--border); }
 .mobile-nav > ul > li:last-child { border-bottom: 0; }
