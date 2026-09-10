@@ -1059,11 +1059,29 @@
 .ratings__score { font-size: var(--text-sm); opacity: .9; }
 .ratings__stars { color: #FFD166; letter-spacing: 1px; }
 
+.showcase__label {
+  display: block;
+  margin-bottom: var(--space-7);
+  text-align: center;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .68);
+}
+
 .figures {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
-  gap: var(--space-7) var(--space-5);
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: var(--space-7) 0;
+  max-width: 58rem;
+  margin-inline: auto;
   text-align: center;
+}
+/* Filets entre les colonnes : ils tiennent les trois chiffres ensemble au
+   lieu de les laisser dériver chacun dans son tiers de bande. */
+@media (min-width: 720px) {
+  .figures > * + * { border-left: 1px solid rgba(255, 255, 255, .22); }
 }
 .figures__value {
   display: block;
@@ -1075,7 +1093,13 @@
   line-height: 1;
   letter-spacing: -0.03em;
 }
-.figures__label { display: block; margin-top: var(--space-2); opacity: .9; }
+.figures__label {
+  display: block;
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, .82);
+}
 
 /* --- Tuiles par métier ---------------------------------------------------- */
 
@@ -1708,34 +1732,51 @@
    ========================================================================== */
 
 .tabs-block {
+  position: relative;
   background: var(--primary);
   color: #fff;
   border-radius: var(--radius-xl);
   overflow: hidden;
   display: grid;
   gap: 0;
+  isolation: isolate;
+}
+/* Lumière rasante sur tout le bloc : sans elle la capture flotte sur un
+   aplat. Elle est posée sur le bloc entier, pas sur la colonne de gauche,
+   sinon la limite entre les deux colonnes se voit. */
+.tabs-block::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(78% 120% at 22% 0%, rgba(255, 255, 255, .16), transparent 62%);
+  pointer-events: none;
 }
 @media (min-width: 900px) {
   .tabs-block { grid-template-columns: 1fr 1fr; align-items: center; }
 }
 
 .tabs-block__media {
-  padding: clamp(var(--space-5), 4vw, var(--space-7));
+  position: relative;
+  padding: clamp(var(--space-6), 4.5vw, var(--space-8));
   display: grid;
   place-items: center;
 }
+
 .tabs-block__media picture {
+  position: relative;
   display: block;
   width: 100%;
-  max-width: 28rem;
+  max-width: 31rem;
   aspect-ratio: 3 / 2;
   overflow: hidden;
   border-radius: var(--radius-lg);
   background: rgba(255,255,255,.12);
+  box-shadow: 0 2px 8px rgba(60, 22, 0, .18), 0 30px 60px -18px rgba(60, 22, 0, .40);
 }
 .tabs-block__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-.tabs-block__body { padding: clamp(var(--space-5), 4vw, var(--space-7)); }
+.tabs-block__body { padding: clamp(var(--space-6), 4.5vw, var(--space-8)); }
 
 .tablist {
   display: flex;
@@ -1821,3 +1862,16 @@
 @media (prefers-reduced-motion: reduce) {
   .sticky-cta { transition: none; }
 }
+
+/* ==========================================================================
+   En-tête de page intérieure
+   Les pages secondaires ouvraient sur un bloc centré à 720 px : son bord
+   gauche tombait à 304 px alors que tout le reste de la page commence à
+   104 px. Deux rails de lecture différents sur un même écran, c'est ce qui
+   fait « page assemblée ». Le titre s'aligne désormais sur le rail commun,
+   sa largeur seule étant limitée.
+   ========================================================================== */
+
+.page-head > * { max-width: 46rem; }
+.page-head h1 { margin-bottom: var(--space-5); }
+.page-head .lede { max-width: 54ch; }
