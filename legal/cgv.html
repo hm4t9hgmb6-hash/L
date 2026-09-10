@@ -127,6 +127,10 @@
         <p style="color: var(--text-muted); font-size: var(--text-sm); margin-top: var(--space-3); max-width: 34ch">
           Les réductions des commerces indépendants de ton quartier, en temps réel.
         </p>
+        <p class="footer-contact">
+          <span class="placeholder">[Raison sociale]</span>, <span class="placeholder">[ville]</span>
+          — <span class="placeholder">[contact@ le domaine du site]</span>
+        </p>
       </div>
       <div class="footer-col">
         <h4>Découvrir</h4>
@@ -160,11 +164,20 @@
         <a href="../legal/confidentialite.html">Confidentialité</a> ·
         <a href="../legal/cgu.html">CGU</a> ·
         <a href="../legal/cgv.html">CGV</a> ·
-        <a href="../legal/cookies.html">Cookies</a>
+        <a href="../legal/cookies.html">Cookies</a> ·
+        <button class="link-btn" type="button" data-cookie-reopen>Gérer mes cookies</button>
       </span>
     </div>
   </div>
 </footer>
+
+<div class="cookie-bar" data-cookie-bar hidden>
+  <p>Dealpick n'utilise que des cookies techniques, nécessaires au fonctionnement du
+     site (préférence de thème, sécurité de la session). Aucun cookie de mesure
+     d'audience ni de publicité n'est déposé pour l'instant —
+     <a href="../legal/cookies.html">le détail est ici</a>.</p>
+  <button class="btn btn--dark" type="button" data-cookie-dismiss>Compris</button>
+</div>
 
 <script src="../assets/js/main.js"></script>
 </body>

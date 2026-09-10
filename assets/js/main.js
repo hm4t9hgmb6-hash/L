@@ -219,3 +219,47 @@
 
   observateur.observe(repere);
 })();
+
+/* Bandeau cookies.
+   Purement informatif tant qu'aucun cookie non essentiel n'est déposé : pas
+   de choix accepter/refuser à faire, donc pas de rideau bloquant ni de reflow
+   de page. Le jour où un outil de mesure d'audience est ajouté, ce bloc est
+   celui à transformer en bandeau de consentement (deux boutons à égalité de
+   poids visuel, refus aussi simple que l'acceptation — l'exigence de la
+   CNIL). Le choix « compris » est mémorisé par appareil, pas par session :
+   il ne doit pas réapparaître à chaque visite. */
+(function () {
+  'use strict';
+
+  var CLE = 'dealpick-cookies-vu';
+  var bandeau = document.querySelector('[data-cookie-bar]');
+  if (!bandeau) return;
+
+  function ouvrir() { bandeau.hidden = false; }
+  function fermer() {
+    bandeau.hidden = true;
+    try { localStorage.setItem(CLE, '1'); } catch (e) { /* stockage indisponible : tant pis, on ne bloque rien */ }
+  }
+
+  var dejaVu = false;
+  try { dejaVu = localStorage.getItem(CLE) === '1'; } catch (e) { /* considéré comme non vu */ }
+  if (!dejaVu) ouvrir();
+
+  /* Sur les pages qui portent la barre d'action mobile, décale le bandeau
+     cookies pour que les deux ne se chevauchent pas en bas d'écran. */
+  if (document.querySelector('[data-sticky-cta]')) {
+    bandeau.classList.add('is-with-sticky-cta');
+  }
+
+  var boutonFermer = bandeau.querySelector('[data-cookie-dismiss]');
+  if (boutonFermer) boutonFermer.addEventListener('click', fermer);
+
+  var reouvertures = document.querySelectorAll('[data-cookie-reopen]');
+  for (var i = 0; i < reouvertures.length; i++) {
+    reouvertures[i].addEventListener('click', function (ev) {
+      ev.preventDefault();
+      ouvrir();
+      bandeau.scrollIntoView({ block: 'end', behavior: 'smooth' });
+    });
+  }
+})();

@@ -69,22 +69,67 @@
         <p class="hero__note">Inscription gratuite · Aucune carte bancaire · Résiliable à tout moment</p>
       </div>
 
-      <div class="hero__shot" style="max-width: 46rem; margin-inline: auto">
-        <div class="mock">
+      <div class="hero__shot" style="max-width: 46rem; margin-inline: auto" data-reveal>
+        <div class="mock" role="img" aria-label="Maquette de l'écran de publication d'une offre : formulaire à gauche, aperçu de la carte visible par le client à droite">
           <div class="mock__bar">
             <span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span>
             <span style="margin-left: var(--space-3); font-size: var(--text-xs); color: var(--text-muted)">Publier une réduction</span>
           </div>
-          <div class="mock__body">
-            <span class="mock__line mock__line--short"></span>
-            <span class="mock__line"></span>
-            <span class="mock__line mock__line--accent"></span>
-            <span class="mock__line"></span>
-            <span class="mock__line mock__line--short"></span>
+          <div class="mock-form" aria-hidden="true">
+            <div>
+              <div class="mock-field">
+                <span class="mock-field__label">Ce que tu proposes</span>
+                <span class="mock-field__value">Lot de viennoiseries</span>
+              </div>
+              <div class="mock-field mock-field__row">
+                <div>
+                  <span class="mock-field__label">Prix réduit</span>
+                  <span class="mock-field__value">4,00 €</span>
+                </div>
+                <div>
+                  <span class="mock-field__label">Prix habituel</span>
+                  <span class="mock-field__value">10,00 €</span>
+                </div>
+              </div>
+              <div class="mock-field mock-field__row">
+                <div>
+                  <span class="mock-field__label">Places</span>
+                  <span class="mock-field__value">3</span>
+                </div>
+                <div>
+                  <span class="mock-field__label">Validité</span>
+                  <span class="mock-field__value">Jusqu'à 19 h</span>
+                </div>
+              </div>
+              <div class="mock-field">
+                <span class="mock-field__label">Fenêtre</span>
+                <div class="mock-choices">
+                  <span class="mock-choice">Toute la journée</span>
+                  <span class="mock-choice mock-choice--on">Jusqu'à la fermeture</span>
+                  <span class="mock-choice">Personnalisée</span>
+                </div>
+              </div>
+              <span class="btn btn--primary btn--block" style="margin-top: var(--space-5); pointer-events:none">Publier l'offre</span>
+            </div>
+            <div class="mock-form__preview">
+              <span class="mock-form__preview-label">Ce que voit le client, en direct</span>
+              <div class="deal-card">
+                <div class="deal-card__top">
+                  <span class="deal-card__store">Boulangerie Marchand</span>
+                  <span class="badge badge--discount">−60 %</span>
+                </div>
+                <p class="deal-card__title">Lot de viennoiseries · 350 m · 3 places</p>
+                <div class="deal-card__prices">
+                  <span class="deal-card__price">4,00 €</span>
+                  <span class="deal-card__was">10,00 €</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <p style="margin-top: var(--space-3); font-size: var(--text-xs); color: var(--text-muted); text-align:center">
-          Emplacement pour une capture réelle de l'interface commerçant.
+          Maquette de l'écran de publication, à remplacer par une capture réelle une
+          fois l'outil commerçant construit.
         </p>
       </div>
     </div>
@@ -556,6 +601,10 @@
         <p style="color: var(--text-muted); font-size: var(--text-sm); margin-top: var(--space-3); max-width: 34ch">
           Les réductions des commerces indépendants de ton quartier, en temps réel.
         </p>
+        <p class="footer-contact">
+          <span class="placeholder">[Raison sociale]</span>, <span class="placeholder">[ville]</span>
+          — <span class="placeholder">[contact@ le domaine du site]</span>
+        </p>
       </div>
       <div class="footer-col">
         <h4>Découvrir</h4>
@@ -589,11 +638,20 @@
         <a href="legal/confidentialite.html">Confidentialité</a> ·
         <a href="legal/cgu.html">CGU</a> ·
         <a href="legal/cgv.html">CGV</a> ·
-        <a href="legal/cookies.html">Cookies</a>
+        <a href="legal/cookies.html">Cookies</a> ·
+        <button class="link-btn" type="button" data-cookie-reopen>Gérer mes cookies</button>
       </span>
     </div>
   </div>
 </footer>
+
+<div class="cookie-bar" data-cookie-bar hidden>
+  <p>Dealpick n'utilise que des cookies techniques, nécessaires au fonctionnement du
+     site (préférence de thème, sécurité de la session). Aucun cookie de mesure
+     d'audience ni de publicité n'est déposé pour l'instant —
+     <a href="legal/cookies.html">le détail est ici</a>.</p>
+  <button class="btn btn--dark" type="button" data-cookie-dismiss>Compris</button>
+</div>
 
 <script src="assets/js/main.js"></script>
 </body>
