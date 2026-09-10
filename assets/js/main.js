@@ -119,3 +119,38 @@
   });
   sync();
 })();
+
+/* Bloc à onglets : le sélecteur change le visuel et le texte, au clic comme
+   aux flèches du clavier. */
+(function () {
+  'use strict';
+  var bloc = document.querySelector('[data-tabs]');
+  if (!bloc) return;
+
+  var onglets = bloc.querySelectorAll('[role="tab"]');
+  var panneaux = bloc.querySelectorAll('[role="tabpanel"]');
+  var visuels = bloc.querySelectorAll('[data-tab-media]');
+
+  function activer(i, donnerLeFocus) {
+    for (var j = 0; j < onglets.length; j++) {
+      var actif = j === i;
+      onglets[j].setAttribute('aria-selected', String(actif));
+      onglets[j].tabIndex = actif ? 0 : -1;
+      panneaux[j].hidden = !actif;
+      if (visuels[j]) visuels[j].hidden = !actif;
+    }
+    if (donnerLeFocus) onglets[i].focus();
+  }
+
+  for (var k = 0; k < onglets.length; k++) {
+    (function (i) {
+      onglets[i].addEventListener('click', function () { activer(i, false); });
+      onglets[i].addEventListener('keydown', function (ev) {
+        var d = ev.key === 'ArrowRight' ? 1 : ev.key === 'ArrowLeft' ? -1 : 0;
+        if (!d) return;
+        ev.preventDefault();
+        activer((i + d + onglets.length) % onglets.length, true);
+      });
+    })(k);
+  }
+})();

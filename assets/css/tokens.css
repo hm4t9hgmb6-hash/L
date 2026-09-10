@@ -9,32 +9,34 @@
 
   /* --- Palette brute ------------------------------------------------------ */
 
-  /* Neutres légèrement bleutés : accordés à la couleur de marque plutôt que
+  /* Neutres légèrement réchauffés : accordés à l'orange de marque plutôt que
      gris purs, qui donnent toujours un rendu « par défaut ». */
   --n-0:   #FFFFFF;
-  --n-25:  #FBFBFD;
-  --n-50:  #F5F6F9;
-  --n-100: #EDEFF4;
-  --n-200: #E1E4EC;
-  --n-300: #C9CDDA;
-  --n-400: #9AA0B4;
-  --n-500: #6F7689;
-  --n-600: #545B6D;
-  --n-700: #3B4152;
-  --n-800: #232733;
-  --n-900: #14161E;
-  --n-950: #0D0F15;
+  --n-25:  #FDFCFB;
+  --n-50:  #F7F5F2;
+  --n-100: #F0ECE7;
+  --n-200: #E4DED7;
+  --n-300: #CDC5BB;
+  --n-400: #A1988E;
+  --n-500: #756D66;
+  --n-600: #5A534D;
+  --n-700: #403A35;
+  --n-800: #262220;
+  --n-900: #191614;
+  --n-950: #100E0D;
 
-  --blue-50:  #EEF2FF;
-  --blue-100: #DDE4FF;
-  --blue-300: #93A8FF;
-  --blue-500: #2E5EFF;   /* couleur de marque */
-  --blue-600: #1F49E0;
-  --blue-700: #1739B0;
+  /* Orange de marque. Le ton principal tient 4,5:1 avec le blanc dans les
+     deux sens — c'était la contrainte : un orange vif n'y arrive pas. */
+  --brand-50:  #FFF3EA;
+  --brand-100: #FFE2CE;
+  --brand-300: #FF9A55;
+  --brand-500: #E8590C;   /* orange vif : survols, dégradés */
+  --brand-600: #CC4E00;   /* couleur de marque : boutons, liens, blocs */
+  --brand-700: #A83E00;
 
-  --coral-50:  #FFF1ED;
-  --coral-500: #FF6B4A;  /* réductions et urgence */
-  --coral-700: #D2431F;
+  --coral-50:  #FFF3EA;
+  --coral-500: #E8590C;  /* réductions : même famille que la marque */
+  --coral-700: #A83E00;
 
   --mint-50:  #E7FAF1;
   --mint-500: #10B981;   /* économie réalisée */
@@ -48,7 +50,7 @@
 
   /* --- Rôles sémantiques -------------------------------------------------- */
   --bg:             var(--n-0);
-  --bg-subtle:      #F5F5F7;
+  --bg-subtle:      #F6F4F1;
   --bg-inset:       var(--n-100);
   --surface:        var(--n-0);
   --surface-raised: var(--n-0);
@@ -61,10 +63,10 @@
   --text-muted:     var(--n-500);
   --text-inverse:   var(--n-0);
 
-  --primary:        var(--blue-500);
-  --primary-hover:  var(--blue-600);
-  --primary-soft:   var(--blue-50);
-  --primary-line:   var(--blue-100);
+  --primary:        var(--brand-600);
+  --primary-hover:  var(--brand-700);
+  --primary-soft:   var(--brand-50);
+  --primary-line:   var(--brand-100);
   --on-primary:     #FFFFFF;
 
   --accent:         var(--coral-500);
@@ -81,7 +83,7 @@
   --highlight:      var(--amber-500);
   --highlight-soft: var(--amber-50);
 
-  --focus-ring:     var(--blue-500);
+  --focus-ring:     var(--brand-600);
 
   /* --- Typographie -------------------------------------------------------- */
   --font-display: "Gabarito", "Manrope", -apple-system, BlinkMacSystemFont, sans-serif;

@@ -89,15 +89,21 @@ pour que les contrôles de formulaire restent clairs eux aussi.
 
 | Rôle | Valeur | Usage |
 |---|---|---|
-| Encre | `#14161E` | Texte |
+| Encre | `#191614` | Texte |
 | Blanc | `#FFFFFF` | Fond des panneaux clairs |
-| Gris panneau | `#F5F5F7` | Fond des panneaux alternés |
-| Bleu | `#2E5EFF` | Marque, boutons, liens |
-| Corail | `#FF6B4A` | Réductions — **uniquement** |
+| Gris panneau | `#F6F4F1` | Fond des panneaux alternés |
+| **Orange de marque** | `#CC4E00` | Titres de section, boutons, liens, blocs pleins |
+| Orange vif | `#E8590C` | Réductions, survols, dégradés |
 | Menthe | `#10B981` | Disponibilité, indicateur « en direct » |
-| Violet | `#7C5CFF` | Prestations, bandes colorées |
+| Violet | `#7C5CFF` | Prestations, second registre |
 
-Les neutres sont légèrement bleutés, accordés à la couleur de marque.
+Les neutres sont légèrement réchauffés, accordés à l'orange de marque.
+
+**Pourquoi cet orange précisément.** Un orange vif type `#F97316` n'atteint que 2,8:1
+avec le blanc — insuffisant pour du texte, dans un sens comme dans l'autre. Il fallait
+descendre jusqu'à `#CC4E00` pour tenir 4,5:1 et pouvoir l'employer partout : texte sur
+blanc, blanc sur aplat, boutons. C'est la contrainte qui a fixé la teinte, l'orange étant
+bien plus clair que le bleu à saturation égale.
 
 ### Typographie
 

@@ -55,6 +55,10 @@ a:hover { color: var(--primary-hover); border-bottom-color: currentColor; }
 
 img, svg, video { max-width: 100%; height: auto; display: block; }
 
+/* L'attribut hidden doit l'emporter sur nos règles d'affichage : sans ça,
+   un « display: block » posé sur un sélecteur plus spécifique le neutralise. */
+[hidden] { display: none !important; }
+
 ul, ol { margin: 0 0 var(--space-4); padding-left: var(--space-5); }
 li { margin-bottom: var(--space-2); }
 

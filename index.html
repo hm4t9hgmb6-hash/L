@@ -199,66 +199,65 @@
   </section>
 
   <!-- ============ S3 · LES TROIS ÉTAPES =================================== -->
-  <section class="panel panel--grey panel--pad">
-    <div class="panel__inner">
-      <h2 class="panel__title">Trois gestes, aucune attente.</h2>
-    </div>
+  <section class="panel panel--pad">
+    <div class="container" style="text-align:left">
+      <h2 class="panel__title" style="margin-bottom: clamp(var(--space-6), 5vw, var(--space-7))">
+        Trois gestes, aucune attente.
+      </h2>
 
-    <div class="container" style="margin-top: clamp(var(--space-7), 6vw, var(--space-8)); padding-inline: 0">
-      <div class="steps-slider" data-slider>
-        <figure class="step-slide">
-          <picture class="step-slide__media">
-          <source type="image/webp" srcset="assets/img/photos/reperer-640.webp 640w, assets/img/photos/reperer.webp 1200w" sizes="(min-width: 900px) 33vw, 84vw">
+      <div class="tabs-block" data-tabs>
+        <div class="tabs-block__media">
+          <picture data-tab-media="0">
+            <source type="image/webp" srcset="assets/img/photos/reperer-640.webp 640w, assets/img/photos/reperer.webp 1200w" sizes="(min-width: 900px) 28rem, 90vw">
             <img src="assets/img/photos/reperer.jpg" width="1200" height="800"
                  loading="lazy" decoding="async" alt="Carte du quartier montrant les réductions actives et leur distance"
-               srcset="assets/img/photos/reperer-640.jpg 640w, assets/img/photos/reperer.jpg 1200w"
-               sizes="(min-width: 900px) 33vw, 84vw">
+                 srcset="assets/img/photos/reperer-640.jpg 640w, assets/img/photos/reperer.jpg 1200w"
+                 sizes="(min-width: 900px) 28rem, 90vw">
           </picture>
-          <figcaption>
-            <span class="step-slide__num">Étape 1</span>
-            <h3>Repérer</h3>
-            <p>Le fil et la carte montrent les réductions actives autour de toi, classées par distance, avec le temps de validité restant et le nombre de places.</p>
-          </figcaption>
-        </figure>
-        <figure class="step-slide">
-          <picture class="step-slide__media">
-          <source type="image/webp" srcset="assets/img/photos/reserver-480.webp 480w, assets/img/photos/reserver.webp 652w" sizes="(min-width: 900px) 33vw, 84vw">
+          <picture data-tab-media="1" hidden>
+            <source type="image/webp" srcset="assets/img/photos/reserver-480.webp 480w, assets/img/photos/reserver.webp 652w" sizes="(min-width: 900px) 28rem, 90vw">
             <img src="assets/img/photos/reserver.jpg" width="652" height="435"
                  loading="lazy" decoding="async" alt="Une femme réserve une offre depuis son téléphone"
-               srcset="assets/img/photos/reserver-480.jpg 480w, assets/img/photos/reserver.jpg 652w"
-               sizes="(min-width: 900px) 33vw, 84vw">
+                 srcset="assets/img/photos/reserver-480.jpg 480w, assets/img/photos/reserver.jpg 652w"
+                 sizes="(min-width: 900px) 28rem, 90vw">
           </picture>
-          <figcaption>
-            <span class="step-slide__num">Étape 2</span>
-            <h3>Réserver</h3>
-            <p>Deux gestes, paiement dans l'application. La place est bloquée à ton nom immédiatement : personne d'autre ne peut la prendre pendant que tu te déplaces.</p>
-          </figcaption>
-        </figure>
-        <figure class="step-slide">
-          <picture class="step-slide__media">
-          <source type="image/webp" srcset="assets/img/photos/profiter.webp">
+          <picture data-tab-media="2" hidden>
+            <source type="image/webp" srcset="assets/img/photos/profiter.webp">
             <img src="assets/img/photos/profiter.jpg" width="400" height="160"
                  loading="lazy" decoding="async" alt="Une serveuse apporte un plat en salle">
           </picture>
-          <figcaption>
-            <span class="step-slide__num">Étape 3</span>
-            <h3>Profiter</h3>
+        </div>
+
+        <div class="tabs-block__body">
+          <div class="tablist" role="tablist" aria-label="Les trois étapes">
+            <button type="button" role="tab" id="onglet-0" aria-controls="volet-0"
+                    aria-selected="true">Repérer</button>
+            <button type="button" role="tab" id="onglet-1" aria-controls="volet-1"
+                    aria-selected="false" tabindex="-1">Réserver</button>
+            <button type="button" role="tab" id="onglet-2" aria-controls="volet-2"
+                    aria-selected="false" tabindex="-1">Profiter</button>
+          </div>
+          <div class="tabpanel" role="tabpanel" id="volet-0" aria-labelledby="onglet-0">
+            <span class="tabpanel__num">Étape 1</span>
+            <p>Le fil et la carte montrent les réductions actives autour de toi, classées par distance, avec le temps de validité restant et le nombre de places.</p>
+          </div>
+          <div class="tabpanel" role="tabpanel" id="volet-1" aria-labelledby="onglet-1" hidden>
+            <span class="tabpanel__num">Étape 2</span>
+            <p>Deux gestes, paiement dans l'application. La place est bloquée à ton nom immédiatement : personne d'autre ne peut la prendre pendant que tu te déplaces.</p>
+          </div>
+          <div class="tabpanel" role="tabpanel" id="volet-2" aria-labelledby="onglet-2" hidden>
+            <span class="tabpanel__num">Étape 3</span>
             <p>Tu présentes ton code au comptoir, ou tu te présentes à l'heure du rendez-vous. Rien à régler sur place, rien à imprimer.</p>
-          </figcaption>
-        </figure>
+          </div>
+        </div>
       </div>
-      <ul class="slider-dots" data-slider-dots>
-        <li><button type="button" aria-current="true"><span class="visually-hidden">Étape 1</span></button></li>
-        <li><button type="button" aria-current="false"><span class="visually-hidden">Étape 2</span></button></li>
-        <li><button type="button" aria-current="false"><span class="visually-hidden">Étape 3</span></button></li>
-      </ul>
     </div>
   </section>
 
   <!-- ============ S4 · CHIFFRES =========================================== -->
   <section class="showcase">
     <div class="container">
-      <div class="blue-block">
+      <div class="brand-block">
         <div class="figures">
           <div>
             <span class="figures__value">1</span>
