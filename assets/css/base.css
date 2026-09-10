@@ -26,19 +26,36 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Deux registres de titre. h1 et h2 portent la voix de la marque : fonte
+   display, graisse moyenne — un titre premium n'est jamais le plus gras de
+   la page, il est le plus grand et le mieux calé. h3 et h4 restent en sans
+   parce qu'ils étiquettent de l'interface, pas du discours. */
 h1, h2, h3, h4 {
   margin: 0 0 var(--space-4);
-  font-family: var(--font-display);
-  font-weight: var(--weight-black);
   line-height: var(--leading-tight);
-  letter-spacing: var(--tracking-tight);
   text-wrap: balance;
 }
 
-h1 { font-size: clamp(2.25rem, 1.4rem + 3.4vw, 3.25rem); }
-h2 { font-size: clamp(1.625rem, 1.2rem + 1.8vw, 2.5rem); }
-h3 { font-size: var(--text-xl); line-height: var(--leading-snug); letter-spacing: var(--tracking-snug); }
-h4 { font-size: var(--text-lg); letter-spacing: var(--tracking-snug); }
+h1, h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  /* opsz suit la taille réelle du titre, SOFT arrondit très légèrement les
+     angles, WONK 0 supprime les italiques fantaisistes de la fonte. */
+  font-variation-settings: "SOFT" 24, "WONK" 0;
+  font-optical-sizing: auto;
+}
+
+h3, h4 {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-snug);
+}
+
+h1 { font-size: clamp(2.5rem, 1.4rem + 4.2vw, 4rem); line-height: 1.02; }
+h2 { font-size: clamp(1.875rem, 1.2rem + 2.3vw, 2.875rem); line-height: 1.06; }
+h3 { font-size: var(--text-xl); line-height: var(--leading-snug); }
+h4 { font-size: var(--text-lg); }
 
 p { margin: 0 0 var(--space-4); text-wrap: pretty; }
 p:last-child { margin-bottom: 0; }
@@ -53,6 +70,15 @@ a {
 }
 a:hover { color: var(--primary-hover); border-bottom-color: currentColor; }
 
+/* Anneau de focus dessiné, pas subi : deux traits, dont un blanc qui
+   détache l'anneau des fonds colorés. */
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 0 0 2px #fff;
+}
+
 img, svg, video { max-width: 100%; height: auto; display: block; }
 
 /* L'attribut hidden doit l'emporter sur nos règles d'affichage : sans ça,
@@ -64,7 +90,6 @@ li { margin-bottom: var(--space-2); }
 
 hr { border: 0; border-top: 1px solid var(--border); margin: var(--space-7) 0; }
 
-:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; border-radius: var(--radius-sm); }
 ::selection { background: var(--primary-soft); color: var(--text); }
 
 /* --- Mise en page --------------------------------------------------------- */
@@ -118,6 +143,24 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--space-7) 0; }
 }
 
 .text-center { text-align: center; }
+
+/* --- Révélation au défilement --------------------------------------------
+   Le JS pose .is-in dès que l'élément entre dans la fenêtre. Sans JS, ou en
+   mouvement réduit, tout reste visible : l'état par défaut est « visible »,
+   c'est le script qui décide d'animer en ajoutant .reveal-ready au <html>. */
+.reveal-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+.reveal-ready [data-reveal].is-in { opacity: 1; transform: none; }
+.reveal-ready [data-reveal][data-reveal-delay="1"] { transition-delay: 90ms; }
+.reveal-ready [data-reveal][data-reveal-delay="2"] { transition-delay: 180ms; }
+.reveal-ready [data-reveal][data-reveal-delay="3"] { transition-delay: 270ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready [data-reveal] { opacity: 1; transform: none; transition: none; }
+}
 .mx-auto { margin-inline: auto; }
 
 .visually-hidden {

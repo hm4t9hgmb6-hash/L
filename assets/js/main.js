@@ -154,3 +154,68 @@
     })(k);
   }
 })();
+
+/* Révélation au défilement.
+   Le CSS n'anime que si <html> porte .reveal-ready : sans JS, ou si l'appareil
+   demande un mouvement réduit, la page reste entièrement visible. */
+(function () {
+  'use strict';
+
+  var reduit = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduit || !('IntersectionObserver' in window)) return;
+
+  var cibles = document.querySelectorAll('[data-reveal]');
+  if (!cibles.length) return;
+
+  document.documentElement.classList.add('reveal-ready');
+
+  var observateur = new IntersectionObserver(function (entrees) {
+    for (var i = 0; i < entrees.length; i++) {
+      if (!entrees[i].isIntersecting) continue;
+      entrees[i].target.classList.add('is-in');
+      observateur.unobserve(entrees[i].target);
+    }
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+
+  for (var i = 0; i < cibles.length; i++) observateur.observe(cibles[i]);
+})();
+
+/* En-tête : filet et fond translucide seulement une fois la page défilée.
+   En haut de page l'en-tête se fond dans le héros, ce qui laisse le titre
+   respirer ; dès qu'on descend, il se détache du contenu qui passe dessous. */
+(function () {
+  'use strict';
+
+  var entete = document.querySelector('.site-header');
+  if (!entete) return;
+
+  var enCours = false;
+  function evaluer() {
+    entete.classList.toggle('is-scrolled', window.scrollY > 8);
+    enCours = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (enCours) return;
+    enCours = true;
+    window.requestAnimationFrame(evaluer);
+  }, { passive: true });
+  evaluer();
+})();
+
+/* Barre d'appel à l'action mobile : n'apparaît qu'une fois le module de
+   recherche du héros sorti de l'écran, pour ne pas doubler ce qui est déjà
+   visible, et s'efface au-dessus du pied de page. */
+(function () {
+  'use strict';
+
+  var barre = document.querySelector('[data-sticky-cta]');
+  var repere = document.querySelector('[data-sticky-cta-after]');
+  if (!barre || !repere || !('IntersectionObserver' in window)) return;
+
+  var observateur = new IntersectionObserver(function (entrees) {
+    barre.classList.toggle('is-visible', !entrees[0].isIntersecting &&
+      entrees[0].boundingClientRect.top < 0);
+  }, { threshold: 0 });
+
+  observateur.observe(repere);
+})();

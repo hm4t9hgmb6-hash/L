@@ -8,7 +8,7 @@
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@600..900&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:SOFT,WONK,opsz,wght@0..100,0..1,9..144,400..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/components.css">
@@ -53,17 +53,19 @@
 
 <main id="main">
   <!-- ============ S1 · HÉROS ============================================== -->
-  <section class="panel panel--grey panel--pad hero-split">
+  <section class="panel panel--grey panel--pad hero-split" data-sticky-cta-after>
     <div class="container hero-split__grid">
-      <div>
+      <div data-reveal>
+        <span class="hero-split__live">Offres actives en ce moment</span>
         <h1 class="hero-split__title">Des réductions,<br>à proximité,<br><span class="hero__accent">en temps réel</span></h1>
+        <p class="hero-split__lede">Les commerces indépendants de ton quartier
+           publient leurs réductions quand ils le décident. Tu les vois arriver,
+           tu réserves, tu passes.</p>
       </div>
 
-      <div>
+      <div data-reveal data-reveal-delay="1">
         <form class="search-card" action="villes.html" method="get">
-          <label class="search-card__label" for="lieu">
-            Entre une adresse, un arrondissement ou une ville pour voir ce qui est actif
-          </label>
+          <label class="search-card__label" for="lieu">Adresse, arrondissement ou ville</label>
           <div class="search-field">
             <svg class="search-field__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M21.5 2.5 2.8 10.2c-.8.3-.8 1.5.1 1.7l7.6 2 2 7.6c.2.9 1.4.9 1.7.1L21.5 2.5Z"
@@ -82,13 +84,19 @@
             Utiliser ma position actuelle
           </button>
         </form>
+
+        <ul class="hero-split__proof">
+          <li>Application gratuite</li>
+          <li>Sans compte pour regarder</li>
+          <li>Annulation possible</li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- ============ S2 · DIAPORAMA DES CATÉGORIES =========================== -->
   <section class="panel panel--pad" style="padding-top: var(--space-7)">
-    <div class="marquee" aria-label="Catégories de commerces partenaires">
+    <div class="marquee" data-reveal aria-label="Catégories de commerces partenaires">
       <div class="marquee__row marquee__row--left">
           <a class="cat-card cat-card--photo" href="app/offres.html" aria-label="Restaurant, jusqu'à −50 %">
             <picture>
@@ -201,11 +209,12 @@
   <!-- ============ S3 · LES TROIS ÉTAPES =================================== -->
   <section class="panel panel--pad">
     <div class="container" style="text-align:left">
-      <h2 class="panel__title" style="margin-bottom: clamp(var(--space-6), 5vw, var(--space-7))">
-        Trois gestes, aucune attente.
-      </h2>
+      <div class="section-head" style="margin-bottom: clamp(var(--space-6), 5vw, var(--space-7))" data-reveal>
+        <span class="eyebrow">Comment ça marche</span>
+        <h2 class="panel__title">Trois gestes, <span class="accent-word">aucune attente</span>.</h2>
+      </div>
 
-      <div class="tabs-block" data-tabs>
+      <div class="tabs-block" data-tabs data-reveal>
         <div class="tabs-block__media">
           <picture data-tab-media="0">
             <source type="image/webp" srcset="assets/img/photos/reperer-640.webp 640w, assets/img/photos/reperer.webp 1200w" sizes="(min-width: 900px) 28rem, 90vw">
@@ -277,44 +286,52 @@
   <!-- ============ S5 · DÉVELOPPEZ VOTRE ACTIVITÉ ========================== -->
   <section class="panel panel--pad">
     <div class="container" style="text-align:left">
-      <h2 class="panel__title" style="max-width: 20ch; margin-bottom: clamp(var(--space-7), 6vw, var(--space-8))">
-        Développez votre activité avec Dealpick
-      </h2>
+      <div class="section-head" style="margin-bottom: clamp(var(--space-7), 6vw, var(--space-8))" data-reveal>
+        <span class="eyebrow">Pour les commerçants</span>
+        <h2 class="panel__title" style="max-width: 18ch">
+          Développez votre activité avec <span class="accent-word">Dealpick</span>
+        </h2>
+        <p class="lede">Vous décidez de la réduction, du moment et du nombre de places.
+           Aucun abonnement : une commission uniquement sur ce qui est vendu.</p>
+      </div>
 
       <div class="grow">
-        <div class="grow__row">
+        <div class="grow__row" data-reveal>
           <picture class="grow__media">
-            <source type="image/webp" srcset="assets/img/photos/commercante-600.webp 600w, assets/img/photos/commercante.webp 900w" sizes="(min-width: 760px) 18rem, 100vw">
+            <source type="image/webp" srcset="assets/img/photos/commercante-600.webp 600w, assets/img/photos/commercante.webp 900w" sizes="(min-width: 860px) 26rem, 100vw">
             <img src="assets/img/photos/commercante.jpg" width="930" height="633"
                  loading="lazy" decoding="async" alt="Une commerçante devant la vitrine de son épicerie"
                  srcset="assets/img/photos/commercante-600.jpg 600w, assets/img/photos/commercante.jpg 900w"
-                 sizes="(min-width: 760px) 18rem, 100vw">
+                 sizes="(min-width: 860px) 26rem, 100vw">
           </picture>
           <div>
+            <span class="grow__num">01</span>
             <h3>Attirez de nouveaux clients</h3>
             <p>Profitez de notre communauté grandissante d'utilisateurs. Chaque nouvelle offre publiée est notifiée aux utilisateurs Dealpick à proximité, ce qui amène de nouveaux clients directement vers votre commerce.</p>
           </div>
         </div>
-        <div class="grow__row">
+        <div class="grow__row" data-reveal>
           <picture class="grow__media">
-            <source type="image/webp" srcset="assets/img/photos/coiffeur-640.webp 640w, assets/img/photos/coiffeur.webp 1200w" sizes="(min-width: 760px) 18rem, 100vw">
+            <source type="image/webp" srcset="assets/img/photos/coiffeur-640.webp 640w, assets/img/photos/coiffeur.webp 1200w" sizes="(min-width: 860px) 26rem, 100vw">
             <img src="assets/img/photos/coiffeur.jpg" width="1200" height="801"
                  loading="lazy" decoding="async" alt="Un coiffeur au travail dans son salon"
                  srcset="assets/img/photos/coiffeur-640.jpg 640w, assets/img/photos/coiffeur.jpg 1200w"
-                 sizes="(min-width: 760px) 18rem, 100vw">
+                 sizes="(min-width: 860px) 26rem, 100vw">
           </picture>
           <div>
+            <span class="grow__num">02</span>
             <h3>Augmentez le profit</h3>
             <p>En moyenne, les utilisateurs Dealpick dépensent 15 € d'achats supplémentaires par visite. Vos clients repartent souvent avec des achats à prix plein en plus de leur réservation, ce qui fait grimper votre panier moyen.</p>
           </div>
         </div>
-        <div class="grow__row">
+        <div class="grow__row" data-reveal>
           <picture class="grow__media">
             <source type="image/webp" srcset="assets/img/photos/restaurant.webp">
             <img src="assets/img/photos/restaurant.jpg" width="300" height="200"
                  loading="lazy" decoding="async" alt="Un restaurateur présentant une pizza">
           </picture>
           <div>
+            <span class="grow__num">03</span>
             <h3>Réduisez les pertes et valorisez vos invendus</h3>
             <p>Pourquoi laisser un créneau vide ou un produit invendu partir à perte quand vous pouvez le vendre ? Les commerces partenaires de Dealpick réduisent leurs pertes de 21 % en moyenne et gagnent la fidélité de leur communauté locale.</p>
           </div>
@@ -329,10 +346,17 @@
 
   <!-- ============ FAQ ===================================================== -->
   <section class="panel panel--grey panel--pad">
-    <div class="panel__inner">
-      <h2 class="panel__title">Questions fréquentes.</h2>
-    </div>
-    <div class="container container--narrow" style="text-align:left; margin-top: var(--space-7)">
+    <div class="container" style="text-align:left">
+      <div class="faq-split">
+        <div class="faq-split__aside" data-reveal>
+          <h2 class="panel__title" style="margin-bottom: var(--space-4)">Questions fréquentes.</h2>
+          <p class="lede">Le prix, la durée, l'annulation : les trois points qu'on nous
+             pose avant un premier achat.</p>
+          <a class="btn btn--ghost" href="faq.html">Toutes les questions
+            <span class="btn__arrow" aria-hidden="true">→</span></a>
+        </div>
+
+        <div data-reveal data-reveal-delay="1">
       <details class="faq-item">
         <summary>Pourquoi les prix sont-ils plus bas&nbsp;?</summary>
         <p>Parce que le commerçant décide lui-même, à un moment donné, de baisser son prix
@@ -350,11 +374,19 @@
            place a été bloquée pour toi et reste due. Détail dans les
            <a href="legal/cgv.html">CGV</a>.</p>
       </details>
-      <p style="margin-top: var(--space-6)">
-        <a class="btn btn--outline" href="faq.html">Toutes les questions</a>
-      </p>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- ============ BARRE D'ACTION MOBILE ==================================== -->
+  <div class="sticky-cta" data-sticky-cta>
+    <div class="sticky-cta__text">
+      <strong>Réductions autour de toi</strong>
+      <span>Gratuit, sans compte</span>
+    </div>
+    <a class="btn btn--primary" href="#telecharger">Ouvrir l'app</a>
+  </div>
 
   <!-- ============ TÉLÉCHARGEMENT ========================================== -->
   <section class="cta-band" id="telecharger">
