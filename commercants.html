@@ -255,12 +255,26 @@
           </ul>
         </div>
         <div class="feature-row__media">
-          <div class="mock">
-            <div class="mock__bar"><span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span></div>
-            <div class="mock__body">
-              <span class="mock__line mock__line--short"></span>
-              <span class="mock__line mock__line--accent"></span>
-              <span class="mock__line"></span>
+          <div class="mock" role="img" aria-label="Maquette : deux champs et un bouton Publier l'offre">
+            <div class="mock__bar"><span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span>
+              <span style="margin-left: var(--space-3); font-size: var(--text-xs); color: var(--text-muted)">Publier une réduction</span>
+            </div>
+            <div class="mock-compact" aria-hidden="true">
+              <div class="mock-field mock-publish__field">
+                <span class="mock-field__label">Ce que tu proposes</span>
+                <span class="mock-field__value">Créneau de coupe, 17 h</span>
+              </div>
+              <div class="mock-field mock-publish__field mock-field__row">
+                <div>
+                  <span class="mock-field__label">Prix réduit</span>
+                  <span class="mock-field__value">21,00 €</span>
+                </div>
+                <div>
+                  <span class="mock-field__label">Validité</span>
+                  <span class="mock-field__value">Aujourd'hui, 17 h</span>
+                </div>
+              </div>
+              <span class="btn btn--primary btn--block" style="pointer-events:none">Publier l'offre</span>
             </div>
           </div>
         </div>
@@ -279,12 +293,20 @@
           </ul>
         </div>
         <div class="feature-row__media">
-          <div class="mock">
-            <div class="mock__bar"><span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span></div>
-            <div class="mock__body">
-              <span class="mock__line"></span>
-              <span class="mock__line mock__line--accent"></span>
-              <span class="mock__line mock__line--short"></span>
+          <div class="mock" role="img" aria-label="Maquette : rayon de marche de quinze minutes depuis le commerce, avec trois clients à proximité">
+            <div class="mock__bar"><span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span>
+              <span style="margin-left: var(--space-3); font-size: var(--text-xs); color: var(--text-muted)">Rayon de diffusion</span>
+            </div>
+            <div class="mock-radius" aria-hidden="true">
+              <svg viewBox="0 0 200 200" fill="none">
+                <circle cx="100" cy="100" r="88" stroke="var(--border)" stroke-width="1.5"/>
+                <circle cx="100" cy="100" r="58" stroke="var(--border-strong)" stroke-width="1.5" stroke-dasharray="3 5"/>
+                <text x="100" y="18" text-anchor="middle" font-size="10" fill="var(--text-muted)" font-family="Manrope, sans-serif">15 min à pied</text>
+                <circle cx="100" cy="100" r="7" fill="var(--primary)"/>
+                <circle cx="138" cy="72" r="5" fill="var(--n-900)"/>
+                <circle cx="62" cy="122" r="5" fill="var(--n-900)"/>
+                <circle cx="122" cy="140" r="5" fill="var(--n-900)"/>
+              </svg>
             </div>
           </div>
         </div>
@@ -302,12 +324,14 @@
           </ul>
         </div>
         <div class="feature-row__media">
-          <div class="mock">
-            <div class="mock__bar"><span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span></div>
-            <div class="mock__body">
-              <span class="mock__line mock__line--short"></span>
-              <span class="mock__line"></span>
-              <span class="mock__line mock__line--accent"></span>
+          <div class="mock" role="img" aria-label="Maquette : répartition du paiement entre montant client, commission et reversement">
+            <div class="mock__bar"><span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span>
+              <span style="margin-left: var(--space-3); font-size: var(--text-xs); color: var(--text-muted)">Détail du versement</span>
+            </div>
+            <div class="mock-compact" aria-hidden="true">
+              <div class="mock-payout__row"><span>Payé par le client</span><span>21,00 €</span></div>
+              <div class="mock-payout__row"><span>Commission Dealpick</span><span>−2,52 €</span></div>
+              <div class="mock-payout__row"><span>Reversé sur ton compte</span><span>18,48 €</span></div>
             </div>
           </div>
         </div>
@@ -325,12 +349,28 @@
           </ul>
         </div>
         <div class="feature-row__media">
-          <div class="mock">
-            <div class="mock__bar"><span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span></div>
-            <div class="mock__body">
-              <span class="mock__line"></span>
-              <span class="mock__line mock__line--short"></span>
-              <span class="mock__line mock__line--accent"></span>
+          <div class="mock" role="img" aria-label="Maquette : entonnoir vues, réservations et venues sur les sept derniers jours">
+            <div class="mock__bar"><span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span>
+              <span style="margin-left: var(--space-3); font-size: var(--text-xs); color: var(--text-muted)">7 derniers jours</span>
+            </div>
+            <div class="mock-compact" aria-hidden="true">
+              <div class="mock-funnel">
+                <div class="mock-funnel__row">
+                  <span class="mock-funnel__label">Vues</span>
+                  <span class="mock-funnel__bar"><span style="width:100%"></span></span>
+                  <span class="mock-funnel__value">86</span>
+                </div>
+                <div class="mock-funnel__row">
+                  <span class="mock-funnel__label">Réservations</span>
+                  <span class="mock-funnel__bar"><span style="width:52%"></span></span>
+                  <span class="mock-funnel__value">45</span>
+                </div>
+                <div class="mock-funnel__row">
+                  <span class="mock-funnel__label">Venues</span>
+                  <span class="mock-funnel__bar"><span style="width:44%"></span></span>
+                  <span class="mock-funnel__value">38</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

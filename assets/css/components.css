@@ -2297,3 +2297,47 @@
 .founder__name { font-size: var(--text-lg); font-weight: var(--weight-bold); color: var(--text); }
 .founder__role { font-size: var(--text-sm); color: var(--text-muted); margin-top: 2px; }
 .founder__bio { margin-top: var(--space-3); color: var(--text-muted); max-width: 56ch; }
+
+/* ==========================================================================
+   Quatre maquettes compactes — section « Un outil, quatre usages »
+   Remplacent les barres grises de chargement, qui ne racontaient rien.
+   Chacune tient dans le même cadre .mock que la maquette du héros, pour
+   rester dans la même famille visuelle, avec un contenu propre au sujet du
+   bloc plutôt qu'un gabarit générique répété quatre fois.
+   ========================================================================== */
+
+.mock-compact { padding: var(--space-5); }
+
+/* 1. Publier : deux champs et un bouton, condensé de la maquette du héros. */
+.mock-publish__field { margin-bottom: var(--space-4); }
+.mock-publish__field:last-of-type { margin-bottom: var(--space-5); }
+
+/* 2. Toucher les clients : rayon de marche depuis le commerce. */
+.mock-radius { display: grid; place-items: center; padding: var(--space-6) var(--space-5); }
+.mock-radius svg { width: 100%; max-width: 15rem; height: auto; }
+
+/* 3. Être payé : trois lignes de répartition, la dernière mise en avant. */
+.mock-payout__row {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--border);
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+.mock-payout__row:last-child {
+  border-bottom: 0;
+  padding-top: var(--space-4);
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+  color: var(--text);
+}
+.mock-payout__row span:last-child { font-variant-numeric: tabular-nums; }
+
+/* 4. Savoir ce qui marche : entonnoir vues → réservations → venues. */
+.mock-funnel { display: grid; gap: var(--space-4); padding-top: var(--space-2); }
+.mock-funnel__row { display: grid; grid-template-columns: 5.5rem 1fr auto; align-items: center; gap: var(--space-3); }
+.mock-funnel__label { font-size: var(--text-xs); color: var(--text-muted); }
+.mock-funnel__value { font-size: var(--text-sm); font-weight: var(--weight-bold); font-variant-numeric: tabular-nums; }
+.mock-funnel__bar { height: 8px; border-radius: var(--radius-full); background: var(--bg-inset); overflow: hidden; }
+.mock-funnel__bar span { display: block; height: 100%; background: var(--primary); border-radius: inherit; }
