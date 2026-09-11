@@ -1806,11 +1806,55 @@
   text-align: left;
   margin-top: calc(var(--header-height) * -1);
   padding-top: calc(var(--header-height) + clamp(var(--space-7), 6vw, var(--space-9)));
+  isolation: isolate;
+  /* Sans les découpes au premier plan, le héros se réduisait au titre et à
+     la carte : trop court pour qu'une photo de fond respire. */
+  display: grid;
+  align-content: center;
+  min-height: 62vh;
+}
+
+/* Fond du héros, deux calques sous le contenu : la photo de table d'abord
+   (::after, z-index -2), puis un voile crème par-dessus (::before,
+   z-index -1, qui remplace ici la lumière rasante de .panel).
+   Le flou est cuit dans l'image : il la rend abstraite, ce qui règle d'un
+   coup la composition chargée et la basse résolution de la source. La
+   désaturation et le voile restent en CSS pour régler le contraste sans
+   retoucher le fichier. Le voile est plus dense à gauche, sous le titre. */
+.hero-split::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: url(../img/hero-fond.jpg) center 34% / cover no-repeat;
+  filter: saturate(.6);
+  pointer-events: none;
+}
+.hero-split::before {
+  background:
+    /* éclaircit la bande de l'en-tête, dont les liens sont gris clair */
+    linear-gradient(180deg, rgba(246, 244, 241, .62) 0, rgba(246, 244, 241, 0) 200px),
+    linear-gradient(
+      100deg,
+      rgba(246, 244, 241, .94) 0%,
+      rgba(246, 244, 241, .90) 44%,
+      rgba(246, 244, 241, .76) 78%,
+      rgba(246, 244, 241, .70) 100%
+    );
+}
+@media (max-width: 899px) {
+  .hero-split::before {
+    background: linear-gradient(
+      180deg,
+      rgba(246, 244, 241, .92) 0%,
+      rgba(246, 244, 241, .86) 55%,
+      rgba(246, 244, 241, .92) 100%
+    );
+  }
 }
 .hero-split__grid { display: grid; gap: var(--space-6); align-items: center; }
 @media (min-width: 900px) {
   .hero-split__grid { grid-template-columns: 1.06fr .94fr; column-gap: var(--space-8); row-gap: var(--space-6); }
-  .hero-split__trio { grid-column: 1 / -1; }
 }
 .hero-split__title {
   font-size: clamp(2.75rem, 1.2rem + 6.6vw, 5.25rem);
@@ -1823,60 +1867,6 @@
 .hero-split .search-card { margin: 0; max-width: 32rem; }
 @media (max-width: 899px) { .hero-split .search-card { margin-inline: auto; } }
 @media (max-width: 899px) { .hero-split__intro { text-align: center; } }
-
-/* Le sac et les plats (pizza, salade, wok, sushis) forment une ligne posée
-   sous le titre et la carte de recherche — jamais à côté ni en
-   chevauchement, pour ne jamais masquer ni le titre ni le module de
-   recherche, sur aucun gabarit. */
-.hero-split__trio {
-  grid-column: 1 / -1;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: center;
-  gap: 2px;
-  margin-top: var(--space-2);
-  /* Sort du padding du conteneur : à cette taille, les 5 images ne
-     tiennent sur une seule ligne qu'en utilisant toute la largeur de
-     l'écran sur les téléphones les plus étroits (iPhone SE). */
-  margin-inline: calc(var(--space-5) * -1);
-  width: calc(100% + var(--space-5) * 2);
-}
-.hero-split__pizza,
-.hero-split__salade,
-.hero-split__woksia,
-.hero-split__sushi,
-.hero-split__bag {
-  display: block;
-  width: 72px;
-}
-.hero-split__pizza img,
-.hero-split__salade img,
-.hero-split__woksia img,
-.hero-split__sushi img,
-.hero-split__bag-pic img { display: block; width: 100%; height: auto; }
-.hero-split__pizza,
-.hero-split__salade,
-.hero-split__woksia,
-.hero-split__sushi,
-.hero-split__bag-pic {
-  display: block;
-  filter: drop-shadow(0 14px 18px rgba(48, 34, 24, .22))
-          drop-shadow(0 2px 5px rgba(48, 34, 24, .16));
-}
-@media (min-width: 900px) {
-  .hero-split__trio {
-    gap: var(--space-6);
-    margin-top: var(--space-4);
-    margin-inline: 0;
-    width: auto;
-  }
-  .hero-split__pizza,
-  .hero-split__salade,
-  .hero-split__woksia,
-  .hero-split__sushi,
-  .hero-split__bag { width: 168px; }
-}
 
 /* ==========================================================================
    Registre bleu — titres de section et blocs pleins
