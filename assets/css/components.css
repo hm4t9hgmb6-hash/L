@@ -1809,7 +1809,8 @@
 }
 .hero-split__grid { display: grid; gap: var(--space-6); align-items: center; }
 @media (min-width: 900px) {
-  .hero-split__grid { position: relative; grid-template-columns: 1.06fr .94fr; column-gap: 10rem; row-gap: var(--space-6); }
+  .hero-split__grid { grid-template-columns: 1.06fr .94fr; column-gap: var(--space-8); row-gap: var(--space-6); }
+  .hero-split__trio { grid-column: 1 / -1; }
 }
 .hero-split__title {
   font-size: clamp(2.75rem, 1.2rem + 6.6vw, 5.25rem);
@@ -1823,32 +1824,38 @@
 @media (max-width: 899px) { .hero-split .search-card { margin-inline: auto; } }
 @media (max-width: 899px) { .hero-split__intro { text-align: center; } }
 
-/* Le héros ne garde que trois éléments — le titre, le sac, le module de
-   recherche — pour tenir dans un seul écran au chargement, sans défilement.
-   Sur mobile, le sac suit simplement la carte de recherche. Sur desktop, il
-   occupe sa propre position entre le bloc de texte et la carte (colonne du
-   milieu sortie du flux via position absolue, pour ne pas réduire la largeur
-   du titre ni de la carte), bien droit et entièrement visible. */
+/* Le sac, la pizza et les sushis forment un trio posé sous le titre et la
+   carte de recherche — jamais à côté ni en chevauchement, pour ne jamais
+   masquer ni le titre ni le module de recherche, sur aucun gabarit. */
+.hero-split__trio {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+}
+.hero-split__pizza,
+.hero-split__sushi,
 .hero-split__bag {
   display: block;
-  width: 112px;
-  margin: var(--space-3) auto 0;
+  width: 84px;
 }
+.hero-split__pizza img,
+.hero-split__sushi img,
+.hero-split__bag-pic img { display: block; width: 100%; height: auto; }
+.hero-split__pizza,
+.hero-split__sushi,
 .hero-split__bag-pic {
   display: block;
   filter: drop-shadow(0 14px 18px rgba(48, 34, 24, .22))
           drop-shadow(0 2px 5px rgba(48, 34, 24, .16));
 }
-.hero-split__bag-pic img { display: block; width: 100%; height: auto; }
 @media (min-width: 900px) {
-  .hero-split__bag {
-    position: absolute;
-    left: 52.5%;
-    top: 96%;
-    transform: translate(-50%, -50%);
-    width: 132px;
-    margin: 0;
-  }
+  .hero-split__trio { gap: var(--space-6); margin-top: var(--space-4); }
+  .hero-split__pizza,
+  .hero-split__sushi,
+  .hero-split__bag { width: 132px; }
 }
 
 /* ==========================================================================
