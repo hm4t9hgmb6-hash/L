@@ -1760,7 +1760,12 @@
   border-radius: var(--radius-lg);
   background: var(--bg-inset);
 }
-.step-slide__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* L'arrondi est posé aussi sur l'image, pas seulement sur son cadre : pendant
+   un défilement, le navigateur promeut le contenu sur une couche composée et
+   y abandonne parfois le rognage du parent (overflow: hidden), ce qui faisait
+   réapparaître des angles carrés le temps du mouvement. Une image arrondie
+   d'elle-même n'a plus besoin d'être rognée pour l'être. */
+.step-slide__media img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: inherit; }
 .step-slide__num {
   display: block;
   margin: var(--space-5) 0 var(--space-2);
@@ -1908,6 +1913,12 @@
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 100%;
+  /* Un intervalle entre les diapositives : sans lui, elles se touchent et le
+     milieu du défilement montre deux moitiés accolées, soit deux arêtes
+     droites bord à bord — les angles arrondis semblent disparaître. Avec
+     l'intervalle, les bords qui se font face gardent leurs arrondis et seul
+     le bord du rail coupe, ce qui se lit comme un contenu qui continue. */
+  gap: clamp(var(--space-5), 3vw, var(--space-7));
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
@@ -1992,6 +2003,7 @@
   width: 100%; height: 100%;
   object-fit: cover;
   display: block;
+  border-radius: inherit;
   transition: transform var(--transition-slow);
 }
 .grow__row:hover .grow__media img { transform: scale(1.03); }
@@ -2063,7 +2075,7 @@
   background: rgba(255,255,255,.12);
   box-shadow: 0 2px 8px rgba(60, 22, 0, .18), 0 30px 60px -18px rgba(60, 22, 0, .40);
 }
-.tabs-block__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.tabs-block__media img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: inherit; }
 
 .tabs-block__body { padding: clamp(var(--space-6), 4.5vw, var(--space-8)); }
 

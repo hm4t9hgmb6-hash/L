@@ -177,14 +177,22 @@
 
   var reduit = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* Distance d'une diapositive à la suivante : la largeur du rail plus
+     l'intervalle. Mesurée sur le DOM plutôt que calculée, pour rester juste
+     quand l'intervalle change avec le gabarit. */
+  function pas(rail) {
+    var d = rail.children;
+    return d.length > 1 ? d[1].offsetLeft - d[0].offsetLeft : rail.clientWidth;
+  }
+
   /* Pousse un rail sur la diapositive i. */
   function pousser(rail, i) {
-    rail.scrollTo({ left: rail.clientWidth * i, behavior: reduit ? 'auto' : 'smooth' });
+    rail.scrollTo({ left: pas(rail) * i, behavior: reduit ? 'auto' : 'smooth' });
   }
 
   /* Diapositive actuellement au cran. */
   function rangCourant(rail) {
-    return Math.round(rail.scrollLeft / rail.clientWidth);
+    return Math.round(rail.scrollLeft / pas(rail));
   }
 
   /* Appelle `sur` quand le défilement s'est stabilisé — un défilement fluide
