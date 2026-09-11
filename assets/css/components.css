@@ -588,6 +588,7 @@
   color: var(--text);
   font-weight: var(--weight-bold);
   font-size: var(--text-sm);
+  box-shadow: var(--shadow-sm);
   transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 .city-chip:hover { color: var(--text); border-color: var(--border-strong); box-shadow: var(--shadow-md); transform: translateY(-2px); }
@@ -767,6 +768,10 @@
   border-radius: var(--radius-lg);
   background: var(--surface);
   color: var(--text);
+  /* Même repos que .card, .cat-card, .tile : une carte qui représente un
+     objet concret (ici une offre) flotte légèrement même immobile — sinon
+     elle se lit comme un simple filet de tableau, pas comme une carte. */
+  box-shadow: var(--shadow-sm);
   transition: box-shadow var(--transition), border-color var(--transition), transform var(--transition);
 }
 .offer:hover { color: var(--text); border-color: var(--border-strong); box-shadow: var(--shadow-md); transform: translateY(-2px); }
@@ -918,7 +923,7 @@
   line-height: 1.4;
   white-space: nowrap;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(20,22,30,.22);
+  box-shadow: 0 2px 8px rgba(48, 34, 24, .22);
   transition: transform var(--transition), box-shadow var(--transition);
 }
 .map-pin::after {
@@ -933,7 +938,7 @@
 .map-pin[aria-pressed="true"] {
   background: var(--n-900);
   z-index: 3;
-  box-shadow: 0 4px 14px rgba(20,22,30,.3);
+  box-shadow: 0 4px 14px rgba(48, 34, 24, .3);
 }
 
 .map-popup {
@@ -1238,12 +1243,17 @@
   color: rgba(255, 255, 255, .82);
 }
 
-/* --- Tuiles par métier ---------------------------------------------------- */
+/* --- Tuiles par métier -----------------------------------------------------
+   Même vocabulaire que les tuiles du bandeau d'accueil (icône au trait sur
+   fond neutre chaud, deux rappels de couleur) plutôt que six dégradés
+   propres à ce composant : deux tuiles côte à côte sur des pages
+   différentes doivent se lire comme la même famille, pas comme deux essais
+   distincts. Le format est ici plus vertical (4/5, une seule ligne de
+   texte) puisqu'il s'agit d'un métier générique et non d'une enseigne avec
+   pourcentage. -------------------------------------------------------- */
 
 .tiles {
   display: grid;
-  /* Deux colonnes dès le mobile, comme la référence : une seule tuile pleine
-     largeur en 4/5 occupe tout l'écran et casse le balayage. */
   grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
   gap: var(--space-4);
   list-style: none;
@@ -1252,42 +1262,82 @@
 .tiles li { margin: 0; }
 .tile {
   position: relative;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   aspect-ratio: 4 / 5;
+  padding: var(--space-4);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  border: 0;
-  color: #fff;
+  border: 1px solid var(--border);
+  background: var(--tile-bg, var(--n-50));
+  color: var(--text);
   isolation: isolate;
-  transition: transform var(--transition), box-shadow var(--transition);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition),
+              border-color var(--transition);
 }
-.tile:hover { color: #fff; transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-/* Fonds de substitution : à remplacer par une photo du métier */
+.tile:hover {
+  color: var(--text);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-strong);
+}
 .tile::before {
   content: "";
-  position: absolute; inset: 0; z-index: -2;
-  background: linear-gradient(150deg, var(--tile-a, #A83E00), var(--tile-b, #E8590C));
-}
-.tile::after {
-  content: "";
   position: absolute; inset: 0; z-index: -1;
-  background: linear-gradient(to top, rgba(10,11,16,.72) 0%, rgba(10,11,16,.15) 55%, transparent 100%);
+  background: linear-gradient(168deg, rgba(255,255,255,.85), transparent 52%);
+}
+.tile__icon {
+  width: 34px; height: 34px;
+  margin-bottom: var(--space-3);
+  color: var(--n-700);
 }
 .tile__label {
-  position: absolute;
-  left: var(--space-4); right: var(--space-4); bottom: var(--space-4);
   font-family: var(--font-sans);
-  font-weight: 800;
-  font-size: var(--text-lg);
-  line-height: 1.15;
-  letter-spacing: var(--tracking-snug);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-base);
+  line-height: 1.2;
+  letter-spacing: -0.008em;
 }
-.tiles li:nth-child(6n+1) .tile { --tile-a: #A83E00; --tile-b: #E8590C; }
-.tiles li:nth-child(6n+2) .tile { --tile-a: #7C5CFF; --tile-b: #C05CFF; }
-.tiles li:nth-child(6n+3) .tile { --tile-a: #B8430A; --tile-b: #10B981; }
-.tiles li:nth-child(6n+4) .tile { --tile-a: #E8590C; --tile-b: #C05CFF; }
-.tiles li:nth-child(6n+5) .tile { --tile-a: #0E7C6B; --tile-b: #E8590C; }
-.tiles li:nth-child(6n+6) .tile { --tile-a: #F5A524; --tile-b: #CC4E00; }
+
+/* Trois beiges qui tournent, comme au bandeau d'accueil. */
+.tiles li:nth-child(5n+1) .tile { --tile-bg: var(--n-50); }
+.tiles li:nth-child(5n+2) .tile { --tile-bg: #F3EFE9; }
+.tiles li:nth-child(5n+3) .tile { --tile-bg: var(--n-25); }
+.tiles li:nth-child(5n+4) .tile { --tile-bg: var(--brand-50); }
+.tiles li:nth-child(5n+5) .tile { --tile-bg: #F3EFE9; }
+
+/* Deux rappels de couleur, posés sur des métiers précis — même principe et
+   mêmes classes que .cat-card--rdv / .cat-card--fresh sur l'accueil. Ici la
+   rotation neutre se déclare en .tiles li:nth-child() .tile, qui compte
+   pour deux classes ET l'élément li — .tiles .tile.tile--rdv (deux classes,
+   pas de type) perdait encore d'un cran. Répété ici à l'identique en
+   .tiles li .tile.tile--rdv pour une égalité exacte, l'ordre dans la
+   feuille tranchant ensuite en sa faveur. */
+.tiles li .tile.tile--rdv {
+  --tile-bg: var(--service-ink);
+  border-color: transparent;
+}
+.tile--rdv::before { background: linear-gradient(168deg, rgba(255,255,255,.18), transparent 52%); }
+.tile--rdv .tile__icon  { color: #fff; }
+.tile--rdv .tile__label { color: #fff; }
+
+.tiles li .tile.tile--fresh {
+  --tile-bg: var(--money-ink);
+  border-color: transparent;
+}
+.tile--fresh::before { background: linear-gradient(168deg, rgba(255,255,255,.16), transparent 52%); }
+.tile--fresh .tile__icon  { color: #fff; }
+.tile--fresh .tile__label { color: #fff; }
+
+.tiles li .tile.tile--brand {
+  --tile-bg: var(--primary);
+  border-color: transparent;
+}
+.tile--brand::before { background: linear-gradient(168deg, rgba(255,255,255,.16), transparent 52%); }
+.tile--brand .tile__icon  { color: #fff; }
+.tile--brand .tile__label { color: #fff; }
 
 /* --- Bloc pastel structuré par verbes ------------------------------------- */
 
