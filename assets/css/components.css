@@ -1834,7 +1834,7 @@
   flex-wrap: wrap;
   align-items: flex-end;
   justify-content: center;
-  gap: var(--space-2);
+  gap: var(--space-1);
   margin-top: var(--space-2);
 }
 .hero-split__pizza,
@@ -1843,7 +1843,7 @@
 .hero-split__sushi,
 .hero-split__bag {
   display: block;
-  width: 52px;
+  width: 60px;
 }
 .hero-split__pizza img,
 .hero-split__salade img,
@@ -1865,7 +1865,7 @@
   .hero-split__salade,
   .hero-split__woksia,
   .hero-split__sushi,
-  .hero-split__bag { width: 96px; }
+  .hero-split__bag { width: 140px; }
 }
 
 /* ==========================================================================
