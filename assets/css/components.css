@@ -1809,7 +1809,7 @@
 }
 .hero-split__grid { display: grid; gap: var(--space-6); align-items: center; }
 @media (min-width: 900px) {
-  .hero-split__grid { position: relative; grid-template-columns: 1.06fr .94fr; column-gap: 9rem; row-gap: var(--space-6); }
+  .hero-split__grid { position: relative; grid-template-columns: 1.06fr .94fr; column-gap: 10rem; row-gap: var(--space-6); }
 }
 .hero-split__title {
   font-size: clamp(2.75rem, 1.2rem + 6.6vw, 5.25rem);
@@ -1818,7 +1818,7 @@
   margin: 0;
 }
 .hero-split.panel--pad { padding-bottom: clamp(var(--space-7), 6vw, var(--space-8)); }
-@media (max-width: 899px) { .hero-split.panel--pad { padding-bottom: var(--space-5); } }
+@media (max-width: 899px) { .hero-split.panel--pad { padding-bottom: var(--space-4); } }
 .hero-split .search-card { margin: 0; max-width: 32rem; }
 @media (max-width: 899px) { .hero-split .search-card { margin-inline: auto; } }
 @media (max-width: 899px) { .hero-split__intro { text-align: center; } }
@@ -1831,8 +1831,8 @@
    du titre ni de la carte), bien droit et entièrement visible. */
 .hero-split__bag {
   display: block;
-  width: 92px;
-  margin: var(--space-4) auto 0;
+  width: 112px;
+  margin: var(--space-3) auto 0;
 }
 .hero-split__bag-pic {
   display: block;
@@ -1843,10 +1843,10 @@
 @media (min-width: 900px) {
   .hero-split__bag {
     position: absolute;
-    left: 53%;
-    top: 50%;
+    left: 52.5%;
+    top: 96%;
     transform: translate(-50%, -50%);
-    width: 116px;
+    width: 132px;
     margin: 0;
   }
 }
