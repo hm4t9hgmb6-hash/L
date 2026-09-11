@@ -2031,6 +2031,31 @@
 .tablist button[aria-selected="true"]:hover { background: #fff; }
 
 .tabpanel { margin-top: clamp(var(--space-6), 5vw, var(--space-8)); }
+
+/* Transition à la lecture, au changement d'onglet : le panneau et le
+   visuel sortants s'estompent légèrement vers le bas, les entrants
+   depuis le haut — un fondu discret plutôt qu'un basculement sec.
+   Les classes sont posées et retirées par le JS ; la disparition
+   complète (hidden) n'intervient qu'une fois le fondu sortant terminé. */
+.tabpanel,
+.tabs-block__media picture {
+  transition: opacity .18s ease, transform .18s ease;
+}
+.tabpanel.tab-fade-out,
+.tabs-block__media picture.tab-fade-out {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+.tabpanel.tab-fade-in,
+.tabs-block__media picture.tab-fade-in {
+  opacity: 0;
+  transform: translateY(8px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .tabpanel,
+  .tabs-block__media picture { transition: none; }
+}
+
 .tabpanel p {
   font-size: clamp(1.0625rem, 1rem + .5vw, 1.375rem);
   line-height: 1.45;

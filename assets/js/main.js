@@ -177,8 +177,10 @@
   var onglets = bloc.querySelectorAll('[role="tab"]');
   var panneaux = bloc.querySelectorAll('[role="tabpanel"]');
   var visuels = bloc.querySelectorAll('[data-tab-media]');
+  var reduit = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var DUREE_SORTIE = 160;
 
-  function activer(i, donnerLeFocus) {
+  function basculer(i, donnerLeFocus) {
     for (var j = 0; j < onglets.length; j++) {
       var actif = j === i;
       onglets[j].setAttribute('aria-selected', String(actif));
@@ -187,6 +189,37 @@
       if (visuels[j]) visuels[j].hidden = !actif;
     }
     if (donnerLeFocus) onglets[i].focus();
+  }
+
+  function activer(i, donnerLeFocus) {
+    var actuel = -1;
+    for (var j = 0; j < onglets.length; j++) {
+      if (onglets[j].getAttribute('aria-selected') === 'true') { actuel = j; break; }
+    }
+    if (actuel === i) return;
+
+    if (reduit || actuel === -1) {
+      basculer(i, donnerLeFocus);
+      return;
+    }
+
+    panneaux[actuel].classList.add('tab-fade-out');
+    if (visuels[actuel]) visuels[actuel].classList.add('tab-fade-out');
+
+    window.setTimeout(function () {
+      panneaux[actuel].classList.remove('tab-fade-out');
+      if (visuels[actuel]) visuels[actuel].classList.remove('tab-fade-out');
+
+      basculer(i, donnerLeFocus);
+
+      panneaux[i].classList.add('tab-fade-in');
+      if (visuels[i]) visuels[i].classList.add('tab-fade-in');
+      void panneaux[i].offsetWidth; // force l'état de départ avant de l'animer
+      requestAnimationFrame(function () {
+        panneaux[i].classList.remove('tab-fade-in');
+        if (visuels[i]) visuels[i].classList.remove('tab-fade-in');
+      });
+    }, DUREE_SORTIE);
   }
 
   for (var k = 0; k < onglets.length; k++) {
