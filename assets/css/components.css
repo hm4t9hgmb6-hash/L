@@ -1883,9 +1883,16 @@
    elle se lit comme une capture de l'application et non comme un tableau. */
 .encaisse__titre { max-width: 24ch; margin-inline: auto; }
 
+/* L'ombre photographique a été retirée de l'image : elle faisait doublon avec
+   l'ombre CSS ci-dessous, et surtout elle s'étalait vers la gauche, ce qui
+   décalait le sac de 142 px (16 % de la largeur) par rapport au centre de son
+   cadre. Le fichier est désormais recadré sur le sac seul, donc centré par
+   construction, et l'ombre est entièrement portée par le CSS — symétrique,
+   posée sous l'objet. La largeur baisse en conséquence : le sac occupait 64 %
+   du cadre, il en occupe maintenant la totalité. */
 .encaisse__sac {
   display: block;
-  width: clamp(140px, 16vw, 190px);
+  width: clamp(104px, 12vw, 140px);
   margin: clamp(var(--space-6), 4vw, var(--space-7)) auto var(--space-6);
   filter: drop-shadow(0 14px 18px rgba(48, 34, 24, .22))
           drop-shadow(0 2px 5px rgba(48, 34, 24, .16));
