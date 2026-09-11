@@ -1874,6 +1874,23 @@
 @media (max-width: 899px) { .hero-split__intro { text-align: center; } }
 
 /* ==========================================================================
+   Section du sac — la promesse commerçant, en un objet
+   ========================================================================== */
+
+/* Un titre, un objet, rien d'autre. Le sac reprend l'ombre chaude utilisée
+   partout ailleurs pour les découpes, et son image est symétrique dans son
+   cadre : une marge automatique suffit donc à le centrer réellement. */
+.sac-final__titre { max-width: 24ch; margin-inline: auto; }
+.sac-final__objet {
+  display: block;
+  width: clamp(200px, 26vw, 320px);
+  margin: clamp(var(--space-7), 5vw, var(--space-8)) auto 0;
+  filter: drop-shadow(0 14px 18px rgba(48, 34, 24, .22))
+          drop-shadow(0 2px 5px rgba(48, 34, 24, .16));
+}
+.sac-final__objet img { display: block; width: 100%; height: auto; }
+
+/* ==========================================================================
    Registre bleu — titres de section et blocs pleins
    ========================================================================== */
 
