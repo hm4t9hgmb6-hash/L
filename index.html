@@ -469,33 +469,39 @@
     </div>
   </section>
 
-  <!-- ============ S6 · L'ARITHMÉTIQUE DE L'INVENDU ======================= -->
+  <!-- ============ S6 · L'ENCAISSEMENT DE LA SEMAINE ====================== -->
   <section class="panel panel--grey panel--pad">
-    <div class="container" style="text-align:left">
-      <div class="invendu" data-reveal>
-        <picture class="invendu__sac" aria-hidden="true">
-          <source type="image/webp" srcset="assets/img/sac-dealpick-540.webp 540w, assets/img/sac-dealpick-900.webp 900w" sizes="(min-width: 820px) 240px, 170px">
-          <img src="assets/img/sac-dealpick-540.png" width="540" height="497" alt=""
-               loading="lazy" decoding="async"
-               srcset="assets/img/sac-dealpick-540.png 540w, assets/img/sac-dealpick-900.png 900w"
-               sizes="(min-width: 820px) 240px, 170px">
-        </picture>
+    <div class="container">
+      <h2 class="panel__title encaisse__titre" data-reveal>
+        Transformez vos invendus en <span class="accent-word">bénéfice</span>.
+      </h2>
 
-        <div>
-          <h2 class="panel__title invendu__titre">
-            Transformez vos invendus en <span class="accent-word">bénéfice</span>.
-          </h2>
+      <picture class="encaisse__sac" data-reveal aria-hidden="true">
+        <source type="image/webp" srcset="assets/img/sac-dealpick-540.webp 540w, assets/img/sac-dealpick-900.webp 900w" sizes="190px">
+        <img src="assets/img/sac-dealpick-540.png" width="540" height="497" alt=""
+             loading="lazy" decoding="async"
+             srcset="assets/img/sac-dealpick-540.png 540w, assets/img/sac-dealpick-900.png 900w"
+             sizes="190px">
+      </picture>
 
-          <dl class="invendu__compte">
-            <div class="invendu__ligne">
-              <dt>Invendu jeté</dt>
-              <dd>0 €</dd>
-            </div>
-            <div class="invendu__ligne invendu__ligne--gain">
-              <dt>Vendu à &minus;40 %</dt>
-              <dd>60 % encaissés</dd>
-            </div>
-          </dl>
+      <div class="mock encaisse" data-reveal data-reveal-delay="1" role="img"
+           aria-label="Maquette de l'application commerçant, onglet Encaissements : solde de la semaine de 486,20 €, pour 26 offres vendues, viré le lundi suivant.">
+        <div class="mock__bar" aria-hidden="true">
+          <span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span>
+          <span class="encaisse__onglet">Encaissements</span>
+        </div>
+
+        <div class="encaisse__solde" aria-hidden="true">
+          <span class="encaisse__libelle">Solde de la semaine</span>
+          <strong class="encaisse__montant">486,20 €</strong>
+          <span class="encaisse__note">26 offres vendues &middot; virement lundi</span>
+        </div>
+
+        <div class="encaisse__jours" aria-hidden="true">
+          <div class="encaisse__jour"><span>Lundi 8 &middot; 4 offres</span><span>72,40 €</span></div>
+          <div class="encaisse__jour"><span>Mercredi 10 &middot; 6 offres</span><span>118,60 €</span></div>
+          <div class="encaisse__jour"><span>Vendredi 12 &middot; 9 offres</span><span>173,80 €</span></div>
+          <div class="encaisse__jour"><span>Samedi 13 &middot; 7 offres</span><span>121,40 €</span></div>
         </div>
       </div>
     </div>

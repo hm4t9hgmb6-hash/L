@@ -1874,69 +1874,87 @@
 @media (max-width: 899px) { .hero-split__intro { text-align: center; } }
 
 /* ==========================================================================
-   L'arithmétique de l'invendu — le sac et le calcul qui le justifie
+   L'encaissement de la semaine — le sac, puis l'argent qu'il a rapporté
    ========================================================================== */
 
-/* Une carte blanche sur le fond sable plutôt qu'un bandeau : elle a un bord,
-   donc elle se lit comme une section voulue, et elle se détache de la FAQ qui
-   suit sur le même sable. Le blanc fait aussi ressortir le sac orange, ce
-   qu'un bandeau orange — les deux seuls bandeaux pleins du site — n'aurait
-   pas permis.
-   Le calcul reprend l'argument 03 du diaporama juste au-dessus : il y est
-   noyé dans une phrase et caché derrière deux flèches, alors que c'est le
-   plus convaincant. Ici il se lit d'un coup d'œil. */
-.invendu {
-  display: grid;
-  gap: clamp(var(--space-6), 4vw, var(--space-8));
-  align-items: center;
-  padding: clamp(var(--space-6), 4.5vw, var(--space-8));
-  border-radius: var(--radius-xl);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-lg);
-}
-@media (min-width: 820px) {
-  .invendu { grid-template-columns: minmax(0, 15rem) 1fr; }
-}
+/* Le sac seul ne démontrait rien. Sous lui, la maquette de l'onglet
+   « Encaissements » montre ce qu'il devient : un solde. Elle réutilise le
+   châssis .mock de la page commerçants (cadre, barre à trois points), donc
+   elle se lit comme une capture de l'application et non comme un tableau. */
+.encaisse__titre { max-width: 24ch; margin-inline: auto; }
 
-.invendu__sac {
+.encaisse__sac {
   display: block;
-  width: clamp(170px, 20vw, 240px);
-  margin-inline: auto;
+  width: clamp(140px, 16vw, 190px);
+  margin: clamp(var(--space-6), 4vw, var(--space-7)) auto var(--space-6);
   filter: drop-shadow(0 14px 18px rgba(48, 34, 24, .22))
           drop-shadow(0 2px 5px rgba(48, 34, 24, .16));
 }
-.invendu__sac img { display: block; width: 100%; height: auto; }
+.encaisse__sac img { display: block; width: 100%; height: auto; }
 
-.invendu__titre {
-  max-width: 22ch;
-  margin-bottom: clamp(var(--space-5), 3vw, var(--space-6));
+.encaisse {
+  max-width: 27rem;
+  margin-inline: auto;
+  text-align: left;
+}
+.encaisse__onglet {
+  margin-left: var(--space-3);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  color: var(--text);
 }
 
-/* Deux lignes, une valeur par ligne : le zéro en gris, le gain en vert —
-   la même couleur que partout ailleurs pour ce qui rentre. */
-.invendu__compte { margin: 0; }
-.invendu__ligne {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--space-4);
-  padding-block: var(--space-4);
-  border-top: 1px solid var(--border);
+/* Le solde d'abord, en gros : c'est la seule chose qu'un commerçant vient
+   vérifier. Le vert est celui utilisé partout ailleurs pour ce qui rentre. */
+.encaisse__solde {
+  padding: clamp(var(--space-5), 4vw, var(--space-6));
+  border-bottom: 1px solid var(--border);
+  background: var(--money-soft);
 }
-.invendu__ligne dt { color: var(--text-muted); font-size: var(--text-base); }
-.invendu__ligne dd {
-  margin: 0;
+.encaisse__libelle {
+  display: block;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.encaisse__montant {
+  display: block;
+  margin-top: var(--space-2);
   font-family: var(--font-display);
   font-weight: 600;
   font-variation-settings: "SOFT" 24, "WONK" 0;
-  font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
-  line-height: 1.1;
-  color: var(--text-muted);
+  font-size: clamp(2rem, 1.4rem + 2.2vw, 2.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--money-ink);
   font-variant-numeric: tabular-nums;
-  white-space: nowrap;
 }
-.invendu__ligne--gain dd { color: var(--money-ink); }
+.encaisse__note {
+  display: block;
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+/* Le détail par jour, en retrait : il crédibilise le solde sans le concurrencer. */
+.encaisse__jours { padding: var(--space-2) clamp(var(--space-5), 4vw, var(--space-6)); }
+.encaisse__jour {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: var(--space-3);
+  border-bottom: 1px solid var(--border);
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+.encaisse__jour:last-child { border-bottom: 0; }
+.encaisse__jour span:last-child {
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+  font-weight: var(--weight-medium);
+}
 
 /* ==========================================================================
    Registre bleu — titres de section et blocs pleins
