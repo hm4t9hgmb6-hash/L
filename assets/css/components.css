@@ -1834,8 +1834,13 @@
   flex-wrap: wrap;
   align-items: flex-end;
   justify-content: center;
-  gap: var(--space-1);
+  gap: 2px;
   margin-top: var(--space-2);
+  /* Sort du padding du conteneur : à cette taille, les 5 images ne
+     tiennent sur une seule ligne qu'en utilisant toute la largeur de
+     l'écran sur les téléphones les plus étroits (iPhone SE). */
+  margin-inline: calc(var(--space-5) * -1);
+  width: calc(100% + var(--space-5) * 2);
 }
 .hero-split__pizza,
 .hero-split__salade,
@@ -1843,7 +1848,7 @@
 .hero-split__sushi,
 .hero-split__bag {
   display: block;
-  width: 60px;
+  width: 72px;
 }
 .hero-split__pizza img,
 .hero-split__salade img,
@@ -1860,12 +1865,17 @@
           drop-shadow(0 2px 5px rgba(48, 34, 24, .16));
 }
 @media (min-width: 900px) {
-  .hero-split__trio { gap: var(--space-6); margin-top: var(--space-4); }
+  .hero-split__trio {
+    gap: var(--space-6);
+    margin-top: var(--space-4);
+    margin-inline: 0;
+    width: auto;
+  }
   .hero-split__pizza,
   .hero-split__salade,
   .hero-split__woksia,
   .hero-split__sushi,
-  .hero-split__bag { width: 140px; }
+  .hero-split__bag { width: 168px; }
 }
 
 /* ==========================================================================
