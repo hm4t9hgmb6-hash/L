@@ -1874,21 +1874,69 @@
 @media (max-width: 899px) { .hero-split__intro { text-align: center; } }
 
 /* ==========================================================================
-   Section du sac — la promesse commerçant, en un objet
+   L'arithmétique de l'invendu — le sac et le calcul qui le justifie
    ========================================================================== */
 
-/* Un titre, un objet, rien d'autre. Le sac reprend l'ombre chaude utilisée
-   partout ailleurs pour les découpes, et son image est symétrique dans son
-   cadre : une marge automatique suffit donc à le centrer réellement. */
-.sac-final__titre { max-width: 24ch; margin-inline: auto; }
-.sac-final__objet {
+/* Une carte blanche sur le fond sable plutôt qu'un bandeau : elle a un bord,
+   donc elle se lit comme une section voulue, et elle se détache de la FAQ qui
+   suit sur le même sable. Le blanc fait aussi ressortir le sac orange, ce
+   qu'un bandeau orange — les deux seuls bandeaux pleins du site — n'aurait
+   pas permis.
+   Le calcul reprend l'argument 03 du diaporama juste au-dessus : il y est
+   noyé dans une phrase et caché derrière deux flèches, alors que c'est le
+   plus convaincant. Ici il se lit d'un coup d'œil. */
+.invendu {
+  display: grid;
+  gap: clamp(var(--space-6), 4vw, var(--space-8));
+  align-items: center;
+  padding: clamp(var(--space-6), 4.5vw, var(--space-8));
+  border-radius: var(--radius-xl);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+}
+@media (min-width: 820px) {
+  .invendu { grid-template-columns: minmax(0, 15rem) 1fr; }
+}
+
+.invendu__sac {
   display: block;
-  width: clamp(200px, 26vw, 320px);
-  margin: clamp(var(--space-7), 5vw, var(--space-8)) auto 0;
+  width: clamp(170px, 20vw, 240px);
+  margin-inline: auto;
   filter: drop-shadow(0 14px 18px rgba(48, 34, 24, .22))
           drop-shadow(0 2px 5px rgba(48, 34, 24, .16));
 }
-.sac-final__objet img { display: block; width: 100%; height: auto; }
+.invendu__sac img { display: block; width: 100%; height: auto; }
+
+.invendu__titre {
+  max-width: 22ch;
+  margin-bottom: clamp(var(--space-5), 3vw, var(--space-6));
+}
+
+/* Deux lignes, une valeur par ligne : le zéro en gris, le gain en vert —
+   la même couleur que partout ailleurs pour ce qui rentre. */
+.invendu__compte { margin: 0; }
+.invendu__ligne {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--border);
+}
+.invendu__ligne dt { color: var(--text-muted); font-size: var(--text-base); }
+.invendu__ligne dd {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-variation-settings: "SOFT" 24, "WONK" 0;
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  line-height: 1.1;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.invendu__ligne--gain dd { color: var(--money-ink); }
 
 /* ==========================================================================
    Registre bleu — titres de section et blocs pleins
