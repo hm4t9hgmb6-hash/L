@@ -109,15 +109,19 @@
   <!-- ============ S1 · HÉROS ============================================== -->
   <section class="panel panel--grey panel--pad hero-split" data-sticky-cta-after>
     <div class="container hero-split__grid">
-      <div data-reveal>
-        <span class="hero-split__live">Offres actives en ce moment</span>
+      <div data-reveal class="hero-split__intro">
         <h1 class="hero-split__title">Des réductions,<br>à proximité,<br><span class="hero__accent">en temps réel</span></h1>
-        <p class="hero-split__lede">Les commerces indépendants de ton quartier
-           publient leurs réductions quand ils le décident. Tu les vois arriver,
-           tu réserves, tu passes.</p>
       </div>
 
-      <div data-reveal data-reveal-delay="1">
+      <div data-reveal data-reveal-delay="1" class="hero-split__action">
+        <picture class="hero-split__bag" aria-hidden="true">
+          <source type="image/webp" srcset="assets/img/sac-dealpick-540.webp 540w, assets/img/sac-dealpick-900.webp 900w" sizes="(min-width: 900px) 220px, 150px">
+          <img src="assets/img/sac-dealpick-540.png" width="540" height="497" alt=""
+               loading="eager" decoding="async"
+               srcset="assets/img/sac-dealpick-540.png 540w, assets/img/sac-dealpick-900.png 900w"
+               sizes="(min-width: 900px) 220px, 150px">
+        </picture>
+
         <form class="search-card" action="villes.html" method="get">
           <label class="search-card__label" for="lieu">Adresse, arrondissement ou ville</label>
           <div class="search-field">
@@ -138,12 +142,6 @@
             Utiliser ma position actuelle
           </button>
         </form>
-
-        <ul class="hero-split__proof">
-          <li>Application gratuite</li>
-          <li>Sans compte pour regarder</li>
-          <li>Annulation possible</li>
-        </ul>
       </div>
     </div>
   </section>
