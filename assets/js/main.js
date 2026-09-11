@@ -167,123 +167,147 @@
   sync();
 })();
 
-/* Bloc à onglets : le sélecteur change le visuel et le texte, au clic comme
-   aux flèches du clavier. */
+/* Deux diaporamas, un seul mécanisme : chaque groupe de diapositives vit dans
+   un rail qui défile au cran (scroll-snap). Les onglets et les flèches ne font
+   que pousser le rail ; le balayage au doigt et le défilement au trackpad
+   fonctionnent donc sans code, et c'est le rail qui reste la source de vérité
+   — on relit sa position pour remettre les onglets et le compteur à jour. */
 (function () {
   'use strict';
-  var bloc = document.querySelector('[data-tabs]');
-  if (!bloc) return;
-
-  var onglets = bloc.querySelectorAll('[role="tab"]');
-  var panneaux = bloc.querySelectorAll('[role="tabpanel"]');
-  var visuels = bloc.querySelectorAll('[data-tab-media]');
-  var reduit = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var DUREE_SORTIE = 160;
-
-  function basculer(i, donnerLeFocus) {
-    for (var j = 0; j < onglets.length; j++) {
-      var actif = j === i;
-      onglets[j].setAttribute('aria-selected', String(actif));
-      onglets[j].tabIndex = actif ? 0 : -1;
-      panneaux[j].hidden = !actif;
-      if (visuels[j]) visuels[j].hidden = !actif;
-    }
-    if (donnerLeFocus) onglets[i].focus();
-  }
-
-  function activer(i, donnerLeFocus) {
-    var actuel = -1;
-    for (var j = 0; j < onglets.length; j++) {
-      if (onglets[j].getAttribute('aria-selected') === 'true') { actuel = j; break; }
-    }
-    if (actuel === i) return;
-
-    if (reduit || actuel === -1) {
-      basculer(i, donnerLeFocus);
-      return;
-    }
-
-    panneaux[actuel].classList.add('tab-fade-out');
-    if (visuels[actuel]) visuels[actuel].classList.add('tab-fade-out');
-
-    window.setTimeout(function () {
-      panneaux[actuel].classList.remove('tab-fade-out');
-      if (visuels[actuel]) visuels[actuel].classList.remove('tab-fade-out');
-
-      basculer(i, donnerLeFocus);
-
-      panneaux[i].classList.add('tab-fade-in');
-      if (visuels[i]) visuels[i].classList.add('tab-fade-in');
-      void panneaux[i].offsetWidth; // force l'état de départ avant de l'animer
-      requestAnimationFrame(function () {
-        panneaux[i].classList.remove('tab-fade-in');
-        if (visuels[i]) visuels[i].classList.remove('tab-fade-in');
-      });
-    }, DUREE_SORTIE);
-  }
-
-  for (var k = 0; k < onglets.length; k++) {
-    (function (i) {
-      onglets[i].addEventListener('click', function () { activer(i, false); });
-      onglets[i].addEventListener('keydown', function (ev) {
-        var d = ev.key === 'ArrowRight' ? 1 : ev.key === 'ArrowLeft' ? -1 : 0;
-        if (!d) return;
-        ev.preventDefault();
-        activer((i + d + onglets.length) % onglets.length, true);
-      });
-    })(k);
-  }
-})();
-
-/* Diaporama « Développez votre activité » : les deux flèches font défiler les
-   trois arguments en boucle, avec le même fondu que le bloc à onglets. */
-(function () {
-  'use strict';
-  var bloc = document.querySelector('[data-grow]');
-  if (!bloc) return;
-
-  var diapos = bloc.querySelectorAll('.grow__row');
-  var rang = bloc.querySelector('[data-grow-rang]');
-  if (diapos.length < 2) return;
 
   var reduit = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var DUREE_SORTIE = 160;
-  var courante = 0;
-  var enCours = false;
 
-  function afficher(i) {
-    for (var j = 0; j < diapos.length; j++) diapos[j].classList.toggle('est-masquee', j !== i);
-    if (rang) rang.textContent = String(i + 1);
-    courante = i;
+  /* Pousse un rail sur la diapositive i. */
+  function pousser(rail, i) {
+    rail.scrollTo({ left: rail.clientWidth * i, behavior: reduit ? 'auto' : 'smooth' });
   }
 
-  function aller(pas) {
-    if (enCours) return;
-    var cible = (courante + pas + diapos.length) % diapos.length;
-    var sortante = diapos[courante];
-
-    if (reduit) { afficher(cible); return; }
-
-    enCours = true;
-    sortante.classList.add('est-sortante');
-    window.setTimeout(function () {
-      sortante.classList.remove('est-sortante');
-      afficher(cible);
-
-      var entrante = diapos[cible];
-      entrante.classList.add('est-entrante');
-      void entrante.offsetWidth; // fige l'état de départ avant de l'animer
-      requestAnimationFrame(function () {
-        entrante.classList.remove('est-entrante');
-        enCours = false;
-      });
-    }, DUREE_SORTIE);
+  /* Diapositive actuellement au cran. */
+  function rangCourant(rail) {
+    return Math.round(rail.scrollLeft / rail.clientWidth);
   }
 
-  var prec = bloc.querySelector('[data-grow-prec]');
-  var suiv = bloc.querySelector('[data-grow-suiv]');
-  if (prec) prec.addEventListener('click', function () { aller(-1); });
-  if (suiv) suiv.addEventListener('click', function () { aller(1); });
+  /* Appelle `sur` quand le défilement s'est stabilisé — un défilement fluide
+     émet des dizaines d'événements, on ne garde que le dernier. */
+  function auRepos(rail, sur) {
+    var attente;
+    rail.addEventListener('scroll', function () {
+      window.clearTimeout(attente);
+      attente = window.setTimeout(sur, 90);
+    });
+  }
+
+  /* Ne laisse dans l'arbre d'accessibilité que l'élément i de la liste. */
+  function nExposerQue(elements, i) {
+    for (var j = 0; j < elements.length; j++) {
+      if (!elements[j]) continue;
+      if (j === i) elements[j].removeAttribute('aria-hidden');
+      else elements[j].setAttribute('aria-hidden', 'true');
+    }
+  }
+
+  /* ---- « Trois gestes » : onglets nommés, deux rails synchronisés -------- */
+  (function () {
+    var bloc = document.querySelector('[data-tabs]');
+    if (!bloc) return;
+
+    var onglets = bloc.querySelectorAll('[role="tab"]');
+    var panneaux = bloc.querySelectorAll('[role="tabpanel"]');
+    var visuels = bloc.querySelectorAll('[data-tab-media]');
+    var rails = bloc.querySelectorAll('[data-tab-rail]');
+    if (!onglets.length || !rails.length) return;
+
+    var courant = 0;
+
+    function marquer(i) {
+      for (var j = 0; j < onglets.length; j++) {
+        var actif = j === i;
+        onglets[j].setAttribute('aria-selected', String(actif));
+        onglets[j].tabIndex = actif ? 0 : -1;
+      }
+      nExposerQue(panneaux, i);
+      nExposerQue(visuels, i);
+      courant = i;
+    }
+
+    function aller(i, donnerLeFocus) {
+      for (var r = 0; r < rails.length; r++) pousser(rails[r], i);
+      marquer(i);
+      if (donnerLeFocus) onglets[i].focus();
+    }
+
+    for (var k = 0; k < onglets.length; k++) {
+      (function (i) {
+        onglets[i].addEventListener('click', function () { aller(i, false); });
+        onglets[i].addEventListener('keydown', function (ev) {
+          var d = ev.key === 'ArrowRight' ? 1 : ev.key === 'ArrowLeft' ? -1 : 0;
+          if (!d) return;
+          ev.preventDefault();
+          aller((i + d + onglets.length) % onglets.length, true);
+        });
+      })(k);
+    }
+
+    /* Balayage direct sur l'un des rails : on remet les onglets à jour et on
+       aligne l'autre rail. Pas de boucle à craindre — si l'autre rail est déjà
+       au bon cran, scrollTo n'émet aucun événement. */
+    for (var m = 0; m < rails.length; m++) {
+      (function (rail) {
+        auRepos(rail, function () {
+          var i = rangCourant(rail);
+          if (i === courant || i < 0 || i >= onglets.length) return;
+          marquer(i);
+          for (var n = 0; n < rails.length; n++) {
+            if (rails[n] !== rail) pousser(rails[n], i);
+          }
+        });
+      })(rails[m]);
+    }
+  })();
+
+  /* ---- « Développez votre activité » : deux flèches, un rail ------------- */
+  (function () {
+    var bloc = document.querySelector('[data-grow]');
+    if (!bloc) return;
+
+    var rail = bloc.querySelector('[data-grow-rail]');
+    if (!rail) return;
+
+    var diapos = rail.querySelectorAll('.grow__row');
+    var rang = bloc.querySelector('[data-grow-rang]');
+    var prec = bloc.querySelector('[data-grow-prec]');
+    var suiv = bloc.querySelector('[data-grow-suiv]');
+    if (diapos.length < 2) return;
+
+    var courante = 0;
+
+    function marquer(i) {
+      courante = i;
+      if (rang) rang.textContent = String(i + 1);
+      nExposerQue(diapos, i);
+      /* Aux extrémités la flèche s'éteint : sur un rail, revenir de la
+         dernière à la première par un balayage complet se lit comme un raté. */
+      if (prec) prec.disabled = i === 0;
+      if (suiv) suiv.disabled = i === diapos.length - 1;
+    }
+
+    function aller(pas) {
+      var cible = Math.min(Math.max(courante + pas, 0), diapos.length - 1);
+      if (cible === courante) return;
+      pousser(rail, cible);
+      marquer(cible);
+    }
+
+    if (prec) prec.addEventListener('click', function () { aller(-1); });
+    if (suiv) suiv.addEventListener('click', function () { aller(1); });
+
+    auRepos(rail, function () {
+      var i = rangCourant(rail);
+      if (i !== courante && i >= 0 && i < diapos.length) marquer(i);
+    });
+
+    marquer(0);
+  })();
 })();
 
 /* Révélation au défilement.

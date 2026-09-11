@@ -309,25 +309,27 @@
 
       <div class="tabs-block" data-tabs data-reveal>
         <div class="tabs-block__media">
-          <picture data-tab-media="0">
-            <source type="image/webp" srcset="assets/img/photos/reperer-640.webp 640w, assets/img/photos/reperer.webp 1200w" sizes="(min-width: 900px) 28rem, 90vw">
-            <img src="assets/img/photos/reperer.jpg" width="1200" height="800"
-                 loading="lazy" decoding="async" alt="Carte du quartier montrant les réductions actives et leur distance"
-                 srcset="assets/img/photos/reperer-640.jpg 640w, assets/img/photos/reperer.jpg 1200w"
-                 sizes="(min-width: 900px) 28rem, 90vw">
-          </picture>
-          <picture data-tab-media="1" hidden>
-            <source type="image/webp" srcset="assets/img/photos/reserver-480.webp 480w, assets/img/photos/reserver.webp 652w" sizes="(min-width: 900px) 28rem, 90vw">
-            <img src="assets/img/photos/reserver.jpg" width="652" height="435"
-                 loading="lazy" decoding="async" alt="Une femme réserve une offre depuis son téléphone"
-                 srcset="assets/img/photos/reserver-480.jpg 480w, assets/img/photos/reserver.jpg 652w"
-                 sizes="(min-width: 900px) 28rem, 90vw">
-          </picture>
-          <picture data-tab-media="2" hidden>
-            <source type="image/webp" srcset="assets/img/photos/profiter.webp">
-            <img src="assets/img/photos/profiter.jpg" width="400" height="160"
-                 loading="lazy" decoding="async" alt="Une serveuse apporte un plat en salle">
-          </picture>
+          <div class="rail" data-tab-rail aria-hidden="true">
+            <picture data-tab-media="0">
+              <source type="image/webp" srcset="assets/img/photos/reperer-640.webp 640w, assets/img/photos/reperer.webp 1200w" sizes="(min-width: 900px) 28rem, 90vw">
+              <img src="assets/img/photos/reperer.jpg" width="1200" height="800"
+                   loading="lazy" decoding="async" alt="Carte du quartier montrant les réductions actives et leur distance"
+                   srcset="assets/img/photos/reperer-640.jpg 640w, assets/img/photos/reperer.jpg 1200w"
+                   sizes="(min-width: 900px) 28rem, 90vw">
+            </picture>
+            <picture data-tab-media="1">
+              <source type="image/webp" srcset="assets/img/photos/reserver-480.webp 480w, assets/img/photos/reserver.webp 652w" sizes="(min-width: 900px) 28rem, 90vw">
+              <img src="assets/img/photos/reserver.jpg" width="652" height="435"
+                   loading="lazy" decoding="async" alt="Une femme réserve une offre depuis son téléphone"
+                   srcset="assets/img/photos/reserver-480.jpg 480w, assets/img/photos/reserver.jpg 652w"
+                   sizes="(min-width: 900px) 28rem, 90vw">
+            </picture>
+            <picture data-tab-media="2">
+              <source type="image/webp" srcset="assets/img/photos/profiter.webp">
+              <img src="assets/img/photos/profiter.jpg" width="400" height="160"
+                   loading="lazy" decoding="async" alt="Une serveuse apporte un plat en salle">
+            </picture>
+          </div>
         </div>
 
         <div class="tabs-block__body">
@@ -339,17 +341,20 @@
             <button type="button" role="tab" id="onglet-2" aria-controls="volet-2"
                     aria-selected="false" tabindex="-1">Profiter</button>
           </div>
-          <div class="tabpanel" role="tabpanel" id="volet-0" aria-labelledby="onglet-0">
-            <span class="tabpanel__num">Étape 1</span>
-            <p>Le fil et la carte montrent les réductions actives autour de toi, classées par distance, avec le temps de validité restant et le nombre de places.</p>
-          </div>
-          <div class="tabpanel" role="tabpanel" id="volet-1" aria-labelledby="onglet-1" hidden>
-            <span class="tabpanel__num">Étape 2</span>
-            <p>Deux gestes, paiement dans l'application. La place est bloquée à ton nom immédiatement : personne d'autre ne peut la prendre pendant que tu te déplaces.</p>
-          </div>
-          <div class="tabpanel" role="tabpanel" id="volet-2" aria-labelledby="onglet-2" hidden>
-            <span class="tabpanel__num">Étape 3</span>
-            <p>Tu présentes ton code au comptoir, ou tu te présentes à l'heure du rendez-vous. Rien à régler sur place, rien à imprimer.</p>
+
+          <div class="rail rail--texte" data-tab-rail>
+            <div class="tabpanel" role="tabpanel" id="volet-0" aria-labelledby="onglet-0">
+              <span class="tabpanel__num">Étape 1</span>
+              <p>Le fil et la carte montrent les réductions actives autour de toi, classées par distance, avec le temps de validité restant et le nombre de places.</p>
+            </div>
+            <div class="tabpanel" role="tabpanel" id="volet-1" aria-labelledby="onglet-1" aria-hidden="true">
+              <span class="tabpanel__num">Étape 2</span>
+              <p>Deux gestes, paiement dans l'application. La place est bloquée à ton nom immédiatement : personne d'autre ne peut la prendre pendant que tu te déplaces.</p>
+            </div>
+            <div class="tabpanel" role="tabpanel" id="volet-2" aria-labelledby="onglet-2" aria-hidden="true">
+              <span class="tabpanel__num">Étape 3</span>
+              <p>Tu présentes ton code au comptoir, ou tu te présentes à l'heure du rendez-vous. Rien à régler sur place, rien à imprimer.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -392,7 +397,7 @@
       </div>
 
       <div class="grow" data-grow data-reveal>
-        <div class="grow__scene">
+        <div class="grow__scene rail" data-grow-rail>
           <div class="grow__row">
             <picture class="grow__media">
               <source type="image/webp" srcset="assets/img/photos/commercante-600.webp 600w, assets/img/photos/commercante.webp 900w" sizes="(min-width: 860px) 26rem, 100vw">
@@ -408,7 +413,7 @@
             </div>
           </div>
 
-          <div class="grow__row est-masquee">
+          <div class="grow__row">
             <picture class="grow__media">
               <source type="image/webp" srcset="assets/img/photos/coiffeur-640.webp 640w, assets/img/photos/coiffeur.webp 1200w" sizes="(min-width: 860px) 26rem, 100vw">
               <img src="assets/img/photos/coiffeur.jpg" width="1200" height="801"
@@ -426,7 +431,7 @@
             </div>
           </div>
 
-          <div class="grow__row est-masquee">
+          <div class="grow__row">
             <picture class="grow__media">
               <source type="image/webp" srcset="assets/img/photos/restaurant.webp">
               <img src="assets/img/photos/restaurant.jpg" width="300" height="200"

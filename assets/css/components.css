@@ -1896,6 +1896,26 @@
    « Développez votre activité » — vignette à gauche, texte à droite
    ========================================================================== */
 
+/* ==========================================================================
+   Rail de défilement, commun aux deux diaporamas de la page
+   ========================================================================== */
+
+/* Une diapositive par écran, calée au cran. Le défilement natif fait tout le
+   travail : les flèches et les onglets ne font que pousser le rail, et le
+   balayage au doigt marche sans une ligne de JS. Même mécanique que le
+   diaporama des enseignes plus haut dans la page. */
+.rail {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.rail::-webkit-scrollbar { display: none; }
+.rail > * { scroll-snap-align: start; min-width: 0; }
+
 /* Les trois arguments ne s'empilent plus : ils défilent un par un dans un
    bloc orange, au rythme du lecteur. La vignette reste du même côté d'une
    diapositive à l'autre — l'alternance gauche/droite d'avant faisait sauter
@@ -1919,34 +1939,9 @@
   background: radial-gradient(78% 120% at 22% 0%, rgba(255, 255, 255, .16), transparent 62%);
   pointer-events: none;
 }
-/* Les trois diapositives occupent la même cellule de grille et celles qui
-   sont masquées gardent leur place : le bloc fait toujours la hauteur de la
-   plus longue, au lieu de sauter à chaque clic. Sur mobile, où c'est la
-   longueur du texte qui commande la hauteur, l'écart atteignait 57 px. */
-.grow__scene { display: grid; }
-.grow__row {
-  grid-area: 1 / 1;
-  display: grid;
-  gap: var(--space-5);
-  align-items: center;
-}
-/* Une classe et non l'attribut hidden : base.css impose
-   [hidden] { display: none !important }, qui retirerait la diapositive du
-   flux et ferait retomber la hauteur. visibility: hidden la sort malgré
-   tout du parcours clavier et des lecteurs d'écran. */
-.grow__row.est-masquee { visibility: hidden; opacity: 0; }
+.grow__row { display: grid; gap: var(--space-5); align-items: center; }
 @media (min-width: 860px) {
   .grow__row { grid-template-columns: 26rem 1fr; gap: clamp(var(--space-7), 5vw, var(--space-8)); }
-}
-
-/* Fondu au changement de diapositive : le texte et la vignette sortants
-   s'estompent vers le haut, les entrants arrivent par le bas. Les classes
-   sont posées puis retirées par le JS. */
-.grow__row { transition: opacity .18s ease, transform .18s ease; }
-.grow__row.est-sortante { opacity: 0; transform: translateY(-6px); }
-.grow__row.est-entrante { opacity: 0; transform: translateY(8px); }
-@media (prefers-reduced-motion: reduce) {
-  .grow__row { transition: none; }
 }
 
 /* Navigation : deux flèches et le rang courant, posés en bas à droite. */
@@ -1972,6 +1967,11 @@
 }
 .grow__fleche:hover { background: rgba(255, 255, 255, .22); }
 .grow__fleche:active { transform: scale(.94); }
+.grow__fleche[disabled] {
+  opacity: .35;
+  cursor: default;
+  background: rgba(0, 0, 0, .17);
+}
 .grow__compte {
   font-size: var(--text-sm);
   font-weight: var(--weight-bold);
@@ -2051,15 +2051,12 @@
 .tabs-block__media {
   position: relative;
   padding: clamp(var(--space-6), 4.5vw, var(--space-8));
-  display: grid;
-  place-items: center;
 }
 
 .tabs-block__media picture {
   position: relative;
   display: block;
   width: 100%;
-  max-width: 31rem;
   aspect-ratio: 3 / 2;
   overflow: hidden;
   border-radius: var(--radius-lg);
@@ -2095,30 +2092,6 @@
 .tablist button[aria-selected="true"]:hover { background: #fff; }
 
 .tabpanel { margin-top: clamp(var(--space-6), 5vw, var(--space-8)); }
-
-/* Transition à la lecture, au changement d'onglet : le panneau et le
-   visuel sortants s'estompent légèrement vers le bas, les entrants
-   depuis le haut — un fondu discret plutôt qu'un basculement sec.
-   Les classes sont posées et retirées par le JS ; la disparition
-   complète (hidden) n'intervient qu'une fois le fondu sortant terminé. */
-.tabpanel,
-.tabs-block__media picture {
-  transition: opacity .18s ease, transform .18s ease;
-}
-.tabpanel.tab-fade-out,
-.tabs-block__media picture.tab-fade-out {
-  opacity: 0;
-  transform: translateY(-6px);
-}
-.tabpanel.tab-fade-in,
-.tabs-block__media picture.tab-fade-in {
-  opacity: 0;
-  transform: translateY(8px);
-}
-@media (prefers-reduced-motion: reduce) {
-  .tabpanel,
-  .tabs-block__media picture { transition: none; }
-}
 
 .tabpanel p {
   font-size: clamp(1.0625rem, 1rem + .5vw, 1.375rem);
