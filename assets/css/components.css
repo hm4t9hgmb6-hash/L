@@ -1824,27 +1824,35 @@
 @media (max-width: 899px) { .hero-split .search-card { margin-inline: auto; } }
 @media (max-width: 899px) { .hero-split__intro { text-align: center; } }
 
-/* Le sac, la pizza et les sushis forment un trio posé sous le titre et la
-   carte de recherche — jamais à côté ni en chevauchement, pour ne jamais
-   masquer ni le titre ni le module de recherche, sur aucun gabarit. */
+/* Le sac et les plats (pizza, salade, wok, sushis) forment une ligne posée
+   sous le titre et la carte de recherche — jamais à côté ni en
+   chevauchement, pour ne jamais masquer ni le titre ni le module de
+   recherche, sur aucun gabarit. */
 .hero-split__trio {
   grid-column: 1 / -1;
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-end;
   justify-content: center;
-  gap: var(--space-4);
+  gap: var(--space-2);
   margin-top: var(--space-2);
 }
 .hero-split__pizza,
+.hero-split__salade,
+.hero-split__woksia,
 .hero-split__sushi,
 .hero-split__bag {
   display: block;
-  width: 84px;
+  width: 52px;
 }
 .hero-split__pizza img,
+.hero-split__salade img,
+.hero-split__woksia img,
 .hero-split__sushi img,
 .hero-split__bag-pic img { display: block; width: 100%; height: auto; }
 .hero-split__pizza,
+.hero-split__salade,
+.hero-split__woksia,
 .hero-split__sushi,
 .hero-split__bag-pic {
   display: block;
@@ -1854,8 +1862,10 @@
 @media (min-width: 900px) {
   .hero-split__trio { gap: var(--space-6); margin-top: var(--space-4); }
   .hero-split__pizza,
+  .hero-split__salade,
+  .hero-split__woksia,
   .hero-split__sushi,
-  .hero-split__bag { width: 132px; }
+  .hero-split__bag { width: 96px; }
 }
 
 /* ==========================================================================
