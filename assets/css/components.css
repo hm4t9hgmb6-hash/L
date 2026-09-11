@@ -1896,15 +1896,89 @@
    « Développez votre activité » — vignette à gauche, texte à droite
    ========================================================================== */
 
-/* Rangées alternées : la vignette change de côté à chaque argument. Le
-   déplacement du regard suffit à séparer les blocs — pas besoin de filets. */
-.grow { display: grid; gap: clamp(var(--space-8), 7vw, var(--space-9)); }
-.grow__row { display: grid; gap: var(--space-5); align-items: center; }
+/* Les trois arguments ne s'empilent plus : ils défilent un par un dans un
+   bloc orange, au rythme du lecteur. La vignette reste du même côté d'une
+   diapositive à l'autre — l'alternance gauche/droite d'avant faisait sauter
+   l'image à chaque changement. */
+.grow {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background: var(--primary);
+  color: #fff;
+  padding: clamp(var(--space-6), 4.5vw, var(--space-8));
+}
+/* Même lumière rasante que le bloc à onglets : sans elle l'aplat orange
+   paraît plat sur une grande surface. */
+.grow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(78% 120% at 22% 0%, rgba(255, 255, 255, .16), transparent 62%);
+  pointer-events: none;
+}
+/* Les trois diapositives occupent la même cellule de grille et celles qui
+   sont masquées gardent leur place : le bloc fait toujours la hauteur de la
+   plus longue, au lieu de sauter à chaque clic. Sur mobile, où c'est la
+   longueur du texte qui commande la hauteur, l'écart atteignait 57 px. */
+.grow__scene { display: grid; }
+.grow__row {
+  grid-area: 1 / 1;
+  display: grid;
+  gap: var(--space-5);
+  align-items: center;
+}
+/* Une classe et non l'attribut hidden : base.css impose
+   [hidden] { display: none !important }, qui retirerait la diapositive du
+   flux et ferait retomber la hauteur. visibility: hidden la sort malgré
+   tout du parcours clavier et des lecteurs d'écran. */
+.grow__row.est-masquee { visibility: hidden; opacity: 0; }
 @media (min-width: 860px) {
   .grow__row { grid-template-columns: 26rem 1fr; gap: clamp(var(--space-7), 5vw, var(--space-8)); }
-  .grow__row:nth-child(even) { grid-template-columns: 1fr 26rem; }
-  .grow__row:nth-child(even) .grow__media { order: 2; }
 }
+
+/* Fondu au changement de diapositive : le texte et la vignette sortants
+   s'estompent vers le haut, les entrants arrivent par le bas. Les classes
+   sont posées puis retirées par le JS. */
+.grow__row { transition: opacity .18s ease, transform .18s ease; }
+.grow__row.est-sortante { opacity: 0; transform: translateY(-6px); }
+.grow__row.est-entrante { opacity: 0; transform: translateY(8px); }
+@media (prefers-reduced-motion: reduce) {
+  .grow__row { transition: none; }
+}
+
+/* Navigation : deux flèches et le rang courant, posés en bas à droite. */
+.grow__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: clamp(var(--space-6), 4vw, var(--space-7));
+}
+@media (min-width: 860px) { .grow__nav { justify-content: flex-end; } }
+.grow__fleche {
+  display: grid;
+  place-items: center;
+  width: 44px; height: 44px;
+  flex: none;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .17);
+  color: #fff;
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+.grow__fleche:hover { background: rgba(255, 255, 255, .22); }
+.grow__fleche:active { transform: scale(.94); }
+.grow__compte {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, .72);
+}
+.grow__compte b { color: #fff; }
 .grow__media {
   display: block;
   width: 100%;
@@ -1929,11 +2003,11 @@
   font-size: var(--text-xs);
   font-weight: var(--weight-bold);
   letter-spacing: var(--tracking-wide);
-  color: var(--primary);
+  color: rgba(255, 255, 255, .75);
   font-variant-numeric: tabular-nums;
 }
 .grow__row h3 {
-  color: var(--text);
+  color: #fff;
   font-family: var(--font-display);
   font-weight: 600;
   font-variation-settings: "SOFT" 24, "WONK" 0;
@@ -1943,7 +2017,7 @@
   margin-bottom: var(--space-4);
   max-width: 22ch;
 }
-.grow__row p { color: var(--text-muted); max-width: 48ch; font-size: var(--text-lg); line-height: 1.55; }
+.grow__row p { color: rgba(255, 255, 255, .92); max-width: 48ch; font-size: var(--text-lg); line-height: 1.55; }
 
 /* ==========================================================================
    Bloc à onglets — visuel à gauche, sélecteur et texte à droite

@@ -235,6 +235,57 @@
   }
 })();
 
+/* Diaporama « Développez votre activité » : les deux flèches font défiler les
+   trois arguments en boucle, avec le même fondu que le bloc à onglets. */
+(function () {
+  'use strict';
+  var bloc = document.querySelector('[data-grow]');
+  if (!bloc) return;
+
+  var diapos = bloc.querySelectorAll('.grow__row');
+  var rang = bloc.querySelector('[data-grow-rang]');
+  if (diapos.length < 2) return;
+
+  var reduit = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var DUREE_SORTIE = 160;
+  var courante = 0;
+  var enCours = false;
+
+  function afficher(i) {
+    for (var j = 0; j < diapos.length; j++) diapos[j].classList.toggle('est-masquee', j !== i);
+    if (rang) rang.textContent = String(i + 1);
+    courante = i;
+  }
+
+  function aller(pas) {
+    if (enCours) return;
+    var cible = (courante + pas + diapos.length) % diapos.length;
+    var sortante = diapos[courante];
+
+    if (reduit) { afficher(cible); return; }
+
+    enCours = true;
+    sortante.classList.add('est-sortante');
+    window.setTimeout(function () {
+      sortante.classList.remove('est-sortante');
+      afficher(cible);
+
+      var entrante = diapos[cible];
+      entrante.classList.add('est-entrante');
+      void entrante.offsetWidth; // fige l'état de départ avant de l'animer
+      requestAnimationFrame(function () {
+        entrante.classList.remove('est-entrante');
+        enCours = false;
+      });
+    }, DUREE_SORTIE);
+  }
+
+  var prec = bloc.querySelector('[data-grow-prec]');
+  var suiv = bloc.querySelector('[data-grow-suiv]');
+  if (prec) prec.addEventListener('click', function () { aller(-1); });
+  if (suiv) suiv.addEventListener('click', function () { aller(1); });
+})();
+
 /* Révélation au défilement.
    Le CSS n'anime que si <html> porte .reveal-ready : sans JS, ou si l'appareil
    demande un mouvement réduit, la page reste entièrement visible. */
