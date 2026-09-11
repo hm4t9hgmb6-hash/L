@@ -1807,9 +1807,9 @@
   margin-top: calc(var(--header-height) * -1);
   padding-top: calc(var(--header-height) + clamp(var(--space-7), 6vw, var(--space-9)));
 }
-.hero-split__grid { display: grid; gap: var(--space-7); align-items: center; }
+.hero-split__grid { display: grid; gap: var(--space-6); align-items: center; }
 @media (min-width: 900px) {
-  .hero-split__grid { grid-template-columns: 1.06fr .94fr; gap: var(--space-8); }
+  .hero-split__grid { position: relative; grid-template-columns: 1.06fr .94fr; column-gap: 9rem; row-gap: var(--space-6); }
 }
 .hero-split__title {
   font-size: clamp(2.75rem, 1.2rem + 6.6vw, 5.25rem);
@@ -1818,33 +1818,37 @@
   margin: 0;
 }
 .hero-split.panel--pad { padding-bottom: clamp(var(--space-7), 6vw, var(--space-8)); }
+@media (max-width: 899px) { .hero-split.panel--pad { padding-bottom: var(--space-5); } }
 .hero-split .search-card { margin: 0; max-width: 32rem; }
 @media (max-width: 899px) { .hero-split .search-card { margin-inline: auto; } }
+@media (max-width: 899px) { .hero-split__intro { text-align: center; } }
 
 /* Le héros ne garde que trois éléments — le titre, le sac, le module de
    recherche — pour tenir dans un seul écran au chargement, sans défilement.
-   Le sac est posé juste au-dessus de la carte de recherche, comme s'il
-   venait d'y être déposé : un léger chevauchement et une rotation discrète
-   suffisent à donner ce naturel, pas besoin d'un décor complet autour. */
-.hero-split__action {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-@media (max-width: 899px) { .hero-split__intro { text-align: center; } }
-
+   Sur mobile, le sac suit simplement la carte de recherche. Sur desktop, il
+   occupe sa propre position entre le bloc de texte et la carte (colonne du
+   milieu sortie du flux via position absolue, pour ne pas réduire la largeur
+   du titre ni de la carte), bien droit et entièrement visible. */
 .hero-split__bag {
   display: block;
-  z-index: 1;
-  width: 128px;
-  margin-bottom: calc(var(--space-6) * -1);
-  transform: rotate(-6deg);
+  width: 92px;
+  margin: var(--space-4) auto 0;
+}
+.hero-split__bag-pic {
+  display: block;
   filter: drop-shadow(0 14px 18px rgba(48, 34, 24, .22))
           drop-shadow(0 2px 5px rgba(48, 34, 24, .16));
 }
-.hero-split__bag img { display: block; width: 100%; height: auto; }
+.hero-split__bag-pic img { display: block; width: 100%; height: auto; }
 @media (min-width: 900px) {
-  .hero-split__bag { width: 188px; margin-bottom: calc(var(--space-7) * -1); }
+  .hero-split__bag {
+    position: absolute;
+    left: 53%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 116px;
+    margin: 0;
+  }
 }
 
 /* ==========================================================================
