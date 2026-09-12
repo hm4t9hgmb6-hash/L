@@ -116,6 +116,13 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--space-7) 0; }
 .section { padding-block: clamp(var(--space-7), 7vw, var(--space-9)); }
 .section--tight { padding-block: var(--space-7); }
 .section--subtle { background: var(--bg-subtle); }
+/* .theme-paper (voir tokens.css) change les couleurs qu'une section utilise,
+   mais .section nu n'a pas de fond propre — sans cette ligne, il resterait
+   transparent et laisserait voir le fond sombre de la page au travers.
+   Spécificité nulle (:where) : une règle plus précise comme .section--subtle
+   ou .panel garde la main pour peindre son propre fond — avec la valeur de
+   --bg / --bg-subtle déjà relocalisée, la nuance entre les deux survit. */
+:where(.theme-paper) { background: var(--bg); color: var(--text); }
 
 /* En-tête de section : un seul composant, employé partout de la même façon.
    C'est lui qui donne au site son rythme régulier. */

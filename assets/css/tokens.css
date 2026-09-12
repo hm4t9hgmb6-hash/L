@@ -174,15 +174,17 @@
   --transition-slow: 620ms cubic-bezier(.16, .84, .28, 1);
 }
 
-/* --- Thème « application » ------------------------------------------------
-   Les pages app/*.html ne sont pas le site vitrine : elles simulent l'écran
-   d'un vrai téléphone, comme .phone ailleurs. Ce cadre les épingle sur
-   l'ancien thème clair, indépendamment du thème sombre choisi pour le site,
-   pour qu'elles continuent à se lire comme une interface mobile normale. */
-body.app-shell {
+/* --- Thème « application » et sections « papier » --------------------------
+   Deux usages du même jeu de couleurs claires :
+   — .app-shell épingle les pages app/*.html sur l'ancien thème, indépendamment
+     du thème sombre du site : ce sont des maquettes d'écran de téléphone, pas
+     la vitrine, elles ne changent pas de style.
+   — .theme-paper pose une section du site vitrine sur un fond clair au milieu
+     des sections sombres, pour alterner plutôt que d'empiler le noir sur tout
+     une page. Elle garde la police d'affichage du nouveau thème (Archivo
+     Black) : seule la couleur change, pas la voix de la marque. */
+body.app-shell, .theme-paper {
   color-scheme: light;
-
-  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
 
   --bg:             var(--n-0);
   --bg-subtle:      #F6F4F1;
@@ -227,3 +229,6 @@ body.app-shell {
                0 48px 96px -32px rgba(48, 34, 24, .16);
   --shadow-brand: 0 2px 6px rgba(140, 52, 0, .16), 0 14px 30px -10px rgba(140, 52, 0, .28);
 }
+/* Fraunces reste propre aux écrans d'application : une section « papier » du
+   site vitrine, elle, garde la voix du nouveau thème (Archivo Black). */
+body.app-shell { --font-display: "Fraunces", "Iowan Old Style", Georgia, serif; }
