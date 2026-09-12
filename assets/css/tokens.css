@@ -25,18 +25,18 @@
   --n-900: #191614;
   --n-950: #100E0D;
 
-  /* Orange de marque. Le ton principal tient 4,5:1 avec le blanc dans les
-     deux sens — c'était la contrainte : un orange vif n'y arrive pas. */
-  --brand-50:  #FFF3EA;
-  --brand-100: #FFE2CE;
-  --brand-300: #FF9A55;
-  --brand-500: #E8590C;   /* orange vif : survols, dégradés */
-  --brand-600: #CC4E00;   /* couleur de marque : boutons, liens, blocs */
-  --brand-700: #A83E00;
+  /* Rose de marque. Le ton principal tient 4,5:1 avec le blanc dans les
+     deux sens — c'était la contrainte : un rose trop vif n'y arrive pas. */
+  --brand-50:  #FFF1F2;
+  --brand-100: #FFE4E6;
+  --brand-300: #FDA4AF;
+  --brand-500: #F43F5E;   /* rose vif : survols, dégradés */
+  --brand-600: #E11D48;   /* couleur de marque : boutons, liens, blocs */
+  --brand-700: #BE123C;
 
-  --coral-50:  #FFF3EA;
-  --coral-500: #E8590C;  /* réductions : même famille que la marque */
-  --coral-700: #A83E00;
+  --coral-50:  #FFF1F2;
+  --coral-500: #F43F5E;  /* réductions : même famille que la marque */
+  --coral-700: #BE123C;
 
   --mint-50:  #E7FAF1;
   --mint-500: #10B981;   /* économie réalisée */
@@ -149,9 +149,9 @@
                0 28px 60px -20px rgba(48, 34, 24, .12);
   --shadow-xl: 0 1px 3px rgba(48, 34, 24, .05), 0 16px 40px -12px rgba(48, 34, 24, .10),
                0 48px 96px -32px rgba(48, 34, 24, .16);
-  /* Ombre colorée : uniquement sous les éléments orange, pour qu'ils aient
+  /* Ombre colorée : uniquement sous les éléments roses, pour qu'ils aient
      l'air posés sur la page et non collés dessus. */
-  --shadow-brand: 0 2px 6px rgba(140, 52, 0, .16), 0 14px 30px -10px rgba(140, 52, 0, .28);
+  --shadow-brand: 0 2px 6px rgba(190, 18, 60, .16), 0 14px 30px -10px rgba(190, 18, 60, .28);
 
   /* --- Divers ------------------------------------------------------------- */
   --container: 1120px;
