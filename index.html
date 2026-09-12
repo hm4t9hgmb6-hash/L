@@ -310,105 +310,117 @@
       <div class="tabs-block" data-tabs data-reveal>
         <div class="tabs-block__media">
           <div class="rail" data-tab-rail>
-            <div class="mock mock--ecran" data-tab-media="0" role="img"
-                 aria-label="Écran de l'application : le fil des réductions actives autour de soi, classées par distance, avec le temps de validité restant et le nombre de places.">
-              <div class="mock__bar">
-                <span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span>
-                <span class="mock__onglet">Autour de moi</span>
-              </div>
-              <div class="mock-compact" aria-hidden="true">
+
+            <!-- Écran 1 · Repérer -->
+            <div class="phone" data-tab-media="0" role="img"
+                 aria-label="Écran de l'application : le fil des réductions actives autour de soi, classées par distance, avec le prix réduit et la remise.">
+              <span class="phone__notch"></span>
+              <div class="phone__vue" aria-hidden="true">
+                <p class="phone__titre">Autour de moi</p>
                 <div class="mock-filtres">
                   <span class="filter-chip filter-chip--actif">À pied</span>
                   <span class="filter-chip">Ce soir</span>
-                  <span class="filter-chip">Tout</span>
+                  <span class="filter-chip">−50 %</span>
                 </div>
                 <div class="mock-fil">
-                  <span class="offer">
-                    <span class="offer__thumb">BM</span>
-                    <span class="offer__body">
-                      <span class="offer__store">Boulangerie Marchand &middot; 350 m</span>
-                      <span class="offer__title">Lot de viennoiseries</span>
-                      <span class="offer__meta">Encore 42 min &middot; 3 places</span>
-                    </span>
-                    <span class="offer__side">
+                  <div class="deal-card">
+                    <div class="deal-card__top">
+                      <span class="deal-card__store">Boulangerie Marchand</span>
                       <span class="badge badge--discount">&minus;60 %</span>
-                      <span class="offer__price">4,00 €</span>
-                      <span class="offer__was">10,00 €</span>
-                    </span>
-                  </span>
-                  <span class="offer">
-                    <span class="offer__thumb">SE</span>
-                    <span class="offer__body">
-                      <span class="offer__store">Salon Elsa &middot; 600 m</span>
-                      <span class="offer__title">Coupe &middot; créneau 18 h</span>
-                      <span class="offer__meta">Encore 2 h &middot; 1 place</span>
-                    </span>
-                    <span class="offer__side">
+                    </div>
+                    <p class="deal-card__title">Lot de viennoiseries &middot; 350 m</p>
+                    <div class="deal-card__prices">
+                      <span class="deal-card__price">4,00 €</span>
+                      <span class="deal-card__was">10,00 €</span>
+                    </div>
+                  </div>
+                  <div class="deal-card">
+                    <div class="deal-card__top">
+                      <span class="deal-card__store">Salon Elsa</span>
                       <span class="badge badge--discount">&minus;35 %</span>
-                      <span class="offer__price">19,50 €</span>
-                      <span class="offer__was">30,00 €</span>
-                    </span>
-                  </span>
-                  <span class="offer">
-                    <span class="offer__thumb">CV</span>
-                    <span class="offer__body">
-                      <span class="offer__store">Le Comptoir Vert &middot; 750 m</span>
-                      <span class="offer__title">Panier de légumes</span>
-                      <span class="offer__meta">Encore 25 min &middot; 4 places</span>
-                    </span>
-                    <span class="offer__side">
+                    </div>
+                    <p class="deal-card__title">Coupe &middot; 18 h &middot; 600 m</p>
+                    <div class="deal-card__prices">
+                      <span class="deal-card__price">19,50 €</span>
+                      <span class="deal-card__was">30,00 €</span>
+                    </div>
+                  </div>
+                  <div class="deal-card">
+                    <div class="deal-card__top">
+                      <span class="deal-card__store">Le Comptoir Vert</span>
                       <span class="badge badge--discount">&minus;45 %</span>
-                      <span class="offer__price">6,60 €</span>
-                      <span class="offer__was">12,00 €</span>
-                    </span>
-                  </span>
+                    </div>
+                    <p class="deal-card__title">Panier de légumes &middot; 750 m</p>
+                    <div class="deal-card__prices">
+                      <span class="deal-card__price">6,60 €</span>
+                      <span class="deal-card__was">12,00 €</span>
+                    </div>
+                  </div>
+                  <div class="deal-card">
+                    <div class="deal-card__top">
+                      <span class="deal-card__store">Trattoria Pepe</span>
+                      <span class="badge badge--discount">&minus;40 %</span>
+                    </div>
+                    <p class="deal-card__title">Pizza du jour &middot; 900 m</p>
+                    <div class="deal-card__prices">
+                      <span class="deal-card__price">7,80 €</span>
+                      <span class="deal-card__was">13,00 €</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div class="mock mock--ecran" data-tab-media="1" role="img"
-                 aria-label="Écran de l'application : récapitulatif de la réservation, prix réduit, places restantes et bouton Réserver et payer.">
-              <div class="mock__bar">
-                <span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span>
-                <span class="mock__onglet">Lot de viennoiseries</span>
-              </div>
-              <div class="mock-compact" aria-hidden="true">
-                <div class="summary">
-                  <div class="summary__row">
-                    <span>Prix réduit</span>
-                    <span><strong>4,00 €</strong> <span class="offer__was">10,00 €</span></span>
+            <!-- Écran 2 · Réserver -->
+            <div class="phone" data-tab-media="1" role="img"
+                 aria-label="Écran de l'application : récapitulatif de la réservation, prix réduit, places restantes, total et bouton Réserver et payer.">
+              <span class="phone__notch"></span>
+              <div class="phone__vue" aria-hidden="true">
+                <p class="phone__titre">Ta réservation</p>
+                <div class="deal-card">
+                  <div class="deal-card__top">
+                    <span class="deal-card__store">Boulangerie Marchand</span>
+                    <span class="badge badge--discount">&minus;60 %</span>
                   </div>
-                  <div class="summary__row">
-                    <span>Places restantes</span>
-                    <span>3</span>
-                  </div>
-                  <div class="summary__total">
-                    <span>Total</span>
-                    <span>4,00 €</span>
+                  <p class="deal-card__title">Lot de viennoiseries &middot; 350 m</p>
+                  <div class="deal-card__prices">
+                    <span class="deal-card__price">4,00 €</span>
+                    <span class="deal-card__was">10,00 €</span>
                   </div>
                 </div>
-                <span class="btn btn--primary btn--block" style="margin-top: var(--space-5)">Réserver et payer</span>
-                <p class="mock-note">La place est bloquée à ton nom dès le paiement.</p>
+                <div class="tel-liste">
+                  <div class="tel-ligne"><span>Quantité</span><strong>1 lot</strong></div>
+                  <div class="tel-ligne"><span>Places restantes</span><strong>3</strong></div>
+                  <div class="tel-ligne"><span>Retrait entre</span><strong>18 h &ndash; 19 h 30</strong></div>
+                  <div class="tel-ligne"><span>Prix affiché</span><strong>10,00 €</strong></div>
+                  <div class="tel-ligne"><span>Remise Dealpick</span><strong>&minus;6,00 €</strong></div>
+                  <div class="tel-ligne tel-ligne--total"><span>Total</span><strong>4,00 €</strong></div>
+                </div>
+                <span class="tel-bouton">Réserver et payer</span>
+                <p class="mock-note">La place est bloquée à ton nom dès le paiement. Aucun frais de service.</p>
               </div>
             </div>
 
-            <div class="mock mock--ecran" data-tab-media="2" role="img"
-                 aria-label="Écran de l'application : réservation confirmée, avec le code à présenter au comptoir et l'adresse du commerce.">
-              <div class="mock__bar">
-                <span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span>
-                <span class="mock__onglet">Réservation confirmée</span>
-              </div>
-              <div class="mock-compact" aria-hidden="true">
-                <div class="pickup-code">
-                  <span class="pickup-code__label">Ton code</span>
-                  <div class="pickup-code__value">7K4P</div>
-                  <span class="pickup-code__label">Commande n&deg; DP-2026-004182</span>
+            <!-- Écran 3 · Profiter -->
+            <div class="phone" data-tab-media="2" role="img"
+                 aria-label="Écran de l'application : réservation confirmée, avec le code à présenter au comptoir, le commerce et l'heure limite de retrait.">
+              <span class="phone__notch"></span>
+              <div class="phone__vue" aria-hidden="true">
+                <p class="phone__titre">Réservation confirmée</p>
+                <div class="tel-code">
+                  <span class="tel-code__label">Ton code au comptoir</span>
+                  <div class="tel-code__valeur">7K4P</div>
+                  <span class="tel-code__label">N&deg; DP-2026-004182</span>
                 </div>
-                <div class="mock-retrait">
-                  <div class="encaisse__jour"><span>Boulangerie Marchand</span><span>350 m</span></div>
-                  <div class="encaisse__jour"><span>À récupérer avant</span><span>19 h 30</span></div>
+                <div class="tel-liste">
+                  <div class="tel-ligne"><span>Commerce</span><strong>Boulangerie Marchand</strong></div>
+                  <div class="tel-ligne"><span>Adresse</span><strong>12 rue de la République</strong></div>
+                  <div class="tel-ligne"><span>Distance</span><strong>350 m &middot; 4 min à pied</strong></div>
+                  <div class="tel-ligne"><span>À récupérer avant</span><strong>19 h 30</strong></div>
+                  <div class="tel-ligne tel-ligne--total"><span>Économie</span><strong>6,00 €</strong></div>
                 </div>
-                <p class="mock-note">Annulation gratuite jusqu'à 30 min avant la fin de validité.</p>
+                <span class="tel-bouton tel-bouton--fantome">Voir l'itinéraire</span>
+                <p class="mock-note">Rien à régler sur place. Annulation gratuite jusqu'à 30 min avant la fin du créneau.</p>
               </div>
             </div>
           </div>

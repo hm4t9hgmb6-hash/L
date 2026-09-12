@@ -820,11 +820,13 @@
   padding: var(--space-3) 0;
   border-bottom: 1px solid var(--border);
 }
-.summary__row:last-of-type { border-bottom: 0; }
+/* Le total n'a plus de filet ni de marge propres : celui de la ligne du dessus
+   suffit. Avec les deux, une bande vide de 32 px apparaissait entre deux
+   filets. La règle .summary__row:last-of-type censée l'éviter ne ciblait rien :
+   les frères étant tous des div, le dernier div est le total, pas une ligne. */
 .summary__total {
   display: flex; justify-content: space-between; gap: var(--space-4);
-  margin-top: var(--space-4); padding-top: var(--space-4);
-  border-top: 1px solid var(--border);
+  padding-top: var(--space-4);
   font-family: var(--font-sans);
   font-weight: 800;
   font-size: var(--text-xl);
@@ -2158,50 +2160,147 @@
 .tabs-block__media {
   position: relative;
   padding: clamp(var(--space-6), 4.5vw, var(--space-8));
+  /* Sans cette ligne, la colonne réclame la largeur de son contenu minimal —
+     soit les trois diapositives côte à côte — et le rail déborde du bloc au
+     lieu de défiler dedans. */
+  min-width: 0;
 }
 
 /* Le rail ne porte plus des photos d'illustration mais les écrans réels de
-   l'application, dessinés en HTML avec les composants du parcours applicatif
-   (.offer, .summary, .pickup-code). Net à toute résolution, palette juste par
-   construction, et un chiffre se corrige en une ligne. L'ombre est plus
-   marquée que le var(--shadow-lg) de .mock : il faut décoller la carte de
-   l'aplat orange. */
-.tabs-block__media .mock--ecran {
+   l'application, posés dans la maquette de téléphone qui existait déjà plus
+   haut dans ce fichier (.phone, .phone__notch, .deal-card) et n'était plus
+   utilisée nulle part. Le châssis a un rapport d'image fixe, donc les trois
+   onglets ont exactement la même hauteur sans qu'on ait à la forcer, et le
+   contenu de chaque écran est calibré pour le remplir. */
+/* Le châssis entier mangeait la moitié de la page : on n'en montre plus que
+   le haut. Largeur disponible moins 6 mm de marge latérale de chaque côté,
+   et rapport 9/7,6 — soit les 40 % supérieurs d'un écran 9/19. Le contenu
+   continue derrière la coupe, ce qui se lit comme un écran qui sort du cadre
+   et non comme un vide.
+
+   Tout l'intérieur est dimensionné en --px : une unité proportionnelle à la
+   largeur du châssis (1 --px = 1 px quand il mesure 375 px, la largeur réelle
+   d'un iPhone). La maquette est donc une réduction exacte, et la coupe montre
+   le même 40 % d'écran sur mobile comme sur grand écran, au lieu de casser
+   les libellés dès que la colonne se resserre. */
+.tabs-block__media .rail { container-type: inline-size; }
+
+.tabs-block__media .phone {
+  --px: calc((100cqw - 12mm) / 375);
+  width: auto;
+  max-width: none;
+  margin-inline: 6mm;
+  aspect-ratio: 9 / 7.6;
   align-self: start;
-  box-shadow: 0 2px 8px rgba(60, 22, 0, .18), 0 30px 60px -18px rgba(60, 22, 0, .40);
+  border-width: calc(8 * var(--px));
+  border-bottom: 0;
+  border-radius: calc(42 * var(--px)) calc(42 * var(--px)) 0 0;
+  padding: calc(30 * var(--px)) calc(16 * var(--px)) 0;
+  box-shadow: 0 2px 8px rgba(60, 22, 0, .20), 0 22px 40px -16px rgba(60, 22, 0, .40);
 }
+/* La coupe tombe au hasard du contenu, parfois en plein milieu d'une ligne :
+   un dégradé vers le blanc de l'écran l'escamote, et l'écran se lit comme
+   s'il continuait hors du cadre. */
+.tabs-block__media .phone::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: calc(52 * var(--px));
+  background: linear-gradient(to bottom, transparent, var(--n-0) 78%);
+  pointer-events: none;
+}
+
+.tabs-block__media .rail > * { scroll-snap-align: center; }
+
+.phone .phone__notch {
+  width: 38%;
+  height: calc(26 * var(--px));
+  border-radius: 0 0 calc(14 * var(--px)) calc(14 * var(--px));
+}
+
+.phone__vue { display: grid; align-content: start; gap: calc(12 * var(--px)); }
+.phone__titre {
+  margin: 0;
+  font-size: calc(16 * var(--px));
+  font-weight: var(--weight-bold);
+  text-align: center;
+}
+
+.phone .deal-card {
+  margin-top: 0;
+  padding: calc(12 * var(--px)) calc(14 * var(--px));
+  border-radius: calc(14 * var(--px));
+}
+.phone .deal-card__top { gap: calc(10 * var(--px)); }
+.phone .deal-card__store { font-size: calc(15 * var(--px)); }
+.phone .deal-card__title { font-size: calc(12.5 * var(--px)); margin: calc(3 * var(--px)) 0 calc(7 * var(--px)); }
+.phone .deal-card__prices { gap: calc(8 * var(--px)); }
+.phone .deal-card__price { font-size: calc(19 * var(--px)); }
+.phone .deal-card__was { font-size: calc(13 * var(--px)); }
+.phone .badge--discount { padding: calc(3 * var(--px)) calc(8 * var(--px)); font-size: calc(12 * var(--px)); }
+.phone .filter-chip { padding: calc(7 * var(--px)) calc(14 * var(--px)); font-size: calc(13 * var(--px)); }
+
+.mock-filtres { display: flex; flex-wrap: wrap; gap: calc(8 * var(--px)); }
+.mock-fil { display: grid; gap: calc(10 * var(--px)); }
+.filter-chip--actif { background: var(--primary); border-color: var(--primary); color: #fff; }
+
+/* Lignes libellé / valeur, pour le récapitulatif et le retrait. */
+.tel-liste { display: grid; }
+.tel-ligne {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: calc(12 * var(--px));
+  padding-block: calc(11 * var(--px));
+  border-bottom: 1px solid var(--border);
+  font-size: calc(13.5 * var(--px));
+  color: var(--text-muted);
+}
+.tel-ligne:last-child { border-bottom: 0; }
+.tel-ligne strong { font-size: calc(14 * var(--px)); color: var(--text); font-variant-numeric: tabular-nums; }
+.tel-ligne--total span:first-child { font-size: calc(15 * var(--px)); font-weight: var(--weight-bold); color: var(--text); }
+.tel-ligne--total strong { font-size: calc(20 * var(--px)); }
+
+.tel-bouton {
+  display: grid;
+  place-items: center;
+  padding: calc(15 * var(--px));
+  border-radius: var(--radius-full);
+  background: var(--primary);
+  color: #fff;
+  font-size: calc(15 * var(--px));
+  font-weight: var(--weight-bold);
+}
+.tel-bouton--fantome { background: transparent; border: 1px solid var(--primary); color: var(--primary); }
+
+.tel-code {
+  padding: calc(20 * var(--px)) calc(16 * var(--px));
+  text-align: center;
+  border-radius: calc(18 * var(--px));
+  background: var(--primary-soft);
+}
+.tel-code__label { display: block; font-size: calc(12 * var(--px)); color: var(--text-muted); }
+.tel-code__valeur {
+  margin: calc(8 * var(--px)) 0;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: calc(42 * var(--px));
+  letter-spacing: 0.1em;
+  color: var(--primary);
+}
+.mock-note { margin: 0; font-size: calc(12 * var(--px)); line-height: 1.45; color: var(--text-muted); }
+
+/* En colonne, le châssis tronqué n'a plus besoin d'une marge sous sa coupe :
+   elle ne ferait qu'ajouter un vide entre l'écran et les onglets. */
+@media (max-width: 899px) {
+  .tabs-block__media { padding-bottom: 0; }
+}
+
 .mock__onglet {
   margin-left: var(--space-3);
   font-size: var(--text-xs);
   font-weight: var(--weight-bold);
   color: var(--text);
-}
-
-/* À l'échelle d'une maquette, les composants pleine page sont resserrés. */
-.mock--ecran .offer {
-  grid-template-columns: 44px 1fr auto;
-  gap: var(--space-3);
-  padding: var(--space-3);
-  box-shadow: none;
-}
-.mock--ecran .offer__thumb { width: 44px; height: 44px; font-size: var(--text-xs); }
-.mock--ecran .offer__store,
-.mock--ecran .offer__meta { font-size: 11px; }
-.mock--ecran .offer__title { font-size: var(--text-sm); }
-.mock--ecran .offer__price { font-size: var(--text-sm); }
-.mock--ecran .offer__was { font-size: 11px; }
-.mock--ecran .pickup-code { padding: var(--space-6) var(--space-4); }
-.mock--ecran .filter-chip { padding: 4px var(--space-3); font-size: 11px; }
-
-.mock-filtres { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-4); }
-.filter-chip--actif { background: var(--primary); border-color: var(--primary); color: #fff; }
-.mock-fil { display: grid; gap: var(--space-3); }
-.mock-retrait { margin-top: var(--space-4); }
-.mock-note {
-  margin: var(--space-4) 0 0;
-  font-size: 11px;
-  line-height: 1.45;
-  color: var(--text-muted);
 }
 
 .tabs-block__body { padding: clamp(var(--space-6), 4.5vw, var(--space-8)); }
