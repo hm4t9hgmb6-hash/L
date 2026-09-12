@@ -24,6 +24,12 @@ body {
   line-height: var(--leading-normal);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  /* Les blocs entrent par la droite : pendant l'animation ils dépassent le
+     bord droit de la page. Sans cette ligne, une barre de défilement
+     horizontale apparaîtrait et disparaîtrait à chaque apparition. « clip »
+     et non « hidden » : il n'en fait pas une boîte défilable, donc l'en-tête
+     collant et l'axe vertical ne changent pas de comportement. */
+  overflow-x: clip;
 }
 
 /* Deux registres de titre. h1 et h2 portent la voix de la marque : fonte
@@ -150,7 +156,10 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--space-7) 0; }
    c'est le script qui décide d'animer en ajoutant .reveal-ready au <html>. */
 .reveal-ready [data-reveal] {
   opacity: 0;
-  transform: translateY(16px);
+  /* Entrée par la droite : le bloc part décalé sur sa droite et rejoint sa
+     place. Le décalage suit la largeur de l'écran — sur mobile un grand
+     déplacement donne l'impression d'un contenu qui rate sa cible. */
+  transform: translateX(clamp(24px, 3.5vw, 44px));
   transition: opacity var(--transition-slow), transform var(--transition-slow);
 }
 .reveal-ready [data-reveal].is-in { opacity: 1; transform: none; }
