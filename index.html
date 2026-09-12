@@ -310,25 +310,107 @@
       <div class="tabs-block" data-tabs data-reveal>
         <div class="tabs-block__media">
           <div class="rail" data-tab-rail>
-            <picture data-tab-media="0">
-              <source type="image/webp" srcset="assets/img/photos/reperer-640.webp 640w, assets/img/photos/reperer.webp 1200w" sizes="(min-width: 900px) 28rem, 90vw">
-              <img src="assets/img/photos/reperer.jpg" width="1200" height="800"
-                   loading="lazy" decoding="async" alt="Carte du quartier montrant les réductions actives et leur distance"
-                   srcset="assets/img/photos/reperer-640.jpg 640w, assets/img/photos/reperer.jpg 1200w"
-                   sizes="(min-width: 900px) 28rem, 90vw">
-            </picture>
-            <picture data-tab-media="1">
-              <source type="image/webp" srcset="assets/img/photos/reserver-480.webp 480w, assets/img/photos/reserver.webp 652w" sizes="(min-width: 900px) 28rem, 90vw">
-              <img src="assets/img/photos/reserver.jpg" width="652" height="435"
-                   loading="lazy" decoding="async" alt="Une femme réserve une offre depuis son téléphone"
-                   srcset="assets/img/photos/reserver-480.jpg 480w, assets/img/photos/reserver.jpg 652w"
-                   sizes="(min-width: 900px) 28rem, 90vw">
-            </picture>
-            <picture data-tab-media="2">
-              <source type="image/webp" srcset="assets/img/photos/profiter.webp">
-              <img src="assets/img/photos/profiter.jpg" width="400" height="160"
-                   loading="lazy" decoding="async" alt="Une serveuse apporte un plat en salle">
-            </picture>
+            <div class="mock mock--ecran" data-tab-media="0" role="img"
+                 aria-label="Écran de l'application : le fil des réductions actives autour de soi, classées par distance, avec le temps de validité restant et le nombre de places.">
+              <div class="mock__bar">
+                <span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span>
+                <span class="mock__onglet">Autour de moi</span>
+              </div>
+              <div class="mock-compact" aria-hidden="true">
+                <div class="mock-filtres">
+                  <span class="filter-chip filter-chip--actif">À pied</span>
+                  <span class="filter-chip">Ce soir</span>
+                  <span class="filter-chip">Tout</span>
+                </div>
+                <div class="mock-fil">
+                  <span class="offer">
+                    <span class="offer__thumb">BM</span>
+                    <span class="offer__body">
+                      <span class="offer__store">Boulangerie Marchand &middot; 350 m</span>
+                      <span class="offer__title">Lot de viennoiseries</span>
+                      <span class="offer__meta">Encore 42 min &middot; 3 places</span>
+                    </span>
+                    <span class="offer__side">
+                      <span class="badge badge--discount">&minus;60 %</span>
+                      <span class="offer__price">4,00 €</span>
+                      <span class="offer__was">10,00 €</span>
+                    </span>
+                  </span>
+                  <span class="offer">
+                    <span class="offer__thumb">SE</span>
+                    <span class="offer__body">
+                      <span class="offer__store">Salon Elsa &middot; 600 m</span>
+                      <span class="offer__title">Coupe &middot; créneau 18 h</span>
+                      <span class="offer__meta">Encore 2 h &middot; 1 place</span>
+                    </span>
+                    <span class="offer__side">
+                      <span class="badge badge--discount">&minus;35 %</span>
+                      <span class="offer__price">19,50 €</span>
+                      <span class="offer__was">30,00 €</span>
+                    </span>
+                  </span>
+                  <span class="offer">
+                    <span class="offer__thumb">CV</span>
+                    <span class="offer__body">
+                      <span class="offer__store">Le Comptoir Vert &middot; 750 m</span>
+                      <span class="offer__title">Panier de légumes</span>
+                      <span class="offer__meta">Encore 25 min &middot; 4 places</span>
+                    </span>
+                    <span class="offer__side">
+                      <span class="badge badge--discount">&minus;45 %</span>
+                      <span class="offer__price">6,60 €</span>
+                      <span class="offer__was">12,00 €</span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mock mock--ecran" data-tab-media="1" role="img"
+                 aria-label="Écran de l'application : récapitulatif de la réservation, prix réduit, places restantes et bouton Réserver et payer.">
+              <div class="mock__bar">
+                <span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span>
+                <span class="mock__onglet">Lot de viennoiseries</span>
+              </div>
+              <div class="mock-compact" aria-hidden="true">
+                <div class="summary">
+                  <div class="summary__row">
+                    <span>Prix réduit</span>
+                    <span><strong>4,00 €</strong> <span class="offer__was">10,00 €</span></span>
+                  </div>
+                  <div class="summary__row">
+                    <span>Places restantes</span>
+                    <span>3</span>
+                  </div>
+                  <div class="summary__total">
+                    <span>Total</span>
+                    <span>4,00 €</span>
+                  </div>
+                </div>
+                <span class="btn btn--primary btn--block" style="margin-top: var(--space-5)">Réserver et payer</span>
+                <p class="mock-note">La place est bloquée à ton nom dès le paiement.</p>
+              </div>
+            </div>
+
+            <div class="mock mock--ecran" data-tab-media="2" role="img"
+                 aria-label="Écran de l'application : réservation confirmée, avec le code à présenter au comptoir et l'adresse du commerce.">
+              <div class="mock__bar">
+                <span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span>
+                <span class="mock__onglet">Réservation confirmée</span>
+              </div>
+              <div class="mock-compact" aria-hidden="true">
+                <div class="pickup-code">
+                  <span class="pickup-code__label">Ton code</span>
+                  <div class="pickup-code__value">7K4P</div>
+                  <span class="pickup-code__label">Commande n&deg; DP-2026-004182</span>
+                </div>
+                <div class="mock-retrait">
+                  <div class="encaisse__jour"><span>Boulangerie Marchand</span><span>350 m</span></div>
+                  <div class="encaisse__jour"><span>À récupérer avant</span><span>19 h 30</span></div>
+                </div>
+                <p class="mock-note">Annulation gratuite jusqu'à 30 min avant la fin de validité.</p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -536,7 +618,7 @@
            aria-label="Maquette de l'application commerçant, onglet Encaissements : solde de la semaine de 486,20 €, pour 26 offres vendues, viré le lundi suivant.">
         <div class="mock__bar" aria-hidden="true">
           <span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span>
-          <span class="encaisse__onglet">Encaissements</span>
+          <span class="mock__onglet">Encaissements</span>
         </div>
 
         <div class="encaisse__solde" aria-hidden="true">
