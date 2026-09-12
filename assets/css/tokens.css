@@ -1,17 +1,16 @@
 /* ==========================================================================
-   Dealpick — Design tokens · thème STREET
-   Fond quasi noir, typographie massive, rouge et or en accents francs.
-   Source unique de vérité du thème.
+   Dealpick — Design tokens · thème MINIMAL
+   Fond calme, hiérarchie par la typographie et l'espace, couleur employée
+   par petites touches. Source unique de vérité du thème.
    ========================================================================== */
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 
   /* --- Palette brute ------------------------------------------------------ */
 
-  /* Neutres chauds, du blanc cassé au noir presque pur. Le même ruban qu'avant :
-     seul le sens dans lequel on le parcourt change (le texte part du clair,
-     le fond du foncé, au lieu de l'inverse). */
+  /* Neutres légèrement réchauffés : accordés à l'orange de marque plutôt que
+     gris purs, qui donnent toujours un rendu « par défaut ». */
   --n-0:   #FFFFFF;
   --n-25:  #FDFCFB;
   --n-50:  #F7F5F2;
@@ -26,86 +25,75 @@
   --n-900: #191614;
   --n-950: #100E0D;
 
-  /* Rouge de marque. Deux tons distincts, pas un seul :
-     --red-fill sert de fond plein (texte blanc dessus, il tient 4,5:1) ;
-     --red-ink sert de texte ou de trait posés à même le fond noir — plus
-     clair, parce qu'un rouge assez sombre pour du blanc dessus est bien trop
-     sombre pour porter du texte sur du noir (les deux contraintes tirent en
-     sens opposé, aucun ton ne les satisfait ensemble). */
-  --red-300: #FF8A93;
-  --red-400: #FF5C6E;   /* --primary : texte, liens, traits sur fond sombre */
-  --red-500: #E0293A;   /* survol du plein */
-  --red-600: #C81326;   /* --primary-fill : boutons, bandeaux pleins */
-  --red-700: #970E1D;
+  /* Orange de marque. Le ton principal tient 4,5:1 avec le blanc dans les
+     deux sens — c'était la contrainte : un orange vif n'y arrive pas. */
+  --brand-50:  #FFF3EA;
+  --brand-100: #FFE2CE;
+  --brand-300: #FF9A55;
+  --brand-500: #E8590C;   /* orange vif : survols, dégradés */
+  --brand-600: #CC4E00;   /* couleur de marque : boutons, liens, blocs */
+  --brand-700: #A83E00;
 
-  /* Or de marque. Deuxième accent, réservé aux prix et aux mots clés du
-     titre — jamais aux boutons, pour qu'il garde sa rareté. */
-  --gold-300: #FFD98A;
-  --gold-400: #FDB022;
-  --gold-500: #E89416;
-  --gold-600: #B9760A;  /* --gold-ink : texte sur fond or plein */
-
-  --coral-500: #E8590C;  /* punaises de carte, hors système rouge/or */
+  --coral-50:  #FFF3EA;
+  --coral-500: #E8590C;  /* réductions : même famille que la marque */
   --coral-700: #A83E00;
 
-  --mint-300: #6EE7B7;  /* texte sur fond sombre */
-  --mint-500: #10B981;  /* pastilles, icônes */
+  --mint-50:  #E7FAF1;
+  --mint-500: #10B981;   /* économie réalisée */
   --mint-700: #04795A;
 
-  --amber-500: #F5A524;
+  --amber-50:  #FFF6E3;
+  --amber-500: #F5A524;  /* attention, information */
 
-  --violet-300: #B9A6FF; /* texte sur fond sombre */
-  --violet-500: #7C5CFF;
+  --violet-50:  #F2EDFF;
+  --violet-500: #7C5CFF; /* prestations, second registre : texte/icône sur fond clair */
+  --violet-700: #6A46F2; /* même teinte, assombrie pour tenir 4,5:1 en texte blanc dessus —
+                             #7C5CFF n'atteint que 4,35:1, sous le seuil visé sur ce projet */
 
   /* --- Rôles sémantiques -------------------------------------------------- */
-  --bg:             var(--n-950);
-  --bg-subtle:      #17130F;
-  --bg-inset:       #221D18;
-  --surface:        var(--n-900);
-  --surface-raised: #221D18;
+  --bg:             var(--n-0);
+  --bg-subtle:      #F6F4F1;
+  --bg-inset:       var(--n-100);
+  --surface:        var(--n-0);
+  --surface-raised: var(--n-0);
 
-  /* Traits clairs et translucides : ils restent lisibles quel que soit le
-     fond sombre sur lequel ils tombent (page, bandeau rouge, carte). */
-  --border:         rgba(247, 244, 239, .12);
-  --border-strong:  rgba(247, 244, 239, .26);
+  --border:         #EAE4DC;
+  --border-strong:  var(--n-300);
   --border-width:   1px;
 
-  --text:           #F7F4EF;
-  --text-muted:     var(--n-400);
-  --text-inverse:   var(--n-900);
+  --text:           var(--n-900);
+  --text-muted:     var(--n-500);
+  --text-inverse:   var(--n-0);
 
-  --primary:        var(--red-400);
-  --primary-hover:  var(--red-300);
-  --primary-fill:       var(--red-600);
-  --primary-fill-hover: var(--red-500);
-  --primary-soft:   rgba(200, 19, 38, .16);
-  --primary-line:   rgba(200, 19, 38, .4);
+  --primary:        var(--brand-600);
+  --primary-hover:  var(--brand-700);
+  --primary-soft:   var(--brand-50);
+  --primary-line:   var(--brand-100);
   --on-primary:     #FFFFFF;
 
-  --accent:         var(--gold-400);
-  --accent-hover:   var(--gold-300);
-  --accent-soft:    rgba(253, 176, 34, .16);
-  --accent-ink:     #FFC966;
+  --accent:         var(--coral-500);
+  --accent-soft:    var(--coral-50);
+  --accent-ink:     var(--coral-700);
 
   --money:          var(--mint-500);
-  --money-soft:     rgba(16, 185, 129, .16);
-  --money-ink:      var(--mint-300);
+  --money-soft:     var(--mint-50);
+  --money-ink:      var(--mint-700);
 
   --service:        var(--violet-500);
-  --service-soft:   rgba(124, 92, 255, .16);
-  --service-ink:    var(--violet-300);
+  --service-soft:   var(--violet-50);
+  --service-ink:    var(--violet-700);
 
-  --highlight:      var(--gold-400);
-  --highlight-soft: rgba(253, 176, 34, .18);
+  --highlight:      var(--amber-500);
+  --highlight-soft: var(--amber-50);
 
-  --focus-ring:     var(--gold-400);
+  --focus-ring:     var(--brand-600);
 
   /* --- Typographie -------------------------------------------------------- */
-  /* Deux registres. « Display » porte les grands titres : une grotesque très
-     grasse, sans nuance, qui affiche la marque plutôt qu'elle ne la suggère —
-     c'est tout le sens du changement de style. Toute l'interface — boutons,
+  /* Deux registres. « Display » sert aux grands titres uniquement : une
+     graisse variable optique, chaleureuse, qui situe la marque du côté des
+     enseignes soignées plutôt que du logiciel. Toute l'interface — boutons,
      navigation, chiffres, étiquettes — reste en sans, pour la netteté. */
-  --font-display: "Archivo Black", "Arial Black", "Helvetica Neue", sans-serif;
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
   --font-sans:    "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono:    ui-monospace, SFMono-Regular, Menlo, monospace;
 
@@ -118,11 +106,11 @@
   --text-3xl:  2.5rem;
   --text-4xl:  3.25rem;
 
-  --leading-tight: 1.05;
+  --leading-tight: 1.08;
   --leading-snug:  1.3;
   --leading-normal:1.65;
 
-  --tracking-tight: -0.01em;
+  --tracking-tight: -0.03em;
   --tracking-snug:  -0.015em;
   --tracking-wide:   0.1em;
 
@@ -151,19 +139,19 @@
   --radius-2xl:  36px;
   --radius-full: 999px;
 
-  /* --- Ombres : noires et franches ----------------------------------------
-     Sur un fond déjà sombre, une ombre brune diffuse ne se voit plus : il
-     faut du noir pur, et un peu plus d'opacité qu'en thème clair pour que
-     le relief reste lisible. */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .35);
-  --shadow-md: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 20px -6px rgba(0, 0, 0, .4);
-  --shadow-lg: 0 1px 2px rgba(0, 0, 0, .3), 0 12px 28px -10px rgba(0, 0, 0, .45),
-               0 32px 64px -24px rgba(0, 0, 0, .5);
-  --shadow-xl: 0 2px 4px rgba(0, 0, 0, .35), 0 18px 42px -14px rgba(0, 0, 0, .5),
-               0 48px 96px -32px rgba(0, 0, 0, .55);
-  /* Lueur rouge : uniquement sous les éléments qui portent la couleur de
-     marque, pour qu'ils aient l'air posés sur la page et non collés dessus. */
-  --shadow-brand: 0 2px 6px rgba(200, 19, 38, .25), 0 16px 34px -10px rgba(200, 19, 38, .38);
+  /* --- Ombres : diffuses, très légères ------------------------------------ */
+  /* Teintées de brun chaud, pas de gris bleuté : sur des neutres chauds une
+     ombre froide se voit et fait « capture d'écran ». Trois couches pour que
+     le contact au sol reste net pendant que la diffusion, elle, s'étale. */
+  --shadow-sm: 0 1px 2px rgba(48, 34, 24, .05);
+  --shadow-md: 0 1px 2px rgba(48, 34, 24, .04), 0 6px 16px -4px rgba(48, 34, 24, .07);
+  --shadow-lg: 0 1px 2px rgba(48, 34, 24, .04), 0 10px 24px -8px rgba(48, 34, 24, .08),
+               0 28px 60px -20px rgba(48, 34, 24, .12);
+  --shadow-xl: 0 1px 3px rgba(48, 34, 24, .05), 0 16px 40px -12px rgba(48, 34, 24, .10),
+               0 48px 96px -32px rgba(48, 34, 24, .16);
+  /* Ombre colorée : uniquement sous les éléments orange, pour qu'ils aient
+     l'air posés sur la page et non collés dessus. */
+  --shadow-brand: 0 2px 6px rgba(140, 52, 0, .16), 0 14px 30px -10px rgba(140, 52, 0, .28);
 
   /* --- Divers ------------------------------------------------------------- */
   --container: 1120px;
@@ -173,62 +161,3 @@
   --transition: 180ms var(--ease);
   --transition-slow: 620ms cubic-bezier(.16, .84, .28, 1);
 }
-
-/* --- Thème « application » et sections « papier » --------------------------
-   Deux usages du même jeu de couleurs claires :
-   — .app-shell épingle les pages app/*.html sur l'ancien thème, indépendamment
-     du thème sombre du site : ce sont des maquettes d'écran de téléphone, pas
-     la vitrine, elles ne changent pas de style.
-   — .theme-paper pose une section du site vitrine sur un fond clair au milieu
-     des sections sombres, pour alterner plutôt que d'empiler le noir sur tout
-     une page. Elle garde la police d'affichage du nouveau thème (Archivo
-     Black) : seule la couleur change, pas la voix de la marque. */
-body.app-shell, .theme-paper {
-  color-scheme: light;
-
-  --bg:             var(--n-0);
-  --bg-subtle:      #F6F4F1;
-  --bg-inset:       var(--n-100);
-  --surface:        var(--n-0);
-  --surface-raised: var(--n-0);
-
-  --border:         #EAE4DC;
-  --border-strong:  var(--n-300);
-
-  --text:           var(--n-900);
-  --text-muted:     var(--n-500);
-  --text-inverse:   var(--n-0);
-
-  --primary:        var(--red-600);
-  --primary-hover:  var(--red-700);
-  --primary-fill:       var(--red-600);
-  --primary-fill-hover: var(--red-700);
-  --primary-soft:   #FFECEB;
-  --primary-line:   #FFD3D1;
-
-  --accent:         var(--coral-500);
-  --accent-soft:    #FFF3EA;
-  --accent-ink:     var(--coral-700);
-
-  --money-soft:     #E7FAF1;
-  --money-ink:      var(--mint-700);
-
-  --service-soft:   #F2EDFF;
-  --service-ink:    #6A46F2;
-
-  --highlight:      var(--amber-500);
-  --highlight-soft: #FFF6E3;
-
-  --focus-ring:     var(--red-600);
-
-  --shadow-sm: 0 1px 2px rgba(48, 34, 24, .05);
-  --shadow-md: 0 1px 2px rgba(48, 34, 24, .04), 0 6px 16px -4px rgba(48, 34, 24, .07);
-  --shadow-lg: 0 1px 2px rgba(48, 34, 24, .04), 0 10px 24px -8px rgba(48, 34, 24, .08),
-               0 28px 60px -20px rgba(48, 34, 24, .12);
-  --shadow-xl: 0 1px 3px rgba(48, 34, 24, .05), 0 16px 40px -12px rgba(48, 34, 24, .10),
-               0 48px 96px -32px rgba(48, 34, 24, .16);
-  --shadow-brand: 0 2px 6px rgba(140, 52, 0, .16), 0 14px 30px -10px rgba(140, 52, 0, .28);
-}
-/* Fraunces reste propre aux écrans d'application : une section « papier » du
-   site vitrine, elle, garde la voix du nouveau thème (Archivo Black). */
-body.app-shell { --font-display: "Fraunces", "Iowan Old Style", Georgia, serif; }

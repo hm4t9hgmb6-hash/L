@@ -8,7 +8,7 @@
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:SOFT,WONK,opsz,wght@0..100,0..1,9..144,400..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/components.css">
@@ -108,110 +108,39 @@
 <main id="main">
   <!-- ============ S1 · HÉROS ============================================== -->
   <section class="panel panel--grey panel--pad hero-split" data-sticky-cta-after>
-    <div class="container">
-      <div class="hero-split__grid">
-        <div data-reveal class="hero-split__intro">
-          <span class="hero-tag">Gratuit · sans engagement</span>
-          <h1 class="hero-split__title">Des réductions,<br><span class="hero__accent">près de toi,</span><br>prêtes<br><span class="hero__accent--gold">en 2 minutes.</span></h1>
-          <p class="hero-split__lede">Économique, sans complications. Des invendus vérifiés dès
-             <span class="hero__price">2&nbsp;€</span> et des soins du quotidien dès
-             <span class="hero__price">8&nbsp;€</span>, chez les commerçants de ta ville.</p>
-          <div class="btn-row">
-            <a class="btn btn--primary btn--lg" href="villes.html">Voir les offres<span class="btn__arrow" aria-hidden="true"> →</span></a>
-            <a class="btn btn--outline btn--lg" href="#telecharger">Télécharger l'app</a>
-          </div>
-          <div class="hero-stats">
-            <div><span class="hero-stat__value">0 €</span><span class="hero-stat__label">Abonnement</span></div>
-            <div><span class="hero-stat__value">100 %</span><span class="hero-stat__label">Commerces indépendants</span></div>
-            <div><span class="hero-stat__value">1</span><span class="hero-stat__label">Ville pour commencer</span></div>
-          </div>
-        </div>
-
-        <div data-reveal data-reveal-delay="1" class="hero-split__media">
-          <div class="hero-media">
-            <span class="hero-badge hero-badge--live" aria-hidden="true">🔥 En ce moment</span>
-            <div class="hero-media__frame">
-              <div class="phone" role="img"
-                   aria-label="Écran de l'application : le fil des réductions actives autour de soi, avec le prix réduit et la remise.">
-                <span class="phone__notch"></span>
-                <div class="phone__vue" aria-hidden="true">
-                  <p class="phone__titre">Autour de moi</p>
-                  <div class="mock-filtres">
-                    <span class="filter-chip filter-chip--actif">À pied</span>
-                    <span class="filter-chip">Ce soir</span>
-                  </div>
-                  <div class="mock-fil">
-                    <div class="deal-card">
-                      <div class="deal-card__top">
-                        <span class="deal-card__store">Boulangerie Marchand</span>
-                        <span class="badge badge--discount">&minus;60 %</span>
-                      </div>
-                      <p class="deal-card__title">Lot de viennoiseries &middot; 350 m</p>
-                      <div class="deal-card__prices">
-                        <span class="deal-card__price">4,00 €</span>
-                        <span class="deal-card__was">10,00 €</span>
-                      </div>
-                    </div>
-                    <div class="deal-card">
-                      <div class="deal-card__top">
-                        <span class="deal-card__store">Salon Elsa</span>
-                        <span class="badge badge--discount">&minus;35 %</span>
-                      </div>
-                      <p class="deal-card__title">Coupe &middot; 18 h &middot; 600 m</p>
-                      <div class="deal-card__prices">
-                        <span class="deal-card__price">19,50 €</span>
-                        <span class="deal-card__was">30,00 €</span>
-                      </div>
-                    </div>
-                    <div class="deal-card">
-                      <div class="deal-card__top">
-                        <span class="deal-card__store">Le Comptoir Vert</span>
-                        <span class="badge badge--discount">&minus;45 %</span>
-                      </div>
-                      <p class="deal-card__title">Panier de légumes &middot; 750 m</p>
-                      <div class="deal-card__prices">
-                        <span class="deal-card__price">6,60 €</span>
-                        <span class="deal-card__was">12,00 €</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <span class="hero-badge hero-badge--price" aria-hidden="true">
-              <span class="hero-badge__label">Offres dès</span>
-              <strong class="hero-badge__value">2 €</strong>
-            </span>
-          </div>
-        </div>
+    <div class="container hero-split__grid">
+      <div data-reveal class="hero-split__intro">
+        <h1 class="hero-split__title">Des réductions,<br>à proximité,<br><span class="hero__accent">en temps réel</span></h1>
       </div>
 
-      <form class="search-card" action="villes.html" method="get" data-reveal data-reveal-delay="2">
-        <label class="search-card__label" for="lieu">Adresse, arrondissement ou ville</label>
-        <div class="search-field">
-          <svg class="search-field__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M21.5 2.5 2.8 10.2c-.8.3-.8 1.5.1 1.7l7.6 2 2 7.6c.2.9 1.4.9 1.7.1L21.5 2.5Z"
-                  stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-          </svg>
-          <label class="visually-hidden" for="lieu">Adresse, arrondissement ou ville</label>
-          <input id="lieu" name="lieu" type="text" placeholder="Adresse ou ville" autocomplete="street-address">
-          <button class="btn btn--primary" type="submit">Chercher</button>
-        </div>
-        <button class="search-card__alt" type="button">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true">
-            <circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.8"/>
-            <path d="M12 2v3M12 19v3M22 12h-3M5 12H2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-            <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/>
-          </svg>
-          Utiliser ma position actuelle
-        </button>
-      </form>
+      <div data-reveal data-reveal-delay="1" class="hero-split__action">
+        <form class="search-card" action="villes.html" method="get">
+          <label class="search-card__label" for="lieu">Adresse, arrondissement ou ville</label>
+          <div class="search-field">
+            <svg class="search-field__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M21.5 2.5 2.8 10.2c-.8.3-.8 1.5.1 1.7l7.6 2 2 7.6c.2.9 1.4.9 1.7.1L21.5 2.5Z"
+                    stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+            <label class="visually-hidden" for="lieu">Adresse, arrondissement ou ville</label>
+            <input id="lieu" name="lieu" type="text" placeholder="Adresse ou ville" autocomplete="street-address">
+            <button class="btn btn--primary" type="submit">Chercher</button>
+          </div>
+          <button class="search-card__alt" type="button">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true">
+              <circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M12 2v3M12 19v3M22 12h-3M5 12H2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/>
+            </svg>
+            Utiliser ma position actuelle
+          </button>
+        </form>
+      </div>
     </div>
   </section>
 
   <!-- ============ S2 · DIAPORAMA DES ENSEIGNES ============================ -->
 
-  <section class="panel panel--pad theme-paper" style="padding-top: var(--space-7)">
+  <section class="panel panel--pad" style="padding-top: var(--space-7)">
     <div class="marquee" data-reveal aria-label="Commerces qui publient sur Dealpick">
       <div class="marquee__row marquee__row--left">
           <a class="cat-card cat-card--photo" href="app/offres.html" aria-label="Trattoria Bruno, Restaurant, jusqu'à −50 %">
@@ -550,7 +479,7 @@
   </section>
 
   <!-- ============ S5 · DÉVELOPPEZ VOTRE ACTIVITÉ ========================== -->
-  <section class="panel panel--pad theme-paper">
+  <section class="panel panel--pad">
     <div class="container" style="text-align:left">
       <div class="section-head" style="margin-bottom: clamp(var(--space-7), 6vw, var(--space-8))" data-reveal>
         <span class="eyebrow">Pour les commerçants</span>
@@ -691,7 +620,7 @@
   </section>
 
   <!-- ============ S6 · L'ENCAISSEMENT DE LA SEMAINE ====================== -->
-  <section class="panel panel--pad theme-paper">
+  <section class="panel panel--pad">
     <div class="container">
       <h2 class="panel__title encaisse__titre" data-reveal>
         Transformez vos invendus en <span class="accent-word">bénéfice</span>.
