@@ -32,10 +32,10 @@ body {
   overflow-x: clip;
 }
 
-/* Deux registres de titre. h1 et h2 portent la voix de la marque : fonte
-   display, graisse moyenne — un titre premium n'est jamais le plus gras de
-   la page, il est le plus grand et le mieux calé. h3 et h4 restent en sans
-   parce qu'ils étiquettent de l'interface, pas du discours. */
+/* Deux registres de titre. h1 et h2 portent la voix de la marque : une
+   grotesque noire, à pleine graisse — le titre s'affiche, il ne se suggère
+   plus. h3 et h4 restent en sans parce qu'ils étiquettent de l'interface,
+   pas du discours. */
 h1, h2, h3, h4 {
   margin: 0 0 var(--space-4);
   line-height: var(--leading-tight);
@@ -44,13 +44,18 @@ h1, h2, h3, h4 {
 
 h1, h2 {
   font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.022em;
-  /* opsz suit la taille réelle du titre, SOFT arrondit très légèrement les
-     angles, WONK 0 supprime les italiques fantaisistes de la fonte. */
+  /* 400 est l'unique graisse d'Archivo Black — c'est déjà un noir plein,
+     demander plus forcerait une fausse graisse synthétique du navigateur.
+     Les écrans d'application (thème clair, Fraunces) remontent à 600
+     juste après : Fraunces, elle, a besoin de ce poids. */
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  /* Réglages d'axe variable : sans effet sur Archivo Black, repris par
+     Fraunces sur les écrans d'application (.app-shell). */
   font-variation-settings: "SOFT" 24, "WONK" 0;
   font-optical-sizing: auto;
 }
+.app-shell h1, .app-shell h2 { font-weight: 600; letter-spacing: -0.022em; }
 
 h3, h4 {
   font-family: var(--font-sans);
@@ -180,7 +185,7 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--space-7) 0; }
 
 .skip-link {
   position: absolute; left: var(--space-4); top: -100px; z-index: 100;
-  background: var(--primary); color: var(--on-primary);
+  background: var(--primary-fill); color: var(--on-primary);
   padding: var(--space-3) var(--space-4);
   border-radius: var(--radius-sm);
   border: 0;

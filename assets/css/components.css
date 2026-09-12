@@ -40,16 +40,16 @@
 .btn:hover .btn__arrow { transform: translateX(3px); }
 
 .btn--primary {
-  background: var(--primary);
+  background: var(--primary-fill);
   color: #fff;
   box-shadow: var(--shadow-brand);
 }
 .btn--primary:hover {
-  background: var(--primary-hover);
+  background: var(--primary-fill-hover);
   color: #fff;
-  box-shadow: 0 2px 6px rgba(140, 52, 0, .20), 0 18px 38px -12px rgba(140, 52, 0, .34);
+  box-shadow: 0 2px 6px rgba(200, 19, 38, .3), 0 18px 38px -12px rgba(200, 19, 38, .44);
 }
-.btn--primary:active { box-shadow: 0 1px 3px rgba(140, 52, 0, .22); }
+.btn--primary:active { box-shadow: 0 1px 3px rgba(200, 19, 38, .3); }
 
 .btn--outline { background: transparent; color: var(--primary); border-color: var(--primary); }
 .btn--outline:hover { background: var(--primary-soft); color: var(--primary-hover); border-color: var(--primary-hover); }
@@ -91,6 +91,11 @@
 .badge--discount { background: var(--accent-soft); color: var(--accent-ink); }
 .badge--money    { background: var(--money-soft);  color: var(--money-ink); }
 .badge--brand    { background: var(--primary-soft); color: var(--primary); }
+/* .deal-card garde un fond blanc fixe quel que soit le thème (§ Maquette du
+   téléphone) : les teintes « douces » ci-dessus sont calibrées pour un fond
+   sombre et y deviendraient illisibles. Sur ce fond-là, la réduction revient
+   à ses teintes claires d'origine. */
+.deal-card .badge--discount { background: #FFF3EA; color: var(--coral-700); }
 
 /* --- En-tête -------------------------------------------------------------- */
 
@@ -334,7 +339,7 @@
   border-radius: var(--radius-md);
   background: var(--n-900);
   color: var(--n-0);
-  border: 0;
+  border: 1px solid var(--border-strong);
   font-size: var(--text-sm);
   font-weight: var(--weight-bold);
   transition: opacity var(--transition), transform var(--transition);
@@ -349,19 +354,24 @@
   width: min(300px, 78vw);
   margin-inline: auto;
   aspect-ratio: 9 / 19;
-  border-radius: 42px;
   background: var(--n-0);
-  border: 8px solid var(--n-900);
   box-shadow: var(--shadow-xl);
   overflow: hidden;
-  padding: var(--space-5) var(--space-4);
   color: var(--n-900);
+  /* --px (1 --px = 1 px quand le châssis fait 375 px, la largeur réelle
+     d'un iPhone) rend tout l'intérieur proportionnel à la largeur réelle du
+     téléphone, quelle qu'elle soit. Il DOIT être fourni par un ancêtre qui
+     porte `container-type: inline-size` — un élément ne peut pas dimensionner
+     ses propres propriétés d'après ses propres unités de conteneur, ce
+     serait circulaire. Voir .hero-media__frame et .tabs-block__media .rail. */
+  border: calc(8 * var(--px)) solid var(--n-900);
+  border-radius: calc(42 * var(--px));
+  padding: calc(30 * var(--px)) calc(16 * var(--px));
 }
 .phone__notch {
   position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-  width: 38%; height: 18px;
+  width: 38%;
   background: var(--n-900);
-  border-radius: 0 0 12px 12px;
 }
 .deal-card {
   border: 1px solid var(--n-100);
@@ -500,11 +510,13 @@
 /* --- Bandeau d'appel à l'action ------------------------------------------ */
 
 .cta-banner {
-  background: var(--n-900);
+  background: var(--surface-raised);
+  border: 1px solid var(--border-strong);
   color: var(--n-0);
   border-radius: var(--radius-xl);
   padding: clamp(var(--space-7), 6vw, var(--space-8));
   text-align: center;
+  box-shadow: var(--shadow-brand);
 }
 .cta-banner h2 { color: var(--n-0); }
 .cta-banner p { color: var(--n-300); max-width: 48ch; margin-inline: auto; }
@@ -1137,7 +1149,7 @@
 /* --- Bandeau final pleine largeur ----------------------------------------- */
 
 .cta-band {
-  background: var(--primary);
+  background: var(--primary-fill);
   color: #fff;
   padding-block: clamp(var(--space-7), 7vw, var(--space-9));
   text-align: center;
@@ -1189,7 +1201,7 @@
   /* Bandeau pleine largeur : la couleur va d'un bord à l'autre de l'écran,
      seul le contenu reste contraint par .container. */
   padding-block: clamp(var(--space-8), 7vw, var(--space-9));
-  background: var(--primary);
+  background: var(--primary-fill);
   color: #fff;
 }
 .showcase h2, .showcase p { color: #fff; }
@@ -1454,7 +1466,7 @@
   width: 40px; height: 40px;
   padding: 9px;
   border-radius: var(--radius-md);
-  background: var(--n-900);
+  background: var(--primary-fill);
   color: #fff;
   /* Le trait ne doit pas s'épaissir avec la mise à l'échelle du symbole. */
   overflow: visible;
@@ -1537,9 +1549,6 @@
 .cat-card--fresh .cat-card__name  { color: #fff; }
 .cat-card--fresh .cat-card__label { color: rgba(255,255,255,.80); }
 .cat-card--fresh .cat-card__sign  { background: rgba(255,255,255,.20); color: #fff; }
-
-/* Accent typographique du titre principal */
-.hero__accent { color: var(--primary); }
 
 /* ==========================================================================
    Module de recherche du héros
@@ -1626,7 +1635,7 @@
   overflow: hidden;
   padding-top: clamp(var(--space-7), 6vw, var(--space-8));
   text-align: center;
-  background: var(--n-0);
+  background: var(--bg);
 }
 .panel--grey { background: var(--bg-subtle); }
 .panel--pad { padding-bottom: clamp(var(--space-7), 6vw, var(--space-8)); }
@@ -1664,7 +1673,7 @@
 .panel__media--bleed { margin-bottom: calc(var(--space-8) * -1); }
 
 /* Deux panneaux côte à côte sur grand écran */
-.panel-duo { display: grid; gap: var(--space-4); background: var(--n-0); }
+.panel-duo { display: grid; gap: var(--space-4); background: var(--bg); }
 @media (min-width: 860px) { .panel-duo { grid-template-columns: 1fr 1fr; } }
 .panel-duo > .panel { padding-inline: 0; }
 
@@ -1816,67 +1825,178 @@
   text-align: left;
   margin-top: calc(var(--header-height) * -1);
   padding-top: calc(var(--header-height) + clamp(var(--space-7), 6vw, var(--space-9)));
-  isolation: isolate;
-  /* Sans les découpes au premier plan, le héros se réduisait au titre et à
-     la carte : trop court pour qu'une photo de fond respire. */
+  /* Deux lueurs discrètes, rouge et or, plutôt qu'une photo : sur un fond
+     déjà presque noir elles suffisent à donner de la matière sans qu'il
+     faille résoudre l'éclairage d'un vrai cliché. */
+  background:
+    radial-gradient(60rem 34rem at 14% -10%, var(--primary-soft), transparent 60%),
+    radial-gradient(46rem 30rem at 96% 4%, var(--accent-soft), transparent 55%);
   display: grid;
   align-content: center;
   min-height: 62vh;
 }
-
-/* Fond du héros, deux calques sous le contenu : la photo de table d'abord
-   (::after, z-index -2), puis un voile crème par-dessus (::before,
-   z-index -1, qui remplace ici la lumière rasante de .panel).
-   Le flou est cuit dans l'image : il la rend abstraite, ce qui règle d'un
-   coup la composition chargée et la basse résolution de la source. La
-   désaturation et le voile restent en CSS pour régler le contraste sans
-   retoucher le fichier. Le voile est plus dense à gauche, sous le titre. */
-.hero-split::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  background: url(../img/hero-fond.jpg) center 34% / cover no-repeat;
-  filter: saturate(.6);
-  pointer-events: none;
-}
-.hero-split::before {
-  background:
-    /* éclaircit la bande de l'en-tête, dont les liens sont gris clair */
-    linear-gradient(180deg, rgba(246, 244, 241, .62) 0, rgba(246, 244, 241, 0) 200px),
-    linear-gradient(
-      100deg,
-      rgba(246, 244, 241, .94) 0%,
-      rgba(246, 244, 241, .90) 44%,
-      rgba(246, 244, 241, .76) 78%,
-      rgba(246, 244, 241, .70) 100%
-    );
-}
-@media (max-width: 899px) {
-  .hero-split::before {
-    background: linear-gradient(
-      180deg,
-      rgba(246, 244, 241, .92) 0%,
-      rgba(246, 244, 241, .86) 55%,
-      rgba(246, 244, 241, .92) 100%
-    );
-  }
-}
-.hero-split__grid { display: grid; gap: var(--space-6); align-items: center; }
+.hero-split__grid { display: grid; gap: var(--space-8); align-items: center; }
 @media (min-width: 900px) {
-  .hero-split__grid { grid-template-columns: 1.06fr .94fr; column-gap: var(--space-8); row-gap: var(--space-6); }
+  .hero-split__grid { grid-template-columns: 1.08fr .92fr; column-gap: var(--space-8); row-gap: var(--space-6); }
 }
+
+/* Pastille de crédibilité : un point, un fait vérifiable — jamais un
+   chiffre inventé. Reprend le trio de .figures plus bas sur la page, donc
+   rien n'est promis ici qui ne soit tenu plus loin. */
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 7px var(--space-4);
+  border: 1px solid var(--primary-line);
+  border-radius: var(--radius-full);
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+.hero-tag::before {
+  content: "";
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--primary);
+  flex: none;
+}
+
 .hero-split__title {
+  margin: var(--space-5) 0 0;
   font-size: clamp(2.75rem, 1.2rem + 6.6vw, 5.25rem);
-  line-height: 1.0;
-  letter-spacing: -0.032em;
-  margin: 0;
+  line-height: .96;
 }
+.hero__accent { color: var(--primary); }
+.hero__accent--gold { color: var(--accent); }
+
+.hero-split__lede {
+  margin-top: var(--space-5);
+  max-width: 34rem;
+  font-size: clamp(1.0625rem, 1rem + .4vw, 1.25rem);
+  color: var(--text-muted);
+}
+.hero__price { color: var(--accent); font-weight: 800; }
+
+.hero-split__intro .btn-row { margin-top: var(--space-6); }
+
+/* Trio de preuves, chiffré et daté à zéro : les mêmes faits que la section
+   « Chiffres » plus bas, en plus court. */
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  margin-top: var(--space-7);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--border);
+}
+.hero-stat__value {
+  display: block;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: var(--text-2xl);
+  line-height: 1;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.hero-stat__label {
+  display: block;
+  margin-top: 6px;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Visuel de droite : l'écran de l'app, posé, avec deux pastilles qui
+   débordent de son cadre — la même idée que deux étiquettes collées sur
+   une photo, mais qui montrent le produit plutôt qu'un plat. */
+.hero-media {
+  /* La boîte doit épouser la largeur du téléphone, pas celle de la colonne :
+     les pastilles ci-dessous se positionnent en pourcentage de cette boîte,
+     pour accrocher les coins du téléphone plutôt que flotter au hasard dans
+     une colonne plus large que lui. */
+  position: relative;
+  width: fit-content;
+  margin-inline: auto;
+}
+/* Le téléphone doit lire --px depuis un ANCÊTRE : un élément ne peut pas
+   dimensionner ses propres propriétés (ici border-radius, padding) d'après
+   ses propres unités de conteneur, ce serait circulaire. Ce cadre, seul,
+   porte la largeur et le conteneur de requête ; le téléphone la remplit. */
+.hero-media__frame {
+  container-type: inline-size;
+  width: min(300px, 66vw);
+}
+.hero-media .phone {
+  width: 100%;
+  margin-inline: 0;
+  --px: calc(100cqw / 375);
+  box-shadow: var(--shadow-xl);
+}
+.hero-badge {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-lg);
+}
+.hero-badge--live {
+  top: -3%;
+  right: -4%;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  padding: 9px var(--space-4);
+  border-radius: var(--radius-full);
+  background: var(--n-900);
+  border: 1px solid var(--border-strong);
+  color: var(--primary);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.hero-badge--price {
+  bottom: 10%;
+  left: -6%;
+  align-items: flex-start;
+  gap: 2px;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--accent);
+}
+.hero-badge--price .hero-badge__label {
+  font-size: 10px;
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: rgba(25, 22, 20, .68);
+}
+.hero-badge--price .hero-badge__value {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: var(--text-xl);
+  color: var(--n-900);
+}
+@media (max-width: 480px) {
+  .hero-badge--live { right: 0; font-size: 11px; padding: 7px var(--space-3); }
+  .hero-badge--price { left: 0; padding: var(--space-2) var(--space-3); }
+}
+
 .hero-split.panel--pad { padding-bottom: clamp(var(--space-7), 6vw, var(--space-8)); }
 @media (max-width: 899px) { .hero-split.panel--pad { padding-bottom: var(--space-4); } }
-.hero-split .search-card { margin: 0; max-width: 32rem; }
-@media (max-width: 899px) { .hero-split .search-card { margin-inline: auto; } }
-@media (max-width: 899px) { .hero-split__intro { text-align: center; } }
+.hero-split .search-card { max-width: 32rem; margin: clamp(var(--space-8), 6vw, var(--space-9)) auto 0; }
+@media (max-width: 899px) {
+  .hero-split__intro { text-align: center; }
+  .hero-split__intro .btn-row, .hero-stats { justify-content: center; }
+  .hero-split__lede { margin-inline: auto; }
+}
 
 /* ==========================================================================
    L'encaissement de la semaine — le sac, puis l'argent qu'il a rapporté
@@ -1986,7 +2106,7 @@
 
 /* Bloc de marque plein à coins arrondis, encadré par la marge de la page */
 .brand-block {
-  background: var(--primary);
+  background: var(--primary-fill);
   color: #fff;
   border-radius: var(--radius-xl);
   padding: clamp(var(--space-6), 5vw, var(--space-8));
@@ -2033,7 +2153,7 @@
   isolation: isolate;
   overflow: hidden;
   border-radius: var(--radius-xl);
-  background: var(--primary);
+  background: var(--primary-fill);
   color: #fff;
   padding: clamp(var(--space-6), 4.5vw, var(--space-8));
 }
@@ -2134,7 +2254,7 @@
 
 .tabs-block {
   position: relative;
-  background: var(--primary);
+  background: var(--primary-fill);
   color: #fff;
   border-radius: var(--radius-xl);
   overflow: hidden;
@@ -2176,27 +2296,19 @@
    le haut. Largeur disponible moins 6 mm de marge latérale de chaque côté,
    et rapport 9/7,6 — soit les 40 % supérieurs d'un écran 9/19. Le contenu
    continue derrière la coupe, ce qui se lit comme un écran qui sort du cadre
-   et non comme un vide.
-
-   Tout l'intérieur est dimensionné en --px : une unité proportionnelle à la
-   largeur du châssis (1 --px = 1 px quand il mesure 375 px, la largeur réelle
-   d'un iPhone). La maquette est donc une réduction exacte, et la coupe montre
-   le même 40 % d'écran sur mobile comme sur grand écran, au lieu de casser
-   les libellés dès que la colonne se resserre. */
-.tabs-block__media .rail { container-type: inline-size; }
-
+   et non comme un vide. --px (défini sur .phone lui-même) fait le reste :
+   la maquette reste une réduction exacte quelle que soit la largeur, donc
+   la coupe montre le même 40 % d'écran sur mobile comme sur grand écran. */
 .tabs-block__media .phone {
-  --px: calc((100cqw - 12mm) / 375);
   width: auto;
   max-width: none;
   margin-inline: 6mm;
   aspect-ratio: 9 / 7.6;
   align-self: start;
-  border-width: calc(8 * var(--px));
   border-bottom: 0;
   border-radius: calc(42 * var(--px)) calc(42 * var(--px)) 0 0;
-  padding: calc(30 * var(--px)) calc(16 * var(--px)) 0;
-  box-shadow: 0 2px 8px rgba(60, 22, 0, .20), 0 22px 40px -16px rgba(60, 22, 0, .40);
+  padding-bottom: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .35), 0 22px 40px -16px rgba(0, 0, 0, .5);
 }
 /* La coupe tombe au hasard du contenu, parfois en plein milieu d'une ligne :
    un dégradé vers le blanc de l'écran l'escamote, et l'écran se lit comme
@@ -2242,7 +2354,7 @@
 
 .mock-filtres { display: flex; flex-wrap: wrap; gap: calc(8 * var(--px)); }
 .mock-fil { display: grid; gap: calc(10 * var(--px)); }
-.filter-chip--actif { background: var(--primary); border-color: var(--primary); color: #fff; }
+.filter-chip--actif { background: var(--primary-fill); border-color: var(--primary-fill); color: #fff; }
 
 /* Lignes libellé / valeur, pour le récapitulatif et le retrait. */
 .tel-liste { display: grid; }
@@ -2252,13 +2364,16 @@
   align-items: baseline;
   gap: calc(12 * var(--px));
   padding-block: calc(11 * var(--px));
-  border-bottom: 1px solid var(--border);
+  /* Fond du téléphone toujours blanc (voir plus haut) : couleurs claires
+     fixes plutôt que les jetons sémantiques, calibrés pour le fond sombre
+     du reste du site. */
+  border-bottom: 1px solid var(--n-100);
   font-size: calc(13.5 * var(--px));
-  color: var(--text-muted);
+  color: var(--n-500);
 }
 .tel-ligne:last-child { border-bottom: 0; }
-.tel-ligne strong { font-size: calc(14 * var(--px)); color: var(--text); font-variant-numeric: tabular-nums; }
-.tel-ligne--total span:first-child { font-size: calc(15 * var(--px)); font-weight: var(--weight-bold); color: var(--text); }
+.tel-ligne strong { font-size: calc(14 * var(--px)); color: var(--n-900); font-variant-numeric: tabular-nums; }
+.tel-ligne--total span:first-child { font-size: calc(15 * var(--px)); font-weight: var(--weight-bold); color: var(--n-900); }
 .tel-ligne--total strong { font-size: calc(20 * var(--px)); }
 
 .tel-bouton {
@@ -2266,29 +2381,31 @@
   place-items: center;
   padding: calc(15 * var(--px));
   border-radius: var(--radius-full);
-  background: var(--primary);
+  background: var(--primary-fill);
   color: #fff;
   font-size: calc(15 * var(--px));
   font-weight: var(--weight-bold);
 }
-.tel-bouton--fantome { background: transparent; border: 1px solid var(--primary); color: var(--primary); }
+.tel-bouton--fantome { background: transparent; border: 1px solid var(--primary-fill); color: var(--primary-fill); }
 
 .tel-code {
   padding: calc(20 * var(--px)) calc(16 * var(--px));
   text-align: center;
   border-radius: calc(18 * var(--px));
-  background: var(--primary-soft);
+  /* Comme .deal-card .badge--discount : fond du téléphone toujours blanc,
+     donc une teinte claire ici plutôt que --primary-soft (sombre). */
+  background: #FFF1F0;
 }
-.tel-code__label { display: block; font-size: calc(12 * var(--px)); color: var(--text-muted); }
+.tel-code__label { display: block; font-size: calc(12 * var(--px)); color: var(--n-500); }
 .tel-code__valeur {
   margin: calc(8 * var(--px)) 0;
   font-family: var(--font-sans);
   font-weight: 800;
   font-size: calc(42 * var(--px));
   letter-spacing: 0.1em;
-  color: var(--primary);
+  color: var(--primary-fill);
 }
-.mock-note { margin: 0; font-size: calc(12 * var(--px)); line-height: 1.45; color: var(--text-muted); }
+.mock-note { margin: 0; font-size: calc(12 * var(--px)); line-height: 1.45; color: var(--n-500); }
 
 /* En colonne, le châssis tronqué n'a plus besoin d'une marge sous sa coupe :
    elle ne ferait qu'ajouter un vide entre l'écran et les onglets. */
@@ -2326,7 +2443,7 @@
   transition: background var(--transition), color var(--transition);
 }
 .tablist button:hover { background: rgba(255,255,255,.14); }
-.tablist button[aria-selected="true"] { background: #fff; color: var(--primary); }
+.tablist button[aria-selected="true"] { background: #fff; color: var(--primary-fill); }
 .tablist button[aria-selected="true"]:hover { background: #fff; }
 
 .tabpanel { margin-top: clamp(var(--space-6), 5vw, var(--space-8)); }
@@ -2438,6 +2555,7 @@
   padding: var(--space-5);
   border-radius: var(--radius-lg);
   background: var(--n-900);
+  border: 1px solid var(--border-strong);
   color: #fff;
   box-shadow: var(--shadow-xl);
 }
@@ -2522,7 +2640,7 @@
   font-weight: var(--weight-bold);
   color: var(--text-muted);
 }
-.mock-choice--on { background: var(--primary); border-color: var(--primary); color: #fff; }
+.mock-choice--on { background: var(--primary-fill); border-color: var(--primary-fill); color: #fff; }
 
 .mock-form__preview {
   padding: var(--space-5);
@@ -2618,4 +2736,4 @@
 .mock-funnel__label { font-size: var(--text-xs); color: var(--text-muted); }
 .mock-funnel__value { font-size: var(--text-sm); font-weight: var(--weight-bold); font-variant-numeric: tabular-nums; }
 .mock-funnel__bar { height: 8px; border-radius: var(--radius-full); background: var(--bg-inset); overflow: hidden; }
-.mock-funnel__bar span { display: block; height: 100%; background: var(--primary); border-radius: inherit; }
+.mock-funnel__bar span { display: block; height: 100%; background: var(--primary-fill); border-radius: inherit; }
