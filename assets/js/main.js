@@ -327,7 +327,7 @@
   var reduit = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduit || !('IntersectionObserver' in window)) return;
 
-  var cibles = document.querySelectorAll('[data-reveal]');
+  var cibles = document.querySelectorAll('[data-reveal], [data-grow]');
   if (!cibles.length) return;
 
   document.documentElement.classList.add('reveal-ready');
@@ -336,11 +336,30 @@
     for (var i = 0; i < entrees.length; i++) {
       if (!entrees[i].isIntersecting) continue;
       entrees[i].target.classList.add('is-in');
+      if (entrees[i].target.hasAttribute('data-grow')) compter(entrees[i].target);
       observateur.unobserve(entrees[i].target);
     }
   }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
 
   for (var i = 0; i < cibles.length; i++) observateur.observe(cibles[i]);
+
+  /* Graphiques qui montent : chaque valeur compte de 0 à sa cible au rythme
+     de sa barre (même durée, même décalage que le CSS). */
+  function compter(graphique) {
+    var valeurs = graphique.querySelectorAll('[data-count]');
+    Array.prototype.forEach.call(valeurs, function (el, rang) {
+      var cible = parseInt(el.getAttribute('data-count'), 10);
+      var debut = null, retard = rang * 110, duree = 1100;
+      el.textContent = '0\u00a0%';
+      function pas(t) {
+        if (debut === null) debut = t;
+        var p = Math.min(Math.max((t - debut - retard) / duree, 0), 1);
+        el.textContent = Math.round(cible * (1 - Math.pow(1 - p, 3))) + '\u00a0%';
+        if (p < 1) window.requestAnimationFrame(pas);
+      }
+      window.requestAnimationFrame(pas);
+    });
+  }
 })();
 
 /* En-tête : filet et fond translucide seulement une fois la page défilée.
