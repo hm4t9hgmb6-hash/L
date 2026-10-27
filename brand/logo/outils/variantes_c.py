@@ -114,28 +114,31 @@ def symetrique(s, g):
 
 # --- C1 : biseau 45° -------------------------------------------------------------------------
 
-def biseau(s, g):
-    """Deux coupes parallèles « / » à 60°, de largeur g (perpendiculaire). La coupe haute
-    est centrée sur le point de tangence ; la basse au pied du montant, sans entamer le montant.
-    Les intersections avec les arcs sont calculées (bissection) ; les segments restent des arcs."""
+def biseau(s, g, deg=ANGLE, single=False):
+    """Deux coupes parallèles « / » inclinées de deg°, de largeur g (perpendiculaire). La coupe
+    basse est au pied du montant, sans l'entamer. La coupe haute est centrée sur le point de
+    tangence — ou, si single, sur le prolongement exact de la coupe basse : une seule coupe
+    droite traverse alors tout le D (les deux jours sont alignés sur la même droite).
+    Les intersections avec les arcs sont calculées ; les segments restent des arcs."""
     x0, y0, y1, cx, R, rc, ri, xl = s.x0, s.y0, s.y1, s.cx, s.R, s.rc, s.ri, s.xl
-    a = math.radians(ANGLE)
+    a = math.radians(deg)
     h = g / 2 / math.sin(a)                # demi-largeur horizontale de la coupe
     run = s.th / 2 / math.tan(a)           # décalage horizontal sur une demi-barre
     ymt, ymb = (y0 + s.yt) / 2, (s.yb + y1) / 2
     # coupe haute centrée sur cx ; coupe basse : son bord gauche touche le montant au bas (x = xl + 2)
-    xt = cx
     xb = xl + 2 + h + run
+    xt = xb + (ymb - ymt) / math.tan(a) if single else cx
+    cl = lambda xm, ym, sgn, w: cut_line(s, xm, ym, sgn, w, deg)  # noqa: E731
     # haut : bord gauche (pièce 1) et droit (pièce 2)
-    o1 = cut_line(s, xt - h, ymt, -1, "out")
-    i1 = cut_line(s, xt - h, ymt, -1, "in")
-    o2 = cut_line(s, xt + h, ymt, -1, "out")
-    i2 = cut_line(s, xt + h, ymt, -1, "in")
+    o1 = cl(xt - h, ymt, -1, "out")
+    i1 = cl(xt - h, ymt, -1, "in")
+    o2 = cl(xt + h, ymt, -1, "out")
+    i2 = cl(xt + h, ymt, -1, "in")
     # bas
-    bo1 = cut_line(s, xb - h, ymb, +1, "out")   # bord gauche sur la ligne de base (pied du montant)
-    bi1 = cut_line(s, xb - h, ymb, +1, "in")
-    bo2 = cut_line(s, xb + h, ymb, +1, "out")
-    bi2 = cut_line(s, xb + h, ymb, +1, "in")
+    bo1 = cl(xb - h, ymb, +1, "out")   # bord gauche sur la ligne de base (pied du montant)
+    bi1 = cl(xb - h, ymb, +1, "in")
+    bo2 = cl(xb + h, ymb, +1, "out")
+    bi2 = cl(xb + h, ymb, +1, "in")
 
     def inner_top_back(pt):
         # du point pt (sur le bord intérieur haut) vers (xl + ri, yt), en revenant vers la gauche
@@ -200,6 +203,10 @@ VARIANTES = {
                           note="Coupes aux deux tangences : la boutique ⊏ et le client ), posé et stable."),
     "c4-gras": dict(fn=droites, label="C4 — Gras", gras=True,
                     note="Plus de matière, jours plus larges : les coupes tiennent jusqu’en 16 px."),
+    "c5-coupe-unique-60": dict(fn=lambda s, g: biseau(s, g, 60, single=True), label="C5 — Coupe unique 60°",
+                               note="Une seule coupe droite à 60° traverse le D : on coupe la poire en deux."),
+    "c6-coupe-unique-75": dict(fn=lambda s, g: biseau(s, g, 75, single=True), label="C6 — Coupe unique 75°",
+                               note="La même coupe unique, presque verticale : plus calme, plus nette."),
 }
 
 
@@ -227,10 +234,12 @@ def lockup(d_letter, word, font, tracking=-18):
     return out.replace(f'viewBox="0 0 {f(vb_w)} {f(bottom - top)}"', f'viewBox="0 {top} {f(vb_w)} {bottom - top}"')
 
 
-def write(version):
+def write(version, keys=None):
     os.makedirs(OUT, exist_ok=True)
     font = Font(FONT)
     for key, v in VARIANTES.items():
+        if keys and key not in keys:
+            continue
         gras, rd = v.get("gras", False), v.get("rond", False)
         d_sym = " ".join(v["fn"](spec("sym", gras, rd), gap("sym", gras)))
         open(os.path.join(OUT, f"concept-{key}-{version}.svg"), "w").write(
@@ -243,4 +252,4 @@ def write(version):
 
 
 if __name__ == "__main__":
-    write(sys.argv[1] if len(sys.argv) > 1 else "v6")
+    write(sys.argv[1] if len(sys.argv) > 1 else "v6", sys.argv[2:])

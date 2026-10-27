@@ -24,6 +24,12 @@ VARS = [
      "Plus statique : l’idée d’emboîtement s’affaiblit."),
     ("c4-gras", "C4 — Gras", "Graisse", "Plus de matière, jours plus larges : les coupes tiennent jusqu’en 16 px.",
      "Plus massif ; contreforme plus petite."),
+    ("c5-coupe-unique-60", "C5 — Coupe unique 60°", "Une seule droite",
+     "Une seule coupe droite traverse le D : on coupe la poire en deux.",
+     "La droite se lit d’un bout à l’autre : effet « barré » plus marqué que C1."),
+    ("c6-coupe-unique-75", "C6 — Coupe unique 75°", "Une seule droite",
+     "La même coupe unique, presque verticale : plus calme, plus nette.",
+     "Moins de mouvement que C1 et C5."),
 ]
 
 CSS = f"""
@@ -32,7 +38,7 @@ body {{ margin: 0; background: #fff; color: #1a1a1a; font: 14px/1.45 -apple-syst
 .page {{ width: 1680px; padding: 44px 48px 36px; }}
 h1 {{ font-size: 25px; margin: 0; letter-spacing: -.01em; }}
 .sub {{ color: #777; margin: 6px 0 30px; }}
-.cols {{ display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }}
+.cols {{ display: grid; grid-template-columns: repeat({{n}}, 1fr); gap: 20px; }}
 .col {{ border: 1px solid #e6e6e6; border-radius: 16px; padding: 20px; }}
 .col.ref {{ background: #fafafa; }}
 h2 {{ font-size: 17px; margin: 0; }}
@@ -56,17 +62,25 @@ h2 {{ font-size: 17px; margin: 0; }}
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("version")
+    ap.add_argument("version", help="version par défaut des fichiers")
+    ap.add_argument("--items", nargs="*", help="clé[:version] à montrer, dans l'ordre (défaut : C0 à C4)")
+    ap.add_argument("--titre", default="Concept C, le deal — quatre variantes")
+    ap.add_argument("--sous-titre", dest="sous_titre",
+                    default="Position et forme des coupes, graisse. Niveaux de gris et tailles réelles ; "
+                            "icônes d’app en marine sur rosé. Les variantes se combinent (par exemple bouts ronds + gras).")
     ap.add_argument("-o", "--out", default=os.path.join(ROOT, "variantes-c.html"))
     a = ap.parse_args()
     out_dir = os.path.dirname(os.path.abspath(a.out))
     rel = lambda p: os.path.relpath(p, out_dir)  # noqa: E731
     cols, srcs = [], {}
-    for key, title, kind, idea, risk in VARS:
-        sym = os.path.join(DIR, f"concept-{key}-{a.version}.svg")
+    table = {v[0]: v for v in VARS}
+    items = [(i.split(":")[0], i.split(":")[1] if ":" in i else a.version) for i in (a.items or [v[0] for v in VARS[:5]])]
+    for key, ver in items:
+        _, title, kind, idea, risk = table[key]
+        sym = os.path.join(DIR, f"concept-{key}-{ver}.svg")
         s = inline(sym)
         srcs[key] = rel(sym)
-        locks = "".join(f'<img src="{rel(os.path.join(DIR, f"concept-{key}-lockup-{w}-{a.version}.svg"))}" alt="">'
+        locks = "".join(f'<img src="{rel(os.path.join(DIR, f"concept-{key}-lockup-{w}-{ver}.svg"))}" alt="">'
                         for w in ("dealpick", "dealmarket"))
         sizes = "".join(f'<div class="s"><img src="{srcs[key]}" width="{z}" height="{z}" alt="">{z}</div>' for z in (64, 32, 16))
         sizes += (f'<div class="s"><canvas class="pix" data-src="{key}" width="16" height="16" '
@@ -79,11 +93,11 @@ def main():
             f'<div class="ctx">{ctx}</div><p class="idea">{idea}</p><p class="risk">Risque : {risk}</p></div>')
     js = ("<script>const S=" + repr(srcs) + ";for(const c of document.querySelectorAll('canvas[data-src]')){"
           "const i=new Image();i.onload=()=>c.getContext('2d').drawImage(i,0,0,16,16);i.src=S[c.dataset.src];}</script>")
+    css = CSS.replace("{n}", str(len(items)))
     html = (f'<!doctype html><html lang="fr"><meta charset="utf-8"><title>Dealpick — variantes de C</title>'
-            f'<style>{CSS}</style><body><div class="page">'
-            f'<h1>Concept C, le deal — quatre variantes</h1>'
-            f'<p class="sub">Position et forme des coupes, graisse. Niveaux de gris et tailles réelles ; '
-            f'icônes d’app en marine sur rosé. Les variantes se combinent (par exemple bouts ronds + gras).</p>'
+            f'<style>{css}</style><body><div class="page" style="width:{max(1000, 336 * len(items) + 96)}px">'
+            f'<h1>{a.titre}</h1>'
+            f'<p class="sub">{a.sous_titre}</p>'
             f'<div class="cols">{"".join(cols)}</div>'
             f'<p class="foot">D dessiné sur mesure, arcs exacts. Reste du mot : DM Sans Bold vectorisé, provisoire. '
             f'Nom à confirmer.</p></div>{js}</body></html>')
