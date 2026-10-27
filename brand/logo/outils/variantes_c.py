@@ -114,7 +114,7 @@ def symetrique(s, g):
 
 # --- C1 : biseau 45° -------------------------------------------------------------------------
 
-def biseau(s, g, deg=ANGLE, single=False):
+def biseau(s, g, deg=ANGLE, single=False, foot=2):
     """Deux coupes parallèles « / » inclinées de deg°, de largeur g (perpendiculaire). La coupe
     basse est au pied du montant, sans l'entamer. La coupe haute est centrée sur le point de
     tangence — ou, si single, sur le prolongement exact de la coupe basse : une seule coupe
@@ -126,7 +126,7 @@ def biseau(s, g, deg=ANGLE, single=False):
     run = s.th / 2 / math.tan(a)           # décalage horizontal sur une demi-barre
     ymt, ymb = (y0 + s.yt) / 2, (s.yb + y1) / 2
     # coupe haute centrée sur cx ; coupe basse : son bord gauche touche le montant au bas (x = xl + 2)
-    xb = xl + 2 + h + run
+    xb = xl + foot + h + run
     xt = xb + (ymb - ymt) / math.tan(a) if single else cx
     cl = lambda xm, ym, sgn, w: cut_line(s, xm, ym, sgn, w, deg)  # noqa: E731
     # haut : bord gauche (pièce 1) et droit (pièce 2)

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-labelledby="t">
+  <title id="t">Icône d'app — variante rosé</title>
+  <rect width="1024" height="1024" rx="229.07" fill="#FBE3E8"/>
+  <g transform="translate(127.33 127.33) scale(3.01)">
+    <path fill="#13294B" fill-rule="evenodd" d="M60 36 H132 L111.22 72 H100 A12 12 0 0 0 88 84 V172 A12 12 0 0 0 100 184 H108.78 L88 220 H60 A16 16 0 0 1 44 204 V52 A16 16 0 0 1 60 36 Z M151.57 38.11 A92 92 0 0 1 132 220 H108.78 L129.57 184 H132 A52 56 0 0 0 132 72 H132 Z"/>
+  </g>
+</svg>

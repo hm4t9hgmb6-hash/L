@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-labelledby="t">
+  <title id="t">Icône d'app — pleine page (le système arrondit)</title>
+  <rect width="1024" height="1024" fill="#13294B"/>
+  <g transform="translate(127.33 127.33) scale(3.01)">
+    <path fill="#FFFFFF" fill-rule="evenodd" d="M60 36 H131.42 L111.22 71 H98.5 A12 12 0 0 0 86.5 83 V173 A12 12 0 0 0 98.5 185 H106.71 L86.5 220 H60 A16 16 0 0 1 44 204 V52 A16 16 0 0 1 60 36 Z M151.57 38.11 A92 92 0 0 1 132 220 H107.86 L128.07 185 H132 A53 57 0 0 0 132.58 71 Z"/>
+  </g>
+</svg>

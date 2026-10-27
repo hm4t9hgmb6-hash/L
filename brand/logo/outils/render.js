@@ -32,6 +32,14 @@ const path = require('path');
       await page.waitForLoadState('networkidle');
       await page.evaluate(() => document.fonts.ready);
       await page.screenshot({ path: out, fullPage: true });
+    } else if (mode === 'pdf') {
+      // node render.js pdf <page.html> <sortie.pdf> : une page, au format de la page HTML
+      const page = await browser.newPage();
+      await page.goto('file://' + path.resolve(src));
+      await page.waitForLoadState('networkidle');
+      await page.evaluate(() => document.fonts.ready);
+      const size = await page.evaluate(() => ({ w: document.documentElement.scrollWidth, h: document.documentElement.scrollHeight }));
+      await page.pdf({ path: out, width: size.w + 'px', height: (size.h + 2) + 'px', printBackground: true, pageRanges: '1' });
     } else {
       throw new Error('mode inconnu : ' + mode);
     }

@@ -1,0 +1,89 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><title>Vérification du kit</title>
+<style>
+body { margin: 0; padding: 36px; font: 14px/1.45 -apple-system, 'Segoe UI', sans-serif; color: #222; background: #fff; }
+h1 { font-size: 22px; margin: 0 0 6px; } h2 { font-size: 15px; margin: 30px 0 12px; }
+.row { display: flex; gap: 22px; align-items: flex-end; flex-wrap: wrap; }
+.cap { font-size: 11.5px; color: #888; margin: 6px 0 0; }
+.box { padding: 26px; border-radius: 16px; }
+.pix { image-rendering: pixelated; border: 1px solid #eee; display: block; }
+.m { display: block; width: 100%; height: 100%; }
+</style><body>
+<h1>Vérification du kit — symbole C1</h1>
+<h2>1. Irradiation : marine sur blanc / blanc aminci sur marine / rosé sur marine</h2>
+<div class="row">
+  <div><div class="box" style="background:#fff;border:1px solid #eee"><svg style="width:200px;height:200px;display:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="t">
+  <title id="t">Symbole — marine</title>
+  <path fill="#13294B" fill-rule="evenodd" d="M60 36 H132 L111.22 72 H100 A12 12 0 0 0 88 84 V172 A12 12 0 0 0 100 184 H108.78 L88 220 H60 A16 16 0 0 1 44 204 V52 A16 16 0 0 1 60 36 Z M151.57 38.11 A92 92 0 0 1 132 220 H108.78 L129.57 184 H132 A52 56 0 0 0 132 72 H132 Z"/>
+</svg>
+</div><p class="cap">master</p></div>
+  <div><div class="box" style="background:#13294B"><svg style="width:200px;height:200px;display:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="t">
+  <title id="t">Symbole — blanc (sur fond foncé)</title>
+  <path fill="#FFFFFF" fill-rule="evenodd" d="M60 36 H131.42 L111.22 71 H98.5 A12 12 0 0 0 86.5 83 V173 A12 12 0 0 0 98.5 185 H106.71 L86.5 220 H60 A16 16 0 0 1 44 204 V52 A16 16 0 0 1 60 36 Z M151.57 38.11 A92 92 0 0 1 132 220 H107.86 L128.07 185 H132 A53 57 0 0 0 132.58 71 Z"/>
+</svg>
+</div><p class="cap">inversé, traits −3 %</p></div>
+  <div><div class="box" style="background:#13294B"><svg style="width:200px;height:200px;display:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="t">
+  <title id="t">Symbole — rosé (sur marine)</title>
+  <path fill="#FBE3E8" fill-rule="evenodd" d="M60 36 H131.42 L111.22 71 H98.5 A12 12 0 0 0 86.5 83 V173 A12 12 0 0 0 98.5 185 H106.71 L86.5 220 H60 A16 16 0 0 1 44 204 V52 A16 16 0 0 1 60 36 Z M151.57 38.11 A92 92 0 0 1 132 220 H107.86 L128.07 185 H132 A53 57 0 0 0 132.58 71 Z"/>
+</svg>
+</div><p class="cap">rosé sur marine</p></div>
+  <div><div class="box" style="background:#FBE3E8"><svg style="width:200px;height:200px;display:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="t">
+  <title id="t">Symbole — marine</title>
+  <path fill="#13294B" fill-rule="evenodd" d="M60 36 H132 L111.22 72 H100 A12 12 0 0 0 88 84 V172 A12 12 0 0 0 100 184 H108.78 L88 220 H60 A16 16 0 0 1 44 204 V52 A16 16 0 0 1 60 36 Z M151.57 38.11 A92 92 0 0 1 132 220 H108.78 L129.57 184 H132 A52 56 0 0 0 132 72 H132 Z"/>
+</svg>
+</div><p class="cap">marine sur rosé</p></div>
+</div>
+<h2>2. Petite taille : master (haut) et version petite taille (bas), pixels réels</h2>
+<div class="row">
+  <div><canvas class="pix" data-src="m" width="32" height="32" style="width:128px;height:128px"></canvas><p class="cap">master 32 px ×4</p></div><div><canvas class="pix" data-src="m" width="24" height="24" style="width:96px;height:96px"></canvas><p class="cap">master 24 px ×4</p></div>
+  <div><canvas class="pix" data-src="m" width="16" height="16" style="width:96px;height:96px"></canvas><p class="cap">master 16 px ×6</p></div>
+  <div style="width:30px"></div>
+  <div><canvas class="pix" data-src="p" width="32" height="32" style="width:128px;height:128px"></canvas><p class="cap">petit 32 px ×4</p></div><div><canvas class="pix" data-src="p" width="24" height="24" style="width:96px;height:96px"></canvas><p class="cap">petit 24 px ×4</p></div>
+  <div><canvas class="pix" data-src="p" width="16" height="16" style="width:96px;height:96px"></canvas><p class="cap">petit 16 px ×6</p></div>
+  <div style="display:flex;gap:10px;align-items:flex-end">
+    <div style="width:16px;height:16px;color:#111"><svg class="m" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="t">
+  
+  <path fill="currentColor" fill-rule="evenodd" d="M60 36 H132 L111.22 72 H100 A12 12 0 0 0 88 84 V172 A12 12 0 0 0 100 184 H108.78 L88 220 H60 A16 16 0 0 1 44 204 V52 A16 16 0 0 1 60 36 Z M151.57 38.11 A92 92 0 0 1 132 220 H108.78 L129.57 184 H132 A52 56 0 0 0 132 72 H132 Z"/>
+</svg>
+</div><div style="width:16px;height:16px;color:#111"><svg class="m" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="t">
+  
+  <path fill="currentColor" fill-rule="evenodd" d="M54 32 H134 L108.6 76 H96 A6 6 0 0 0 90 82 V174 A6 6 0 0 0 96 180 H115.4 L90 224 H54 A16 16 0 0 1 38 208 V48 A16 16 0 0 1 54 32 Z M157.69 34.97 A96 96 0 0 1 134 224 H115.4 L141.14 179.42 A48 52 0 0 0 134 76 H134 Z"/>
+</svg>
+</div>
+    <div style="width:24px;height:24px;color:#111"><svg class="m" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="t">
+  
+  <path fill="currentColor" fill-rule="evenodd" d="M60 36 H132 L111.22 72 H100 A12 12 0 0 0 88 84 V172 A12 12 0 0 0 100 184 H108.78 L88 220 H60 A16 16 0 0 1 44 204 V52 A16 16 0 0 1 60 36 Z M151.57 38.11 A92 92 0 0 1 132 220 H108.78 L129.57 184 H132 A52 56 0 0 0 132 72 H132 Z"/>
+</svg>
+</div><div style="width:24px;height:24px;color:#111"><svg class="m" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="t">
+  
+  <path fill="currentColor" fill-rule="evenodd" d="M54 32 H134 L108.6 76 H96 A6 6 0 0 0 90 82 V174 A6 6 0 0 0 96 180 H115.4 L90 224 H54 A16 16 0 0 1 38 208 V48 A16 16 0 0 1 54 32 Z M157.69 34.97 A96 96 0 0 1 134 224 H115.4 L141.14 179.42 A48 52 0 0 0 134 76 H134 Z"/>
+</svg>
+</div>
+  </div>
+</div>
+<h2>3. Icônes</h2>
+<div class="row">
+  <div><img src="web/apple-touch-icon.png" width="120" height="120" style="border-radius:27px;display:block"><p class="cap">apple-touch-icon (arrondi par iOS)</p></div>
+  <div><img src="web/icon-192.png" width="96" height="96" style="display:block"><p class="cap">Android 192</p></div>
+  <div style="position:relative"><img src="web/icon-maskable-512.png" width="160" height="160" style="display:block">
+    <div style="position:absolute;left:16px;top:16px;width:128px;height:128px;border-radius:50%;border:2px dashed #FBE3E8"></div>
+    <p class="cap">maskable : zone sûre (cercle 80 %)</p></div>
+  <div><img src="web/icon-maskable-512.png" width="120" height="120" style="border-radius:50%;display:block"><p class="cap">maskable, masque rond</p></div>
+  <div style="display:flex;gap:12px;align-items:flex-end">
+    <img src="web/apple-touch-icon.png" width="60" height="60" style="border-radius:13px">
+    <img src="web/apple-touch-icon.png" width="40" height="40" style="border-radius:9px">
+    <img src="web/apple-touch-icon.png" width="29" height="29" style="border-radius:6px">
+  </div>
+</div>
+<h2>4. Favicon dans un onglet</h2>
+<div class="row"><div><div style="display:flex;align-items:center;gap:8px;background:#f1f3f4;color:#222;border-radius:8px 8px 0 0;padding:8px 14px;width:240px;font:12px sans-serif"><svg style="width:16px;height:16px;color:#13294B;display:block" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="t">
+  
+  <path fill="currentColor" fill-rule="evenodd" d="M54 32 H134 L108.6 76 H96 A6 6 0 0 0 90 82 V174 A6 6 0 0 0 96 180 H115.4 L90 224 H54 A16 16 0 0 1 38 208 V48 A16 16 0 0 1 54 32 Z M157.69 34.97 A96 96 0 0 1 134 224 H115.4 L141.14 179.42 A48 52 0 0 0 134 76 H134 Z"/>
+</svg>
+Dealpick — Bons plans</div><p class="cap">onglet clair</p></div><div><div style="display:flex;align-items:center;gap:8px;background:#35363a;color:#ddd;border-radius:8px 8px 0 0;padding:8px 14px;width:240px;font:12px sans-serif"><svg style="width:16px;height:16px;color:#FBE3E8;display:block" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="t">
+  
+  <path fill="currentColor" fill-rule="evenodd" d="M54 32 H134 L108.6 76 H96 A6 6 0 0 0 90 82 V174 A6 6 0 0 0 96 180 H115.4 L90 224 H54 A16 16 0 0 1 38 208 V48 A16 16 0 0 1 54 32 Z M157.69 34.97 A96 96 0 0 1 134 224 H115.4 L141.14 179.42 A48 52 0 0 0 134 76 H134 Z"/>
+</svg>
+Dealpick — Bons plans</div><p class="cap">onglet sombre (favicon.svg passe au rosé)</p></div></div>
+<script>const S={'m': 'svg/symbole-marine.svg', 'p': 'svg/symbole-petit-marine.svg'};for(const c of document.querySelectorAll('canvas[data-src]')){const i=new Image();
+i.onload=()=>c.getContext('2d').drawImage(i,0,0,c.width,c.height);i.src=S[c.dataset.src];}</script>
+</body></html>
