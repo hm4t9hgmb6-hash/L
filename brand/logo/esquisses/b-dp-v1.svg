@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title">
+  <title id="title">Dealpick — esquisse b-dp-v1</title>
+  <g fill="#111" fill-rule="evenodd">
+    <path d="M56 128 A72 72 0 1 1 200 128 A72 72 0 1 1 56 128 Z M92 128 A36 36 0 1 0 164 128 A36 36 0 1 0 92 128 Z M164 20 H200 V200 H164 Z M56 56 H92 V236 H56 Z" fill-rule="nonzero"/>
+  </g>
+</svg>

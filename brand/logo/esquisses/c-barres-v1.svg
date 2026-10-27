@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title">
+  <title id="title">Dealpick — esquisse c-barres-v1</title>
+  <g fill="#111" fill-rule="evenodd">
+    <path d="M60 40 H60 A24 24 0 0 1 84 64 V192 A24 24 0 0 1 60 216 H60 A24 24 0 0 1 36 192 V64 A24 24 0 0 1 60 40 Z M128 108 H128 A24 24 0 0 1 152 132 V192 A24 24 0 0 1 128 216 H128 A24 24 0 0 1 104 192 V132 A24 24 0 0 1 128 108 Z M196 40 H196 A24 24 0 0 1 220 64 V192 A24 24 0 0 1 196 216 H196 A24 24 0 0 1 172 192 V64 A24 24 0 0 1 196 40 Z M104 64 A24 24 0 1 1 152 64 A24 24 0 1 1 104 64 Z" fill-rule="nonzero"/>
+  </g>
+</svg>
