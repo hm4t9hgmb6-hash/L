@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>dealmarket — Pitch terrain A5 (recto)</title>
+<title>dealmarket — Pitch terrain A5 (recto/verso)</title>
 <meta name="robots" content="noindex">
 <!-- Design tokens: single source of truth shared with the site. -->
 <link rel="stylesheet" href="../../assets/css/tokens.css">
@@ -13,7 +13,7 @@
 
 <!-- Screen-only toolbar: hidden in print. -->
 <header class="preview-bar">
-  <span><strong>Kit commerçant · Pitch terrain A5</strong> · recto · 1.1 en place, 1.2&nbsp;à&nbsp;1.5 à&nbsp;définir</span>
+  <span><strong>Kit commerçant · Pitch terrain A5</strong> · recto&nbsp;: 1.1 et 1.2 en place · verso&nbsp;: 1.3&nbsp;à&nbsp;1.5 à&nbsp;définir</span>
   <label><input type="checkbox" id="guides"> Repères (zone de sécurité 8&nbsp;mm, ligne 40&nbsp;%)</label>
   <span>Impression&nbsp;: format A5, marges&nbsp;: aucune, échelle 100&nbsp;%</span>
 </header>
@@ -79,12 +79,35 @@
       <p class="hook__bridge">Vous choisissez quand. Vos clients réservent. Vous&nbsp;encaissez.</p>
     </section>
 
-    <!-- ============ 1.2 → 1.5 — not specified yet: labelled placeholders === -->
+    <!-- ============ 1.2 How it works, in 3 steps ========================== -->
+    <!-- Takes up the three phrases of the 1.1 bridge line one by one.
+         Print version of the site's numbered steps (.step in components.css). -->
+    <section class="howto" aria-labelledby="howto-title">
+      <h2 class="eyebrow" id="howto-title">Comment ça marche</h2>
+      <ol class="steps">
+        <li class="step">
+          <h3 class="step__title">Vous choisissez quand</h3>
+          <p class="step__text">Vous publiez une offre sur un créneau creux&nbsp;: réduction, nombre&nbsp;de&nbsp;places, durée.</p>
+        </li>
+        <li class="step">
+          <h3 class="step__title">Vos clients réservent</h3>
+          <p class="step__text">Les clients à proximité la voient et réservent dans l’app.</p>
+        </li>
+        <li class="step">
+          <h3 class="step__title">Vous encaissez</h3>
+          <p class="step__text">Ils viennent, et vous êtes payé via Stripe.</p>
+        </li>
+      </ol>
+    </section>
+
+  </div>
+</article>
+
+<article class="sheet sheet--verso" aria-label="Verso">
+  <div class="sheet__safe">
+
+    <!-- ============ 1.3 → 1.5 — not specified yet: labelled placeholders === -->
     <div class="todo" aria-label="Sections à définir">
-      <section class="todo__item" data-section="1.2">
-        <span class="todo__id">Section 1.2 · à définir</span>
-        <p class="todo__title">Comment ça marche, en 3&nbsp;étapes</p>
-      </section>
       <section class="todo__item" data-section="1.3">
         <span class="todo__id">Section 1.3 · à définir</span>
         <p class="todo__title">Ce que ça rapporte</p>

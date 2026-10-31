@@ -25,8 +25,9 @@
 Status: ✅ done · 🟡 specified, to build · ⬜ to define
 
 ### 1. Field pitch (A5 flyer, recto/verso)
+Recto: 1.1 + 1.2 (problem → solution). Verso: 1.3 + 1.4 + 1.5 (figures, cost, contact).
 - ✅ 1.1 Hook — off-peak hours problem *(spec below · built in `kit/pitch-a5/`, awaiting review)*
-- ⬜ 1.2 How it works, in 3 steps
+- ✅ 1.2 How it works, in 3 steps *(spec in §6 · built in `kit/pitch-a5/`, awaiting review)*
 - ⬜ 1.3 What it earns (sourced INSEE figures + margin-simulator example)
 - ⬜ 1.4 What it costs (commission, no fixed fee — **model TBD**)
 - ⬜ 1.5 Call to action (sign-up QR + sales contact)
@@ -73,11 +74,13 @@ Status: ✅ done · 🟡 specified, to build · ⬜ to define
 - **Format:** print only (PDF), or also web pages on the site? → default for now: print-ready HTML → PDF.
 - **Scope:** 6 themes listed; the founder may drop one to keep 5.
 - **Commission model:** not defined yet (blocks 1.4, 5.1, 6.2).
+- **Recto/verso split (field pitch):** ✅ decided — recto = 1.1 + 1.2, verso = 1.3 + 1.4 + 1.5.
+- **Logo on the flyer:** not specified yet — the recto currently carries no brand mark.
 - **Alternate 1.1 headlines** (if the main one is rejected):
   - « Un mardi à 15 h, votre commerce est-il plein ? »
   - « Remplissez vos heures creuses. »
 
-## 5. Next task — Section 1.1 "Hook"
+## 5. Section 1.1 "Hook" (built)
 
 Build section 1.1 of the merchant field pitch: a print-ready A5 flyer for door-to-door prospecting in Lyon.
 
@@ -98,3 +101,30 @@ Build section 1.1 of the merchant field pitch: a print-ready A5 flyer for door-t
 - Print to PDF (A5) and check nothing crosses the safe zone.
 
 **Done when:** PDF export looks clean, nothing outside the safe zone, placeholders 1.2–1.5 visible. Then update the status in §3 (1.1 → ✅) and stop for review.
+
+## 6. Section 1.2 "How it works" (built)
+
+Build section 1.2 of the field pitch, on the recto, below 1.1. Copy validated by the founder.
+
+**Files**
+- Same file: `/kit/pitch-a5/index.html`. Section 1.2 fills the rest of the recto.
+- Add the verso as a second A5 page with empty labeled placeholders for 1.3–1.5.
+
+**Content (French copy verbatim)**
+- Three numbered steps, taking up the three phrases of the 1.1 bridge line one by one:
+  1. « Vous choisissez quand » — « Vous publiez une offre sur un créneau creux : réduction, nombre de places, durée. »
+  2. « Vos clients réservent » — « Les clients à proximité la voient et réservent dans l’app. »
+  3. « Vous encaissez » — « Ils viennent, et vous êtes payé via Stripe. »
+- No figures (payout delay, number of customers…): §2 "no invented numbers".
+
+**Details**
+- Reuse the site's numbered-step pattern (`.step` in `assets/css/components.css`: rose counter « 01 », hairline, sans title, muted text).
+- French typography from §2. No widows. Nothing outside the safe zone.
+
+**Done when:** PDF has 2 pages (recto 1.1 + 1.2, verso placeholders 1.3–1.5), checks pass. Then update §3 (1.2 → ✅) and stop for review.
+
+## 7. Next
+
+- **1.3 What it earns** needs a spec and **sourced** INSEE figures (§2: no invented numbers) before it can be built.
+- **1.4 What it costs** is blocked by the commission model (§4).
+- Tool: `node kit/outils/export-pdf.js kit/pitch-a5/index.html kit/pitch-a5/pitch-a5.pdf` exports the PDF and runs the print checks.

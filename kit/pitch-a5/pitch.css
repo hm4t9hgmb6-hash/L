@@ -176,13 +176,75 @@ body {
   letter-spacing: var(--tracking-snug);
 }
 
-/* --- Placeholders for sections not yet specified (1.2 → 1.5) ------------- */
+/* --- 1.2 How it works -------------------------------------------------------
+   Print version of the site's numbered steps (.step in components.css): rose
+   counter « 01 », hairline, sans title, muted text. Stacked rows share the
+   rest of the recto evenly; three columns would leave its bottom third empty. */
+.howto {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-top: 9mm;
+}
+.steps {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 1.4mm 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+.step {
+  flex: 1;
+  position: relative;
+  margin: 0;
+  padding-top: 5.4mm;
+}
+.step::before {
+  counter-increment: step;
+  content: counter(step, decimal-leading-zero);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--primary);
+  font-size: 7pt;
+  font-weight: var(--weight-bold);
+  line-height: 1;
+  letter-spacing: var(--tracking-wide);
+  font-variant-numeric: tabular-nums;
+}
+.step::after {
+  /* Hairline from the counter to the right edge, on the counter's midline. */
+  content: "";
+  position: absolute;
+  top: 1.2mm;
+  left: 6.5mm;
+  right: 0;
+  border-top: var(--hairline) solid var(--border-strong);
+}
+.step__title {
+  margin: 0;
+  font-size: 13pt;
+  font-weight: var(--weight-bold);
+  line-height: 1.2;
+  letter-spacing: var(--tracking-snug);
+}
+.step__text {
+  margin: 1.4mm 0 0;
+  max-width: 112mm;
+  color: var(--text-muted);
+  font-size: 10pt;
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+/* --- Placeholders for sections not yet specified (verso: 1.3 → 1.5) ------- */
 .todo {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 2.4mm;
-  margin-top: 7mm;
 }
 .todo__item {
   flex: 1;
@@ -267,7 +329,7 @@ body {
     border: 1px dashed var(--brand-300);
     pointer-events: none;
   }
-  body:has(#guides:checked) .sheet::before {
+  body:has(#guides:checked) .sheet--recto::before {   /* 40 % line: recto only */
     content: "40 %";
     position: absolute;
     left: 0;

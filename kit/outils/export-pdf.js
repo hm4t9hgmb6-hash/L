@@ -9,9 +9,11 @@
 //   - no widow (single word on a last line) in headlines, paragraphs, labels;
 //   - French spacing: no plain space before : ; ? ! », after «, or between a
 //     number and its unit (h, %, €, mm);
+//   - one PDF page per sheet (no overflow onto an extra page);
 //   - reports where the 1.1 hook ends, as a share of the sheet height.
 // Uses the preinstalled Chromium through Playwright.
 const { chromium } = require('playwright');
+const fs = require('fs');
 const path = require('path');
 
 const MM = 96 / 25.4;          // CSS px per millimetre
@@ -103,7 +105,7 @@ const TOLERANCE_PX = 0.05;
       for (const h of document.querySelectorAll('.sheet h1')) res.lines.headline = linesOf(h);
 
       // Widows: a last line made of a single word, on any multi-line block.
-      const blocks = document.querySelectorAll('.sheet h1, .sheet h2, .sheet p, .sheet figcaption, .sheet .todo__id');
+      const blocks = document.querySelectorAll('.sheet h1, .sheet h2, .sheet h3, .sheet p, .sheet figcaption, .sheet .todo__id');
       for (const b of blocks) {
         const ls = linesOf(b);
         if (ls.length > 1) {
@@ -157,6 +159,11 @@ const TOLERANCE_PX = 0.05;
 
     await page.pdf({ path: out, preferCSSPageSize: true, printBackground: true });
     console.log('PDF written:', out);
+
+    // One PDF page per sheet: catches overflow spilling onto an extra page.
+    const pages = (fs.readFileSync(out, 'latin1').match(/\/Type\s*\/Page(?!s)/g) || []).length;
+    console.log(`PDF pages: ${pages} (sheets: ${report.sheets.length})`);
+    if (pages !== report.sheets.length) failures.push(`PDF has ${pages} pages for ${report.sheets.length} sheets`);
   } finally {
     await browser.close();
   }
