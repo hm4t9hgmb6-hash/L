@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>dealmarket — Pitch terrain A5 (recto)</title>
+<meta name="robots" content="noindex">
+<!-- Design tokens: single source of truth shared with the site. -->
+<link rel="stylesheet" href="../../assets/css/tokens.css">
+<link rel="stylesheet" href="pitch.css">
+</head>
+<body>
+
+<!-- Screen-only toolbar: hidden in print. -->
+<header class="preview-bar">
+  <span><strong>Kit commerçant · Pitch terrain A5</strong> · recto · 1.1 en place, 1.2&nbsp;à&nbsp;1.5 à&nbsp;définir</span>
+  <label><input type="checkbox" id="guides"> Repères (zone de sécurité 8&nbsp;mm, ligne 40&nbsp;%)</label>
+  <span>Impression&nbsp;: format A5, marges&nbsp;: aucune, échelle 100&nbsp;%</span>
+</header>
+
+<article class="sheet sheet--recto" aria-label="Recto">
+  <div class="sheet__safe">
+
+    <!-- ============ 1.1 Hook — off-peak hours problem ===================== -->
+    <section class="hook" aria-labelledby="hook-title">
+      <p class="eyebrow">Pour les commerces indépendants de Lyon</p>
+
+      <!-- No-break space before the last word: no widow even without text-wrap support. -->
+      <h1 class="hook__title" id="hook-title">Vos heures creuses ont de la&nbsp;valeur.</h1>
+
+      <p class="hook__lede">dealmarket remplit vos tables, vos fauteuils et vos créneaux vides
+        avec des clients du quartier, au moment précis où vous en avez&nbsp;besoin.</p>
+
+      <figure class="footfall">
+        <!-- Illustrative footfall curve, 8 h → 20 h. viewBox in mm (132 mm wide).
+             Bar heights: value × 0.2 mm (100 → 20 mm), baseline at y = 19.
+             Values: 28 46 58 50 90 76 | 24 15 12 20 | 60 78 52 — not data. -->
+        <svg viewBox="0 0 132 23.4" role="img" aria-labelledby="ff-title ff-desc">
+          <title id="ff-title">Fréquentation type d’un commerce entre 8&nbsp;h et 20&nbsp;h (illustratif)</title>
+          <desc id="ff-desc">Un pic le matin, un pic à midi, un creux profond de 14&nbsp;h à 17&nbsp;h, puis un pic le soir. Le creux est signalé comme «&nbsp;Vos heures creuses&nbsp;».</desc>
+
+          <g class="bars">
+            <path class="bar" d="M0 19V14.2a0.8 0.8 0 0 1 0.8-0.8h4.6a0.8 0.8 0 0 1 0.8 0.8V19z"/><!-- 8 h -->
+            <path class="bar" d="M10.48 19V10.6a0.8 0.8 0 0 1 0.8-0.8h4.6a0.8 0.8 0 0 1 0.8 0.8V19z"/><!-- 9 h -->
+            <path class="bar" d="M20.97 19V8.2a0.8 0.8 0 0 1 0.8-0.8h4.6a0.8 0.8 0 0 1 0.8 0.8V19z"/><!-- 10 h -->
+            <path class="bar" d="M31.45 19V9.8a0.8 0.8 0 0 1 0.8-0.8h4.6a0.8 0.8 0 0 1 0.8 0.8V19z"/><!-- 11 h -->
+            <path class="bar" d="M41.93 19V1.8a0.8 0.8 0 0 1 0.8-0.8h4.6a0.8 0.8 0 0 1 0.8 0.8V19z"/><!-- 12 h -->
+            <path class="bar" d="M52.42 19V4.6a0.8 0.8 0 0 1 0.8-0.8h4.6a0.8 0.8 0 0 1 0.8 0.8V19z"/><!-- 13 h -->
+            <path class="bar bar--dip" d="M62.9 19V15a0.8 0.8 0 0 1 0.8-0.8h4.6a0.8 0.8 0 0 1 0.8 0.8V19z"/><!-- 14 h -->
+            <path class="bar bar--dip" d="M73.38 19V16.8a0.8 0.8 0 0 1 0.8-0.8h4.6a0.8 0.8 0 0 1 0.8 0.8V19z"/><!-- 15 h -->
+            <path class="bar bar--dip" d="M83.87 19V17.4a0.8 0.8 0 0 1 0.8-0.8h4.6a0.8 0.8 0 0 1 0.8 0.8V19z"/><!-- 16 h -->
+            <path class="bar bar--dip" d="M94.35 19V15.8a0.8 0.8 0 0 1 0.8-0.8h4.6a0.8 0.8 0 0 1 0.8 0.8V19z"/><!-- 17 h -->
+            <path class="bar" d="M104.83 19V7.8a0.8 0.8 0 0 1 0.8-0.8h4.6a0.8 0.8 0 0 1 0.8 0.8V19z"/><!-- 18 h -->
+            <path class="bar" d="M115.32 19V4.2a0.8 0.8 0 0 1 0.8-0.8h4.6a0.8 0.8 0 0 1 0.8 0.8V19z"/><!-- 19 h -->
+            <path class="bar" d="M125.8 19V9.4a0.8 0.8 0 0 1 0.8-0.8h4.6a0.8 0.8 0 0 1 0.8 0.8V19z"/><!-- 20 h -->
+          </g>
+
+          <!-- Hairline baseline: the only axis element. -->
+          <line class="baseline" x1="0" y1="19" x2="132" y2="19"/>
+
+          <!-- Bracket over the 14 h–17 h dip (outer edges of the 14 h and 17 h bars). -->
+          <path class="bracket" d="M62.9 12.6V11.4H100.55V12.6"/>
+          <text class="bracket-label" x="81.72" y="9.9" text-anchor="middle">Vos heures creuses</text>
+
+          <!-- Hour labels every 2 h, centred under their bar. -->
+          <g class="hours" text-anchor="middle">
+            <text class="hour" x="3.1" y="22.6">8&nbsp;h</text>
+            <text class="hour" x="24.07" y="22.6">10&nbsp;h</text>
+            <text class="hour" x="45.03" y="22.6">12&nbsp;h</text>
+            <text class="hour" x="66" y="22.6">14&nbsp;h</text>
+            <text class="hour" x="86.97" y="22.6">16&nbsp;h</text>
+            <text class="hour" x="107.93" y="22.6">18&nbsp;h</text>
+            <text class="hour" x="128.9" y="22.6">20&nbsp;h</text>
+          </g>
+        </svg>
+        <figcaption>illustratif</figcaption>
+      </figure>
+
+      <p class="hook__bridge">Vous choisissez quand. Vos clients réservent. Vous&nbsp;encaissez.</p>
+    </section>
+
+    <!-- ============ 1.2 → 1.5 — not specified yet: labelled placeholders === -->
+    <div class="todo" aria-label="Sections à définir">
+      <section class="todo__item" data-section="1.2">
+        <span class="todo__id">Section 1.2 · à définir</span>
+        <p class="todo__title">Comment ça marche, en 3&nbsp;étapes</p>
+      </section>
+      <section class="todo__item" data-section="1.3">
+        <span class="todo__id">Section 1.3 · à définir</span>
+        <p class="todo__title">Ce que ça rapporte</p>
+        <p class="todo__note">Chiffres INSEE sourcés et exemple du simulateur de&nbsp;marge.</p>
+      </section>
+      <section class="todo__item" data-section="1.4">
+        <span class="todo__id">Section 1.4 · à définir</span>
+        <p class="todo__title">Ce que ça coûte</p>
+        <p class="todo__note">Commission, sans frais fixes. Modèle de commission à&nbsp;arrêter.</p>
+      </section>
+      <section class="todo__item" data-section="1.5">
+        <span class="todo__id">Section 1.5 · à définir</span>
+        <p class="todo__title">Passer à l’action</p>
+        <p class="todo__note">QR code d’inscription et contact&nbsp;commercial.</p>
+      </section>
+    </div>
+
+  </div>
+</article>
+
+</body>
+</html>

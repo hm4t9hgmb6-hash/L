@@ -1,0 +1,287 @@
+/* ==========================================================================
+   dealmarket — Merchant onboarding kit · 1. Field pitch (A5 flyer)
+   Print-first stylesheet. Colours and font stacks come from the site's
+   design tokens (../../assets/css/tokens.css); this file only adds print
+   geometry (mm/pt) and never defines new colours.
+   ========================================================================== */
+
+/* --- Local fonts -----------------------------------------------------------
+   Bundled so the file prints identically offline (field use, print shop).
+   Static instances of the site's variable fonts (latin subset: French
+   accents, œ, « », ’, €, both no-break spaces), built by
+   kit/outils/static-fonts.sh — static so the PDF embeds TrueType rather than
+   Type 3 fonts. Only the weights used below exist: a new weight or headline
+   size needs a new instance. */
+@font-face {
+  font-family: "Fraunces";   /* 600 · SOFT 24 · WONK 0 · opsz 37.33 (28 pt) */
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url("fonts/fraunces-600-opsz37.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("fonts/manrope-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url("fonts/manrope-500.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url("fonts/manrope-600.woff2") format("woff2");
+}
+
+/* --- Print geometry (from the kit handoff, §2) ---------------------------- */
+@page { size: 148mm 210mm; margin: 0; }
+
+:root {
+  --sheet-w: 148mm;
+  --sheet-h: 210mm;
+  --safe: 8mm;        /* nothing printed may cross this inset */
+  --bleed: 3mm;       /* only for full-bleed backgrounds — none on this side yet */
+  --hairline: 0.25pt;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--text);
+  font-kerning: normal;
+  font-feature-settings: "kern", "liga";
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Sheet ---------------------------------------------------------------- */
+.sheet {
+  position: relative;
+  width: var(--sheet-w);
+  height: var(--sheet-h);
+  overflow: hidden;              /* a sheet never spills onto the next page */
+  background: var(--surface);
+  break-after: page;
+}
+.sheet:last-of-type { break-after: auto; }
+
+.sheet__safe {
+  position: absolute;
+  inset: var(--safe);
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- 1.1 Hook --------------------------------------------------------------
+   Roughly the top 40 % of the recto (≈ 84 mm from the trim). */
+.hook { flex: none; }
+
+.eyebrow {
+  margin: 0 0 2.6mm;
+  color: var(--primary);
+  font-size: 7pt;
+  font-weight: var(--weight-bold);
+  line-height: 1;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.hook__title {
+  margin: 0;
+  max-width: 120mm;
+  font-family: var(--font-display);
+  font-size: 28pt;
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.022em;
+  font-variation-settings: "SOFT" 24, "WONK" 0;
+  font-optical-sizing: auto;
+  text-wrap: balance;
+}
+
+.hook__lede {
+  margin: 3.2mm 0 0;
+  color: var(--text-muted);
+  font-size: 10pt;
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+/* Footfall chart. The SVG viewBox is in millimetres (1 unit = 1 mm) at the
+   132 mm content width, so stroke widths and font sizes below are mm too. */
+.footfall {
+  margin: 5.6mm 0 0;
+}
+.footfall svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.footfall .bar      { fill: var(--n-300); }
+.footfall .bar--dip { fill: var(--primary); }
+.footfall .baseline {
+  stroke: var(--n-400);
+  stroke-width: 0.09;           /* ≈ 0.25 pt hairline */
+}
+.footfall .bracket {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 0.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.footfall .bracket-label {
+  fill: var(--text);
+  font-family: var(--font-sans);
+  font-size: 2.47px;            /* 7 pt (1 unit = 1 mm) */
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.005em;
+}
+.footfall .hour {
+  fill: var(--text-muted);
+  font-family: var(--font-sans);
+  font-size: 2.12px;            /* 6 pt */
+  font-weight: var(--weight-medium);
+  font-variant-numeric: tabular-nums;
+}
+.footfall figcaption {
+  margin-top: 0.6mm;
+  color: var(--text-muted);
+  font-size: 5.5pt;
+  line-height: 1;
+  text-align: right;
+}
+
+.hook__bridge {
+  margin: 4.2mm 0 0;
+  font-size: 10pt;
+  font-weight: var(--weight-bold);
+  line-height: 1.3;
+  letter-spacing: var(--tracking-snug);
+}
+
+/* --- Placeholders for sections not yet specified (1.2 → 1.5) ------------- */
+.todo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4mm;
+  margin-top: 7mm;
+}
+.todo__item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1mm;
+  padding: 0 5mm;
+  border: var(--hairline) dashed var(--border-strong);
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+}
+.todo__id {
+  font-size: 6.5pt;
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+.todo__title {
+  margin: 0;
+  color: var(--n-600);
+  font-size: 9pt;
+  font-weight: var(--weight-bold);
+  line-height: 1.25;
+}
+.todo__note {
+  margin: 0;
+  font-size: 7pt;
+  line-height: 1.35;
+}
+
+/* --- Screen preview ---------------------------------------------------------
+   On screen the sheet sits at real size on a neutral desk, with optional
+   guides (trim, safe zone, 40 % line). None of this reaches the PDF. */
+.preview-bar { display: none; }
+
+@media screen {
+  html { background: var(--bg-inset); }
+  body { padding: 0 0 16mm; }
+
+  .preview-bar {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2) var(--space-5);
+    margin-bottom: var(--space-6);
+    padding: var(--space-3) var(--space-5);
+    background: var(--surface);
+    border-bottom: var(--border-width) solid var(--border);
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+  }
+  .preview-bar strong { color: var(--text); font-weight: var(--weight-bold); }
+  .preview-bar label {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--text);
+    cursor: pointer;
+  }
+  .preview-bar input { accent-color: var(--primary); margin: 0; }
+
+  .sheet {
+    margin: 0 auto var(--space-6);
+    box-shadow: var(--shadow-lg);
+  }
+  /* Phones: the real-size sheet (≈ 559 px) would overflow; scale the whole
+     sheet down so it still reads as one page. Screen only. */
+  @media (max-width: 600px) {
+    .sheet { zoom: 0.6; }
+  }
+
+  body:has(#guides:checked) .sheet::after {
+    /* Safe zone (dashed) and the 40 % line the hook should end near. */
+    content: "";
+    position: absolute;
+    inset: var(--safe);
+    border: 1px dashed var(--brand-300);
+    pointer-events: none;
+  }
+  body:has(#guides:checked) .sheet::before {
+    content: "40 %";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(var(--sheet-h) * 0.4);
+    border-top: 1px dotted var(--brand-300);
+    padding: 1px 2px 0 0;
+    color: var(--brand-500);
+    font-size: 7px;
+    text-align: right;
+    pointer-events: none;
+  }
+}
+
+@media print {
+  html, body { background: none; }
+}
