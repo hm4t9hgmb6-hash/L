@@ -320,6 +320,22 @@ function createApp(options = {}) {
 
   app.use('/api', (req, res) => res.status(404).json({ error: 'Route inconnue.' }));
 
+  // --- Référencement ------------------------------------------------------------
+  if (env.preview) {
+    app.use((req, res, next) => { res.set('X-Robots-Tag', 'noindex, nofollow'); next(); });
+  }
+
+  app.get('/robots.txt', (req, res) => {
+    res.type('text/plain').send(env.preview
+      ? 'User-agent: *\nDisallow: /\n'
+      : `User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /reservation\nDisallow: /paiement-demo\nDisallow: /api/\n\nSitemap: ${env.baseUrl}/sitemap.xml\n`);
+  });
+
+  app.get('/sitemap.xml', (req, res) => {
+    const urls = ['/', '/reserver', '/legal/mentions-legales', '/legal/cgv', '/legal/confidentialite'];
+    res.type('application/xml').send(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${env.baseUrl}${u}</loc></url>`).join('\n')}\n</urlset>\n`);
+  });
+
   // --- Pages ------------------------------------------------------------------
   function sendPage(res, key, status = 200) {
     res.status(status).set({ 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-cache' }).send(pages.get(key));

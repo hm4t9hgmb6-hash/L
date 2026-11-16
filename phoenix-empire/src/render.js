@@ -169,9 +169,13 @@ const blocks = {
     return `<script type="application/ld+json">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
   },
 
-  header(cfg) {
+  header(cfg, env) {
+    const preview = env && env.preview
+      ? '<p class="preview-bar" role="note"><strong>Aperçu</strong><span class="preview-bar__long">· site en préparation : adresse, tarifs et paiements fictifs</span><span class="preview-bar__short">· infos et paiements fictifs</span></p>'
+      : '';
     return `<a class="skip" href="#main">Aller au contenu</a>
 <header class="site-header" data-header>
+  ${preview}
   <div class="container site-header__inner">
     <a class="brand" href="/" aria-label="${esc(cfg.studio.name)}, accueil">
       <img src="/assets/img/logo.svg" alt="" width="34" height="34">

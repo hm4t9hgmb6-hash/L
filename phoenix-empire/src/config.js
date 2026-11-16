@@ -97,8 +97,10 @@ function env() {
   const port = Number(process.env.PORT) || 3000;
   return {
     port,
-    baseUrl: (process.env.BASE_URL || `http://localhost:${port}`).replace(/\/$/, ''),
+    baseUrl: (process.env.BASE_URL || process.env.RENDER_EXTERNAL_URL || `http://localhost:${port}`).replace(/\/$/, ''),
     production: process.env.NODE_ENV === 'production',
+    // Aperçu : bandeau « informations fictives » et site non référencé par les moteurs de recherche.
+    preview: process.env.PREVIEW === 'true',
     dataDir: process.env.DATA_DIR || path.join(ROOT, 'data'),
     stripeSecretKey: process.env.STRIPE_SECRET_KEY || '',
     stripeWebhookSecret: process.env.STRIPE_WEBHOOK_SECRET || '',
