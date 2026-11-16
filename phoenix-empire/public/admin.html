@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Espace studio · {{studio.name}}</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0a0807">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/assets/js/admin.js" defer></script>
+</head>
+<body class="admin-body">
+
+<!-- Connexion -->
+<div class="login" data-login hidden>
+  <form class="card" data-login-form>
+    <img src="/assets/img/logo.svg" alt="" width="48" height="48">
+    <h1>Espace studio</h1>
+    <p>Réservations, planning et fermetures de {{studio.name}}.</p>
+    <label class="field"><span>Mot de passe</span><input class="input" type="password" name="password" autocomplete="current-password" required autofocus></label>
+    <p class="field__error" data-login-error hidden role="alert" style="margin-top:12px"></p>
+    <button class="btn btn--primary btn--block" type="submit" style="margin-top:20px">Se connecter</button>
+    <a class="btn btn--quiet btn--block" href="/" style="margin-top:8px">Retour au site</a>
+  </form>
+</div>
+
+<!-- Application -->
+<div data-app hidden>
+  <header class="admin-top">
+    <a class="brand" href="/admin"><img src="/assets/img/logo.svg" alt="" width="30" height="30"><span class="brand__name">Phoenix<span>Empire</span></span></a>
+    <span class="admin-top__title">Espace studio</span>
+    <div class="admin-top__right">
+      <span class="pill" data-provider></span>
+      <a class="btn btn--ghost btn--sm" href="/" target="_blank" rel="noopener">Voir le site</a>
+      <button class="icon-btn" type="button" data-logout aria-label="Se déconnecter"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#logout"/></svg></button>
+    </div>
+  </header>
+
+  <main class="admin">
+    <div data-setup></div>
+    <section class="kpis" data-kpis aria-label="Indicateurs"></section>
+
+    <nav class="tabs" role="tablist" aria-label="Sections">
+      <button type="button" role="tab" aria-selected="true" data-tab="planning">Planning</button>
+      <button type="button" role="tab" aria-selected="false" data-tab="list">Réservations</button>
+      <button type="button" role="tab" aria-selected="false" data-tab="add">Ajouter une réservation</button>
+      <button type="button" role="tab" aria-selected="false" data-tab="blocks">Fermetures</button>
+    </nav>
+
+    <!-- Planning -->
+    <section data-panel="planning" role="tabpanel">
+      <div class="toolbar">
+        <button class="icon-btn" type="button" data-week="-1" aria-label="Semaine précédente"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#chevron-left"/></svg></button>
+        <button class="icon-btn" type="button" data-week="1" aria-label="Semaine suivante"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#chevron-right"/></svg></button>
+        <button class="btn btn--ghost btn--sm" type="button" data-week="0">Cette semaine</button>
+        <strong data-week-label style="margin-left:8px"></strong>
+        <span class="toolbar__spacer"></span>
+        <span class="muted" data-legend style="font-size:.88rem"></span>
+      </div>
+      <div class="week" data-week-grid></div>
+    </section>
+
+    <!-- Liste -->
+    <section data-panel="list" role="tabpanel" hidden>
+      <form class="toolbar" data-filters>
+        <input class="input" type="search" name="q" placeholder="Nom, e-mail, référence…" aria-label="Rechercher">
+        <select class="select" name="status" aria-label="Statut">
+          <option value="confirmed,pending">À venir et en cours</option>
+          <option value="confirmed">Confirmées</option>
+          <option value="pending">Paiement en cours</option>
+          <option value="cancelled">Annulées</option>
+          <option value="expired">Expirées</option>
+          <option value="all">Toutes</option>
+        </select>
+        <input class="input" type="date" name="from" aria-label="Du">
+        <input class="input" type="date" name="to" aria-label="Au">
+        <button class="btn btn--ghost btn--sm" type="submit"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#search"/></svg> Filtrer</button>
+      </form>
+      <div class="table-wrap">
+        <table class="table">
+          <thead><tr><th>Date</th><th>Studio</th><th>Client</th><th>Montant</th><th>Statut</th><th>Réf.</th></tr></thead>
+          <tbody data-table></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Ajout manuel -->
+    <section data-panel="add" role="tabpanel" hidden>
+      <form class="card" data-add-form style="max-width:860px">
+        <h2 style="font-size:1.4rem">Ajouter une réservation</h2>
+        <p class="muted" style="margin:8px 0 24px">Pour une réservation prise par téléphone ou sur place. Le créneau est bloqué immédiatement sur le site.</p>
+        <div class="form-grid">
+          <label class="field"><span>Studio</span><select class="select" name="roomId" data-add-room></select></label>
+          <label class="field"><span>Durée</span><select class="select" name="duration" data-add-duration></select></label>
+          <label class="field"><span>Date</span><input class="input" type="date" name="date" required data-add-date></label>
+          <label class="field"><span>Heure de début</span><select class="select" name="start" data-add-start></select></label>
+          <label class="check span-2" data-add-engineer-wrap><input type="checkbox" name="engineer"><span>Avec ingénieur du son</span></label>
+          <label class="field"><span>Nom du client</span><input class="input" name="name" maxlength="120"></label>
+          <label class="field"><span>Nom d'artiste</span><input class="input" name="artist" maxlength="120"></label>
+          <label class="field"><span>E-mail</span><input class="input" type="email" name="email" maxlength="200"></label>
+          <label class="field"><span>Téléphone</span><input class="input" type="tel" name="phone" maxlength="40"></label>
+          <label class="field span-2"><span>Notes</span><textarea class="textarea" name="notes" maxlength="1000"></textarea></label>
+          <label class="check"><input type="checkbox" name="paid"><span>Déjà payée (espèces, virement…)</span></label>
+          <label class="check"><input type="checkbox" name="notify" checked><span>Envoyer la confirmation au client par e-mail</span></label>
+        </div>
+        <p class="field__error" data-add-error hidden role="alert" style="margin-top:18px"></p>
+        <div class="step__actions"><span class="muted" data-add-price></span><button class="btn btn--primary" type="submit">Enregistrer la réservation</button></div>
+      </form>
+    </section>
+
+    <!-- Fermetures -->
+    <section data-panel="blocks" role="tabpanel" hidden>
+      <div class="admin-grid">
+        <form class="card" data-block-form>
+          <h2 style="font-size:1.4rem">Bloquer des créneaux</h2>
+          <p class="muted" style="margin:8px 0 24px">Congés, maintenance, session privée : les créneaux bloqués disparaissent du site.</p>
+          <div class="form-grid">
+            <label class="field span-2"><span>Studio</span><select class="select" name="roomId" data-block-room></select></label>
+            <label class="field span-2"><span>Date</span><input class="input" type="date" name="date" required></label>
+            <label class="check span-2"><input type="checkbox" name="allDay" checked data-block-allday><span>Toute la journée</span></label>
+            <label class="field" data-block-time hidden><span>De</span><input class="input" type="time" name="start" value="10:00" step="1800"></label>
+            <label class="field" data-block-time hidden><span>À</span><input class="input" type="time" name="end" value="14:00" step="1800"></label>
+            <label class="field span-2"><span>Motif (visible uniquement par toi)</span><input class="input" name="reason" maxlength="200" placeholder="Congés, maintenance…"></label>
+          </div>
+          <p class="field__error" data-block-error hidden role="alert" style="margin-top:18px"></p>
+          <div class="step__actions"><span></span><button class="btn btn--primary" type="submit">Bloquer</button></div>
+        </form>
+        <div>
+          <h2 style="font-size:1.2rem">Fermetures à venir</h2>
+          <ul class="blocks-list" data-blocks></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- Détail d'une réservation -->
+<div class="modal" data-modal hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal__box">
+    <div class="modal__head"><div><p class="eyebrow" data-modal-room></p><h2 id="modal-title" data-modal-title style="margin-top:10px"></h2></div><button class="icon-btn" type="button" data-modal-close aria-label="Fermer"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#x"/></svg></button></div>
+    <div class="modal__body" data-modal-body></div>
+    <div class="modal__foot" data-modal-foot></div>
+  </div>
+</div>
+</body>
+</html>

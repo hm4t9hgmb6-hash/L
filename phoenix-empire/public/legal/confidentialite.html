@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Politique de confidentialité · {{studio.name}}</title>
+  <meta name="theme-color" content="#0a0807">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/main.js" defer></script>
+</head>
+<body>
+<!--@header-->
+<main id="main" class="page">
+  <div class="container">
+    <p class="eyebrow">Informations légales</p>
+    <h1 class="page__title">Politique de confidentialité</h1>
+    <div class="prose">
+      <p>Cette politique explique quelles données {{legal.company}} (« le studio ») collecte sur le site {{baseUrl}}, pourquoi, et quels sont tes droits.</p>
+
+      <h2>Responsable du traitement</h2>
+      <p>{{legal.company}}, {{address.full}} · <a href="mailto:{{studio.email}}">{{studio.email}}</a>.</p>
+
+      <h2>Données collectées</h2>
+      <ul>
+        <li>À la réservation : nom, nom d'artiste (facultatif), adresse e-mail, téléphone, description du projet (facultative), détails de la session réservée.</li>
+        <li>Au paiement : les données de carte sont saisies directement chez Stripe et ne sont jamais transmises au studio. Le studio reçoit seulement la confirmation du paiement et son montant.</li>
+      </ul>
+
+      <h2>Finalités et base légale</h2>
+      <ul>
+        <li>Gérer ta réservation, t'envoyer la confirmation et te contacter au sujet de ta session : exécution du contrat.</li>
+        <li>Tenir la comptabilité : obligation légale.</li>
+      </ul>
+      <p>Aucune donnée n'est utilisée à des fins publicitaires ni revendue.</p>
+
+      <h2>Destinataires</h2>
+      <p>Les données sont accessibles à l'équipe du studio et à ses prestataires techniques, uniquement pour les besoins du service : Stripe (paiement), l'hébergeur du site ({{legal.host}}) et le service d'envoi d'e-mails.</p>
+
+      <h2>Durée de conservation</h2>
+      <p>Les données de réservation sont conservées pendant 3 ans après ta dernière session. Les pièces comptables sont conservées 10 ans, comme l'exige la loi.</p>
+
+      <h2>Cookies et stockage local</h2>
+      <p>Le site n'utilise aucun cookie publicitaire ni outil de mesure d'audience. Le formulaire de réservation mémorise temporairement tes choix dans ton navigateur (stockage de session) pour que tu ne les perdes pas pendant le paiement. La page de paiement Stripe peut déposer des cookies nécessaires à la prévention de la fraude.</p>
+
+      <h2>Tes droits</h2>
+      <p>Tu peux accéder à tes données, les rectifier, demander leur effacement ou leur portabilité, ou t'opposer à leur traitement en écrivant à <a href="mailto:{{studio.email}}">{{studio.email}}</a>. Tu peux aussi introduire une réclamation auprès de la CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener">cnil.fr</a>).</p>
+    </div>
+  </div>
+</main>
+<!--@footer-->
+</body>
+</html>

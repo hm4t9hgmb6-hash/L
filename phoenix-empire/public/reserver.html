@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Réserver une session · {{studio.name}}</title>
+  <meta name="description" content="Réserve ton créneau au studio {{studio.name}} : disponibilités en temps réel, paiement sécurisé, confirmation immédiate.">
+  <meta name="theme-color" content="#0a0807">
+  <link rel="canonical" href="{{baseUrl}}/reserver">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/unbounded-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/assets/js/booking.js" defer></script>
+</head>
+<body>
+<!--@header-->
+
+<main id="main" class="page page--book">
+  <div class="container">
+    <p class="eyebrow">Réservation</p>
+    <h1 class="page__title">Réserve ta session</h1>
+    <p class="page__lead">Disponibilités en temps réel. Ton créneau est bloqué pour toi pendant le paiement.</p>
+
+    <div data-flash></div>
+
+    <ol class="stepper" data-stepper aria-label="Étapes de la réservation">
+      <li><button type="button" data-goto="1">Studio</button></li>
+      <li><button type="button" data-goto="2">Créneau</button></li>
+      <li><button type="button" data-goto="3">Options</button></li>
+      <li><button type="button" data-goto="4">Paiement</button></li>
+    </ol>
+
+    <div class="book">
+      <div class="book__main">
+        <!-- Étape 1 -->
+        <section class="step" data-step="1" aria-labelledby="s1-title">
+          <h2 class="step__title" id="s1-title" tabindex="-1">Choisis ton studio</h2>
+          <p class="step__hint">Chaque espace est traité acoustiquement et prêt à enregistrer.</p>
+          <div class="room-options" role="radiogroup" aria-labelledby="s1-title" data-rooms>
+            <div class="skeleton" style="height:96px"></div><div class="skeleton" style="height:96px"></div><div class="skeleton" style="height:96px"></div>
+          </div>
+          <div class="step__actions"><span></span><button type="button" class="btn btn--primary" data-next disabled>Continuer <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#arrow-right"/></svg></button></div>
+        </section>
+
+        <!-- Étape 2 -->
+        <section class="step" data-step="2" aria-labelledby="s2-title" hidden>
+          <h2 class="step__title" id="s2-title" tabindex="-1">Choisis ton créneau</h2>
+          <p class="step__hint" data-room-hint></p>
+
+          <div class="step__block">
+            <span class="label" id="dur-label">Durée de la session</span>
+            <div class="durations" role="radiogroup" aria-labelledby="dur-label" data-durations></div>
+          </div>
+
+          <div class="step__block" data-engineer-block hidden>
+            <label class="switch">
+              <span><strong>Ajouter un ingénieur du son</strong><small data-engineer-price></small></span>
+              <input type="checkbox" data-engineer>
+            </label>
+          </div>
+          <div class="step__block" data-engineer-included hidden>
+            <div class="notice notice--ok"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#headphones"/></svg><div><strong>Ingénieur du son inclus</strong><p>Un de nos ingés t'accompagne pendant toute la session.</p></div></div>
+          </div>
+
+          <div class="step__block">
+            <span class="label">Date</span>
+            <div class="cal" data-cal>
+              <div class="cal__head">
+                <p class="cal__month" data-cal-month aria-live="polite"></p>
+                <div class="cal__nav">
+                  <button type="button" class="icon-btn" data-cal-prev aria-label="Mois précédent"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#chevron-left"/></svg></button>
+                  <button type="button" class="icon-btn" data-cal-next aria-label="Mois suivant"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#chevron-right"/></svg></button>
+                </div>
+              </div>
+              <div class="cal__grid" data-cal-grid></div>
+              <div class="cal__legend"><span><i style="background:var(--ok)"></i>Disponible</span><span><i style="background:var(--warn)"></i>Presque complet</span><span><i style="background:var(--faint)"></i>Complet ou fermé</span></div>
+            </div>
+          </div>
+
+          <div class="step__block" data-slots-block hidden>
+            <span class="label" data-slots-label>Heure de début</span>
+            <div class="slots" data-slots aria-live="polite"></div>
+          </div>
+
+          <div class="step__actions">
+            <button type="button" class="btn btn--quiet" data-prev><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#arrow-left"/></svg> Retour</button>
+            <button type="button" class="btn btn--primary" data-next disabled>Continuer <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#arrow-right"/></svg></button>
+          </div>
+        </section>
+
+        <!-- Étape 3 -->
+        <section class="step" data-step="3" aria-labelledby="s3-title" hidden>
+          <h2 class="step__title" id="s3-title" tabindex="-1">Ajoute des options</h2>
+          <p class="step__hint">Facultatif. Tout est réglé en une seule fois avec ta session.</p>
+          <div class="extras-pick" data-extras></div>
+          <div class="step__actions">
+            <button type="button" class="btn btn--quiet" data-prev><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#arrow-left"/></svg> Retour</button>
+            <button type="button" class="btn btn--primary" data-next><span data-extras-next>Continuer sans option</span> <svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#arrow-right"/></svg></button>
+          </div>
+        </section>
+
+        <!-- Étape 4 -->
+        <section class="step" data-step="4" aria-labelledby="s4-title" hidden>
+          <h2 class="step__title" id="s4-title" tabindex="-1">Tes coordonnées</h2>
+          <p class="step__hint">Pour t'envoyer la confirmation et te joindre en cas de besoin.</p>
+          <form class="step__block" data-form novalidate>
+            <div class="form-grid">
+              <label class="field"><span>Nom et prénom</span><input class="input" name="name" autocomplete="name" required maxlength="120" placeholder="Prénom Nom"></label>
+              <label class="field"><span>Nom d'artiste <em>(facultatif)</em></span><input class="input" name="artist" maxlength="120" placeholder="Ton blaze"></label>
+              <label class="field"><span>E-mail</span><input class="input" name="email" type="email" autocomplete="email" required maxlength="200" placeholder="toi@exemple.fr"></label>
+              <label class="field"><span>Téléphone</span><input class="input" name="phone" type="tel" autocomplete="tel" required maxlength="40" placeholder="06 12 34 56 78"></label>
+              <label class="field span-2"><span>Ton projet <em>(facultatif)</em></span><textarea class="textarea" name="notes" maxlength="1000" placeholder="Nombre de titres, style, personnes présentes, besoins particuliers…"></textarea></label>
+            </div>
+
+            <div class="step__block">
+              <span class="label" id="pay-label">Paiement</span>
+              <div class="pay-options" role="radiogroup" aria-labelledby="pay-label" data-pay-options></div>
+            </div>
+
+            <div class="step__block" style="display:grid;gap:16px">
+              <label class="check"><input type="checkbox" name="terms" required><span>J'accepte les <a href="/legal/cgv" target="_blank">conditions générales de vente</a>, dont la politique d'annulation ({{cancelHours}} h avant la session).</span></label>
+              <div class="notice notice--warn" data-demo-notice hidden><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#bolt"/></svg><div><strong>Mode démo</strong><p>Le paiement en ligne n'est pas encore branché : aucun montant ne sera débité.</p></div></div>
+              <div class="notice notice--err" data-form-error hidden role="alert"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#x"/></svg><div><p data-form-error-text></p></div></div>
+            </div>
+
+            <div class="step__actions">
+              <button type="button" class="btn btn--quiet" data-prev><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#arrow-left"/></svg> Retour</button>
+              <button type="submit" class="btn btn--primary btn--lg" data-submit><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#lock"/></svg> <span data-submit-label>Payer</span></button>
+            </div>
+          </form>
+        </section>
+      </div>
+
+      <!-- Récapitulatif -->
+      <aside class="summary" data-summary aria-label="Récapitulatif">
+        <div class="summary__head">
+          <p>Récapitulatif</p>
+          <h2 data-sum-room>Choisis un studio</h2>
+        </div>
+        <ul class="summary__rows" data-sum-rows></ul>
+        <div class="summary__total">
+          <div class="summary__total-row"><span class="muted">Total</span><strong data-sum-total>—</strong></div>
+          <p class="summary__deposit" data-sum-deposit></p>
+        </div>
+        <ul class="summary__trust">
+          <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#check"/></svg>Confirmation immédiate par e-mail</li>
+          <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#check"/></svg>Annulation gratuite jusqu'à {{cancelHours}} h avant</li>
+          <li><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#check"/></svg>Paiement sécurisé par Stripe</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+
+  <div class="mbar" data-mbar>
+    <p>Total<strong data-mbar-total>—</strong></p>
+    <button type="button" class="btn btn--primary" data-mbar-next disabled>Continuer</button>
+  </div>
+</main>
+
+<!--@footer-->
+</body>
+</html>

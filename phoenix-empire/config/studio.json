@@ -1,0 +1,159 @@
+{
+  "studio": {
+    "name": "Phoenix Empire",
+    "tagline": "Studio d'enregistrement, mix & mastering",
+    "city": "Paris",
+    "description": "Phoenix Empire est un studio d'enregistrement, de mixage et de mastering. Trois espaces traités acoustiquement, des ingénieurs du son à l'écoute et une réservation en ligne en deux minutes.",
+    "email": "contact@phoenix-empire.fr",
+    "phone": "+33 6 00 00 00 00",
+    "address": {
+      "street": "12 rue de l'Exemple",
+      "zip": "75011",
+      "city": "Paris",
+      "country": "FR",
+      "access": "Métro ligne 9 · Parking public à 200 m"
+    },
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=12+rue+de+l'Exemple+75011+Paris",
+    "socials": {
+      "instagram": "https://www.instagram.com/",
+      "tiktok": "https://www.tiktok.com/",
+      "youtube": "https://www.youtube.com/"
+    }
+  },
+
+  "timezone": "Europe/Paris",
+  "currency": "eur",
+
+  "hours": {
+    "mon": ["10:00", "24:00"],
+    "tue": ["10:00", "24:00"],
+    "wed": ["10:00", "24:00"],
+    "thu": ["10:00", "24:00"],
+    "fri": ["10:00", "02:00"],
+    "sat": ["10:00", "02:00"],
+    "sun": ["12:00", "22:00"]
+  },
+
+  "closures": ["2026-12-25", "2027-01-01"],
+
+  "booking": {
+    "slotStepMinutes": 60,
+    "minNoticeHours": 3,
+    "maxAdvanceDays": 90,
+    "bufferMinutes": 0,
+    "freeCancellationHours": 48
+  },
+
+  "payment": {
+    "depositPercent": 30,
+    "allowFullPayment": true
+  },
+
+  "engineer": {
+    "count": 2,
+    "hourly": 20,
+    "label": "Ingénieur du son"
+  },
+
+  "rooms": [
+    {
+      "id": "ignis",
+      "name": "Studio Ignis",
+      "kind": "Studio A · Enregistrement & mix",
+      "short": "La grande régie avec cabine séparée. Pour les sessions d'album, les groupes et les mix.",
+      "description": "Notre plus grande pièce : une régie traitée sur mesure, une cabine de prise vitrée et une écoute de référence. Ignis se réserve toujours avec un ingénieur du son, inclus dans le prix.",
+      "size": "45 m²",
+      "capacity": 8,
+      "engineer": "included",
+      "accent": "#ff5b1f",
+      "image": null,
+      "features": ["Ingé son inclus", "Cabine vitrée", "Jusqu'à 8 personnes", "Canapé & clim"],
+      "gear": [
+        "Écoutes Genelec 8351 + Yamaha NS-10",
+        "Micros Neumann U87 Ai, Shure SM7B, AKG C414",
+        "Préamplis Neve 1073 & Universal Audio",
+        "Pro Tools Ultimate · Ableton Live · Logic Pro",
+        "Plugins Waves, FabFilter, Soundtoys, Auto-Tune Pro"
+      ],
+      "prices": { "1": 55, "2": 104, "4": 196, "6": 282, "8": 360 }
+    },
+    {
+      "id": "braise",
+      "name": "Studio Braise",
+      "kind": "Studio B · Prod & enregistrement",
+      "short": "La pièce des beatmakers et des sessions voix. En autonomie ou avec un ingé son.",
+      "description": "Une pièce pensée pour la prod et la prise de voix rapide. Tu peux venir avec ton ingé, travailler en autonomie, ou ajouter un de nos ingénieurs du son à la réservation.",
+      "size": "25 m²",
+      "capacity": 5,
+      "engineer": "optional",
+      "accent": "#f2b544",
+      "image": null,
+      "features": ["Avec ou sans ingé", "Booth voix", "Jusqu'à 5 personnes", "Ableton & FL Studio"],
+      "gear": [
+        "Écoutes Adam Audio A7V",
+        "Micros Neumann TLM 103, Shure SM7B",
+        "Interface Universal Audio Apollo Twin X",
+        "Ableton Live · FL Studio · Logic Pro",
+        "Clavier maître 61 touches, Push 3"
+      ],
+      "prices": { "1": 35, "2": 64, "4": 120, "6": 174, "8": 224 }
+    },
+    {
+      "id": "plume",
+      "name": "Cabine Plume",
+      "kind": "Cabine · Podcast & voix off",
+      "short": "Une cabine compacte et silencieuse pour les podcasts, voix off et maquettes.",
+      "description": "Une cabine compacte au silence total, équipée pour enregistrer jusqu'à trois voix. Idéale pour un podcast, une voix off ou une maquette rapide.",
+      "size": "12 m²",
+      "capacity": 3,
+      "engineer": "optional",
+      "accent": "#e8476a",
+      "image": null,
+      "features": ["Podcast jusqu'à 3 voix", "Isolation totale", "Avec ou sans ingé", "Fichiers le jour même"],
+      "gear": [
+        "3 micros Shure SM7B sur bras",
+        "Enregistreur Rødecaster Pro II",
+        "Casques Beyerdynamic DT 770",
+        "Écran de retour & éclairage vidéo"
+      ],
+      "prices": { "1": 25, "2": 46, "4": 84 }
+    }
+  ],
+
+  "extras": [
+    { "id": "mix", "name": "Mixage d'un titre", "description": "Mix complet par nos ingés, livré sous 7 jours, 2 retouches incluses.", "price": 90, "unit": "titre", "max": 10 },
+    { "id": "master", "name": "Mastering d'un titre", "description": "Master prêt pour les plateformes de streaming.", "price": 40, "unit": "titre", "max": 10 },
+    { "id": "video", "name": "Captation vidéo de la session", "description": "Deux caméras et un montage court pour tes réseaux.", "price": 150, "unit": "forfait", "max": 1 }
+  ],
+
+  "services": [
+    { "icon": "mic", "title": "Enregistrement", "text": "Voix, instruments, groupes : une prise propre dès le premier take, dans une pièce qui sonne." },
+    { "icon": "sliders", "title": "Mixage", "text": "On donne de la place à chaque élément et de l'impact à ton morceau, sans écraser ton identité." },
+    { "icon": "disc", "title": "Mastering", "text": "Un son fort, clair et homogène, prêt pour Spotify, Apple Music, YouTube et la radio." },
+    { "icon": "keys", "title": "Beatmaking & prod", "text": "Viens composer dans une pièce équipée, ou travaille ta topline avec nos producteurs." },
+    { "icon": "podcast", "title": "Podcast & voix off", "text": "Jusqu'à trois voix, un son de qualité broadcast et tes fichiers récupérés le jour même." },
+    { "icon": "video", "title": "Captation vidéo", "text": "Filme ta session pour les réseaux : deux angles, lumière soignée, montage court." }
+  ],
+
+  "testimonials": [],
+
+  "faq": [
+    { "q": "Comment se passe la réservation ?", "a": "Tu choisis ton studio, ta durée et ton créneau, puis tu paies en ligne par carte. Tu reçois ta confirmation par e-mail avec l'adresse et un lien pour gérer ta réservation." },
+    { "q": "Dois-je tout payer à l'avance ?", "a": "Non. Tu peux payer un acompte de {deposit} % pour bloquer ton créneau et régler le reste sur place, ou tout payer en ligne." },
+    { "q": "Puis-je annuler ou déplacer ma session ?", "a": "Oui. Jusqu'à {cancelHours} h avant le début, tu annules depuis le lien reçu par e-mail et tu es remboursé intégralement. Après ce délai, l'acompte reste acquis au studio. Pour déplacer une session, contacte-nous." },
+    { "q": "Je peux venir avec mon propre ingé son ?", "a": "Oui, dans le Studio Braise et la Cabine Plume. Le Studio Ignis se réserve toujours avec un de nos ingénieurs." },
+    { "q": "Comment je récupère mes fichiers ?", "a": "Tes pistes et bounces te sont envoyés par lien de téléchargement à la fin de la session. Pense aussi à venir avec un disque dur ou une clé USB." },
+    { "q": "Combien de personnes peuvent venir ?", "a": "Jusqu'à 8 personnes dans Ignis, 5 dans Braise et 3 dans Plume, artistes compris." },
+    { "q": "Que se passe-t-il si j'arrive en retard ?", "a": "La session se termine à l'heure prévue pour ne pas décaler l'artiste suivant. Préviens-nous dès que possible : on fera au mieux." }
+  ],
+
+  "legal": {
+    "company": "[RAISON SOCIALE À COMPLÉTER]",
+    "form": "[FORME JURIDIQUE ET CAPITAL À COMPLÉTER]",
+    "siret": "[SIRET À COMPLÉTER]",
+    "vat": "[N° TVA INTRACOMMUNAUTAIRE À COMPLÉTER]",
+    "director": "[NOM DU DIRECTEUR DE LA PUBLICATION À COMPLÉTER]",
+    "host": "[HÉBERGEUR : NOM, ADRESSE, TÉLÉPHONE À COMPLÉTER]",
+    "mediator": "[MÉDIATEUR DE LA CONSOMMATION À COMPLÉTER]"
+  }
+}

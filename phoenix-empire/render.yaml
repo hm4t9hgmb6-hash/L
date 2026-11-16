@@ -1,0 +1,44 @@
+# Déploiement en un clic sur Render (https://render.com) : New > Blueprint.
+# Si le projet reste dans un sous-dossier du dépôt, renseigne « phoenix-empire/render.yaml »
+# comme chemin du Blueprint et décommente rootDir.
+services:
+  - type: web
+    name: phoenix-empire
+    runtime: node
+    # rootDir: phoenix-empire
+    plan: starter
+    region: frankfurt
+    buildCommand: npm ci --omit=dev
+    startCommand: npm start
+    healthCheckPath: /api/config
+    disk:
+      name: phoenix-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "22"
+      - key: DATA_DIR
+        value: /var/data
+      - key: BASE_URL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        value: "587"
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: MAIL_FROM
+        sync: false

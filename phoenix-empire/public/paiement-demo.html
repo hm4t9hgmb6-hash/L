@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Paiement (démo) · {{studio.name}}</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0a0807">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/assets/js/demo-pay.js" defer></script>
+</head>
+<body>
+<!--@header-->
+<main id="main" class="page">
+  <div class="container">
+    <div class="demo-pay" data-demo>
+      <div class="demo-pay__summary">
+        <p class="eyebrow">{{studio.name}}</p>
+        <p class="amount" data-amount>—</p>
+        <p class="muted" data-label>Chargement…</p>
+        <ul class="summary__rows" style="padding:16px 0 0" data-rows></ul>
+      </div>
+      <form class="demo-pay__form" data-form>
+        <div class="demo-banner"><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#bolt"/></svg>Mode démo : aucun paiement réel. Ajoute ta clé Stripe pour encaisser.</div>
+        <div style="display:grid;gap:16px">
+          <label class="field"><span class="label">E-mail</span><input class="input" data-email readonly></label>
+          <label class="field"><span class="label">Numéro de carte</span><input class="input" value="4242 4242 4242 4242" inputmode="numeric" autocomplete="off"></label>
+          <div class="form-grid">
+            <label class="field"><span class="label">Expiration</span><input class="input" value="12 / 34" autocomplete="off"></label>
+            <label class="field"><span class="label">CVC</span><input class="input" value="123" autocomplete="off"></label>
+          </div>
+          <p class="field__error" data-error hidden role="alert"></p>
+          <button class="btn btn--primary btn--lg btn--block" type="submit" data-pay disabled><svg class="icon" aria-hidden="true"><use href="/assets/img/icons.svg#lock"/></svg> <span data-pay-label>Payer</span></button>
+          <a class="btn btn--quiet" data-back href="/reserver" style="color:#5c4d45">Annuler et revenir</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+<!--@footer-->
+</body>
+</html>

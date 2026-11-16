@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mentions légales · {{studio.name}}</title>
+  <meta name="theme-color" content="#0a0807">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/main.js" defer></script>
+</head>
+<body>
+<!--@header-->
+<main id="main" class="page">
+  <div class="container">
+    <p class="eyebrow">Informations légales</p>
+    <h1 class="page__title">Mentions légales</h1>
+    <div class="prose">
+      <h2>Éditeur du site</h2>
+      <p>Le site {{baseUrl}} est édité par <strong>{{legal.company}}</strong>, {{legal.form}}, exploitant le studio {{studio.name}}.</p>
+      <ul>
+        <li>Adresse : {{address.full}}</li>
+        <li>SIRET : {{legal.siret}}</li>
+        <li>N° de TVA intracommunautaire : {{legal.vat}}</li>
+        <li>Téléphone : {{studio.phone}}</li>
+        <li>E-mail : <a href="mailto:{{studio.email}}">{{studio.email}}</a></li>
+      </ul>
+      <p>Directeur de la publication : {{legal.director}}.</p>
+
+      <h2>Hébergement</h2>
+      <p>{{legal.host}}</p>
+
+      <h2>Paiement</h2>
+      <p>Les paiements en ligne sont traités par Stripe Payments Europe, Ltd., 1 Grand Canal Street Lower, Grand Canal Dock, Dublin, D02 H210, Irlande. Les données de carte bancaire ne transitent jamais par les serveurs de {{studio.name}}.</p>
+
+      <h2>Propriété intellectuelle</h2>
+      <p>L'ensemble des contenus de ce site (textes, logo, visuels, mise en page) est la propriété de {{legal.company}}, sauf mention contraire. Toute reproduction sans autorisation écrite préalable est interdite.</p>
+      <p>Les polices de caractères Unbounded et Manrope sont distribuées sous licence SIL Open Font License 1.1.</p>
+
+      <h2>Données personnelles</h2>
+      <p>Le traitement de tes données est décrit dans la <a href="/legal/confidentialite">politique de confidentialité</a>.</p>
+    </div>
+  </div>
+</main>
+<!--@footer-->
+</body>
+</html>

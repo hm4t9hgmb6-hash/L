@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conditions générales de vente · {{studio.name}}</title>
+  <meta name="theme-color" content="#0a0807">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/main.js" defer></script>
+</head>
+<body>
+<!--@header-->
+<main id="main" class="page">
+  <div class="container">
+    <p class="eyebrow">Informations légales</p>
+    <h1 class="page__title">Conditions générales de vente</h1>
+    <div class="prose">
+      <p>Dernière mise à jour : {{year}}. Les présentes conditions s'appliquent à toute réservation d'une session au studio {{studio.name}}, exploité par {{legal.company}} (ci-après « le studio »), effectuée sur le site {{baseUrl}}, par téléphone ou sur place.</p>
+
+      <h2>1. Prestations</h2>
+      <p>Le studio propose la location d'espaces d'enregistrement, avec ou sans ingénieur du son selon l'espace choisi, ainsi que des prestations complémentaires (mixage, mastering, captation vidéo). Le descriptif de chaque espace et de son matériel figure sur le site.</p>
+
+      <h2>2. Prix</h2>
+      <p>Les prix sont indiqués en euros, toutes taxes comprises. Ils sont ceux affichés sur le site au moment de la réservation. Le montant total est rappelé avant le paiement puis dans l'e-mail de confirmation.</p>
+
+      <h2>3. Réservation</h2>
+      <p>Le client choisit un espace, une durée, une date, une heure de début et d'éventuelles options, puis renseigne ses coordonnées. Le créneau est bloqué pendant la durée du paiement. La réservation est ferme dès la validation du paiement ; une confirmation est alors envoyée par e-mail avec une référence et un lien de gestion.</p>
+      <p>Si le paiement n'est pas finalisé dans le délai imparti, le créneau est libéré automatiquement et aucune somme n'est prélevée. Si un paiement aboutit malgré tout alors que le créneau a été réservé entre-temps, il est intégralement remboursé.</p>
+
+      <h2>4. Paiement</h2>
+      <p>Le paiement s'effectue par carte bancaire via la plateforme sécurisée Stripe. Selon son choix, le client règle à la réservation :</p>
+      <ul>
+        <li>un acompte de {{deposit}} % du montant total, le solde étant payable au studio avant le début de la session ;</li>
+        <li>ou la totalité du montant.</li>
+      </ul>
+
+      <h2>5. Annulation et modification</h2>
+      <h3>Par le client</h3>
+      <p>Le client peut annuler sa réservation gratuitement jusqu'à {{cancelHours}} heures avant le début de la session, depuis le lien reçu par e-mail. Les sommes versées sont alors intégralement remboursées sur la carte utilisée, dans un délai habituel de 5 à 10 jours.</p>
+      <p>Passé ce délai, l'annulation en ligne n'est plus possible et les sommes versées restent acquises au studio, sauf accord de celui-ci. Toute demande de modification de date ou d'horaire se fait en contactant le studio, dans la limite des disponibilités.</p>
+      <h3>Retard</h3>
+      <p>En cas de retard du client, la session se termine à l'heure prévue et reste due en totalité.</p>
+      <h3>Par le studio</h3>
+      <p>Si le studio doit annuler une session (panne, cas de force majeure), il en informe le client dans les meilleurs délais et rembourse l'intégralité des sommes versées, ou propose un autre créneau au choix du client.</p>
+
+      <h2>6. Droit de rétractation</h2>
+      <p>Conformément à l'article L221-28 12° du Code de la consommation, le droit de rétractation ne s'applique pas aux prestations de services de loisirs fournies à une date ou à une période déterminée. La politique d'annulation de l'article 5 s'applique à la place.</p>
+
+      <h2>7. Utilisation des lieux et du matériel</h2>
+      <ul>
+        <li>Le nombre de personnes présentes ne doit pas dépasser la capacité indiquée pour l'espace réservé.</li>
+        <li>Le client utilise les lieux et le matériel avec soin. Toute dégradation causée par le client ou ses invités peut lui être facturée.</li>
+        <li>Il est interdit de fumer, de vapoter et de consommer des produits illicites dans les locaux.</li>
+        <li>Le studio peut mettre fin à une session en cas de comportement dangereux ou irrespectueux, sans remboursement.</li>
+      </ul>
+
+      <h2>8. Enregistrements</h2>
+      <p>Le client reste titulaire de l'ensemble des droits sur les œuvres et enregistrements réalisés pendant sa session. Les fichiers lui sont remis à la fin de la session ou par lien de téléchargement. Le studio conserve une copie de travail pendant 30 jours à titre de courtoisie, sans obligation ; il appartient au client d'effectuer ses propres sauvegardes.</p>
+
+      <h2>9. Données personnelles</h2>
+      <p>Les données collectées lors de la réservation sont traitées conformément à la <a href="/legal/confidentialite">politique de confidentialité</a>.</p>
+
+      <h2>10. Litiges</h2>
+      <p>Les présentes conditions sont soumises au droit français. En cas de litige, le client peut s'adresser au studio à <a href="mailto:{{studio.email}}">{{studio.email}}</a> afin de trouver une solution amiable. À défaut, le client consommateur peut recourir gratuitement au médiateur de la consommation suivant : {{legal.mediator}}.</p>
+    </div>
+  </div>
+</main>
+<!--@footer-->
+</body>
+</html>
