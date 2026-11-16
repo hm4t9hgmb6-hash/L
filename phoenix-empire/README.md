@@ -143,6 +143,16 @@ régulièrement (Render propose des instantanés du disque).
 
 ---
 
+## Aperçu sans serveur
+
+`node scripts/build-preview.js <dossier>` produit une version statique du site (pages,
+styles, scripts) où l'API est simulée dans le navigateur, avec le même code de calcul que le
+serveur. C'est pratique pour montrer le site avant la mise en ligne : les réservations restent
+dans le navigateur de chaque visiteur, rien n'est envoyé ni encaissé, et le mot de passe de
+l'espace studio est `demo`.
+
+---
+
 ## Avant le lancement : liste de vérification
 
 - [ ] Vrais horaires, tarifs, matériel et textes dans `config/studio.json`

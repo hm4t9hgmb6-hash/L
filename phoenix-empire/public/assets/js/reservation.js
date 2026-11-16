@@ -38,7 +38,7 @@
     if (b.refundedCents > 0) money.push(`Remboursé <b>${fmtEur(b.refundedCents)}</b>`);
     const actions = b.calendar ? `
       <a class="btn btn--ghost btn--sm" href="${esc(b.calendar.google)}" target="_blank" rel="noopener">${icon('calendar')} Google Agenda</a>
-      <a class="btn btn--ghost btn--sm" href="${esc(b.calendar.ics)}">${icon('download')} Apple / Outlook (.ics)</a>
+      ${b.calendar.ics ? `<a class="btn btn--ghost btn--sm" href="${esc(b.calendar.ics)}">${icon('download')} Apple / Outlook (.ics)</a>` : ''}
       <a class="btn btn--ghost btn--sm" href="${esc(b.mapsUrl)}" target="_blank" rel="noopener">${icon('pin')} Itinéraire</a>` : '';
     return `<article class="ticket">
       <div class="ticket__top">
